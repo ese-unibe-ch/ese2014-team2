@@ -10,46 +10,68 @@
                                                                                              
              
 - (1) 	edit advenrtisements
-
+	OFC 
+	
+	Informations needed in ad: 
+		- other websites
+		- important key info: price, position, size, time-limits
+		- additional info: people, place, 
 
 - (2) 	what means relevant (ads in specific area). how detailed?
-
+	- specific area, (postal code) 
+	- all the informations given for filtering
 
 - (3) 	roommates profiles? (facebook linked, seperate profiles for website)
-
+	- optinoal to have a seperate profile.
+	- to filter for roommates
+	- facebook optional, easier to manage the whole system. 
 
 - (3) 	Questioning system as on Ebay. 
-
+	- good idea
+	- option to hide it
 
 - (4) 	per email or PM? (extern or intern)? Security, email public or private?
-
+	- PM!
+	- categories for questioning the ad. 
+	- open questions with a range of possible key word
 
 - (4) 	scope of enquiry? To make appointments? 
-
+	- get a list of enquiries, and select some of them to make an appointment for views. 
+	- Agenda that trigggers inbox notification, like a shared event. 
 
 - (5) 	Spamfilter? Filter? Securtity?
-
+	- Restrictions: authenticated users only can send messages or do important stuff..
+	- Telefon-number hidden, etc pp... 
+	
 
 - (5) 	Calendar system? Or just view scheduled visits?
-
+	- a bit of both
+	- simple way to reserve a date, organize things
+	- also to have an open way to send invitations with text
+	
 
 - (6) 	-> (5) 
 
 
 - (6) 	Manage visits? Whats the scope? Delete, edit visits? 
-
+	(eventually facebook events.) 
+	- could be done in simple and stupid way, 
+	optional complicated way .
 
 - (7) 	Flag user as promising candidates? Want to filter them? 
-
+	- flagging users with rankings, to compare them after having the appointment. 
 
 		What do you want to do with the candidates?
-		
+		- keep track of information of the users, that have visited. 
 		
 - (8)	Favorites site on site?
-
+	- just flag them, maybe getting informations about changes. 
 
 - (9) 	Want to be alerted for new ads? (When new ad pops up you get alerted)
 		You want to get alerted for your favorites. 
+	- spezify criterias and get alerted when new ads pop up!
+	- per PM or either email system. 
+	
 		
  ▄████▄   ██▀███  ▓█████ ▄▄▄     ▄▄▄█████▓▓█████ ▓█████▄     ▄▄▄▄ ▓██   ██▓
 ▒██▀ ▀█  ▓██ ▒ ██▒▓█   ▀▒████▄   ▓  ██▒ ▓▒▓█   ▀ ▒██▀ ██▌   ▓█████▄▒██  ██▒
