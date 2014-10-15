@@ -1,0 +1,22 @@
+When you click on login on the top, give an overlay, where you can enter username and password and then click login, to finally login.  (siehe leagueoflegends page)
+
+-remove My profile, and make it under the username. SO click on the username, and get to my profile.
+
+Rearannge:
+Line 1: Search for Room    |  Search for people
+
+Line 2: Put up room         |  Put up people
+
+
+Remove footer from other pages, or make it smaller. Same for the header, make it smaller.
+
+Make FIlter more prominent on the search page.
+ANd make a small filter beside the search on the main page.
+
+add to favorite button => A star
+
+Make the page probably look nice in a browser. DO a fixed size for the page. (Low priority)
+
+Message tab: Private messages,QUestions, Interessents 
+
+WHen you answer to a message, open another form right belown the message. Remove actions collumn.
