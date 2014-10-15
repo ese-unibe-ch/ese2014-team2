@@ -1,39 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	
+    	<meta charset="utf-8">
 
-    <meta charset="utf-8">
+    	<title>About Princesses and Castles</title>
 
-    <title>TestApp</title>
+    	<link rel="stylesheet" type="text/css" href="css/stylesheet.css" media="all"/>
+    	<script type="text/javascript"  src="dn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="/Skeleton/css/main.css" media="all"/>
-    <script type="text/javascript"  src="dn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <style>
-        body {
-            padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-        }
-    </style>
+    	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    	<!--[if lt IE 9]>
+    	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    	<![endif]-->
+<!--   WASTE!
+    	<style>
+        	body {
+         	   padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+        	}
+    	</style>
+    -->
 </head>
 <body>
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
-            
-
-        </div>
-    </div>
+<div id="loginbar">
+	<table>
+		<tr>
+			<td><p>Unregistered User</p>
+			<td>
+			<td><p>Login:</p>
+			<td><form action="login.jsp" method="POST">
+					<input type="text" path="username" id="field-username" tabindex="1" maxlength="35" placeholder="Username"/>
+			<td>	<input type="password" path="password" id="field-username" tabindex="2" maxlength="35" placeholder="Password"/>
+				</form>
+	</table>
+	
+	
+	
+		
 </div>
+<div id="header">
+	<div id="header_wrapper">
+		<title>About Princesses and Castles</title>
+		<h1>About Princesses and Castles</h1>
+    	<p>Brought to you by Carl, Peda, Foesu and Raff</p>	
+    </div>
+</div>	<!--  END OF #header -->
 
-<div class="container">
+
+
+<div id="container_background">
+	<div class="container">
