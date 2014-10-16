@@ -7,7 +7,7 @@
 <c:import url="template/header.jsp" />
 
 
-
+<div class="main">
 <table class="signupform">
 	<tr>
 		<td><h1>Sign Up Here!</h1>
@@ -79,7 +79,7 @@
 
 
 
-
+</div>
 
             
         

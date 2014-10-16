@@ -6,31 +6,27 @@
 
 <c:import url="template/header.jsp" />
 
-		<a href="/showads">
-			<div class="main_button_left">	
+		<a href="ads">
+			<div class="main_button_left_big">	
 					<h1>I'm looking for an appartement!</h1>
-					<div id="mbl1"></div>
 			</div>
 		</a>
 		
-		<a href="placead">
-        	<div class="main_button_right">	
-				<h1>I want to place my Ad!</h1>
-				<div id="mbr1"></div>
+		<a href="">
+        	<div class="main_button_right_big">	
+				<h1>I'm looking for roomies!</h1>
 			</div>
 		</a>	
 			
-		<a href="/showmates">
-    		<div class="main_button_left">	
-				<h1>I'm looking for roomies!</h1>
-				<div id="mbl2"></div>
+		<a href="placead">
+    		<div class="main_button_left_small">	
+				<h1>I want to place an Ad</h1>
 			</div>
 		</a>	
 		
 		<a href="/placemate">	
-			<div class="main_button_right">	
+			<div class="main_button_right_small">	
 				<h1>I want to get roomed!</h1>
-				<div id="mbr2"></div>
 			</div>
 		</a>
     		

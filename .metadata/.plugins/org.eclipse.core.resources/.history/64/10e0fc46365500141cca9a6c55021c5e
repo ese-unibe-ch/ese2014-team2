@@ -1,0 +1,120 @@
+package org.sample.model;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+
+
+@Entity
+public class Advertisement {
+	
+
+	img_one:String
+	img_two:String
+	img_three:String
+	img_four:String
+	description_ad:String
+	laundry:Boolean
+	tumbler:Boolean
+	balcony:Boolean
+	description_room:String
+	toBalcony:Boolean
+	cables:Boolean
+	description_us:String
+	description_you:String
+	
+	@Id
+    @GeneratedValue
+	private Long id;
+	private String title;
+	private String description;
+	private String creator;
+	private Date creationDate;
+	private boolean isLimited;
+	private Date from;
+	private Date until;
+	private int rooms;
+	private int price;
+	private int space;
+	private int roomies;
+	private String kanton;
+	private int plz;
+	private String ort;
+	private String address;
+	private String region;
+	private String img_one = "../img/default_image";
+	private String img_two = "../img/default_image";
+	private String img_three = "../img/default_image";
+	private String img_four = "../img/default_image";
+
+	
+	
+	
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String _description) {
+		this.description = _description;
+	}
+	public String getCreator() {
+		return creator;
+	}
+	public void setCreator(String creator) {
+		this.creator = creator;
+	}
+	public Date getCreationDate() {
+		return creationDate;
+	}
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
+	public boolean getIsLimited() {
+		return isLimited;
+	}
+	public void setIsLimited(boolean isLimited) {
+		this.isLimited = isLimited;
+	}
+	public int getRooms() {
+		return rooms;
+	}
+	public void setRooms(int rooms) {
+		this.rooms = rooms;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	public int getSpace() {
+		return space;
+	}
+	public void setSpace(int space) {
+		this.space = space;
+	}
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	
+	
+}

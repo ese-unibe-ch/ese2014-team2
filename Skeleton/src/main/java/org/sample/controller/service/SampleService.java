@@ -18,4 +18,5 @@ public interface SampleService {
     public AdForm saveFrom(AdForm adForm);
     public String findUserPassword(Long id);
     public boolean passwordMatch(Long id, String password);
+    public Iterable<Advertisement> getAds();
 }

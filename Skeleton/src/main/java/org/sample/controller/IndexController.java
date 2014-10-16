@@ -111,6 +111,13 @@ public class IndexController {
     			return model;
     }
     
+    @RequestMapping(value = "/ads", method = RequestMethod.GET)
+    public ModelAndView showAds() {
+    	ModelAndView model = new ModelAndView("ads");
+    	model.addObject("ads",sampleService.getAds());
+    	return model;
+    }
+    
     /*
      * 
      * 	TEAM-Pages

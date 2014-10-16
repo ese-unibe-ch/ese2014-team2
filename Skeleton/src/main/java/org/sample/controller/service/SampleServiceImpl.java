@@ -91,6 +91,10 @@ public class SampleServiceImpl implements SampleService {
 	public User getUser(Long _id) {
 		return userDao.findOne(_id);
 	}
+	
+	public Iterable<Advertisement> getAds() {
+		return advertisementDao.findAll();
+	}
 
 	public Advertisement getAdvertisement(Long id) {
 		return advertisementDao.findOne(id);
@@ -98,20 +102,35 @@ public class SampleServiceImpl implements SampleService {
 
 	public AdForm saveFrom(AdForm adForm) {
 		
-		Address address = new Address();
-	    address.setStreet("TestStreet");
-		
         Advertisement ad = new Advertisement();
-        
-        ad.setTitle(adForm.getTitle());
+       
         ad.setDescription(adForm.getDescription());     
         ad.setCreator("admin");
         ad.setCreationDate(new Date());
         ad.setIsLimited(adForm.getIsLimited());
+        if (adForm.getIsLimited()) {
+        	ad.setFrom(adForm.getFrom());
+        	ad.setUntil(adForm.getUntil());
+        }
         ad.setRooms(adForm.getRooms());
         ad.setPrice(adForm.getPrice());
         ad.setSpace(adForm.getSpace());
-        // ad.setAddress(address);
+        ad.setRoomies(adForm.getRoomies());
+        ad.setKanton(adForm.getKanton());
+        ad.setRegion(adForm.getRegion());
+        ad.setImg_one(adForm.getImg_one());
+        ad.setImg_two(adForm.getImg_two());
+        ad.setImg_three(adForm.getImg_three());
+        ad.setImg_four(adForm.getImg_four());
+        ad.setDescription_ad(adForm.getDescription_ad());
+        ad.setHasLaundry(adForm.isHasLaundry());
+        ad.setHasBalcony(adForm.isHasBalcony());
+        ad.setDescription_room(adForm.getDescription_room());
+        ad.setToBalcony(adForm.isToBalcony());
+        ad.setHasCables(adForm.isHasCables());
+        ad.setDescription_us(adForm.getDescription_us());
+        ad.setDescription_you(adForm.getDescription_you());        
+        ad.setTitle(adForm.getRooms() + "for " + adForm.getPrice() + "in " + adForm.getRegion());
         ad = advertisementDao.save(ad);   // save object to DB
         adForm.setId(ad.getId());
 
