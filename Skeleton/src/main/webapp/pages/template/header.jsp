@@ -23,6 +23,7 @@
     -->
 </head>
 <body>
+
 <div id="loginbar">
 	<table>
 		<tr>
@@ -39,6 +40,7 @@
 	
 		
 </div>
+<a href="/">
 <div id="header">
 	<div id="header_wrapper">
 		<title>About Princesses and Castles</title>
@@ -46,7 +48,7 @@
     	<p>Brought to you by Carl, Peda, Foesu and Raff</p>	
     </div>
 </div>	<!--  END OF #header -->
-
+</a>
 
 
 <div id="container_background">

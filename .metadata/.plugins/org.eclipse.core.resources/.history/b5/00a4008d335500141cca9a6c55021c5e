@@ -1,0 +1,10 @@
+Update for 12-10-14:
+	
+	Whats finally done?
+		- header.jsp
+		- footer.jsp
+		- stylesheet.css -> final own design 
+		- created LoginForm.java and login.jsp => not working yet correctly
+		- Ads can be listed now to the Database
+		- Ads can be shown singular on showadprofile (or something like this) // NOT TESTED YET
+		

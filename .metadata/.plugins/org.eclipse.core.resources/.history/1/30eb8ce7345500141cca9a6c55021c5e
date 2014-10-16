@@ -1,0 +1,57 @@
+---------------------------------------------------------------------------------
+
+MEETING RESULTS:
+---------------------------------------------------------------------------------
+
+New Ad ("/placead")
+	Basics:
+	---------------------
+	-Miete
+	-Von - Bis
+	-Gröse m^2
+	-Anzahl Bewohner
+	---------------------
+	
+	Addresse:
+	---------------------
+	-Kanton
+	-PLZ
+	-Ort
+	-Addresse
+	-Quartier/Region
+	---------------------
+	
+	Uploads:
+	---------------------
+	-Bild1 (titelbild)
+	-Bild2 (2)
+	-Bild3 (3)
+	-Bild4 (4)
+	---------------------
+	
+	Wohnungsbeschreibung:
+	---------------------
+	TEXTFIELD 
+	---------------------
+		-Waschmaschine/Tumbler
+		-Kühlschrank
+		-Balkon
+	---------------------
+	
+	Zimmerbeschreibung:
+	---------------------
+	TEXTFIELD
+	---------------------
+		-Balkonzugang
+		-TV-/Internet-Anschluss
+	---------------------
+	
+	Wir Sind:
+	---------------------
+	TEXTFIELD
+	---------------------
+	
+	Wir Suchen:
+	---------------------
+	TEXTFIELD
+	---------------------

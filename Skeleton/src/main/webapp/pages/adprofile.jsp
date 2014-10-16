@@ -1,0 +1,66 @@
+<%@ page language="java" pageEncoding="UTF-8" contentType="text/html;charset=utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
+
+<c:import url="template/header.jsp" />
+
+
+<div class="main">
+<h1>${newAdProfile.title }'s Profile</h1>
+
+
+
+<table class="signupform">
+	<tr>
+		<td>Title:&nbsp;&nbsp;
+		<td>${newAdProfile.title}
+	</td>
+	<tr>
+		<td>Creator:&nbsp;&nbsp;
+		<td>${newAdProfile.creator}
+	</td>
+	<tr>
+		<td>Is it Limited:&nbsp;&nbsp;
+		<td>${newAdProfile.isLimited}
+	</td>
+	<tr>
+		<td>Creation Date:&nbsp;&nbsp;
+		<td>${newAdProfile.creationDate}
+	</td>
+	<tr>
+		<td>Rooms:&nbsp;&nbsp;
+		<td>${newAdProfile.rooms}
+	</td>
+	<tr>
+		<td>Price:&nbsp;&nbsp;
+		<td>${newAdProfile.price}
+	</td>
+	<tr>
+		<td>Space:&nbsp;&nbsp;
+		<td>${newAdProfile.space}
+	</td>
+	<tr>
+		<td>Description:&nbsp;&nbsp;
+		<td>${newAdProfile.description}
+	</td>
+	<tr>
+		<td><a href="../">Back</a>
+		<td><a href="adprofile?adId=${newAdProfile.id}">Details</a>
+	</td>
+	
+</table>
+
+</div>
+
+	<c:if test="${page_error != null }">
+        <div class="alert alert-error">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <h4>Error!</h4>
+                ${page_error}
+        </div>
+    </c:if>
+
+
+<c:import url="template/footer.jsp" />
