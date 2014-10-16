@@ -21,7 +21,7 @@ public class Advertisement {
 	private String creator;
 	private Date creationDate;
 	private boolean isLimited;
-	private Date from;
+	private Date start;
 	private Date until;
 	private int rooms;
 	private int price;
@@ -32,10 +32,10 @@ public class Advertisement {
 	private String ort;
 	private String address;
 	private String region;
-	private String img_one = "../img/default_image";
-	private String img_two = "../img/default_image";
-	private String img_three = "../img/default_image";
-	private String img_four = "../img/default_image";
+	private String img_one = "../img/default_image.jpg";
+	private String img_two = "../img/default_image.jpg";
+	private String img_three = "../img/default_image.jpg";
+	private String img_four = "../img/default_image.jpg";
 	private String description_ad;
 	private boolean hasLaundry;
 	private boolean hasTumbler;
@@ -111,11 +111,11 @@ public class Advertisement {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public Date getFrom() {
-		return from;
+	public Date getStart() {
+		return start;
 	}
-	public void setFrom(Date from) {
-		this.from = from;
+	public void setStart(Date from) {
+		this.start = from;
 	}
 	public Date getUntil() {
 		return until;

@@ -13,7 +13,7 @@ public class AdForm {
 	private String creator;
 	private Date creationDate;
 	private boolean isLimited;
-	private Date from;
+	private Date start;
 	private Date until;
 	private int rooms;
 	private int price;
@@ -100,11 +100,11 @@ public class AdForm {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public Date getFrom() {
-		return from;
+	public Date getStart() {
+		return start;
 	}
 	public void setFrom(Date from) {
-		this.from = from;
+		this.start = from;
 	}
 	public Date getUntil() {
 		return until;
@@ -172,19 +172,19 @@ public class AdForm {
 	public void setDescription_ad(String description_ad) {
 		this.description_ad = description_ad;
 	}
-	public boolean isHasLaundry() {
+	public boolean getHasLaundry() {
 		return hasLaundry;
 	}
 	public void setHasLaundry(boolean hasLaundry) {
 		this.hasLaundry = hasLaundry;
 	}
-	public boolean isHasTumbler() {
+	public boolean getHasTumbler() {
 		return hasTumbler;
 	}
 	public void setHasTumbler(boolean hasTumbler) {
 		this.hasTumbler = hasTumbler;
 	}
-	public boolean isHasBalcony() {
+	public boolean getHasBalcony() {
 		return hasBalcony;
 	}
 	public void setHasBalcony(boolean hasBalcony) {
@@ -196,13 +196,13 @@ public class AdForm {
 	public void setDescription_room(String description_room) {
 		this.description_room = description_room;
 	}
-	public boolean isToBalcony() {
+	public boolean getIsToBalcony() {
 		return isToBalcony;
 	}
-	public void setToBalcony(boolean isToBalcony) {
+	public void setIsToBalcony(boolean isToBalcony) {
 		this.isToBalcony = isToBalcony;
 	}
-	public boolean isHasCables() {
+	public boolean getHasCables() {
 		return hasCables;
 	}
 	public void setHasCables(boolean hasCables) {

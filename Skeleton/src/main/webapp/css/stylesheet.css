@@ -70,6 +70,18 @@ body {
 	background-color:#3fa9f5;
 }
 
+.seperator {
+    margin-top:20px;
+    margin-bottom:20px;
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc); 
+    background-image:    -moz-linear-gradient(left, #ccc, #333, #ccc); 
+    background-image:     -ms-linear-gradient(left, #ccc, #333, #ccc); 
+    background-image:      -o-linear-gradient(left, #ccc, #333, #ccc); 
+}
+
 .main {
 	margin:10px;
 	line-height:15px;
@@ -326,10 +338,19 @@ body {
 .signupform {
 	margin-left:auto;
 	margin-right:auto;
+	width:800px;
+	column-width:300px;
+	border:solid;
+	border-size:1px;
 }
 
 .signupform tr{
 	height:50px;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 5px
 }
 
 /*
@@ -375,12 +396,19 @@ body {
 
 	CONTROL CLASSES COPIED FROM main.css
 */
+.controls {
+    *display: inline-block;
+    *padding-left: 20px;
+    margin-left: 180px;
+    *margin-left: 0
+}
+
 .controls input {
 	padding: 10px;
-  border: solid 1px #fff;
-  box-shadow: inset 1px 1px 2px 0 #707070;
-  transition: box-shadow 0.3s;
-  border-top-left-radius: 5pt 5pt;
+  	border: solid 1px #fff;
+  	box-shadow: inset 1px 1px 2px 0 #707070;
+  	transition: box-shadow 0.3s;
+  	border-top-left-radius: 5pt 5pt;
  	border-top-right-radius: 5pt 5pt;
   	border-bottom-right-radius: 5pt 5pt;
   	border-bottom-left-radius: 5pt 5pt;
@@ -394,6 +422,8 @@ body {
   	border-bottom-right-radius: 5pt 5pt;
   	border-bottom-left-radius: 5pt 5pt;
 }
+
+
 
 /*
 .controls input[type="text"] {

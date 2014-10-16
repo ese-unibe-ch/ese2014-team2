@@ -8,51 +8,61 @@
 
 
 <div class="main">
-<h1>${newAdProfile.title }'s Profile</h1>
+<h1>${newAdProfile.title }</h1>
 
-
-
-<table class="signupform">
-	<tr>
-		<td>Title:&nbsp;&nbsp;
-		<td>${newAdProfile.title}
-	</td>
-	<tr>
-		<td>Creator:&nbsp;&nbsp;
-		<td>${newAdProfile.creator}
-	</td>
-	<tr>
-		<td>Is it Limited:&nbsp;&nbsp;
-		<td>${newAdProfile.isLimited}
-	</td>
-	<tr>
-		<td>Creation Date:&nbsp;&nbsp;
-		<td>${newAdProfile.creationDate}
-	</td>
-	<tr>
-		<td>Rooms:&nbsp;&nbsp;
-		<td>${newAdProfile.rooms}
-	</td>
-	<tr>
-		<td>Price:&nbsp;&nbsp;
-		<td>${newAdProfile.price}
-	</td>
-	<tr>
-		<td>Space:&nbsp;&nbsp;
-		<td>${newAdProfile.space}
-	</td>
-	<tr>
-		<td>Description:&nbsp;&nbsp;
-		<td>${newAdProfile.description}
-	</td>
-	<tr>
-		<td><a href="../">Back</a>
-		<td><a href="adprofile?adId=${newAdProfile.id}">Details</a>
-	</td>
+<img src="${newAdProfile.img_one}"/>
+<h1 class="newstitle">Basics:</h1>	
+	<table class="profile">
+		<tr>
+			<td>Miete:</td>
+			<td>${newAdProfile.price}</td>
+		</tr>
+		<tr>
+			<td>Befristet:</td>
+			<td>${newAdProfile.isLimited}</td>
+		</tr>
+		<tr>
+			<td>Zimmergrösse:</td>
+			<td>${newAdProfile.space}</td>
+		</tr>
+		<tr>
+			<td>Roomies:</td>
+			<td>${newAdProfile.roomies}</td>
+		</tr>
+	</table>
 	
+<div class="seperator"></div>
+
+<h1 class="newstitle">Fotos:</h1>
+<table class="profile">
+	<tr>
+		<td><img src="${newAdProfile.img_two}"/></td>
+		<td><img src="${newAdProfile.img_three}"/></td>
+		<td><img src="${newAdProfile.img_four}"/></td>
+	</tr>
 </table>
 
-</div>
+<h1 class="newstitle">Wohnungsbeschrieb:</h1>
+<p class="newstext">${newAdProfile.description_ad}</p>
+
+<div class="seperator"></div>
+
+<h1 class="newstitle">Zimmerbeschrieb:</h1>
+<p class="newstext">${newAdProfile.description_room}</p>
+
+<div class="seperator"></div>
+
+<h1 class="newstitle">Über uns:</h1>
+<p class="newstext">${newAdProfile.description_us}</p>
+
+<h1 class="newstitle">Über dich:</h1>
+<p class="newstext">${newAdProfile.description_you}</p>
+
+
+
+		<a href="../">Back</a>
+		<td><a href="adprofile?adId=${newAdProfile.id}">Details</a>
+
 
 	<c:if test="${page_error != null }">
         <div class="alert alert-error">

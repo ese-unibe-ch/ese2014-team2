@@ -29,10 +29,6 @@
     			<td>${ads.space}
     		</tr>
     		<tr>
-    			<td>Description:&nbsp;&nbsp;
-    			<td>${ads.description}
-    		</tr>
-    		<tr>
 		<td><a href="../">Back</a>
 		<td><a href="adprofile?adId=${ads.id}">Details</a>
 	</td>

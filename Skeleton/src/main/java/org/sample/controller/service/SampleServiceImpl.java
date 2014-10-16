@@ -109,7 +109,7 @@ public class SampleServiceImpl implements SampleService {
         ad.setCreationDate(new Date());
         ad.setIsLimited(adForm.getIsLimited());
         if (adForm.getIsLimited()) {
-        	ad.setFrom(adForm.getFrom());
+        	ad.setStart(adForm.getStart());
         	ad.setUntil(adForm.getUntil());
         }
         ad.setRooms(adForm.getRooms());
@@ -123,14 +123,14 @@ public class SampleServiceImpl implements SampleService {
         ad.setImg_three(adForm.getImg_three());
         ad.setImg_four(adForm.getImg_four());
         ad.setDescription_ad(adForm.getDescription_ad());
-        ad.setHasLaundry(adForm.isHasLaundry());
-        ad.setHasBalcony(adForm.isHasBalcony());
+        ad.setHasLaundry(adForm.getHasLaundry());
+        ad.setHasBalcony(adForm.getHasBalcony());
         ad.setDescription_room(adForm.getDescription_room());
-        ad.setToBalcony(adForm.isToBalcony());
-        ad.setHasCables(adForm.isHasCables());
+        ad.setToBalcony(adForm.getIsToBalcony());
+        ad.setHasCables(adForm.getHasCables());
         ad.setDescription_us(adForm.getDescription_us());
         ad.setDescription_you(adForm.getDescription_you());        
-        ad.setTitle(adForm.getRooms() + "for " + adForm.getPrice() + "in " + adForm.getRegion());
+        ad.setTitle(adForm.getRooms() + " for " + adForm.getPrice() + " in " + adForm.getRegion());
         ad = advertisementDao.save(ad);   // save object to DB
         adForm.setId(ad.getId());
 
