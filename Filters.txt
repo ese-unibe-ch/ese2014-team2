@@ -1,0 +1,27 @@
+Ad placing Rooms:
+*- Miete  ( inkl, exkl nebenkosten) 
+*- Von - Bis / unbefristet
+*- Zimmergrösse
+*- Möbliert/ unmöbliert
+*- Anzahl bewohner WG-Type
+
+Überschrift: Addresse
+*- Street( is not public, only when interessents found)
+*- Ort
+*- PLZ (region)
+- Quartiersname (proposals while writing)
+
+
+ 
+
+Freiwillige felder:
+-Wohnungs/ zimmerbilder
+- Wg beschreibung (Mit in der nähe)(Hints im feld)( Geschirrspülmachine, Waschmachine, Balkon, Rauchen in der WG, Haustiere) (Kästchen mit häckchen)
+- Zimmerbeschreibung ( Balkonzugang, Anschlüsse) (Kästchen mit häckchen)
+Menschliches:
+
+- Wir sind  (VOrschlagsfeld, mit sachen wie, wer seid ihr? Wie alt? Was macht ihr? Ausführung des WG lebens ) (Gemischt/Männlich/Weiblich)(Box)
+- Wir suchen (Hintbox) ( Raucher/Nichtraucher/egal(Box)) (Altersrange) (Geschlecht)
+
+
+Ad placing Persons:
