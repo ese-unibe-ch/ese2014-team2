@@ -80,7 +80,7 @@ table {
 #registerButton { 
     display:inline-block;
     float:right;
-    background:#3fa9f5; 
+    background:#d2e0ea url(../img/buttonbg.png) repeat-x; 
     border:1px solid #899caa; 
     border-radius:3px;
     -moz-border-radius:3px;
@@ -120,7 +120,7 @@ table {
 #loginButton { 
     display:inline-block;
     float:right;
-    background:#3fa9f5; 
+    background:#d2e0ea url(../img/buttonbg.png) repeat-x; 
     border:1px solid #899caa; 
     border-radius:3px;
     -moz-border-radius:3px;

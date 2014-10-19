@@ -8,6 +8,12 @@
 
 <c:import url="template/header.jsp" />
 
+		<sec:authorize access="hasRole('ROLE_USER')">
+
+This content will only be visible to users who have
+the "supervisor" authority in their list of <tt>GrantedAuthority</tt>s.
+
+</sec:authorize>
 
 		<a href="ads">
 			<div class="main_button_left_big">	
