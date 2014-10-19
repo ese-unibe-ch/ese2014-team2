@@ -54,7 +54,7 @@ public class SampleServiceImpl implements SampleService {
 		
 		Set<UserRole> userRole = new HashSet<>();
 		UserRole role = new UserRole();
-		role.setRole("ROLE_ADMIN");
+		role.setRole("ROLE_USER");
 		role.setUser(user);
 		userRole.add(role);
 		
