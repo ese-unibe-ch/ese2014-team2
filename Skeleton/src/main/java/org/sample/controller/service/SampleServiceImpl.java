@@ -1,6 +1,8 @@
 package org.sample.controller.service;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.sample.controller.pojos.AdForm;
 import org.sample.controller.pojos.LoginForm;
@@ -9,6 +11,7 @@ import org.sample.exceptions.InvalidUserException;
 import org.sample.model.Address;
 import org.sample.model.Advertisement;
 import org.sample.model.User;
+import org.sample.model.UserRole;
 import org.sample.model.dao.AddressDao;
 import org.sample.model.dao.AdvertisementDao;
 import org.sample.model.dao.UserDao;
@@ -16,6 +19,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
+
+
 
 
 @Service
@@ -44,6 +49,17 @@ public class SampleServiceImpl implements SampleService {
         user.setLastName(signupForm.getLastName());
         user.setAddress(address);
         user.setPassword(signupForm.getPassword());
+        
+        user.setEnabled(true);
+		
+		Set<UserRole> userRole = new HashSet<>();
+		UserRole role = new UserRole();
+		role.setRole("ROLE_USER");
+		role.setUser(user);
+		userRole.add(role);
+		
+		user.setUserRole(userRole);
+		
         
         
         address = addDao.save(address);  

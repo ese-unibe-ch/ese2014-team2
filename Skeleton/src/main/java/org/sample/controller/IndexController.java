@@ -125,26 +125,7 @@ public class IndexController {
 
     }
     
-    @RequestMapping(value = "/logged", method = RequestMethod.POST)
-    public ModelAndView login(@Valid LoginForm loginForm, BindingResult result, RedirectAttributes redirectAttributes) {
-    	ModelAndView model;
-    	
-    	try
-    	{
-    		User user = sampleService.getUser(loginForm);
-    		model = new ModelAndView("profile");
-    		model.addObject("user", user);
-    	}
-    	catch(InvalidUserException ex)
-    	{
-    		model = new ModelAndView("index");
-        	model.addObject("signupForm", new SignupForm());
-        	model.addObject("loginForm", new LoginForm());
-    	}
-    	 
-    	return model;
-    }
-    
+ 
     
     @RequestMapping(value = "/security-error", method = RequestMethod.GET)
     public String securityError(RedirectAttributes redirectAttributes) {

@@ -7,47 +7,19 @@
 <c:import url="template/header.jsp" />
 
 
-<table class="loginForm">
-	<tr>
-		<td><h1>Login</h1>
-	</td>
-	
-	<tr>
-		<td><form:form method="post" modelAttribute="loginForm" action="logged" id="loginForm" cssClass="form-horizontal" autocomplete="off">
-			<fieldset>
-				<label class="control-label" for="field-email">Email:</label>
-		<td><div class="controls">
-			<form:input path="email" id="field-email" tabindex="1" placeholder="Email"/>
-			</div>
-	</td>
-	
-	<tr>
-		<td>
-			<label class="control-label" for="field-password">Password:</label>
-		<td>
-			<div class="controls">
-				<form:input type="password" path="password" id="field-password" tabindex="2" placeholder="Password"/>
-			</div>
-		
-		</td>
-		
-	<tr>
-		<td><div class="form-actions">
-            <button type="submit" class="btnblue">Sign up</button>
-            <button type="button" class="btnred">Cancel</button>
-        </div>
-    </fieldset>
-</form:form>
-				
-		</table>	
-		
-	<c:if test="${page_error != null }">
-        <div class="alert alert-error">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <h4>Error!</h4>
-                ${page_error}
-        </div>
-    </c:if>
+<h1>Login</h1>
 
+<c:if test="${!empty param.error}">
+	<p>Incorrect login name or password. Please retry using correct
+		login name and password.</p><br />
+</c:if>
+
+<form name ='loginForm' action="<c:url value='j_spring_security_check' />" method='POST'>
+	<label for="field-username">Username:</label> <input name="j_username"
+		id="field-username" /> <label for="field-password">Password:</label>
+	<input name="j_password" id="field-password" type="password"/>
+	<button type="submit">Login</button>
+</form>
+<br />
 
 <c:import url="template/footer.jsp" />

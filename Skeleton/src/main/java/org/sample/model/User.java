@@ -1,12 +1,19 @@
 package org.sample.model;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.NaturalId;
+
+
+
 
 
 @Entity
@@ -15,6 +22,7 @@ public class User {
     @Id
     @GeneratedValue
     private Long id;
+    
     private String firstName;
     private String lastName;
     
@@ -25,6 +33,12 @@ public class User {
     
     @OneToOne
     private Address address; 
+   
+	private boolean enabled;
+
+	@OneToMany(mappedBy = "user", cascade= CascadeType.ALL)
+	private Set<UserRole> userRole;
+	
     
     public Long getId() {
         return id;
@@ -74,7 +88,21 @@ public class User {
 		this.password = password;
 	}
 
-    
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+	
+	public Set<UserRole> getUserRole() {
+		return userRole;
+	}
+
+	public void setUserRole(Set<UserRole> userRole) {
+		this.userRole = userRole;
+	}
 	
 	
 }
