@@ -2,7 +2,6 @@ INDEX VERSION 1.3+/Users/Raffael/ese2014-team2/.metadata/.plugins/org.eclipse.ws
 4207758793.index
 4094916159.index
 1740865703.index
-1740865703.index
 904895907.index
 3210265041.index
 1621379087.index

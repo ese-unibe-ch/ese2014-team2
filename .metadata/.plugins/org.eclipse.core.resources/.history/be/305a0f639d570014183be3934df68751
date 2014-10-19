@@ -40,12 +40,12 @@
                     <form id="loginForm" name="loginForm" action="<c:url value='j_spring_security_check' />" method="POST">
                         <fieldset id="body">
                             <fieldset>
-                                <label for="email">Email Address</label> 
-                                <input type="text" name="j_username" id="email" placeholder="Email" />
+                                <label for="email">Email Address</label>
+                                <input type="text" name="j_username" id="email" placeholder="Email"/>
                             </fieldset>
                             <fieldset>
                                 <label for="password">Password</label>
-                                <input type="password" name="j_password" id="password" placeholder="Password" />
+                                <input type="password" name="j_password" id="password" placeholder="Password"/>
                             </fieldset>
                             <input type="submit" id="login" value="Sign in" />
                             <label for="checkbox"><input type="checkbox" id="checkbox" />Remember me</label>
