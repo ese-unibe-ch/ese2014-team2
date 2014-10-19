@@ -3,16 +3,14 @@ package org.sample.controller.service;
 import java.util.Date;
 
 import org.sample.controller.pojos.AdForm;
+import org.sample.controller.pojos.LoginForm;
 import org.sample.controller.pojos.SignupForm;
-import org.sample.controller.pojos.TeamForm;
 import org.sample.exceptions.InvalidUserException;
 import org.sample.model.Address;
 import org.sample.model.Advertisement;
-import org.sample.model.Team;
 import org.sample.model.User;
 import org.sample.model.dao.AddressDao;
 import org.sample.model.dao.AdvertisementDao;
-import org.sample.model.dao.TeamDao;
 import org.sample.model.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +23,6 @@ public class SampleServiceImpl implements SampleService {
 
     @Autowired    UserDao userDao;
     @Autowired    AddressDao addDao;
-    @Autowired    TeamDao teamDao;
     @Autowired	  AdvertisementDao advertisementDao;
     
     @Transactional
@@ -64,37 +61,24 @@ public class SampleServiceImpl implements SampleService {
 
     }
 
-	public TeamForm saveFrom(TeamForm teamForm) {
+	public User getUser(LoginForm login) {
 		
-		String teamName = teamForm.getTeamName();
+		Iterable<User> users = userDao.findAll();
+		for( User u : users ) {
+			if ( u.getEmail().toLowerCase().equals(login.getEmail().toLowerCase()) && u.getPassword().equals(login.getPassword()))
+				return u;
+			
+		}
+		throw new InvalidUserException("E-Mail or password incorrect");
+    	
+    	
 		
-		if(!StringUtils.isEmpty(teamName) && "ESE".equalsIgnoreCase(teamName)) {
-            throw new InvalidUserException("Sorry, ESE is not a valid name");   // throw exception
-        }
-		
-		 	Team team = new Team();
-	        team.setTeamName(teamForm.getTeamName());
-	        team.setCreationDate();
-	        
-	        team = teamDao.save(team);   // save object to DB
-	        
-	        
-	        teamForm.setId(team.getId());
-
-	        return teamForm;
-	}
-	
-	public Iterable<Team> getTeams() {
-		return teamDao.findAll();
-	}
-	
-	public User getUser(Long _id) {
-		return userDao.findOne(_id);
 	}
 	
 	public Iterable<Advertisement> getAds() {
 		return advertisementDao.findAll();
 	}
+	
 
 	public Advertisement getAdvertisement(Long id) {
 		return advertisementDao.findOne(id);
@@ -148,6 +132,11 @@ public class SampleServiceImpl implements SampleService {
 			return false;
 		}
 	}
+
+	public User getUserById(Long userId) {
+		return userDao.findOne(userId);
+	}
+
 
 	
 }

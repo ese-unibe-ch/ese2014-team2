@@ -13,20 +13,17 @@
 <table>
 	<tr>
 		<td>First Name:&nbsp;&nbsp;
-		<td>${newProfile.firstName}
+		<td>${user.firstName}
 	</td>
 	<tr>
 		<td>Last Name:&nbsp;&nbsp;
-		<td>${newProfile.lastName}
+		<td>${user.lastName}
 	</td>
 	<tr>
 		<td>Email:&nbsp;&nbsp;
-		<td>${newProfile.email}
+		<td>${user.email}
 	</td>
-	<tr>
-		<td>Team:&nbsp;&nbsp;
-		<td>${newProfile.team}
-	</td>
+
 	<tr>
 		<td>
 		<td>

@@ -8,9 +8,9 @@ import javax.validation.Valid;
 import org.sample.controller.pojos.AdForm;
 import org.sample.controller.pojos.LoginForm;
 import org.sample.controller.pojos.SignupForm;
-import org.sample.controller.pojos.TeamForm;
 import org.sample.controller.service.SampleService;
 import org.sample.exceptions.InvalidUserException;
+import org.sample.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -37,6 +37,13 @@ public class IndexController {
         return model;
     }
     
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public ModelAndView login() {
+    	ModelAndView model = new ModelAndView("login");
+    	model.addObject("loginForm", new SignupForm());  
+    	return model;
+    }
+    
     /*
      * 
      * 	USER PAGES
@@ -49,8 +56,7 @@ public class IndexController {
     public ModelAndView register() {
     	ModelAndView model = new ModelAndView("register");
     	model.addObject("signupForm", new SignupForm());  
-    	model.addObject("teams", sampleService.getTeams());
-        return model;
+    	return model;
     }
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
@@ -58,7 +64,7 @@ public class IndexController {
       @RequestParam(value = "userId", required = true) Long userId,
       HttpServletRequest request, HttpServletResponse response, HttpSession session) {
     	ModelAndView model = new ModelAndView("profile");
-    	model.addObject("newProfile", sampleService.getUser(userId));
+    	model.addObject("newProfile", sampleService.getUserById(userId));
     	return model;
     }
    		
@@ -116,28 +122,26 @@ public class IndexController {
     	ModelAndView model = new ModelAndView("ads");
     	model.addObject("ads",sampleService.getAds());
     	return model;
+
     }
     
-    /*
-     * 
-     * 	TEAM-Pages
-     * 		-createNewTeam
-     * 		-enlist
-     * 	
-     * 
-     * */
-    @RequestMapping(value = "/createNewTeam", method = RequestMethod.GET)
-    public ModelAndView createNewTeam() {
-    	ModelAndView model = new ModelAndView("createNewTeam");
-    	model.addObject("newTeamForm", new TeamForm());
-        return model;
-    }
-    
-    @RequestMapping(value = "/enlist", method = RequestMethod.POST)
-    public ModelAndView enlist(@Valid TeamForm teamForm, BindingResult result, RedirectAttributes redirectAttributes) {
-    	ModelAndView model;    	
-    	sampleService.saveFrom(teamForm);
-    	model = new ModelAndView("show");
+    @RequestMapping(value = "/logged", method = RequestMethod.POST)
+    public ModelAndView login(@Valid LoginForm loginForm, BindingResult result, RedirectAttributes redirectAttributes) {
+    	ModelAndView model;
+    	
+    	try
+    	{
+    		User user = sampleService.getUser(loginForm);
+    		model = new ModelAndView("profile");
+    		model.addObject("user", user);
+    	}
+    	catch(InvalidUserException ex)
+    	{
+    		model = new ModelAndView("index");
+        	model.addObject("signupForm", new SignupForm());
+        	model.addObject("loginForm", new LoginForm());
+    	}
+    	 
     	return model;
     }
     
