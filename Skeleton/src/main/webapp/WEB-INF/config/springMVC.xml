@@ -13,7 +13,8 @@
 
 	<!-- search for controllers (@Controller)  -->
     <mvc:annotation-driven />
-    <context:component-scan base-package="org.sample"/> 
+    <context:component-scan base-package="org.eseTeam2"/> 
+
 	
     <!-- handler  -->
     <mvc:default-servlet-handler/>     

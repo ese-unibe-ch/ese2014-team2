@@ -1,6 +1,6 @@
-package org.sample.model.dao;
+package org.eseTeam2.model.dao;
 
-import org.sample.model.Address;
+import org.eseTeam2.model.Address;
 import org.springframework.data.repository.CrudRepository;
 
 

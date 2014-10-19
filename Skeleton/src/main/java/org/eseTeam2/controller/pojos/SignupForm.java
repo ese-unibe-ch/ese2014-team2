@@ -1,4 +1,4 @@
-package org.sample.controller.pojos;
+package org.eseTeam2.controller.pojos;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;

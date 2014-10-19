@@ -1,12 +1,20 @@
-package org.sample.controller.pojos;
+package org.eseTeam2.model;
 
 import java.util.Date;
 
-import org.sample.model.Address;
-import org.sample.model.User;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
-public class AdForm {
+
+
+@Entity
+public class Advertisement {
+
 	
+	@Id
+    @GeneratedValue
 	private Long id;
 	private String title;
 	private String description;
@@ -24,10 +32,10 @@ public class AdForm {
 	private String ort;
 	private String address;
 	private String region;
-	private String img_one = "../img/default_image";
-	private String img_two = "../img/default_image";
-	private String img_three = "../img/default_image";
-	private String img_four = "../img/default_image";
+	private String img_one = "../img/default_image.jpg";
+	private String img_two = "../img/default_image.jpg";
+	private String img_three = "../img/default_image.jpg";
+	private String img_four = "../img/default_image.jpg";
 	private String description_ad;
 	private boolean hasLaundry;
 	private boolean hasTumbler;
@@ -38,6 +46,10 @@ public class AdForm {
 	private String description_us;
 	private String description_you;
 	
+
+	
+	
+	
 	
 	public Long getId() {
 		return id;
@@ -45,7 +57,6 @@ public class AdForm {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
 	public String getTitle() {
 		return title;
 	}
@@ -55,8 +66,8 @@ public class AdForm {
 	public String getDescription() {
 		return description;
 	}
-	public void setDescription(String description) {
-		this.description = description;
+	public void setDescription(String _description) {
+		this.description = _description;
 	}
 	public String getCreator() {
 		return creator;
@@ -103,7 +114,7 @@ public class AdForm {
 	public Date getStart() {
 		return start;
 	}
-	public void setFrom(Date from) {
+	public void setStart(Date from) {
 		this.start = from;
 	}
 	public Date getUntil() {
@@ -172,19 +183,19 @@ public class AdForm {
 	public void setDescription_ad(String description_ad) {
 		this.description_ad = description_ad;
 	}
-	public boolean getHasLaundry() {
+	public boolean isHasLaundry() {
 		return hasLaundry;
 	}
 	public void setHasLaundry(boolean hasLaundry) {
 		this.hasLaundry = hasLaundry;
 	}
-	public boolean getHasTumbler() {
+	public boolean isHasTumbler() {
 		return hasTumbler;
 	}
 	public void setHasTumbler(boolean hasTumbler) {
 		this.hasTumbler = hasTumbler;
 	}
-	public boolean getHasBalcony() {
+	public boolean isHasBalcony() {
 		return hasBalcony;
 	}
 	public void setHasBalcony(boolean hasBalcony) {
@@ -196,13 +207,13 @@ public class AdForm {
 	public void setDescription_room(String description_room) {
 		this.description_room = description_room;
 	}
-	public boolean getIsToBalcony() {
+	public boolean isToBalcony() {
 		return isToBalcony;
 	}
-	public void setIsToBalcony(boolean isToBalcony) {
+	public void setToBalcony(boolean isToBalcony) {
 		this.isToBalcony = isToBalcony;
 	}
-	public boolean getHasCables() {
+	public boolean isHasCables() {
 		return hasCables;
 	}
 	public void setHasCables(boolean hasCables) {

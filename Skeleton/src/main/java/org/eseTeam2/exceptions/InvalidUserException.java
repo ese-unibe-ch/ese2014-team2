@@ -1,4 +1,4 @@
-package org.sample.exceptions;
+package org.eseTeam2.exceptions;
 
 public class InvalidUserException extends RuntimeException {
 

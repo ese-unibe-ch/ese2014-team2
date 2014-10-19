@@ -1,4 +1,4 @@
-package org.sample.model;
+package org.eseTeam2.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
