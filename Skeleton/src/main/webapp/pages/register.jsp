@@ -7,7 +7,7 @@
 <c:import url="template/header.jsp" />
 
 
-
+<div class="main">
 <table class="signupform">
 	<tr>
 		<td><h1>Sign Up Here!</h1>
@@ -48,17 +48,7 @@
         </div>
 	</td>
 	<tr>
-		<td><label class="control-label" for="field-teamList">Team:</label>
-        <div class="control-group">
-		<td><form:select path="teamName">
-     			<c:forEach items="${teams}" var="teams">
-      				<option value="${teams.teamName}">
-      				 	<c:out value="${teams.teamName}" />
-      				</option>
-     			</c:forEach>
-    		</form:select>
-   		</div>
-	</td>
+
 	<tr>
 		<td><div class="control-label">
    			<label class="control-label" for="field-password">Password:</label>
@@ -79,7 +69,7 @@
 
 
 
-
+</div>
 
             
         

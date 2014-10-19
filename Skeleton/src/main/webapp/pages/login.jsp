@@ -7,13 +7,13 @@
 <c:import url="template/header.jsp" />
 
 
-<table class="signupForm">
+<table class="loginForm">
 	<tr>
 		<td><h1>Login</h1>
 	</td>
 	
 	<tr>
-		<td><form:form method="post" modelAttribute="newLoginForm" action="login" id="loginForm" cssClass="form-horizontal" autocomplete="off">
+		<td><form:form method="post" modelAttribute="loginForm" action="logged" id="loginForm" cssClass="form-horizontal" autocomplete="off">
 			<fieldset>
 				<label class="control-label" for="field-email">Email:</label>
 		<td><div class="controls">

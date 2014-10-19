@@ -6,7 +6,7 @@
 
 <c:import url="template/header.jsp" />
 
-<h1>Sign Up Complete!</h1>
+<h1>Successful!</h1>
 
 
 
