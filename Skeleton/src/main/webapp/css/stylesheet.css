@@ -318,7 +318,7 @@ body {
 
 #header {
 	background-color:#f9f9f9;
-	height:200px;
+	height:150px;
 	width:100%;
 	border-bottom-right-radius: 5pt 5pt;
   	border-bottom-left-radius: 5pt 5pt;
@@ -390,26 +390,23 @@ body {
  	border-top-right-radius: 5pt 5pt;
   	border-bottom-right-radius: 5pt 5pt;
   	border-bottom-left-radius: 5pt 5pt;
-  	padding-bottom:120px;
+  	padding-bottom:40px;
 }
 */
 #push {
-	height:120px;
+	height:40px;
 }
 
 #footer {
 	padding:25px;
-	margin-left:auto;
-	margin-right:auto;
 	width:1000px;
-	height:120px;
-	background-color:#636265;
+	height:40px;
 	border-top-left-radius: 5pt 5pt;
  	border-top-right-radius: 5pt 5pt;
 }
 
 #footer_wrapper {
-	margin-top:-120px;
+	margin-top:-40px;
 	width:100%;
 	position:relative;
 	bottom:0;
@@ -417,6 +414,39 @@ body {
 	clear:both;
 	
 }
+
+
+#footerbar {
+	clear:both;
+	position:relative;
+	left:700px;
+	border-bottom-right-radius: 5pt 5pt;
+  	border-bottom-left-radius: 5pt 5pt;
+  	display:inline;
+}
+
+#footerbar li {
+	padding-top:5px;
+	padding-left:15px;
+	display:inline;
+	text-decoration:none;  
+    /*color:#716d6a;*/  
+    font-family:Verdana, Arial, Helvetica, sans-serif;  
+    font-size:10px;  
+    font-weight:bold;  
+    text-transform:uppercase; 
+}
+
+#footerbar li a {
+	text-decoration:none;
+	color:#d2d2d2;
+	
+}
+
+.footerbar_content {
+	display:block;
+}
+
 
 .main_button_left_big {
 	height:300px;
@@ -513,27 +543,27 @@ body {
 }
 
 #facebook {
-	background-image:url("../img/facebook.jpg");
-	width:66px;
-	height:66px;
+	background-image:url("../img/facebook_small.jpg");
+	width:30px;
+	height:30px;
 }
 
 #twitter {
-	background-image:url("../img/twitter.jpg");
-	width:66px;
-	height:66px;
+	background-image:url("../img/twitter_small.jpg");
+	width:30px;
+	height:30px;
 }
 
 #gplus {
-	background-image:url("../img/gplus.jpg");
-	width:66px;
-	height:66px;
+	background-image:url("../img/gplus_small.jpg");
+	width:30px;
+	height:30px;
 }
 
 #rss {
-	background-image:url("../img/rss.jpg");
-	width:66px;
-	height:66px;
+	background-image:url("../img/rss_small.jpg");
+	width:30px;
+	height:30px;
 }
 
 /*
