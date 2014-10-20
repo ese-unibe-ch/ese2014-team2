@@ -65,6 +65,14 @@ public class AdController {
 
     }
     
+    @RequestMapping(value = "/placemate", method = RequestMethod.GET)
+    public ModelAndView placeYourself() {
+    	ModelAndView model = new ModelAndView("placeyourself");
+    	model.addObject("ads",adService.getAds());
+    	return model;
+
+    }
+    
  
 
 }

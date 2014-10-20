@@ -67,7 +67,7 @@
 	
 		
 </div>
-<a href="/">
+<a href="/Skeleton/">
 <div id="header">
 	<div id="header_wrapper">
 		<title>About Princesses and Castles</title>

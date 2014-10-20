@@ -28,7 +28,7 @@
 			</div>
 		</a>	
 		
-		<a href="/placemate">	
+		<a href="placemate">	
 			<div class="main_button_right_small">	
 				<h1>I want to get roomed!</h1>
 			</div>
