@@ -19,11 +19,13 @@
 
 	<security:authentication-manager>
 		<security:authentication-provider>
+		    <security:password-encoder hash="bcrypt" />
 			<security:jdbc-user-service
 				data-source-ref="mainDataSource"
 				users-by-username-query="select EMAIL,password, enabled from user where EMAIL=?"
 				authorities-by-username-query="select u.EMAIL, ur.role from user u inner join `user_roles` ur on (u.id = ur.user_id) where EMAIL = ?" />
 		</security:authentication-provider>
 	</security:authentication-manager>
+	
 
 </beans>

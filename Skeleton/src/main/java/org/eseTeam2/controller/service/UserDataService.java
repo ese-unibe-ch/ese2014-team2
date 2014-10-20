@@ -17,6 +17,7 @@ import org.eseTeam2.model.dao.AdvertisementDao;
 import org.eseTeam2.model.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -40,7 +41,8 @@ public class UserDataService implements IUserDataService {
         if(!StringUtils.isEmpty(firstName) && "ESE".equalsIgnoreCase(firstName)) {
             throw new InvalidUserException("Sorry, ESE is not a valid name");   // throw exception
         }
-
+        
+        BCryptPasswordEncoder password = new BCryptPasswordEncoder();
 
         Address address = new Address();
         address.setStreet("TestStreet");
@@ -50,7 +52,7 @@ public class UserDataService implements IUserDataService {
         user.setEmail(signupForm.getEmail());
         user.setLastName(signupForm.getLastName());
         user.setAddress(address);
-        user.setPassword(signupForm.getPassword());
+        user.setPassword(password.encode(signupForm.getPassword()));
         
         user.setEnabled(true);
 		
@@ -79,31 +81,8 @@ public class UserDataService implements IUserDataService {
 
     }
 
-	public User getUser(LoginForm login) {
-		
-		Iterable<User> users = userDao.findAll();
-		for( User u : users ) {
-			if ( u.getEmail().toLowerCase().equals(login.getEmail().toLowerCase()) && u.getPassword().equals(login.getPassword()))
-				return u;
-			
-		}
-		throw new InvalidUserException("E-Mail or password incorrect");
-    	
-    	
-		
-	}
-	
-	public String findUserPassword(Long id) {
-		return userDao.findOne(id).getPassword();
-	}
 
-	public boolean passwordMatch(Long id, String password) {
-		if ( userDao.findOne(id).getPassword() == password ) {
-			return true; 
-		} else {
-			return false;
-		}
-	}
+	
 
 	public User getUserById(Long userId) {
 		return userDao.findOne(userId);

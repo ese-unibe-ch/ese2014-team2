@@ -7,11 +7,7 @@ import org.eseTeam2.model.User;
 
 public interface IUserDataService {
 	public SignupForm saveFrom(SignupForm signupForm) throws InvalidUserException;
-	public User getUser(LoginForm login);
 	
-	public String findUserPassword(Long id);
-
-	public boolean passwordMatch(Long id, String password);
 
 	public User getUserById(Long userId);
 
