@@ -51,6 +51,7 @@ public class UserDataService implements IUserDataService {
         user.setFirstName(signupForm.getFirstName());
         user.setEmail(signupForm.getEmail());
         user.setLastName(signupForm.getLastName());
+        user.setAddress(address);
         user.setPassword(password.encode(signupForm.getPassword()));
         
         user.setEnabled(true);

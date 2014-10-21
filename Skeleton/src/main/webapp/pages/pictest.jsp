@@ -14,7 +14,8 @@
 <body>
 
 
-<img src="image/3"  align="left" />
+<img src="image/1"  align="left" />
+<img src="image/2"  align="left" />
          
 </body>
 </html>

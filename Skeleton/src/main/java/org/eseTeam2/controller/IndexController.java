@@ -1,7 +1,5 @@
 package org.eseTeam2.controller;
 
-import java.awt.image.BufferedImage;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -48,11 +46,6 @@ public class IndexController {
         redirectAttributes.addFlashAttribute("page_error", "You do have have permission to do that!");
         return "redirect:/";
     }
-    
-
-    
-    
-
 
 }
 

@@ -31,7 +31,8 @@ public class User {
     private String email;
     private String password;
     
-   
+    @OneToOne
+    private Address address; 
    
 	private boolean enabled;
 
@@ -71,7 +72,14 @@ public class User {
         this.email = email;
     }
 
-	
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
 	public String getPassword() {
 		return password;
 	}
