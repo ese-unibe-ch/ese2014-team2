@@ -40,6 +40,13 @@
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect" />
         </property>
     </bean>
+    
+    <!--  for picture -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="500000" />
+	</bean>
+	
 
     <bean id="entityManagerFactory"  class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="mainDataSource" />
