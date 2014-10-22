@@ -8,7 +8,7 @@
 
 
 <div class="main">
-<table class="signupform">
+<table class="signupForm">
 	<tr>
 		<td><h1>Sign Up Here!</h1>
 			<p>Enter your information here!</p>

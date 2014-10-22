@@ -15,7 +15,7 @@
 </c:if>
 
 <form name ='loginForm' action="<c:url value='j_spring_security_check' />" method='POST'>
-	<label for="field-username">Username:</label> <input name="j_username"
+	<label for="field-username">E-mail:</label> <input name="j_username"
 		id="field-username" /> <label for="field-password">Password:</label>
 	<input name="j_password" id="field-password" type="password"/>
 	<button type="submit">Login</button>

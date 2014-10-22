@@ -6,7 +6,7 @@ Ad placing Rooms:
 *- Anzahl bewohner WG-Type
 
 Überschrift: Addresse
-*- Street( is not public, only when interessents found)
+*- Street( leave whole address public)
 *- Ort
 *- PLZ (region)
 - Quartiersname (proposals while writing)
@@ -16,12 +16,13 @@ Ad placing Rooms:
 
 Freiwillige felder:
 -Wohnungs/ zimmerbilder
-- Wg beschreibung (Mit in der nähe)(Hints im feld)( Geschirrspülmachine, Waschmachine, Balkon, Rauchen in der WG, Haustiere) (Kästchen mit häckchen)
+- Wg beschreibung (Mit in der nähe)(Hints im feld)( Geschirrspülmachine, Waschmachine, Balkon, Rauchen in der WG, Haustiere, Wlan, FUrnished or not, built in closet) (Kästchen mit häckchen)
 - Zimmerbeschreibung ( Balkonzugang, Anschlüsse) (Kästchen mit häckchen)
 Menschliches:
 
 - Wir sind  (VOrschlagsfeld, mit sachen wie, wer seid ihr? Wie alt? Was macht ihr? Ausführung des WG lebens ) (Gemischt/Männlich/Weiblich)(Box)
 - Wir suchen (Hintbox) ( Raucher/Nichtraucher/egal(Box)) (Altersrange) (Geschlecht)
+    male/female/ we dont care (dropdown maybe)
 
 
 Ad placing Persons:

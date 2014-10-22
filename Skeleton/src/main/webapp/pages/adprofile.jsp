@@ -10,7 +10,8 @@
 <div class="main">
 <h1>${newAdProfile.title }</h1>
 
-<img src="${newAdProfile.img_one}"/>
+<img src="getUserImage/<c:out value="${mainPic}"/>">
+
 <h1 class="newstitle">Basics:</h1>	
 	<table class="profile">
 		<tr>
@@ -35,11 +36,16 @@
 
 <h1 class="newstitle">Fotos:</h1>
 <table class="profile">
-	<tr>
-		<td><img src="${newAdProfile.img_two}"/></td>
-		<td><img src="${newAdProfile.img_three}"/></td>
-		<td><img src="${newAdProfile.img_four}"/></td>
-	</tr>
+	
+	
+					<c:forEach items="${pictureIds}" var="pics">
+						<img src="getUserImage/ <c:out value="${pics}"/>" width="400" height="400" >
+						
+					</c:forEach>
+				
+	
+		
+	
 </table>
 
 <h1 class="newstitle">Wohnungsbeschrieb:</h1>

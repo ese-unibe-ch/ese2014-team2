@@ -5,6 +5,7 @@ import java.util.Date;
 import org.eseTeam2.model.Address;
 import org.eseTeam2.model.User;
 
+
 public class AdForm {
 	
 	private Long id;
@@ -24,10 +25,11 @@ public class AdForm {
 	private String ort;
 	private String address;
 	private String region;
-	private String img_one = "../img/default_image";
-	private String img_two = "../img/default_image";
-	private String img_three = "../img/default_image";
-	private String img_four = "../img/default_image";
+	
+	private byte[] img_one ;
+	private byte[] img_two;
+	private byte[] img_three ;
+	private byte[] img_four ;
 	private String description_ad;
 	private boolean hasLaundry;
 	private boolean hasTumbler;
@@ -142,30 +144,7 @@ public class AdForm {
 	public void setRegion(String region) {
 		this.region = region;
 	}
-	public String getImg_one() {
-		return img_one;
-	}
-	public void setImg_one(String img_one) {
-		this.img_one = img_one;
-	}
-	public String getImg_two() {
-		return img_two;
-	}
-	public void setImg_two(String img_two) {
-		this.img_two = img_two;
-	}
-	public String getImg_three() {
-		return img_three;
-	}
-	public void setImg_three(String img_three) {
-		this.img_three = img_three;
-	}
-	public String getImg_four() {
-		return img_four;
-	}
-	public void setImg_four(String img_four) {
-		this.img_four = img_four;
-	}
+
 	public String getDescription_ad() {
 		return description_ad;
 	}
@@ -219,6 +198,30 @@ public class AdForm {
 	}
 	public void setDescription_you(String description_you) {
 		this.description_you = description_you;
+	}
+	public byte[] getImg_one() {
+		return img_one;
+	}
+	public void setImg_one(byte[] img_one) {
+		this.img_one = img_one;
+	}
+	public byte[] getImg_two() {
+		return img_two;
+	}
+	public void setImg_two(byte[] img_two) {
+		this.img_two = img_two;
+	}
+	public byte[] getImg_three() {
+		return img_three;
+	}
+	public void setImg_three(byte[] img_three) {
+		this.img_three = img_three;
+	}
+	public byte[] getImg_four() {
+		return img_four;
+	}
+	public void setImg_four(byte[] img_four) {
+		this.img_four = img_four;
 	}
 	
 	

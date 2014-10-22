@@ -21,6 +21,8 @@ public class Picture {
 
 	@ManyToOne
 	private Advertisement ad;
+	
+	private boolean isMainPic;
 
 	public void setId(Long id) {
 		this.id = id;
@@ -45,5 +47,13 @@ public class Picture {
 
 	public void setAd(Advertisement ad) {
 		this.ad = ad;
+	}
+
+	public boolean getIsMainPic() {
+		return isMainPic;
+	}
+
+	public void setIsMainPic(boolean isMainPic) {
+		this.isMainPic = isMainPic;
 	} 
 }
