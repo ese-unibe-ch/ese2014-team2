@@ -28,7 +28,15 @@
       <param-value>/WEB-INF/config/springMVC.xml</param-value>
     </init-param>
     <load-on-startup>1</load-on-startup>
+    
+    	
+	
+    
+     	
   </servlet>
+  
+ 
+
   
   <servlet-mapping>
     <servlet-name>myApp</servlet-name>

@@ -66,7 +66,7 @@
 
 
 
-		<a href="../">Back</a>
+		<a href="/ads">Back</a>
 		<td><a href="adprofile?adId=${newAdProfile.id}">Details</a>
 
 

@@ -16,8 +16,9 @@ public class Picture {
 	@GeneratedValue
 	private Long id;
 
-	@Lob
-	private byte[] content;
+	
+	
+	private String filePath;
 
 	@ManyToOne
 	private Advertisement ad;
@@ -32,13 +33,7 @@ public class Picture {
 		return id;
 	}
 
-	public void setContent(byte[] content) {
-		this.content = content;
-	}
-
-	public byte[] getContent() {
-		return content;
-	}
+	
 
 	
 	public Advertisement getAd() {
@@ -55,5 +50,13 @@ public class Picture {
 
 	public void setIsMainPic(boolean isMainPic) {
 		this.isMainPic = isMainPic;
+	}
+
+	public String getFilePath() {
+		return filePath;
+	}
+
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
 	} 
 }

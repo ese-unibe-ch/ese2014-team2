@@ -10,6 +10,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Set;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.apache.commons.io.IOUtils;
+import org.eseTeam2.PictureManager;
 import org.eseTeam2.controller.pojos.AdForm;
 import org.eseTeam2.controller.pojos.LoginForm;
 import org.eseTeam2.controller.pojos.SignupForm;
@@ -35,6 +37,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -44,6 +47,11 @@ public class AdController {
 
 	@Autowired
 	private IAdDataService adService;
+	
+	@Autowired
+	private ServletContext servletContext;
+
+	public final String PICTURE_LOCATION = "/img/adPictures";
 
 	@RequestMapping(value = "/placead", method = RequestMethod.GET)
 	public ModelAndView createAd() {
@@ -57,34 +65,35 @@ public class AdController {
 			RedirectAttributes redirectAttributes,
 			@RequestParam("image") MultipartFile[] files) {
 
+		PictureManager picmgr = new PictureManager();
+		String path = servletContext.getRealPath(PICTURE_LOCATION);
+		String filename = String.valueOf(adForm.getPrice())+adForm.getAddress()+adForm.getOrt();
+		
+		ArrayList<String> pictures = (picmgr.uploadMultipleFile(path, filename, files));
+				
+//<img src="getUserImage/ <c:out value="${pics}"/>" width="400" height="400" >
 		try {
-			if (!files[0].isEmpty())
-				adForm.setImg_one(files[0].getBytes());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			if (pictures.get(0)!= null)
+				adForm.setImg_one(pictures.get(0));
+		} catch (Exception e) {
 		}
 		try {
-			if (!files[1].isEmpty())
-				adForm.setImg_two(files[1].getBytes());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			if (pictures.get(1)!= null)
+				adForm.setImg_two(pictures.get(1));
+		} catch (Exception e) {
 		}
 		try {
-			if (!files[2].isEmpty())
-				adForm.setImg_three(files[2].getBytes());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			if (pictures.get(2) != null)
+				adForm.setImg_three(pictures.get(2));
+		} catch (Exception e) {
 		}
 		try {
-			if (!files[3].isEmpty())
-				adForm.setImg_four(files[3].getBytes());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			if (pictures.get(3) != null)
+				adForm.setImg_four(pictures.get(3));
+		} catch (Exception e) {
 		}
+
+		
 
 		ModelAndView model;
 		adService.saveFrom(adForm);
@@ -99,8 +108,8 @@ public class AdController {
 			HttpServletRequest request, HttpServletResponse response,
 			HttpSession session) {
 		
-		
-	
+		//ArrayList<Picture> adPictures = adService.getAdPictures(adId);
+
 		ModelAndView model = new ModelAndView("adprofile");
 		model.addObject("newAdProfile", adService.getAdvertisement(adId));
 		model.addObject("pictureIds", adService.getAdPictureIds(adId));
@@ -128,10 +137,14 @@ public class AdController {
 	@RequestMapping(value = "/getUserImage/{id}")
 	public void getUserImage(HttpServletResponse response,
 			@PathVariable("id") long picId) throws IOException {
-
+		PictureManager picmgr = new PictureManager();
+		byte[] picture = picmgr.getByteArrayFromPath(adService.getPicture(picId));
+		
 		response.setContentType("image/jpeg");
-		byte[] buffer = adService.getPicture(picId);
-		InputStream in1 = new ByteArrayInputStream(buffer);
+		String path =   adService.getPicture(picId); 
+		InputStream in1 = new  ByteArrayInputStream(picture); 
 		IOUtils.copy(in1, response.getOutputStream());
+		 
 	}
+
 }

@@ -2,7 +2,6 @@ package org.eseTeam2.controller.service;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -47,16 +46,16 @@ public class AdDataService implements IAdDataService {
 		Picture pic3 = new Picture();
 		Picture pic4 = new Picture();
 
-		pic1.setContent(adForm.getImg_one());
+		pic1.setFilePath(adForm.getImg_one());
 		pic1.setIsMainPic(true);
 		pictures.add(pic1);
-		pic2.setContent(adForm.getImg_two());
+		pic2.setFilePath(adForm.getImg_two());
 		pic2.setIsMainPic(false);
 		pictures.add(pic2);
-		pic3.setContent(adForm.getImg_three());
+		pic3.setFilePath(adForm.getImg_three());
 		pic3.setIsMainPic(false);
 		pictures.add(pic3);
-		pic4.setContent(adForm.getImg_four());
+		pic4.setFilePath(adForm.getImg_four());
 		pic4.setIsMainPic(false);
 		pictures.add(pic4);
 
@@ -103,18 +102,17 @@ public class AdDataService implements IAdDataService {
 		return adForm;
 	}
 
-	public byte[] getPicture(Long picId) {
-		return pictureDao.findOne(picId).getContent();
+	public String getPicture(Long picId) {
+		return pictureDao.findOne(picId).getFilePath();
 	}
 
 	public ArrayList<Long> getAdPictureIds(Long adId) {
 
 		Set<Picture> pictures = getAdvertisement(adId).getPictures();
 		ArrayList<Long> pics = new ArrayList<Long>();
-		long[] picarray = new long[4];
 
 		for (Picture picture : pictures) {
-			if (picture != null) {
+			if (picture.getFilePath() != null) {
 
 				if (picture.getIsMainPic() == false)
 					pics.add(picture.getId());
@@ -122,18 +120,32 @@ public class AdDataService implements IAdDataService {
 			}
 
 		}
-		for ( int i = 0; i < pics.size(); i++) {
-			picarray[i] = pics.get(i);
-		}
-		long[] finalarray = Arrays.sort(picarray);
+		return pics;
+
+	}
+	
+	public ArrayList<Picture> getAdPictures(Long adId) {
+
+		Set<Picture> pictures = getAdvertisement(adId).getPictures();
+		ArrayList<Picture> pics = new ArrayList<Picture>();
 		
+
+		for (Picture picture : pictures) {
+			if (picture.getFilePath() != null) {
+
+				if (picture.getIsMainPic() == false)
+					pics.add(picture);
+
+			}
+
+		}
 		return pics;
 
 	}
 
-	public Long getAdMainPic(Long adId) {
+	public long getAdMainPic(Long adId) {
 		Set<Picture> pictures = getAdvertisement(adId).getPictures();
-		Long mainPic = null;
+		long mainPic = 0;
 
 		for (Picture picture : pictures) {
 			if (picture != null) {
@@ -146,4 +158,8 @@ public class AdDataService implements IAdDataService {
 		return mainPic;
 	}
 
-}
+	
+
+	}
+
+
