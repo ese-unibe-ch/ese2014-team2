@@ -23,62 +23,68 @@ public class Advertisement {
 	@Id
 	@GeneratedValue
 	private Long id;
+
 	private String title;
 	private String description;
 	private String creator;
 	private Date creationDate;
-	private boolean isLimited;
-	private Date start;
-	private Date until;
+	private String start;
+	private String until;
 	private int rooms;
-	private int price;
-	private int space;
-	private int roomies;
+	private int roomPrice;
+	private int roomSpace;
+	private int nmbrOfRoommates;
+	private String wgType;
+	private boolean furnished;
+
+	// address
 	private String kanton;
 	private int plz;
 	private String ort;
 	private String address;
-	private String region;
+	// private String region;
+
+	// info about the flat
+	private String description_ad;
+	private boolean hasLaundry;
+	private boolean hasDishwasher;
+	private boolean hasBalcony;
+	private boolean smokingInside;
+	private boolean hasPets;
+	private boolean wlan;
+	// info about the room
+	private boolean hasBuiltInCloset;
+	private String description_room;
+	private boolean isToBalcony;
+	private boolean hasCables;
+
+	// About us
+	private String description_us;
+	private String wgGender;
+
+	// who we are looking for
+	private String whoWeAreLookingFor;
+	private String smoker;
+	private String ageRange;
+	private String genderWeLookFor;
+
 	/*
 	 * private String img_one = "../img/default_image.jpg"; private String
 	 * img_two = "../img/default_image.jpg"; private String img_three =
 	 * "../img/default_image.jpg"; private String img_four =
 	 * "../img/default_image.jpg";
 	 */
-	
-	
-	//@OneToMany(mappedBy="Advertisement",cascade = CascadeType.ALL)
-	 @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
+
+	// @OneToMany(mappedBy="Advertisement",cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
 	private Set<Picture> pictures;
-	
-	/*
-	
-	private Picture img_one;
-	
-	private Picture img_two;
-	
-	
-	private Picture img_three;
-	
-	private Picture img_four; */
-	
 
-	private String description_ad;
-	private boolean hasLaundry;
-	private boolean hasTumbler;
-	private boolean hasBalcony;
-	private String description_room;
-	private boolean isToBalcony;
-	private boolean hasCables;
-	private String description_us;
-	private String description_you;
-
-	public Long getId() {
-		return id;
+	public Set<Picture> getPictures() {
+		return pictures;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setPictures(Set<Picture> pictures) {
+		this.pictures = pictures;
 	}
 
 	public String getTitle() {
@@ -93,8 +99,8 @@ public class Advertisement {
 		return description;
 	}
 
-	public void setDescription(String _description) {
-		this.description = _description;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getCreator() {
@@ -113,12 +119,20 @@ public class Advertisement {
 		this.creationDate = creationDate;
 	}
 
-	public boolean getIsLimited() {
-		return isLimited;
+	public String getStart() {
+		return start;
 	}
 
-	public void setIsLimited(boolean isLimited) {
-		this.isLimited = isLimited;
+	public void setStart(String start) {
+		this.start = start;
+	}
+
+	public String getUntil() {
+		return until;
+	}
+
+	public void setUntil(String until) {
+		this.until = until;
 	}
 
 	public int getRooms() {
@@ -129,52 +143,44 @@ public class Advertisement {
 		this.rooms = rooms;
 	}
 
-	public int getPrice() {
-		return price;
+	public int getRoomPrice() {
+		return roomPrice;
 	}
 
-	public void setPrice(int price) {
-		this.price = price;
+	public void setRoomPrice(int roomPrice) {
+		this.roomPrice = roomPrice;
 	}
 
-	public int getSpace() {
-		return space;
+	public int getRoomSpace() {
+		return roomSpace;
 	}
 
-	public void setSpace(int space) {
-		this.space = space;
+	public void setRoomSpace(int roomSpace) {
+		this.roomSpace = roomSpace;
 	}
 
-	public String getAddress() {
-		return address;
+	public int getNmbrOfRoommates() {
+		return nmbrOfRoommates;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setNmbrOfRoommates(int nmbrOfRoommates) {
+		this.nmbrOfRoommates = nmbrOfRoommates;
 	}
 
-	public Date getStart() {
-		return start;
+	public boolean isFurnished() {
+		return furnished;
 	}
 
-	public void setStart(Date from) {
-		this.start = from;
+	public void setFurnished(boolean furnished) {
+		this.furnished = furnished;
 	}
 
-	public Date getUntil() {
-		return until;
+	public String getWgType() {
+		return wgType;
 	}
 
-	public void setUntil(Date until) {
-		this.until = until;
-	}
-
-	public int getRoomies() {
-		return roomies;
-	}
-
-	public void setRoomies(int roomies) {
-		this.roomies = roomies;
+	public void setWgType(String wgType) {
+		this.wgType = wgType;
 	}
 
 	public String getKanton() {
@@ -201,23 +207,14 @@ public class Advertisement {
 		this.ort = ort;
 	}
 
-	public String getRegion() {
-		return region;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setRegion(String region) {
-		this.region = region;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
-	/*
-	 * public String getImg_one() { return img_one; } public void
-	 * setImg_one(String img_one) { this.img_one = img_one; } public String
-	 * getImg_two() { return img_two; } public void setImg_two(String img_two) {
-	 * this.img_two = img_two; } public String getImg_three() { return
-	 * img_three; } public void setImg_three(String img_three) { this.img_three
-	 * = img_three; } public String getImg_four() { return img_four; } public
-	 * void setImg_four(String img_four) { this.img_four = img_four; }
-	 */
 	public String getDescription_ad() {
 		return description_ad;
 	}
@@ -234,12 +231,12 @@ public class Advertisement {
 		this.hasLaundry = hasLaundry;
 	}
 
-	public boolean isHasTumbler() {
-		return hasTumbler;
+	public boolean isHasDishwasher() {
+		return hasDishwasher;
 	}
 
-	public void setHasTumbler(boolean hasTumbler) {
-		this.hasTumbler = hasTumbler;
+	public void setHasDishwasher(boolean hasDishwasher) {
+		this.hasDishwasher = hasDishwasher;
 	}
 
 	public boolean isHasBalcony() {
@@ -248,6 +245,38 @@ public class Advertisement {
 
 	public void setHasBalcony(boolean hasBalcony) {
 		this.hasBalcony = hasBalcony;
+	}
+
+	public boolean isSmokingInside() {
+		return smokingInside;
+	}
+
+	public void setSmokingInside(boolean smokingInside) {
+		this.smokingInside = smokingInside;
+	}
+
+	public boolean isHasPets() {
+		return hasPets;
+	}
+
+	public void setHasPets(boolean hasPets) {
+		this.hasPets = hasPets;
+	}
+
+	public boolean isWlan() {
+		return wlan;
+	}
+
+	public void setWlan(boolean wlan) {
+		this.wlan = wlan;
+	}
+
+	public boolean isHasBuiltInCloset() {
+		return hasBuiltInCloset;
+	}
+
+	public void setHasBuiltInCloset(boolean hasBuiltInCloset) {
+		this.hasBuiltInCloset = hasBuiltInCloset;
 	}
 
 	public String getDescription_room() {
@@ -282,61 +311,52 @@ public class Advertisement {
 		this.description_us = description_us;
 	}
 
-	public String getDescription_you() {
-		return description_you;
+	public String getWgGender() {
+		return wgGender;
 	}
 
-	public void setDescription_you(String description_you) {
-		this.description_you = description_you;
+	public void setWgGender(String wgGender) {
+		this.wgGender = wgGender;
 	}
 
-	public Set<Picture> getPictures() {
-		return pictures;
+	public String getWhoWeAreLookingFor() {
+		return whoWeAreLookingFor;
 	}
 
-	public void setPictures(Set<Picture> pictures) {
-		this.pictures = pictures;
+	public void setWhoWeAreLookingFor(String whoWeAreLookingFor) {
+		this.whoWeAreLookingFor = whoWeAreLookingFor;
 	}
-	
-/*
-	public void setImg_one( Picture img_one) {
-		this.img_one=img_one;
-		
-	}
-	
-	public Picture getImg_one() {
-		return img_one;
-	}
-	
-	
-	public void setImg_two( Picture img_two) {
-		this.img_two=img_two;
-		
-	}
-	
-	public Picture getImg_two() {
-		return img_two;
-	}
-	
-	
-	public void setImg_three( Picture img_three) {
-		this.img_three=img_three;
-		
-	}
-	
-	public Picture getImg_three() {
-		return img_three;
-	}
-	public void setImg_four( Picture img_four) {
-		this.img_four=img_four;
-		
-	}
-	
-	public Picture getImg_four() {
-		return img_four;
-	} */
-	
 
+	public String getSmoker() {
+		return smoker;
+	}
 
+	public void setSmoker(String string) {
+		this.smoker = string;
+	}
+
+	public String getAgeRange() {
+		return ageRange;
+	}
+
+	public void setAgeRange(String ageRange) {
+		this.ageRange = ageRange;
+	}
+
+	public String getGenderWeLookFor() {
+		return genderWeLookFor;
+	}
+
+	public void setGenderWeLookFor(String genderWeLookFor) {
+		this.genderWeLookFor = genderWeLookFor;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 }

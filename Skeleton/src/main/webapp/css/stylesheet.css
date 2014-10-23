@@ -634,8 +634,8 @@ label {
 */
 .controls {
     *display: inline-block;
-    *padding-left: 20px;
-    margin-left: 180px;
+    *padding-left: 1px;
+    margin-left: 1px;
     *margin-left: 0
 }
 

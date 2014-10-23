@@ -39,7 +39,7 @@ public class AdDataService implements IAdDataService {
 	public AdForm saveFrom(AdForm adForm) {
 
 		Advertisement ad = new Advertisement();
-
+		// set the pictures
 		Set<Picture> pictures = new HashSet<Picture>();
 		Picture pic1 = new Picture();
 		Picture pic2 = new Picture();
@@ -70,31 +70,58 @@ public class AdDataService implements IAdDataService {
 		if (pic4 != null)
 			pictureDao.save(pic4);
 
+		// set basics for ad
 		ad.setDescription(adForm.getDescription());
-		ad.setCreator("admin");
+		ad.setCreator("toDo");
 		ad.setCreationDate(new Date());
-		ad.setIsLimited(adForm.getIsLimited());
-		if (adForm.getIsLimited()) {
-			ad.setStart(adForm.getStart());
-			ad.setUntil(adForm.getUntil());
-		}
+		
+		ad.setStart(adForm.getStart());
+		ad.setUntil(adForm.getUntil());
+		
 		ad.setRooms(adForm.getRooms());
-		ad.setPrice(adForm.getPrice());
-		ad.setSpace(adForm.getSpace());
-		ad.setRoomies(adForm.getRoomies());
+		ad.setRoomPrice(adForm.getRoomPrice());
+		ad.setRoomSpace(adForm.getRoomSpace());
+		ad.setWgType(adForm.getWgType());
+		ad.setFurnished(adForm.isFurnished());
+		ad.setNmbrOfRoommates(adForm.getNmbrOfRoommates());
+		
+		
+		// address stuff
+		
 		ad.setKanton(adForm.getKanton());
-		ad.setRegion(adForm.getRegion());
-
+		ad.setPlz(adForm.getPlz());
+		ad.setOrt(adForm.getOrt());
+		ad.setAddress(adForm.getAddress());
+		
+		// info about flat
 		ad.setDescription_ad(adForm.getDescription_ad());
 		ad.setHasLaundry(adForm.getHasLaundry());
 		ad.setHasBalcony(adForm.getHasBalcony());
+		ad.setHasDishwasher(adForm.getHasDishwasher());
+		ad.setSmokingInside(adForm.isSmokingInside());
+		ad.setHasPets(adForm.isHasPets());
+		ad.setWlan(adForm.isWlan());
+		
+		
+		// room info
 		ad.setDescription_room(adForm.getDescription_room());
 		ad.setToBalcony(adForm.getIsToBalcony());
 		ad.setHasCables(adForm.getHasCables());
+		ad.setHasBuiltInCloset(adForm.isHasBuiltInCloset());
+		
+		// info about us
 		ad.setDescription_us(adForm.getDescription_us());
-		ad.setDescription_you(adForm.getDescription_you());
-		ad.setTitle(adForm.getRooms() + " for " + adForm.getPrice() + " in "
-				+ adForm.getRegion());
+		ad.setWgGender(adForm.getWgGender());
+		
+		// info about who we are looking for		
+		ad.setWhoWeAreLookingFor(adForm.getWhoWeAreLookingFor());
+		ad.setSmoker(adForm.getSmoker());
+		ad.setAgeRange(adForm.getAgeRange());
+		ad.setGenderWeLookFor(adForm.getGenderWeLookFor());
+		
+		// other
+		ad.setTitle(adForm.getRooms() + " for " + adForm.getRoomPrice() + " in "
+				+ adForm.getOrt());
 
 		ad = advertisementDao.save(ad); // save object to DB
 		adForm.setId(ad.getId());
