@@ -16,17 +16,14 @@
     			<td>Creator:&nbsp;&nbsp;
     			<td>${ads.creator}
     		</tr>
-    		<tr>
-    			<td>Limited:&nbsp;&nbsp;
-    			<td>${ads.isLimited}
-    		</tr>
+    
     		<tr>
     			<td>Rooms:&nbsp;&nbsp;
     			<td>${ads.rooms}
     		</tr>
     		<tr>
     			<td>Space:&nbsp;&nbsp;
-    			<td>${ads.space}
+    			<td>${ads.roomSpace}
     		</tr>
     		<tr>
 		<td><a href="../">Back</a>
