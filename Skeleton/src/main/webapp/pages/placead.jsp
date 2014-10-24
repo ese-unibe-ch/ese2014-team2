@@ -25,7 +25,7 @@
 				Zimmers: </label>
 			<div class="controls">
 				<form:input path="roomPrice" id="field-price" tabindex="1"
-					maxlength="10" placeholder="Kanton" />
+					maxlength="10" />
 			</div>
 
 			<label class="control-label" for="field-von">Ab wann ist das Zimmer frei: </label>
@@ -186,7 +186,7 @@
 						<form:checkbox path="hasLaundry" id="field-adLaundry"
 							tabindex="12" /> <br></br>
 						<label class="control-label"
-						for="field-adDishwasher">Tumbler:</label> <form:checkbox
+						for="field-adDishwasher">Geschirrspüler:</label> <form:checkbox
 							path="hasDishwasher" id="field-adDishwasher" tabindex="13" /> <br></br>
 							
 							<label

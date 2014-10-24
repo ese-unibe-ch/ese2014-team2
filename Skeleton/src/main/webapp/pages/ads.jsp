@@ -5,6 +5,8 @@
 
 
 <c:import url="template/header.jsp" />
+<c:import url="template/filter.jsp"/>
+
 
 
 <c:forEach items="${ads}" var="ads">

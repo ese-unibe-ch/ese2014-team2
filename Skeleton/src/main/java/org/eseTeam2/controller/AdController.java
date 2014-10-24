@@ -20,6 +20,7 @@ import javax.validation.Valid;
 import org.apache.commons.io.IOUtils;
 import org.eseTeam2.PictureManager;
 import org.eseTeam2.controller.pojos.AdForm;
+import org.eseTeam2.controller.pojos.FilterForm;
 import org.eseTeam2.controller.pojos.LoginForm;
 import org.eseTeam2.controller.pojos.SignupForm;
 import org.eseTeam2.controller.service.AdDataService;
@@ -96,7 +97,9 @@ public class AdController {
 		
 
 		ModelAndView model;
+	
 		adService.saveFrom(adForm);
+		
 		model = new ModelAndView("show");
 		return model;
 
@@ -121,6 +124,7 @@ public class AdController {
 	@RequestMapping(value = "/ads", method = RequestMethod.GET)
 	public ModelAndView showAds() {
 		ModelAndView model = new ModelAndView("ads");
+		model.addObject("filterForm", new FilterForm());
 		model.addObject("ads", adService.getAds());
 		return model;
 
@@ -146,5 +150,7 @@ public class AdController {
 		IOUtils.copy(in1, response.getOutputStream());
 		 
 	}
+	
+	
 
 }
