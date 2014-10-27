@@ -28,18 +28,17 @@
 					maxlength="10" />
 			</div>
 
-			<label class="control-label" for="field-von">Ab wann ist das Zimmer frei: </label>
-			<div class="controls"> 
-				<form:input path="start" id="field-von" tabindex="2" maxlength="10" /></div>
+		<label class="control-label" for="field-von">Ab wann ist das Zimmer frei: </label>
+			 <div class="controls">
+			 <form:input path="start" type = "field-von" id ="datepicker" tabindex="2" />  
+			 </div>
  
-
- 
+  
 			
 				<label class="control-label" for="field-bis">Bis wann ist das Zimmer frei: </label>
 			<div class="controls">
-				<form:input path="until" id="field-bis" tabindex="3"
-					maxlength="10" />
-			</div>
+			 	<form:input path="until" type = "field-bis" id ="datepicker2" tabindex="3" />  
+			 </div>
 
 
 	<label class="control-label" for="field-rooms">Anzahl an Zimmer: </label>
@@ -320,7 +319,7 @@
 
 
 			<div class="form-actions">
-				<button type="submit" class="btnblue">Create</button>
+				<button type="submit" class="btnpink">Create</button>
 				<button type="button" class="btnred">Cancel</button>
 			</div>
 		</fieldset>
