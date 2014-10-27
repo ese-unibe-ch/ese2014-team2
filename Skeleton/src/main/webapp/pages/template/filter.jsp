@@ -3,58 +3,81 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
-
+<div class="main">
 <form:form method="post" modelAttribute="filterForm" action="filterAds"
 		id="filterForm" cssClass="form-horizontal" autocomplete="off"
 		enctype="multipart/form-data">
 		<fieldset>
-			<table class="smalltable">
-				<tr>
-					<td>
+			
+				<div class="controls-left">
 						<label class="control-label" for="field-furnished">Möbliert:</label> 
+						<div class="controls">
 						<form:checkbox	path="furnished" id="field-furnished" tabindex="1" />
-					</td>
-					<td>
-						<label class="control-label" for="field-Laundry">Waschmachine:</label> 
+						</div>
+					 
+					 
+						<label class="control-label" for="field-Laundry">Waschmachine:</label>
+						<div class="controls"> 
 						<form:checkbox	path="hasLaundry" id="field-Laundry" tabindex="2" />
-					</td>
-					<td>
+						</div>
+					 
+					 
 						<label class="control-label" for="field-Dishwasher">Geschirrspüler:</label> 
+						<div class="controls">
 						<form:checkbox	path="hasDishwasher" id="field-Dishwasher" tabindex="3" />
-					</td>
-					<td>
+						</div>
+					 
+					 
 						<label class="control-label" for="field-Balcony">Balkon:</label> 
+						<div class="controls">
 						<form:checkbox	path="hasBalcony" id="field-Balcony" tabindex="4" />
-					</td>
-				 </tr>
-				 <tr>
-				 	<td>
+						</div>
+					 
+				  
+				  
+				 	 
 						<label class="control-label" for="field-smokingInside">Rauchen im Haus:</label> 
+						<div class="controls">
 						<form:checkbox	path="smokingInside" id="field-smokingInside" tabindex="5" />
-					</td>
-					<td>
-						<label class="control-label" for="field-pets">Sind Haustiere erwünscht/ erlaubt:</label> 
+						</div>
+						
+						<label class="control-label" for="field-pets">Sind Haustiere erwünscht/ erlaubt:</label>
+						<div class="controls"> 
 						<form:checkbox	path="hasPets" id="field-pets" tabindex="6" />
-					</td>
-					<td>
+						</div>
+					 
+					 
 						<label class="control-label" for="field-wlan">Wlan:</label> 
+						<div class="controls">
 						<form:checkbox	path="wlan" id="field-wlan" tabindex="7" />
-					</td>
-					<td>
+						</div>
+					 
+					 
 						<label class="control-label" for="field-closet">Einbauschrank in zimmer:</label> 
+						<div class="controls">
 						<form:checkbox	path="hasBuiltInCloset" id="field-closet" tabindex="8" />
-					</td>
-					</tr>
-				 <tr>
-				   	<td>
-						<label class="control-label" for="field-isToBalcony">Balkonzugang vom Zimmer aus:</label> 
+						</div>
+						
+						
+					 </div>
+					 <div class="controls-right">
+						
+					 
+					 
+				  
+				   	 
+						<label class="control-label" for="field-isToBalcony">Balkonzugang vom Zimmer aus:</label>
+						<div class="controls"> 
 						<form:checkbox	path="toBalcony" id="field-isToBalcony" tabindex="9" />
-					</td>
-					<td>
+						</div>
+					 
+					 
 						<label class="control-label" for="field-Cables">Kabelanschlüsse im Zimmer:</label> 
+						<div class="controls">
 						<form:checkbox	path="hasCables" id="field-Cables" tabindex="10" />
-					</td>
-					<td>
+						</div>
+					 
+					 
 						<label class="control-label" for="field-wgType">Grober Wgtyp:</label> 
 						<div class="controls">
 							<form:select path="wgType" id="field-wgType"
@@ -66,21 +89,24 @@
 
 							</form:select>
 						</div>
-					</td>
-					<td>
+					 
+					 
 						<label class="control-label" for="field-roomPrice">Zimmerpreis</label> 
+						<div class="controls">
 						<form:input path="roomPrice" id="field-roomPrice" tabindex="11"
 					maxlength="10" />
-					</td>
-				 </tr>
-				  <tr>
-				   	<td>
+					 	</div>
+				  
+				   
+				   	 
 						<label class="control-label" for="field-ort">In welchem Stadt/ Dorf:</label> 
+						<div class="controls">
 						<form:input path="ort" id="field-ort" tabindex="12"
 					maxlength="10" />
-					</td>
-					<td>
-						<label class="control-label" for="field-wgGender">Geschlechteraufteilung in der wg: </label> 
+						</div>
+					 
+						<label class="control-label" for="field-wgGender">Geschlechteraufteilung in der wg: </label>
+						 
 						<div class="controls">
 							<form:select path="wgGender" id="field-wgGender"
 								tabindex="13">
@@ -91,14 +117,9 @@
 
 							</form:select>
 						</div>
-					</td>
-								 </tr>
-				  
-		
-		</table>
-		
-		
-				<button type="submit" class="btnblue">Filter</button>
-			
+					 		<button type="submit" class="btnpink">Filter</button>
+						</div>	  
+				  			
 		</fieldset>
 		</form:form>
+</div>

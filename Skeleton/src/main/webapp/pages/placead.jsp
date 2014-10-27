@@ -9,7 +9,7 @@
 
 
 <div class="main">
-	<h1>Post your Ad!</h1>
+	<h1 class="h1_inline">Post your Ad!</h1>
 
 
 	<form:form method="post" modelAttribute="newAdForm" action="enlistad"
@@ -17,7 +17,7 @@
 		enctype="multipart/form-data">
 		<fieldset>
 
-			<h1>Grundlegende infos:</h1>
+			<h1 class="h1_inline">Grundlegende infos:</h1>
 
 
 
@@ -29,8 +29,8 @@
 			</div>
 
 			<label class="control-label" for="field-von">Ab wann ist das Zimmer frei: </label>
-			<div class="controls"> <form:input path="start" id="field-von" tabindex="2"
-					maxlength="10" /></div>
+			<div class="controls"> 
+				<form:input path="start" id="field-von" tabindex="2" maxlength="10" /></div>
  
 
  
@@ -101,7 +101,7 @@
 			<div class="seperator"></div>
 
 
-			<h1>Addresse der WG:</h1>
+			<h1 class="h1_inline">Addresse der WG:</h1>
 
 
 			<label class="control-label" for="field-adKanton">Kanton:</label>
@@ -135,7 +135,7 @@
 
 			<div class="seperator"></div>
 
-			<h1>Bilder:</h1>
+			<h1 class="h1_inline">Bilder:</h1>
 
 
 			<table border="1" cellpadding="5" width="700">
@@ -172,7 +172,7 @@
 			<div class="seperator"></div>
 
 
-			<h1>Zur Wohnung:</h1>
+			<h1 class="h1_inline">Zur Wohnung:</h1>
 
 			<table border="1" cellpadding="5" width="700">
 				<tr>
@@ -219,7 +219,7 @@
 
 
 			<div class="seperator"></div>
-			<h1>Zum Zimmer:</h1>
+			<h1 class="h1_inline">Zum Zimmer:</h1>
 			<table border="1" cellpadding="5" width="700">
 				<tr>
 					<td><label class="control-label" for="field-description_room">Beschreibung
@@ -251,7 +251,7 @@
 
 
 			<div class="seperator"></div>
-			<h1>Zu Persönlichkeiten:</h1>
+			<h1 class="h1_inline">Zu Persönlichkeiten:</h1>
 
 			<table border="1" cellpadding="5" width="700">
 				<tr>
