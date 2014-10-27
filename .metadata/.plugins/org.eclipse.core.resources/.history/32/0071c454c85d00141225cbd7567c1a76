@@ -276,9 +276,7 @@ body {
 	background-image:url('../img/background.jpg');
 }
 
-.profile {
-	margin-left:5px;
-}
+
 .seperator {
     margin-top:20px;
     margin-bottom:20px;
@@ -405,6 +403,8 @@ a {
 	font-family:Verdana, Arial, Helvetica, sans-serif;
 	font-size:12px;
 	font-weight:none;
+	padding:5px;
+	margin-left:10px;
 }
 
 /*

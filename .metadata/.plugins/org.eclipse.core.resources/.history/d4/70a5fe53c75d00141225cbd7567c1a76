@@ -10,11 +10,11 @@
 
 
 <div class="main">
-<h1 class="h1_inline">${newAdProfile.title }</h1>
+<h1>${newAdProfile.title }</h1>
 
 <img src="getUserImage/<c:out value="${mainPic}"/>">
 
-<h1 class="h1_inline">Grundlegendes:</h1>	
+<h1 class="newstitle">Grundlegendes:</h1>	
 	<table class="profile">
 		<tr>
 			<td>Miete:</td>
@@ -71,7 +71,7 @@
 	
 </table>
 
-<h1 class="h1_inline">Gut zu wissende Dinge:</h1>
+<h1 class="newstitle">Gut zu wissende Dinge:</h1>
 <table class="profile">
 		<tr>
 			<td>Hat es einen Geschirrspüler? </td>
@@ -86,130 +86,57 @@
 		</tr>
 		<tr>
 			<td>Hat es eine Waschmachine?</td>
-			<td><c:choose>
-					<c:when test="${newAdProfile.hasLaundry}">
-						<c:out value="Ja"/>
-					</c:when>
-					<c:otherwise>
-						<c:out value="Nein"/>
-					</c:otherwise>
-				</c:choose>
-			</td>
+			<td>${newAdProfile.hasLaundry}</td>
 		</tr>
 		<tr>
 			<td>Hat es einen Balkon?</td>
-			<td><c:choose>
-					<c:when test="${newAdProfile.hasBalcony}">
-						<c:out value="Ja"/>
-					</c:when>
-					<c:otherwise>
-						<c:out value="Nein"/>
-					</c:otherwise>
-				</c:choose>
-				</td>
+			<td>${newAdProfile.hasBalcony}</td>
 		</tr>
 		<tr>
 			<td>Wird im Haus geraucht?</td>
-			<td><c:choose>
-					<c:when test="${newAdProfile.smokingInside}">
-						<c:out value="Ja"/>
-					</c:when>
-					<c:otherwise>
-						<c:out value="Nein"/>
-					</c:otherwise>
-				</c:choose>
-				</td>
+			<td>${newAdProfile.smokingInside}</td>
 		</tr>
 		<tr>
 			<td>Sind Haustiere erlaubt?</td>
-			<td><c:choose>
-					<c:when test="${newAdProfile.hasPets}">
-						<c:out value="Ja"/>
-					</c:when>
-					<c:otherwise>
-						<c:out value="Nein"/>
-					</c:otherwise>
-				</c:choose>
-				</td>
+			<td>${newAdProfile.hasPets}</td>
 		</tr>
 		<tr>
 			<td>Hat es Wlan?</td>
-			<td>
-			<c:choose>
-					<c:when test="${newAdProfile.wlan}">
-						<c:out value="Ja"/>
-					</c:when>
-					<c:otherwise>
-						<c:out value="Nein"/>
-					</c:otherwise>
-				</c:choose>
-				</td>
+			<td>${newAdProfile.wlan}</td>
 		</tr>
 		<tr>
 			<td>Hat es im Zimmer einen Einbauschrank?</td>
-			<td><c:choose>
-					<c:when test="${newAdProfile.hasBuiltInCloset}">
-						<c:out value="Ja"/>
-					</c:when>
-					<c:otherwise>
-						<c:out value="Nein"/>
-					</c:otherwise>
-				</c:choose>
-				</td>
+			<td>${newAdProfile.hasBuiltInCloset}</td>
 		</tr>
 		<tr>
 			<td>Hat das Zimmer Balkonzugang?</td>
-			<td><c:choose>
-					<c:when test="${newAdProfile.hasBalcony}">
-						<c:out value="Ja"/>
-					</c:when>
-					<c:otherwise>
-						<c:out value="Nein"/>
-					</c:otherwise>
-				</c:choose>
-				</td>
+			<td>${newAdProfile.hasBalcony}</td>
 		</tr>
 		<tr>
 			<td>Hat es Kabelanschlüsse im Zimmer?</td>
-			<td><c:choose>
-					<c:when test="${newAdProfile.hasCables}">
-						<c:out value="Ja"/>
-					</c:when>
-					<c:otherwise>
-						<c:out value="Nein"/>
-					</c:otherwise>
-				</c:choose>
-				</td>
+			<td>${newAdProfile.hasCables}</td>
 		</tr>
 		<tr>
 			<td>Geschlechterverteilung in der WG</td>
-			<td><c:choose>
-					<c:when test="${newAdProfile.wgGender}">
-						<c:out value="Ja"/>
-					</c:when>
-					<c:otherwise>
-						<c:out value="Nein"/>
-					</c:otherwise>
-				</c:choose>
-				</td>
+			<td>${newAdProfile.wgGender}</td>
 		</tr>
 	</table>
 
-<h1>Wohnungsbeschrieb:</h1>
-<p>${newAdProfile.description_ad}</p>
+<h1 class="newstitle">Wohnungsbeschrieb:</h1>
+<p class="newstext">${newAdProfile.description_ad}</p>
 
 <div class="seperator"></div>
 
-<h1>Zimmerbeschrieb:</h1>
-<p>${newAdProfile.description_room}</p>
+<h1 class="newstitle">Zimmerbeschrieb:</h1>
+<p class="newstext">${newAdProfile.description_room}</p>
 
 <div class="seperator"></div>
 
-<h1>Über uns:</h1>
-<p>${newAdProfile.description_us}</p>
+<h1 class="newstitle">Über uns:</h1>
+<p class="newstext">${newAdProfile.description_us}</p>
 
-<h1>Über dich:</h1>
-<p>${newAdProfile.whoWeAreLookingFor}</p>
+<h1 class="newstitle">Über dich:</h1>
+<p class="newstext">${newAdProfile.whoWeAreLookingFor}</p>
 <table class="profile">
 <tr>
 			<td>Du bist:</td>

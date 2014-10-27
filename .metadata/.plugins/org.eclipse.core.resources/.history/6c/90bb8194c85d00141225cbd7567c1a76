@@ -405,6 +405,8 @@ a {
 	font-family:Verdana, Arial, Helvetica, sans-serif;
 	font-size:12px;
 	font-weight:none;
+	padding:5px;
+	margin-left:10px;
 }
 
 /*

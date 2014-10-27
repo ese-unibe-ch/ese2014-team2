@@ -195,21 +195,21 @@
 		</tr>
 	</table>
 
-<h1>Wohnungsbeschrieb:</h1>
-<p>${newAdProfile.description_ad}</p>
+<h1 class="h1_inline">Wohnungsbeschrieb:</h1>
+<p class="newstext">${newAdProfile.description_ad}</p>
 
 <div class="seperator"></div>
 
-<h1>Zimmerbeschrieb:</h1>
-<p>${newAdProfile.description_room}</p>
+<h1 class="h1_inline">Zimmerbeschrieb:</h1>
+<p class="newstext">${newAdProfile.description_room}</p>
 
 <div class="seperator"></div>
 
-<h1>Über uns:</h1>
-<p>${newAdProfile.description_us}</p>
+<h1 class="h1_inline">Über uns:</h1>
+<p class="newstext">${newAdProfile.description_us}</p>
 
-<h1>Über dich:</h1>
-<p>${newAdProfile.whoWeAreLookingFor}</p>
+<h1 class="h1_inline">Über dich:</h1>
+<p class="newstext">${newAdProfile.whoWeAreLookingFor}</p>
 <table class="profile">
 <tr>
 			<td>Du bist:</td>

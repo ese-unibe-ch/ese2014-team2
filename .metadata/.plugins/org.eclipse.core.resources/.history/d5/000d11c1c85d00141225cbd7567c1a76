@@ -209,7 +209,7 @@
 <p>${newAdProfile.description_us}</p>
 
 <h1>Über dich:</h1>
-<p>${newAdProfile.whoWeAreLookingFor}</p>
+<p">${newAdProfile.whoWeAreLookingFor}</p>
 <table class="profile">
 <tr>
 			<td>Du bist:</td>
