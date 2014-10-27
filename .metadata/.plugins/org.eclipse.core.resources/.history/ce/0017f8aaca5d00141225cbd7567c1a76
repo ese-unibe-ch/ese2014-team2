@@ -63,7 +63,7 @@
 					<ul id="image_slider">
 						<c:forEach items="${pictureIds}" var="pics">
 							<li>
-								<img src="getUserImage/ <c:out value="${pics}"/>" width="400" height="400" >
+								<img src="getUserImage/ <c:out value="${pics}"/>">
 							</li>
 						</c:forEach>
 					</ul>

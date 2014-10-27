@@ -413,14 +413,21 @@ a {
 
 */
 
-
+.container{
+	width:800px;
+	height:400px;
+	padding:20px;
+	border:1px solid gray;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	background: black;	
+	text-align: center;
+}
 .slider_wrapper{
-	margin-left:auto;
-	margin-right:auto;
 	overflow: hidden;
 	position:relative;
-	height:400px;
-	width:400px;
+	height:280px;
 	top:auto;
 }
 #image_slider{

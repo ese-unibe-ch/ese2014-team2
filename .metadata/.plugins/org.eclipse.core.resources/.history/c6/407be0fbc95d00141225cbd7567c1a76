@@ -59,19 +59,12 @@
 
 <h1 class="newstitle">Fotos:</h1>
 <table class="profile">
-				<div class="slider_wrapper">
-					<ul id="image_slider">
-						<c:forEach items="${pictureIds}" var="pics">
-							<li>
-								<img src="getUserImage/ <c:out value="${pics}"/>" width="400" height="400" >
-							</li>
-						</c:forEach>
-					</ul>
-					<span class="nvgt" id="prev"></span>
-					<span class="nvgt" id="next"></span>	
-				</div>
-				<ul id="pager">
-				</ul>
+	
+	
+					<c:forEach items="${pictureIds}" var="pics">
+						<img src="getUserImage/ <c:out value="${pics}"/>" width="400" height="400" >
+						
+					</c:forEach>
 				
 	
 		

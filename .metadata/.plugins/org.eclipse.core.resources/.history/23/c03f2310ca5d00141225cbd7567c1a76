@@ -59,6 +59,33 @@
 
 <h1 class="newstitle">Fotos:</h1>
 <table class="profile">
+	
+	<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script type="text/javascript" src="Image-Slider-Pager.js"></script>
+		<link rel="stylesheet" type="text/css" href="Image-Slider-Pager.css">
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="slider_wrapper">
+				<ul id="image_slider">
+					<li><img src="https://dl.dropboxusercontent.com/u/65639888/image/1.jpg"></li>
+					<li><img src="https://dl.dropboxusercontent.com/u/65639888/image/4.jpg"></li>
+					<li><img src="https://dl.dropboxusercontent.com/u/65639888/image/5.jpg"></li>
+					<li><img src="https://dl.dropboxusercontent.com/u/65639888/image/1.jpg"></li>
+					<li><img src="https://dl.dropboxusercontent.com/u/65639888/image/4.jpg"></li>
+					<li><img src="https://dl.dropboxusercontent.com/u/65639888/image/5.jpg"></li>
+				</ul>					
+				<span class="nvgt" id="prev"></span>
+				<span class="nvgt" id="next"></span>		
+			</div>
+			<ul id="pager">
+			</ul>
+		</div>
+	</body>
 				<div class="slider_wrapper">
 					<ul id="image_slider">
 						<c:forEach items="${pictureIds}" var="pics">
@@ -67,11 +94,7 @@
 							</li>
 						</c:forEach>
 					</ul>
-					<span class="nvgt" id="prev"></span>
-					<span class="nvgt" id="next"></span>	
 				</div>
-				<ul id="pager">
-				</ul>
 				
 	
 		
