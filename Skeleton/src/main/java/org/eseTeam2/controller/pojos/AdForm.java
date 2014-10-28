@@ -27,7 +27,7 @@ public class AdForm {
 	// address
 	private String kanton;
 	private int plz;
-	private String ort;
+	private String city;
 	private String address;
 	//private String region;
 	
@@ -149,13 +149,7 @@ public class AdForm {
 	public void setPlz(int plz) {
 		this.plz = plz;
 	}
-	public String getOrt() {
-		return ort;
-	}
-	public void setOrt(String ort) {
-		this.ort = ort;
-	}
-
+	
 
 	public String getDescription_ad() {
 		return description_ad;
@@ -296,6 +290,12 @@ public class AdForm {
 	}
 	public void setSmoker(String smoker) {
 		this.smoker = smoker;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
 	}
 
 	

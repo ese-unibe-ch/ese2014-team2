@@ -99,9 +99,9 @@
 				  
 				   
 				   	 
-						<label class="control-label" for="field-ort">In welchem Stadt/ Dorf:</label> 
+						<label class="control-label" for="field-city">In welchem Stadt/ Dorf:</label> 
 						<div class="controls">
-						<form:input path="ort" id="field-ort" tabindex="12"
+						<form:input path="city" id="field-city" tabindex="12"
 					maxlength="10" />
 						</div>
 					 

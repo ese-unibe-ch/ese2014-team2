@@ -68,7 +68,7 @@ public class AdController {
 
 		PictureManager picmgr = new PictureManager();
 		String path = servletContext.getRealPath(PICTURE_LOCATION);
-		String filename = String.valueOf(adForm.getRoomPrice())+adForm.getAddress()+adForm.getOrt();
+		String filename = String.valueOf(adForm.getRoomPrice())+adForm.getAddress()+adForm.getCity();
 		
 		ArrayList<String> pictures = (picmgr.uploadMultipleFile(path, filename, files));
 				

@@ -40,7 +40,7 @@ public class Advertisement {
 	// address
 	private String kanton;
 	private int plz;
-	private String ort;
+	private String city;
 	private String address;
 	// private String region;
 
@@ -199,13 +199,7 @@ public class Advertisement {
 		this.plz = plz;
 	}
 
-	public String getOrt() {
-		return ort;
-	}
-
-	public void setOrt(String ort) {
-		this.ort = ort;
-	}
+	
 
 	public String getAddress() {
 		return address;
@@ -357,6 +351,14 @@ public class Advertisement {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
 	}
 
 }

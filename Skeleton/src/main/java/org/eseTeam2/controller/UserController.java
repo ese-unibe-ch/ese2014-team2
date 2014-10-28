@@ -44,6 +44,8 @@ public class UserController {
     	model.addObject("newProfile", userService.getUserById(userId));
     	return model;
     }
+    
+    
    		
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public ModelAndView create(@Valid SignupForm signupForm, BindingResult result, RedirectAttributes redirectAttributes) {

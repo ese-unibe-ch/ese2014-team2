@@ -10,5 +10,6 @@ public interface IUserDataService {
 	
 
 	public User getUserById(Long userId);
+	public User getUserByEmail(String email);
 
 }

@@ -90,7 +90,7 @@ public class AdDataService implements IAdDataService {
 		
 		ad.setKanton(adForm.getKanton());
 		ad.setPlz(adForm.getPlz());
-		ad.setOrt(adForm.getOrt());
+		ad.setCity(adForm.getCity());
 		ad.setAddress(adForm.getAddress());
 		
 		// info about flat
@@ -121,7 +121,7 @@ public class AdDataService implements IAdDataService {
 		
 		// other
 		ad.setTitle(adForm.getRooms() + " for " + adForm.getRoomPrice() + " in "
-				+ adForm.getOrt());
+				+ adForm.getCity());
 
 		ad = advertisementDao.save(ad); // save object to DB
 		adForm.setId(ad.getId());
