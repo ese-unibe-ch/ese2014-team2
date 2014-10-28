@@ -80,6 +80,11 @@
             	<a href="register"><div id="registerButton"><span>Regsiter</span><em></em></div></a>
             </div>
             <!-- Register Ends Here -->
+             <!-- MyProfile Starts Here -->
+            <div id="myprofileContainer">
+            	<a href="myprofile"><div id="registerButton"><span>MyProfile</span><em></em></div></a>
+            </div>
+            <!-- MyProfile Ends here -->
         </div>
     </div>
 	

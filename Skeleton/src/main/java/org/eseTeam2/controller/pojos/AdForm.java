@@ -12,7 +12,7 @@ public class AdForm {
 	private Long id;
 	private String title;
 	private String description;
-	private String creator;
+	private User creator;
 	private Date creationDate;
 	private String start;
 	private String until;
@@ -82,12 +82,7 @@ public class AdForm {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getCreator() {
-		return creator;
-	}
-	public void setCreator(String creator) {
-		this.creator = creator;
-	}
+	
 	public Date getCreationDate() {
 		return creationDate;
 	}
@@ -296,6 +291,12 @@ public class AdForm {
 	}
 	public void setCity(String city) {
 		this.city = city;
+	}
+	public User getCreator() {
+		return creator;
+	}
+	public void setCreator(User creator) {
+		this.creator = creator;
 	}
 
 	

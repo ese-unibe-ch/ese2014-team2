@@ -5,6 +5,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -38,6 +39,9 @@ public class User {
 
 	@OneToMany(mappedBy = "user", cascade= CascadeType.ALL)
 	private Set<UserRole> userRole;
+	
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
+	private Set<Advertisement> advertisements;
 	
     
     public Long getId() {
@@ -102,6 +106,14 @@ public class User {
 
 	public void setUserRole(Set<UserRole> userRole) {
 		this.userRole = userRole;
+	}
+
+	public Set<Advertisement> getAdvertisements() {
+		return advertisements;
+	}
+
+	public void setAdvertisements(Set<Advertisement> advertisements) {
+		this.advertisements = advertisements;
 	}
 	
 	

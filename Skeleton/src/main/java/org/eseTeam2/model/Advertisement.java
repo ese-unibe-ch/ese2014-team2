@@ -14,6 +14,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -26,7 +27,10 @@ public class Advertisement {
 
 	private String title;
 	private String description;
-	private String creator;
+	
+	@ManyToOne
+	private User creator;
+	
 	private Date creationDate;
 	private String start;
 	private String until;
@@ -78,6 +82,9 @@ public class Advertisement {
 	// @OneToMany(mappedBy="Advertisement",cascade = CascadeType.ALL)
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
 	private Set<Picture> pictures;
+	
+	@ManyToOne
+	private Advertisement ad;
 
 	public Set<Picture> getPictures() {
 		return pictures;
@@ -103,13 +110,7 @@ public class Advertisement {
 		this.description = description;
 	}
 
-	public String getCreator() {
-		return creator;
-	}
-
-	public void setCreator(String creator) {
-		this.creator = creator;
-	}
+	
 
 	public Date getCreationDate() {
 		return creationDate;
@@ -359,6 +360,22 @@ public class Advertisement {
 
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	public Advertisement getAd() {
+		return ad;
+	}
+
+	public void setAd(Advertisement ad) {
+		this.ad = ad;
+	}
+
+	public User getCreator() {
+		return creator;
+	}
+
+	public void setCreator(User creator) {
+		this.creator = creator;
 	}
 
 }
