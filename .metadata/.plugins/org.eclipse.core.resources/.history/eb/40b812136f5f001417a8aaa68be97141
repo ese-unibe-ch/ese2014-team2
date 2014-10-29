@@ -356,7 +356,6 @@ body {
 
 a {
 	color: inherit; 
-	text-decoration:none;
 } 
 
 #loginbar {
@@ -380,10 +379,9 @@ a {
 	margin-right:auto;
 }
 
-#header_wrapper a {
+#header a {
 	text-decoration:none;
 }
-
 #header h1 {
 	text-transform:uppercase;
 	text-decoration:none;
