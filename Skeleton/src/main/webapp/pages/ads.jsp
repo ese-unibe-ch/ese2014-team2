@@ -16,7 +16,7 @@
     	<table class="smalltable">
     		<tr>
     			<td>Creator:&nbsp;&nbsp;
-    			<td>${ads.creator}
+    			<td>${ads.creator.firstName}
     		</tr>
     
     		<tr>
