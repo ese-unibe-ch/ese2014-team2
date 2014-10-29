@@ -87,6 +87,10 @@ public class UserDataService implements IUserDataService {
 	public User getUserById(Long userId) {
 		return userDao.findOne(userId);
 	}
+	
+	public User getUserByEmail(String email) {
+		return userDao.findByEmail(email);
+	}
 
 
 	

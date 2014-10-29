@@ -9,6 +9,7 @@ import java.util.Set;
 import org.eseTeam2.controller.pojos.AdForm;
 import org.eseTeam2.model.Advertisement;
 import org.eseTeam2.model.Picture;
+import org.eseTeam2.model.User;
 import org.eseTeam2.model.dao.AddressDao;
 import org.eseTeam2.model.dao.AdvertisementDao;
 import org.eseTeam2.model.dao.PictureDao;
@@ -27,6 +28,8 @@ public class AdDataService implements IAdDataService {
 	AdvertisementDao advertisementDao;
 	@Autowired
 	PictureDao pictureDao;
+	@Autowired
+	UserDao userDao;
 
 	public Iterable<Advertisement> getAds() {
 		return advertisementDao.findAll();
@@ -39,7 +42,13 @@ public class AdDataService implements IAdDataService {
 	public AdForm saveFrom(AdForm adForm) {
 
 		Advertisement ad = new Advertisement();
+		Set<Advertisement> adsOfUser = new HashSet<Advertisement>();
 		// set the pictures
+		User creator = adForm.getCreator();
+		if ( !creator.getAdvertisements().isEmpty()) {
+			adsOfUser = creator.getAdvertisements();
+		}
+		
 		Set<Picture> pictures = new HashSet<Picture>();
 		Picture pic1 = new Picture();
 		Picture pic2 = new Picture();
@@ -72,7 +81,7 @@ public class AdDataService implements IAdDataService {
 
 		// set basics for ad
 		ad.setDescription(adForm.getDescription());
-		ad.setCreator("toDo");
+		ad.setCreator(adForm.getCreator());
 		ad.setCreationDate(new Date());
 		
 		ad.setStart(adForm.getStart());
@@ -90,7 +99,7 @@ public class AdDataService implements IAdDataService {
 		
 		ad.setKanton(adForm.getKanton());
 		ad.setPlz(adForm.getPlz());
-		ad.setOrt(adForm.getOrt());
+		ad.setCity(adForm.getCity());
 		ad.setAddress(adForm.getAddress());
 		
 		// info about flat
@@ -121,9 +130,15 @@ public class AdDataService implements IAdDataService {
 		
 		// other
 		ad.setTitle(adForm.getRooms() + " for " + adForm.getRoomPrice() + " in "
-				+ adForm.getOrt());
-
+				+ adForm.getCity());
+		adsOfUser.add(ad);
+		creator.setAdvertisements(adsOfUser);
+		
+		
 		ad = advertisementDao.save(ad); // save object to DB
+		
+		creator  = userDao.save(creator);
+		
 		adForm.setId(ad.getId());
 
 		return adForm;

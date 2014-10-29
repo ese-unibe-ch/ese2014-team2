@@ -105,10 +105,10 @@
 			</div>
 
 
-			<label class="control-label" for="field-adOrt">Ort:</label>
+			<label class="control-label" for="field-city">Ort:</label>
 			<div class="controls">
-				<form:input path="ort" id="field-adOrt" tabindex="9" maxlength="20"
-					placeholder="Ort" />
+				<form:input path="city" id="field-city" tabindex="9" maxlength="20"
+					placeholder="City" />
 			</div>
 
 

@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Set;
 
@@ -25,6 +26,7 @@ import org.eseTeam2.controller.pojos.LoginForm;
 import org.eseTeam2.controller.pojos.SignupForm;
 import org.eseTeam2.controller.service.AdDataService;
 import org.eseTeam2.controller.service.IAdDataService;
+import org.eseTeam2.controller.service.IUserDataService;
 import org.eseTeam2.controller.service.UserDataService;
 import org.eseTeam2.exceptions.InvalidUserException;
 import org.eseTeam2.model.Picture;
@@ -48,6 +50,8 @@ public class AdController {
 
 	@Autowired
 	private IAdDataService adService;
+	@Autowired 
+	private IUserDataService userService;
 	
 	@Autowired
 	private ServletContext servletContext;
@@ -63,12 +67,15 @@ public class AdController {
 
 	@RequestMapping(value = "/enlistad", method = RequestMethod.POST)
 	public ModelAndView enlistad(@Valid AdForm adForm, BindingResult result,
-			RedirectAttributes redirectAttributes,
+			RedirectAttributes redirectAttributes,Principal principal,
 			@RequestParam("image") MultipartFile[] files) {
-
+		
+		String user = principal.getName();
+		User creator = userService.getUserByEmail(principal.getName());
+		adForm.setCreator(creator);
 		PictureManager picmgr = new PictureManager();
 		String path = servletContext.getRealPath(PICTURE_LOCATION);
-		String filename = String.valueOf(adForm.getRoomPrice())+adForm.getAddress()+adForm.getOrt();
+		String filename = String.valueOf(adForm.getRoomPrice())+adForm.getAddress()+adForm.getCity();
 		
 		ArrayList<String> pictures = (picmgr.uploadMultipleFile(path, filename, files));
 				

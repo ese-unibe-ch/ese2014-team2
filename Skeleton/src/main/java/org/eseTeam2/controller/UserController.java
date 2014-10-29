@@ -1,5 +1,7 @@
 package org.eseTeam2.controller;
 
+import java.security.Principal;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -18,6 +20,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -44,6 +47,19 @@ public class UserController {
     	model.addObject("newProfile", userService.getUserById(userId));
     	return model;
     }
+
+    
+    @RequestMapping(value = "/myprofile", method = RequestMethod.GET)
+    @ResponseBody
+    public ModelAndView myProfile(Principal principal) {
+    	
+    	User currentUser = userService.getUserByEmail(principal.getName());
+    	
+    	ModelAndView model = new ModelAndView("myProfile");
+    	model.addObject("user", currentUser);
+		return model; }
+    
+    
    		
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public ModelAndView create(@Valid SignupForm signupForm, BindingResult result, RedirectAttributes redirectAttributes) {

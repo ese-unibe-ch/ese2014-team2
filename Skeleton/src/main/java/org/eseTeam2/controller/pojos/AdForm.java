@@ -12,7 +12,7 @@ public class AdForm {
 	private Long id;
 	private String title;
 	private String description;
-	private String creator;
+	private User creator;
 	private Date creationDate;
 	private String start;
 	private String until;
@@ -27,7 +27,7 @@ public class AdForm {
 	// address
 	private String kanton;
 	private int plz;
-	private String ort;
+	private String city;
 	private String address;
 	//private String region;
 	
@@ -82,12 +82,7 @@ public class AdForm {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getCreator() {
-		return creator;
-	}
-	public void setCreator(String creator) {
-		this.creator = creator;
-	}
+	
 	public Date getCreationDate() {
 		return creationDate;
 	}
@@ -149,13 +144,7 @@ public class AdForm {
 	public void setPlz(int plz) {
 		this.plz = plz;
 	}
-	public String getOrt() {
-		return ort;
-	}
-	public void setOrt(String ort) {
-		this.ort = ort;
-	}
-
+	
 
 	public String getDescription_ad() {
 		return description_ad;
@@ -296,6 +285,18 @@ public class AdForm {
 	}
 	public void setSmoker(String smoker) {
 		this.smoker = smoker;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public User getCreator() {
+		return creator;
+	}
+	public void setCreator(User creator) {
+		this.creator = creator;
 	}
 
 	
