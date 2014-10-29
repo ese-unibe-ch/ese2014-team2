@@ -1,0 +1,844 @@
+/*
+
+	OWN STYLESHEET OF DOOM
+
+*/
+/* 
+	better reset first
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*
+
+	New Content after reset starts here!
+	
+	Quicklist:
+		- Lightblue colorset: 	#3fa9f5
+		- Headerwhite: 			#f9f9f9
+		- Container grey:		#e0e0e0
+		- Footer black: 		#636265
+*/
+
+
+/* Login Box */
+.registeBox {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+    position:absolute;
+    top:34px;
+    right:0;
+    display:none;
+    z-index:29;
+}
+
+.registerContainer {
+    position:relative;
+    float:right;
+    font-size:12px;
+}
+
+.registerButton { 
+    display:inline-block;
+    float:right;
+    background:#ffa9f5; 
+    border:1px solid #899caa; 
+    border-radius:3px;
+    -moz-border-radius:3px;
+    position:relative;
+    z-index:30;
+    cursor:pointer;
+}
+
+#loggedinMenu li {
+	display:inline;
+	text-decoration:none;  
+    /*color:#716d6a;*/  
+    font-family:Verdana, Arial, Helvetica, sans-serif;  
+    font-size:10px;  
+    font-weight:bold;  
+    text-transform:uppercase; 
+}
+
+/*
+	LOGINBAR
+
+*/
+
+
+/*-------LOGIN STARTS HERE -------*/
+
+/* Login Container (default to float:right) */
+#loginContainer {
+    position:relative;
+    float:right;
+    font-size:12px;
+}
+
+.registerButton span {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+    color:#445058; 
+    font-size:14px; 
+    font-weight:bold; 
+    text-shadow:1px 1px #fff; 
+    padding:7px 29px 9px 10px;
+    display:block
+}
+
+/* Login Button */
+#loginButton { 
+    display:inline-block;
+    float:right;
+    background:#ffa9f5; 
+    border:1px solid #899caa; 
+    border-radius:3px;
+    -moz-border-radius:3px;
+    position:relative;
+    z-index:30;
+    cursor:pointer;
+}
+
+/* Login Button Text */
+#loginButton span {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+    color:#445058; 
+    font-size:14px; 
+    font-weight:bold; 
+    text-shadow:1px 1px #fff; 
+    padding:7px 29px 9px 10px;
+    display:block;
+}
+
+#loginButton:hover {
+    background:url(../img/buttonbgHover.png) repeat-x;
+}
+
+/* Login Box */
+#loginBox {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+    position:absolute;
+    top:34px;
+    right:0;
+    display:none;
+    z-index:29;
+}
+
+/* If the Login Button has been clicked */    
+#loginButton.active {
+    border-radius:3px 3px 0 0;
+}
+
+#loginButton.active span {
+    background-position:53px -76px;
+}
+
+/* A Line added to overlap the border */
+#loginButton.active em {
+    position:absolute;
+    width:100%;
+    height:1px;
+    background:#d2e0ea;
+    bottom:-1px;
+}
+
+/* Login Form */
+#loginForm {
+    width:248px; 
+    border:1px solid #899caa;
+    border-radius:3px 0 3px 3px;
+    -moz-border-radius:3px 0 3px 3px;
+    margin-top:-1px;
+    background:#ffa9f5;
+    padding:6px;
+}
+
+#loginForm fieldset {
+    margin:0 0 12px 0;
+    display:block;
+    border:0;
+    padding:0;
+}
+
+fieldset#body {
+    background:#fff;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    padding:10px 13px;
+    margin:0;
+}
+
+#loginForm #checkbox {
+    width:auto;
+    margin:1px 9px 0 0;
+    float:left;
+    padding:0;
+    border:0;
+    *margin:-3px 9px 0 0; /* IE7 Fix */
+}
+
+#body label {
+    color:#3a454d;
+    margin:9px 0 0 0;
+    display:block;
+    float:left;
+}
+
+#loginForm #body fieldset label {
+    display:block;
+    float:none;
+    margin:0 0 6px 0;
+}
+
+/* Default Input */
+#loginForm input {
+    width:92%;
+    border:1px solid #899caa;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    color:#3a454d;
+    font-weight:bold;
+    padding:8px 8px;
+    box-shadow:inset 0px 1px 3px #bbb;
+    -webkit-box-shadow:inset 0px 1px 3px #bbb;
+    -moz-box-shadow:inset 0px 1px 3px #bbb;
+    font-size:12px;
+}
+
+/* Sign In Button */
+#loginForm #login {
+    width:auto;
+    float:left;
+    background:#339cdf url(../img/loginbuttonbg.png) repeat-x;
+    color:#fff;
+    padding:7px 10px 8px 10px;
+    text-shadow:0px -1px #278db8;
+    border:1px solid #339cdf;
+    box-shadow:none;
+    -moz-box-shadow:none;
+    -webkit-box-shadow:none;
+    margin:0 12px 0 0;
+    cursor:pointer;
+    *padding:7px 2px 8px 2px; /* IE7 Fix */
+}
+
+/* Forgot your password */
+#loginForm span {
+    text-align:center;
+    display:block;
+    padding:7px 0 4px 0;
+}
+
+#loginForm span a {
+    color:#3a454d;
+    text-shadow:1px 1px #fff;
+    font-size:12px;
+}
+
+input:focus {
+    outline:none;
+}
+body {
+	padding:0;
+	margin:0;
+	background-color:#3fa9f5;
+	background-image:url('../img/background.jpg');
+}
+
+.profile {
+	margin-left:5px;
+}
+.seperator {
+    margin-top:20px;
+    margin-bottom:20px;
+    border: 0;
+    height: 1px;
+    /*
+    background: #333;
+    background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc); 
+    background-image:    -moz-linear-gradient(left, #ccc, #333, #ccc); 
+    background-image:     -ms-linear-gradient(left, #ccc, #333, #ccc); 
+    background-image:      -o-linear-gradient(left, #ccc, #333, #ccc); 
+    */
+}
+
+
+.main {
+	margin:10px;
+	line-height:15px;
+	padding-bottom:2px;
+	text-transform:none;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	text-decoration:none;  
+	font-weight:none;
+	padding-bottom:5px;
+	padding:5px;
+	width:900px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	background-color:white;
+	border-top-left-radius: 5pt 5pt;
+ 	border-top-right-radius: 5pt 5pt;
+  	border-bottom-right-radius: 5pt 5pt;
+  	border-bottom-left-radius: 5pt 5pt;
+  	background-color:#ff98ff;
+}
+
+a {
+	color: inherit; 
+} 
+
+#loginbar {
+	height:35px;
+	background-color:black;
+	widht:100%;
+}
+
+#header {
+	background-image:url('../img/adsfdasfadsfasdfdsa.png');
+	height:150px;
+	width:100%;
+	border-bottom-right-radius: 5pt 5pt;
+  	border-bottom-left-radius: 5pt 5pt;
+}
+
+#header_wrapper {
+	padding-top:3%;
+	width:900px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#header h1 {
+	text-transform:uppercase;
+	text-decoration:none;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:25px;
+	font-weight:bold;
+}
+
+#header p {
+	text-transform:uppercase;
+	text-decoration:none;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:14px;
+	font-weight:none;
+}
+
+.container {
+	margin-left:auto;
+	margin-right:auto;
+	width:900px;
+	height:100%;
+	text-transform:none;
+	text-decoration:none;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	font-weight:none;
+	padding:5px;
+}
+
+.container h1 {
+	text-transform:uppercase;
+	text-decoration:none;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:16px;
+	font-weight:bold;
+	padding:5px;
+}
+
+.container p {
+	text-transform:none;
+	text-decoration:none;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	font-weight:none;
+	padding:5px;
+	margin-left:10px;
+}
+
+.h1_inline {
+	text-transform:none;
+	text-decoration:none;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	font-weight:none;
+} 
+
+.newstext {
+	text-transform:none;
+	text-decoration:none;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	font-weight:none;
+}
+/*
+
+	CREATED SICK SLIDER Yolo
+
+
+*/
+
+
+.slider_wrapper{
+	margin-left:auto;
+	margin-right:auto;
+	overflow: hidden;
+	position:relative;
+	height:400px;
+	width:400px;
+	top:auto;
+}
+#image_slider{
+
+	position: relative;
+	height: auto;
+	list-style: none;
+	overflow: hidden;
+	float: left;
+	/*Chrom default padding for ul is 40px */
+	padding:0px;
+	margin:0px;
+}
+#image_slider li{
+	position: relative;
+	float: left;
+}
+.nvgt{
+	position:absolute;
+	top: 120px;
+	height: 50px;
+	width: 30px;
+	opacity: 0.6;
+}
+.nvgt:hover{
+	opacity: 0.9;
+}
+#prev{
+	background: #000 url('https://dl.dropboxusercontent.com/u/65639888/image/prev.png') no-repeat center;
+	left: 0px;
+}
+#next{
+	background: #000 url('https://dl.dropboxusercontent.com/u/65639888/image/next.png') no-repeat center;
+	right: 0px;
+}
+#pager{
+	/* firefox has different center method. this doesn't work for fire fox */
+	/* not in the center*/
+	padding:0px;
+	position:relative;
+	height:50px;
+	margin:auto;
+	margin-top:10px;
+}
+#pager li{
+	padding: 0px;
+	margin:5px;
+	width:20px;
+	height:20px;
+	border:1px solid white;
+	color:white;
+	list-style: none;
+	opacity: 0.6;
+	float:left;
+	border-radius: 3px;
+	cursor: pointer;
+}
+#pager li:hover{
+	opacity:0.9;
+}
+
+
+/*
+#container_background {
+
+	margin-left:auto;
+	margin-right:auto;
+	width:1000px;
+	height:100%;
+	background-color:#e0e0e0; 
+	border-top-left-radius: 5pt 5pt;
+ 	border-top-right-radius: 5pt 5pt;
+  	border-bottom-right-radius: 5pt 5pt;
+  	border-bottom-left-radius: 5pt 5pt;
+  	padding-bottom:40px;
+}
+*/
+#push {
+	height:40px;
+}
+
+#footer {
+	padding:25px;
+	width:1000px;
+	height:40px;
+	border-top-left-radius: 5pt 5pt;
+ 	border-top-right-radius: 5pt 5pt;
+}
+
+#footer_wrapper {
+	margin-top:-40px;
+	width:100%;
+	position:relative;
+	bottom:0;
+	left:0;
+	clear:both;
+	float: left;
+	
+}
+
+
+#footerbar {
+	clear:both;
+	position:relative;
+	left:700px;
+	border-bottom-right-radius: 5pt 5pt;
+  	border-bottom-left-radius: 5pt 5pt;
+  	display:inline;
+}
+
+#footerbar li {
+	padding-top:5px;
+	padding-left:15px;
+	display:inline;
+	text-decoration:none;  
+    /*color:#716d6a;*/  
+    font-family:Verdana, Arial, Helvetica, sans-serif;  
+    font-size:10px;  
+    font-weight:bold;  
+    text-transform:uppercase; 
+}
+
+#footerbar li a {
+	text-decoration:none;
+	color:#d2d2d2;
+	
+}
+
+.footerbar_content {
+	display:block;
+}
+
+
+.main_button_left_big {
+	height:300px;
+	width:440px;
+	float:left;
+/*	background-color:#f9f9f9; */
+	background-color:#ffa9f5;
+	margin:5px;
+	border-top-left-radius: 5pt 5pt;
+ 	border-top-right-radius: 5pt 5pt;
+  	border-bottom-right-radius: 5pt 5pt;
+  	border-bottom-left-radius: 5pt 5pt;
+}
+
+.main_button_right_big {
+	height:300px;
+	width:440px;
+	float:right;
+/*	background-color:#f9f9f9;*/
+ 	background-color:#ffa9f5;
+	margin:5px;
+	border-top-left-radius: 5pt 5pt;
+ 	border-top-right-radius: 5pt 5pt;
+  	border-bottom-right-radius: 5pt 5pt;
+  	border-bottom-left-radius: 5pt 5pt;
+}
+
+.main_button_left_small {
+	height:150px;
+	width:440px;
+	float:left;
+/*	background-color:#f9f9f9; */
+	background-color:#ffa9f5;
+	margin:5px;
+	border-top-left-radius: 5pt 5pt;
+ 	border-top-right-radius: 5pt 5pt;
+  	border-bottom-right-radius: 5pt 5pt;
+  	border-bottom-left-radius: 5pt 5pt;
+}
+
+.main_button_right_small {
+	height:150px;
+	width:440px;
+	float:right;
+/*	background-color:#f9f9f9;*/
+ 	background-color:#ffa9f5;
+	margin:5px;
+	border-top-left-radius: 5pt 5pt;
+ 	border-top-right-radius: 5pt 5pt;
+  	border-bottom-right-radius: 5pt 5pt;
+  	border-bottom-left-radius: 5pt 5pt;
+}
+
+#mbr1 {
+	height:150px;
+	width:150px;
+	margin:auto;
+	background-image:url('../img/house_add.jpg');
+}
+
+#mbl1 {
+	height:150px;
+	width:150px;
+	margin:auto;
+	background-image:url('../img/house_qm.jpg');
+}
+
+#mbr2 {
+	height:150px;
+	width:150px;
+	margin:auto;
+	background-image:url('../img/ppl_add.jpg');
+}
+
+#mbl2 {
+	height:150px;
+	width:150px;
+	margin:auto;
+	background-image:url('../img/pplqm.jpg');
+}
+
+
+/*
+	SOCIAL MEDIA IN FOOTER
+
+*/
+
+#socialmedia {
+	float:right;
+	display:inline;
+	margin-top:25px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#facebook {
+	background-image:url("../img/facebook_small.jpg");
+	width:30px;
+	height:30px;
+}
+
+#twitter {
+	background-image:url("../img/twitter_small.jpg");
+	width:30px;
+	height:30px;
+}
+
+#gplus {
+	background-image:url("../img/gplus_small.jpg");
+	width:30px;
+	height:30px;
+}
+
+#rss {
+	background-image:url("../img/rss_small.jpg");
+	width:30px;
+	height:30px;
+}
+
+/*
+	TABLES
+	
+*/
+
+.smalltable {
+	margin-left:auto;
+	margin-right:auto;
+	column-width:300px;
+	width:800px;	
+}
+
+.signupform {
+	margin-left:auto;
+	margin-right:auto;
+	width:800px;
+	column-width:300px;
+	border:solid;
+	border-size:1px;
+}
+
+.signupform tr{
+	height:50px;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 5px
+}
+
+/*
+	BUTTONS
+
+*/
+
+.btnblue {
+	margin:10px;
+	border:none;
+	height:50px;
+	width:100px;
+	text-transform:uppercase;
+	text-decoration:none;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:14px;
+	font-weight:bold;
+	background-color:#3fa9f5;
+	border-top-left-radius: 5pt 5pt;
+ 	border-top-right-radius: 5pt 5pt;
+  	border-bottom-right-radius: 5pt 5pt;
+  	border-bottom-left-radius: 5pt 5pt;
+}
+
+.btnpink {
+	margin:10px;
+	border:none;
+	height:50px;
+	width:100px;
+	text-transform:uppercase;
+	text-decoration:none;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:14px;
+	font-weight:bold;
+	background-color:#ffa9f5;
+	border-top-left-radius: 5pt 5pt;
+ 	border-top-right-radius: 5pt 5pt;
+  	border-bottom-right-radius: 5pt 5pt;
+  	border-bottom-left-radius: 5pt 5pt;
+  	border:solid;
+  	border-width:1px;
+}
+
+.btnred {
+	margin:10px;
+	border:none;
+	height:50px;
+	width:100px;
+	text-transform:uppercase;
+	text-decoration:none;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:14px;
+	font-weight:bold;
+	background-color:#f53f3f;
+	border-top-left-radius: 5pt 5pt;
+ 	border-top-right-radius: 5pt 5pt;
+  	border-bottom-right-radius: 5pt 5pt;
+  	border-bottom-left-radius: 5pt 5pt;
+}
+
+/*
+
+	CONTROL CLASSES COPIED FROM main.css
+*/
+.controls {
+    *display: inline-block;
+    *padding-left: 1px;
+    margin-left: 1px;
+    *margin-left: 0
+}
+
+.controls-right {
+	float:right;
+    *display: inline-block;
+    *padding-left: 1px;
+    margin-left: 1px;
+    *margin-left: 0
+}
+
+.controls-left {
+	float:left;
+    *display: inline-block;
+    *padding-left: 1px;
+    margin-left: 1px;
+    *margin-left: 0
+}
+
+.controls input {
+	display:inline;
+	padding: 10px;
+  	border: solid 1px #fff;
+  	box-shadow: inset 1px 1px 2px 0 #707070;
+  	transition: box-shadow 0.3s;
+  	border-top-left-radius: 5pt 5pt;
+ 	border-top-right-radius: 5pt 5pt;
+  	border-bottom-right-radius: 5pt 5pt;
+  	border-bottom-left-radius: 5pt 5pt;
+}
+
+.controls input:focus,
+.controls input.focus {
+	box-shadow: inset 1px 1px 2px 0 #c9c9c9;
+  border-top-left-radius: 5pt 5pt;
+ 	border-top-right-radius: 5pt 5pt;
+  	border-bottom-right-radius: 5pt 5pt;
+  	border-bottom-left-radius: 5pt 5pt;
+}
+
+.control-label {
+	margin-left:5px;
+}
+
+
+/*
+.controls input[type="text"] {
+  padding: 10px;
+  border: solid 1px #fff;
+  box-shadow: inset 1px 1px 2px 0 #707070;
+  transition: box-shadow 0.3s;
+  border-top-left-radius: 5pt 5pt;
+ 	border-top-right-radius: 5pt 5pt;
+  	border-bottom-right-radius: 5pt 5pt;
+  	border-bottom-left-radius: 5pt 5pt;
+}
+.controls input[type="text"]:focus,
+.controls input[type="text"].focus {
+  box-shadow: inset 1px 1px 2px 0 #c9c9c9;
+  border-top-left-radius: 5pt 5pt;
+ 	border-top-right-radius: 5pt 5pt;
+  	border-bottom-right-radius: 5pt 5pt;
+  	border-bottom-left-radius: 5pt 5pt;
+}
+*/

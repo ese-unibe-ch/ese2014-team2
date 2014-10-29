@@ -6,7 +6,7 @@
 
 <c:import url="template/header.jsp" />
 
-<h1>${user.firstName }'s Profile</h1>
+<h1>${newProfile.firstName }'s Profile</h1>
 
 
 
@@ -25,8 +25,11 @@
 	</td>
 
 	<tr>
+		<td>The ads of the user: &nbsp;&nbsp;
 		<td>
-		<td>
+		<c:forEach items="${user.advertisements}" var="ad">
+   <h1>${ad.title}</h1>
+</c:forEach>
 	</td>
 	
 </table>

@@ -99,14 +99,12 @@
 	<div class="loggedinBar">
 		<div id="loggedinMenu">
 			<ul>
-				<li>Welcome ${user.firstName}</li>
-				<li><a href="myprofile">My Profile</a></li>
-				<li><a href="inbox">My Inbox</a></li>
-				<li><a href="myads">My Ads</a></li>
+				<li><div class="menuButton"><span>Welcome</span></div></li>
+				<li><a href="myprofile"><div class="menuButton"><span>My Profile</span></div></a></li>
+				<li><a href="inbox"><div class="menuButton"><span>My Inbox</span></div></a></li>
+				<li><a href="myads"><div class="menuButton"><span>My Ads</span></div></a></li>
+				<li><a href="logout"><div class="registerButton"><span>Logout</span></div></a></li>
 			</ul>
-		</div>
-		<div  class="registerContainer">
-			<a href="logout"><div class="registerButton"><span>Logout</span></div></a>
 		</div>
 	</div>
 </security:authorize>	

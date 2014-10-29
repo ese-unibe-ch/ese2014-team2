@@ -80,6 +80,7 @@ table {
 }
 
 .registerButton { 
+	text-transform:none;
     display:inline-block;
     float:right;
     background:#ffa9f5; 
@@ -91,6 +92,41 @@ table {
     cursor:pointer;
 }
 
+.menuButton span {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+    color:#445058; 
+    font-size:14px; 
+    font-weight:bold; 
+    text-shadow:1px 1px #fff; 
+    padding:7px 29px 9px 10px;
+    display:block
+}
+
+.menuButton {
+	text-transform:none;
+    display:inline-block;
+    float:left;
+    background:#ffa9f5; 
+    border:1px solid #899caa; 
+    border-radius:3px;
+    -moz-border-radius:3px;
+    position:relative;
+    z-index:30;
+    cursor:pointer;
+}
+
+#loggedinMenu {
+	margin-left:375px;
+}
+
+#loggedinMenu li {
+	display:inline;
+    margin-left:15px; 
+}
+
+#loggedinMenu li a {
+	text-decoration:none;
+}
 
 /*
 	LOGINBAR
@@ -707,6 +743,10 @@ label {
 
 */
 
+.form-actions{
+	float:right;
+	}
+
 .btnblue {
 	margin:10px;
 	border:none;
@@ -726,7 +766,6 @@ label {
 
 .btnpink {
 	margin:10px;
-	border:none;
 	height:50px;
 	width:100px;
 	text-transform:uppercase;
@@ -745,7 +784,6 @@ label {
 
 .btnred {
 	margin:10px;
-	border:none;
 	height:50px;
 	width:100px;
 	text-transform:uppercase;
@@ -758,6 +796,8 @@ label {
  	border-top-right-radius: 5pt 5pt;
   	border-bottom-right-radius: 5pt 5pt;
   	border-bottom-left-radius: 5pt 5pt;
+  	border:solid;
+  	border-width:1px;
 }
 
 /*
