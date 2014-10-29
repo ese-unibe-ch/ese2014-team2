@@ -631,8 +631,7 @@ a {
 	float:left;
 /*	background-color:#f9f9f9; */
 	background-color:#ffa9f5;
-	margin-top:5px;
-	margin-right:5px;
+	margin:5px;
 	border-top-left-radius: 5pt 5pt;
  	border-top-right-radius: 5pt 5pt;
   	border-bottom-right-radius: 5pt 5pt;
@@ -645,8 +644,7 @@ a {
 	float:right;
 /*	background-color:#f9f9f9;*/
  	background-color:#ffa9f5;
-	margin-left:5px;
-	margin-top:5px;
+	margin:5px;
 	border-top-left-radius: 5pt 5pt;
  	border-top-right-radius: 5pt 5pt;
   	border-bottom-right-radius: 5pt 5pt;
