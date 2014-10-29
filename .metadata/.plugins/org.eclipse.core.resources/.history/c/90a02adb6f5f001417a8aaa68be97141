@@ -85,7 +85,11 @@
             	<a href="register"><div class="registerButton"><span>Regsiter</span><em></em></div></a>
             </div>
             <!-- Register Ends Here -->
-            
+             <!-- MyProfile Starts Here -->
+            <div id="myprofileContainer">
+            	<a href="myprofile"><div id="registerButton"><span>MyProfile</span><em></em></div></a>
+            </div>
+            <!-- MyProfile Ends here -->
         </div>
     </div>
 </div>
@@ -95,7 +99,7 @@
 	<div class="loggedinBar">
 		<div id="loggedinMenu">
 			<ul>
-				<li><div class="menuButton"><span>Welcome</span></div></li>
+				<li><a href="/Skeleton/"><div class="menuButton"><span>Welcome</span></div></a></li>
 				<li><a href="myprofile"><div class="menuButton"><span>My Profile</span></div></a></li>
 				<li><a href="inbox"><div class="menuButton"><span>My Inbox</span></div></a></li>
 				<li><a href="myads"><div class="menuButton"><span>My Ads</span></div></a></li>

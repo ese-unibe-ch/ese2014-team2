@@ -116,9 +116,7 @@ table {
 }
 
 #loggedinMenu {
-	width:900px;
-	margin-left:auto;
-	margin-right:auto;
+	margin-left:375px;
 }
 
 #loggedinMenu li {
