@@ -64,7 +64,7 @@ table {
 
 
 /* Login Box */
-#registeBox {
+.registeBox {
 	font-family:Verdana, Arial, Helvetica, sans-serif;
     position:absolute;
     top:34px;
@@ -73,13 +73,13 @@ table {
     z-index:29;
 }
 
-#registerContainer {
+.registerContainer {
     position:relative;
     float:right;
     font-size:12px;
 }
 
-#registerButton { 
+.registerButton { 
     display:inline-block;
     float:right;
     background:#ffa9f5; 
@@ -107,7 +107,7 @@ table {
     font-size:12px;
 }
 
-#registerButton span {
+.registerButton span {
 	font-family:Verdana, Arial, Helvetica, sans-serif;
     color:#445058; 
     font-size:14px; 

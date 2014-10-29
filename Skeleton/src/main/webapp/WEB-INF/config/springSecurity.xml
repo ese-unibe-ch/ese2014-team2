@@ -16,6 +16,8 @@
 		 <security:logout invalidate-session="true" logout-success-url="/" 
 			logout-url="/logout" />
 	</security:http>
+	<bean id="webexpressionHandler" class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" /> 
+	
 
 	<security:authentication-manager>
 		<security:authentication-provider>

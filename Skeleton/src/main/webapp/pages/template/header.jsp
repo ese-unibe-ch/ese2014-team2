@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<http use-expressions="true">
+
 	
     	<meta charset="utf-8">
 
@@ -32,8 +33,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 
-    	  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-lightness/jquery-ui.css" rel="stylesheet" type="text/css"/>  
+   	  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-lightness/jquery-ui.css" rel="stylesheet" type="text/css"/>  
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>  
       <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>  
         
@@ -48,9 +50,12 @@
         $("#datepicker2").datepicker();  
       });  
       </script>
+<!-- 
+<sec:authentication property="principal.authorities" />
 
-
-<div id="bar">
+-->
+<security:authorize access="isAnonymous()">
+	<div id="bar">
         <div id="container">
             <!-- Login Starts Here -->
             <div id="loginContainer">
@@ -76,17 +81,32 @@
             </div>
             <!-- Login Ends Here -->
             <!-- Register Starts Here -->
-            <div id="registerContainer">
-            	<a href="register"><div id="registerButton"><span>Regsiter</span><em></em></div></a>
+            <div class="registerContainer">
+            	<a href="register"><div class="registerButton"><span>Regsiter</span><em></em></div></a>
             </div>
             <!-- Register Ends Here -->
         </div>
     </div>
-	
-	
-	
-		
 </div>
+</security:authorize>	
+
+<security:authorize access="isAuthenticated()">
+	<div class="loggedinBar">
+		<div id="loggedinMenu">
+			<ul>
+				<li>Welcome ${user.firstName}</li>
+				<li><a href="myprofile">My Profile</a></li>
+				<li><a href="inbox">My Inbox</a></li>
+				<li><a href="myads">My Ads</a></li>
+			</ul>
+		</div>
+		<div  class="registerContainer">
+			<a href="logout"><div class="registerButton"><span>Logout</span></div></a>
+		</div>
+	</div>
+</security:authorize>	
+		
+
 <a href="/Skeleton/">
 <div id="header">
 	<div id="header_wrapper">
