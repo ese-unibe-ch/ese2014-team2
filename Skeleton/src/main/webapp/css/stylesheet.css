@@ -260,6 +260,14 @@ input:focus {
 
 /* START OF HEADER */
 
+.navbar-brand {
+	color:#3fa9f5;
+} 
+
+.navbar-brand a {
+	color:#3fa9f5;
+} 
+
 a.hover {
 	text-decoration:none;
 }
@@ -269,7 +277,7 @@ a.hover {
 }
 
 #push_header {
-	padding-top:50px;
+	padding-top:80px;
 }
 
 .header_slide_main {
@@ -316,6 +324,13 @@ p.caption {
 /* END OF HEADER */
 
 /* START OF MAIN BOXES */
+
+.main {
+	width:900px;
+	margin-left:auto;
+	margin-right:auto;	
+}
+
 .filler_big {
 	width:40%;
 	height:300px;

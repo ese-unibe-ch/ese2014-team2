@@ -4,7 +4,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <div class="main">
-	<div class="col-sm-12">
+	<div class="col-sm-16">
     	<div class="panel panel-default">
         	<div class="panel-heading">
             	<h3 class="panel-title">Filter Ads</h3>
@@ -192,7 +192,7 @@
           </div>
 
 
-
+</div>
 
 
 </div>
