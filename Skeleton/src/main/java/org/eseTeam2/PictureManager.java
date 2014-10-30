@@ -51,17 +51,17 @@ public class PictureManager {
 	                    dir.mkdirs();
 	 
 	              
-	                
-	               
+	                String fullFilePath = dir.getAbsolutePath()+File.separator+filename+file.getOriginalFilename();
+	                String fullFilename = File.separator+filename+file.getOriginalFilename();
 	                
 	                BufferedOutputStream outStream = new BufferedOutputStream(
-							new FileOutputStream(new File(dir.getAbsolutePath()+File.separator+filename+file.getOriginalFilename())));
+							new FileOutputStream(new File(fullFilePath)));
 					outStream.write(bytes);
 					outStream.close();
 	 
 	     
 	                
-	               names.add(dir.getAbsolutePath()+File.separator+filename+file.getOriginalFilename());
+	               names.add(fullFilename);
 	 
 	               
 	            } catch (Exception e) {
@@ -71,6 +71,7 @@ public class PictureManager {
 	        }
 	        return names;
 	    }
+	    
 	     
 	     public byte[] getByteArrayFromPath(String picture) {
 	 		File file = new File(picture);

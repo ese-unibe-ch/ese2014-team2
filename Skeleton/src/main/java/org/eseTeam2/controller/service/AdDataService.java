@@ -39,7 +39,7 @@ public class AdDataService implements IAdDataService {
 		return advertisementDao.findOne(id);
 	}
 
-	public AdForm saveFrom(AdForm adForm) {
+	public AdForm saveFrom(AdForm adForm, ArrayList<Picture> picturesToSave) {
 
 		Advertisement ad = new Advertisement();
 		Set<Advertisement> adsOfUser = new HashSet<Advertisement>();
@@ -50,34 +50,20 @@ public class AdDataService implements IAdDataService {
 		}
 		
 		Set<Picture> pictures = new HashSet<Picture>();
-		Picture pic1 = new Picture();
-		Picture pic2 = new Picture();
-		Picture pic3 = new Picture();
-		Picture pic4 = new Picture();
-
-		pic1.setFilePath(adForm.getImg_one());
-		pic1.setIsMainPic(true);
-		pictures.add(pic1);
-		pic2.setFilePath(adForm.getImg_two());
-		pic2.setIsMainPic(false);
-		pictures.add(pic2);
-		pic3.setFilePath(adForm.getImg_three());
-		pic3.setIsMainPic(false);
-		pictures.add(pic3);
-		pic4.setFilePath(adForm.getImg_four());
-		pic4.setIsMainPic(false);
-		pictures.add(pic4);
+		
+		for ( int i = 1; i < picturesToSave.size()-1; i++) {
+			pictures.add(picturesToSave.get(i));
+		}
 
 		ad.setPictures(pictures);
-
-		if (pic1 != null)
-			pictureDao.save(pic1);
-		if (pic2 != null)
-			pictureDao.save(pic2);
-		if (pic3 != null)
-			pictureDao.save(pic3);
-		if (pic4 != null)
-			pictureDao.save(pic4);
+		ad.setMainPic(picturesToSave.get(0));
+		
+		for ( int i = 0; i < picturesToSave.size(); i++) {
+			try {
+				pictureDao.save(picturesToSave.get(i));
+			}
+			catch (Exception d) {}
+		}
 
 		// set basics for ad
 		ad.setDescription(adForm.getDescription());
@@ -145,7 +131,7 @@ public class AdDataService implements IAdDataService {
 	}
 
 	public String getPicture(Long picId) {
-		return pictureDao.findOne(picId).getFilePath();
+		return pictureDao.findOne(picId).getAbsoluteFilePath();
 	}
 
 	public ArrayList<Long> getAdPictureIds(Long adId) {
@@ -154,7 +140,7 @@ public class AdDataService implements IAdDataService {
 		ArrayList<Long> pics = new ArrayList<Long>();
 
 		for (Picture picture : pictures) {
-			if (picture.getFilePath() != null) {
+			if (picture.getAbsoluteFilePath() != null) {
 
 				if (picture.getIsMainPic() == false)
 					pics.add(picture.getId());
@@ -173,7 +159,7 @@ public class AdDataService implements IAdDataService {
 		
 
 		for (Picture picture : pictures) {
-			if (picture.getFilePath() != null) {
+			if (picture.getAbsoluteFilePath() != null) {
 
 				if (picture.getIsMainPic() == false)
 					pics.add(picture);
@@ -185,19 +171,13 @@ public class AdDataService implements IAdDataService {
 
 	}
 
-	public long getAdMainPic(Long adId) {
-		Set<Picture> pictures = getAdvertisement(adId).getPictures();
-		long mainPic = 0;
+	public Picture getAdMainPic (Long adId) {
+		return advertisementDao.findOne(adId).getMainPic();
+	}
 
-		for (Picture picture : pictures) {
-			if (picture != null) {
 
-				if (picture.getIsMainPic() == true)
-					mainPic = picture.getId();
-			}
-
-		}
-		return mainPic;
+	public Set<Picture> getPicturesOfAd(Long adId) {
+		return advertisementDao.findOne(adId).getPictures();
 	}
 
 	

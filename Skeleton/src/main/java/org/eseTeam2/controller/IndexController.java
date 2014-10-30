@@ -45,7 +45,7 @@ public class IndexController {
     }
     
      
-    @RequestMapping(value = "/inbox", method = RequestMethod.GET)
+    @RequestMapping(value = "/myinbox", method = RequestMethod.GET)
     public ModelAndView inbox(Principal principal) {
     	
     	User currentUser = userService.getUserByEmail(principal.getName());
