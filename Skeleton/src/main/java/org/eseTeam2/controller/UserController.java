@@ -9,7 +9,10 @@ import javax.validation.Valid;
 
 import org.eseTeam2.controller.pojos.AdForm;
 import org.eseTeam2.controller.pojos.LoginForm;
+import org.eseTeam2.controller.pojos.MessageForm;
 import org.eseTeam2.controller.pojos.SignupForm;
+import org.eseTeam2.controller.service.IAdDataService;
+import org.eseTeam2.controller.service.IMessageService;
 import org.eseTeam2.controller.service.IUserDataService;
 import org.eseTeam2.controller.service.UserDataService;
 import org.eseTeam2.exceptions.InvalidUserException;
@@ -29,7 +32,11 @@ public class UserController {
 
     @Autowired
     private IUserDataService userService;
+    @Autowired
+    IAdDataService adService;
 
+    @Autowired 
+    IMessageService messageService;
 
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
@@ -38,6 +45,19 @@ public class UserController {
     	model.addObject("signupForm", new SignupForm());  
     	return model;
     }
+    
+    @RequestMapping(value = "/sendMessage", method = RequestMethod.GET)
+    public ModelAndView sendMessage(@RequestParam(value = "adId", required = true) Long adId, Principal principal ) {
+    	
+    	User currentUser = userService.getUserByEmail(principal.getName());
+    	    	
+    	ModelAndView model = new ModelAndView("sendMessage");
+    	model.addObject("sender", currentUser);
+    	model.addObject("reciever", adService.getAdvertisement(adId).getCreator());
+    	model.addObject("messageForm", new MessageForm());  
+    	return model;
+    }
+
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
     public ModelAndView showProfileId(

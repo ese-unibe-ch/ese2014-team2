@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -42,6 +43,12 @@ public class User {
 	
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
 	private Set<Advertisement> advertisements;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy ="sender", cascade = CascadeType.ALL)
+	private Set<Message> sender;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy ="recipient", cascade = CascadeType.ALL)
+	private Set<Message> recipient;
 	
     
     public Long getId() {
@@ -115,6 +122,24 @@ public class User {
 	public void setAdvertisements(Set<Advertisement> advertisements) {
 		this.advertisements = advertisements;
 	}
+
+	public Set<Message> getSender() {
+		return sender;
+	}
+
+	public void setSender(Set<Message> sender) {
+		this.sender = sender;
+	}
+
+	public Set<Message> getRecipient() {
+		return recipient;
+	}
+
+	public void setRecipient(Set<Message> recipient) {
+		this.recipient = recipient;
+	}
+
+
 	
 	
 }
