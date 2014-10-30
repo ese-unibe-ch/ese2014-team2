@@ -18,7 +18,8 @@ public class Picture {
 
 	
 	
-	private String filePath;
+	private String absoluteFilePath;
+	private String relativeFilePath;
 
 	@ManyToOne
 	private Advertisement ad;
@@ -52,11 +53,21 @@ public class Picture {
 		this.isMainPic = isMainPic;
 	}
 
-	public String getFilePath() {
-		return filePath;
+
+
+	public String getAbsoluteFilePath() {
+		return absoluteFilePath;
 	}
 
-	public void setFilePath(String filePath) {
-		this.filePath = filePath;
+	public void setAbsoluteFilePath(String absoluteFilePath) {
+		this.absoluteFilePath = absoluteFilePath;
+	}
+
+	public String getRelativeFilePath() {
+		return relativeFilePath;
+	}
+
+	public void setRelativeFilePath(String relativeFilePath) {
+		this.relativeFilePath = relativeFilePath;
 	} 
 }

@@ -70,42 +70,45 @@ public class AdController {
 			RedirectAttributes redirectAttributes,Principal principal,
 			@RequestParam("image") MultipartFile[] files) {
 		
-		String user = principal.getName();
+		
 		User creator = userService.getUserByEmail(principal.getName());
 		adForm.setCreator(creator);
 		PictureManager picmgr = new PictureManager();
-		String path = servletContext.getRealPath(PICTURE_LOCATION);
+		//servletContext.get
+		String relativePath = PICTURE_LOCATION+"/"+adForm.getCreator().getEmail();
+		String absolutePath = servletContext.getRealPath(relativePath);
+		
 		String filename = String.valueOf(adForm.getRoomPrice())+adForm.getAddress()+adForm.getCity();
 		
-		ArrayList<String> pictures = (picmgr.uploadMultipleFile(path, filename, files));
-				
-//<img src="getUserImage/ <c:out value="${pics}"/>" width="400" height="400" >
-		try {
-			if (pictures.get(0)!= null)
-				adForm.setImg_one(pictures.get(0));
-		} catch (Exception e) {
-		}
-		try {
-			if (pictures.get(1)!= null)
-				adForm.setImg_two(pictures.get(1));
-		} catch (Exception e) {
-		}
-		try {
-			if (pictures.get(2) != null)
-				adForm.setImg_three(pictures.get(2));
-		} catch (Exception e) {
-		}
-		try {
-			if (pictures.get(3) != null)
-				adForm.setImg_four(pictures.get(3));
-		} catch (Exception e) {
-		}
-
+		ArrayList<String> pictureNames = (picmgr.uploadMultipleFile( absolutePath, filename, files));
 		
+		ArrayList<Picture> picturesToSave = new ArrayList<Picture>(); 
+		
+		
+		if ( !pictureNames.isEmpty()) {
+			for ( int i = 0; i < pictureNames.size(); i ++) {
+				Picture picTmp = new Picture();
+		try {
+			if (pictureNames.get(i)!= null) {
+				picTmp.setRelativeFilePath(relativePath+(pictureNames.get(i).replace("\\","/")));
+				picTmp.setAbsoluteFilePath(absolutePath+pictureNames.get(i));
+				if ( i == 0)
+					picTmp.setIsMainPic(true);
+				else
+					picTmp.setIsMainPic(false);
+				
+				picturesToSave.add(picTmp);
+			}	
+				
+
+		}
+		catch (Exception d) {}
+	}
+		}
 
 		ModelAndView model;
 	
-		adService.saveFrom(adForm);
+		adService.saveFrom(adForm, picturesToSave);
 		
 		model = new ModelAndView("show");
 		return model;
@@ -122,9 +125,11 @@ public class AdController {
 		
 
 		ModelAndView model = new ModelAndView("adprofile");
+		Set<Picture> pictures = adService.getPicturesOfAd(adId);
+		Picture mainPic = adService.getAdMainPic(adId);
 		model.addObject("newAdProfile", adService.getAdvertisement(adId));
-		model.addObject("pictureIds", adService.getAdPictureIds(adId));
-		model.addObject("mainPic", adService.getAdMainPic(adId));
+		model.addObject("pictures", pictures);
+		model.addObject("mainPic", mainPic);
 
 		return model;
 	}
@@ -132,6 +137,7 @@ public class AdController {
 	@RequestMapping(value = "/ads", method = RequestMethod.GET)
 	public ModelAndView showAds() {
 		ModelAndView model = new ModelAndView("ads");
+		
 		model.addObject("filterForm", new FilterForm());
 		model.addObject("ads", adService.getAds());
 		return model;

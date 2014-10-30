@@ -3,6 +3,7 @@ package org.eseTeam2.controller.pojos;
 import java.util.Date;
 
 import org.eseTeam2.model.Address;
+import org.eseTeam2.model.Picture;
 import org.eseTeam2.model.User;
 
 
@@ -32,10 +33,10 @@ public class AdForm {
 	//private String region;
 	
 	// pictures
-	private String img_one;
-	private String img_two;
-	private String img_three;
-	private String img_four;
+	private Picture img_one;
+	private Picture img_two;
+	private Picture img_three;
+	private Picture img_four;
 	
 	// info about the flat
 	private String description_ad;
@@ -200,30 +201,7 @@ public class AdForm {
 	public void setWhoWeAreLookingFor(String whoWeAreLookingFor) {
 		this.whoWeAreLookingFor = whoWeAreLookingFor;
 	}
-	public String getImg_one() {
-		return img_one;
-	}
-	public void setImg_one(String img_one) {
-		this.img_one = img_one;
-	}
-	public String getImg_two() {
-		return img_two;
-	}
-	public void setImg_two(String img_two) {
-		this.img_two = img_two;
-	}
-	public String getImg_three() {
-		return img_three;
-	}
-	public void setImg_three(String img_three) {
-		this.img_three = img_three;
-	}
-	public String getImg_four() {
-		return img_four;
-	}
-	public void setImg_four(String img_four) {
-		this.img_four = img_four;
-	}
+
 
 	public String getWgType() {
 		return wgType;
@@ -297,6 +275,30 @@ public class AdForm {
 	}
 	public void setCreator(User creator) {
 		this.creator = creator;
+	}
+	public Picture getImg_one() {
+		return img_one;
+	}
+	public void setImg_one(Picture img_one) {
+		this.img_one = img_one;
+	}
+	public Picture getImg_two() {
+		return img_two;
+	}
+	public void setImg_two(Picture img_two) {
+		this.img_two = img_two;
+	}
+	public Picture getImg_three() {
+		return img_three;
+	}
+	public void setImg_three(Picture img_three) {
+		this.img_three = img_three;
+	}
+	public Picture getImg_four() {
+		return img_four;
+	}
+	public void setImg_four(Picture img_four) {
+		this.img_four = img_four;
 	}
 
 	

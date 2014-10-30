@@ -83,6 +83,9 @@ public class Advertisement {
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
 	private Set<Picture> pictures;
 	
+	@OneToOne
+	private Picture mainPic;
+	
 	@ManyToOne
 	private Advertisement ad;
 
@@ -376,6 +379,14 @@ public class Advertisement {
 
 	public void setCreator(User creator) {
 		this.creator = creator;
+	}
+
+	public Picture getMainPic() {
+		return mainPic;
+	}
+
+	public void setMainPic(Picture mainPic) {
+		this.mainPic = mainPic;
 	}
 
 }

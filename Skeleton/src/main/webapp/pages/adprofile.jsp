@@ -12,7 +12,7 @@
 <div class="main">
 <h1 class="h1_inline">${newAdProfile.title }</h1>
 
-<img src="getUserImage/<c:out value="${mainPic}"/>" width="400px" height="400px">
+<img src="getUserImage/ <c:out value="${mainPic.id}"/>" width="400" height="400" >
 
 <h1 class="h1_inline">Grundlegendes:</h1>	
 	<table class="profile">
@@ -61,9 +61,9 @@
 <table class="profile">
 				<div class="slider_wrapper">
 					<ul id="image_slider">
-						<c:forEach items="${pictureIds}" var="pics">
+						<c:forEach items="${pictures}" var="pics">
 							<li>
-								<img src="getUserImage/ <c:out value="${pics}"/>" width="400" height="400" >
+								<img src="getUserImage/ <c:out value="${pics.id}"/>" width="400" height="400" >
 							</li>
 						</c:forEach>
 					</ul>
