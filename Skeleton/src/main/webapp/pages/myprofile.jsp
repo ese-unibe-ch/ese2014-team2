@@ -31,6 +31,12 @@
    <h1>${ad.title}</h1>
 </c:forEach>
 	</td>
+	<td>Messages: &nbsp;&nbsp;
+		<td>
+		<c:forEach items="${user.recipient}" var="message">
+   <h1>${message.title}</h1>
+</c:forEach>
+	</td>
 	
 </table>
 

@@ -44,10 +44,10 @@ public class User {
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
 	private Set<Advertisement> advertisements;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy ="sender", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy ="sender", cascade = CascadeType.ALL)
 	private Set<Message> sender;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy ="recipient", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy ="recipient", cascade = CascadeType.ALL)
 	private Set<Message> recipient;
 	
     

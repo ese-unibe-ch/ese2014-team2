@@ -26,10 +26,10 @@ public class Message {
 	private String messageText;
 
 		
-	@ManyToOne (fetch = FetchType.LAZY)
+	@ManyToOne 
 	private User sender;
 	
-	@ManyToOne (fetch = FetchType.LAZY)
+	@ManyToOne 
 	private User recipient;
 	
 	
