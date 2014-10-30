@@ -32,11 +32,7 @@ public class UserController {
 
     @Autowired
     private IUserDataService userService;
-    @Autowired
-    IAdDataService adService;
 
-    @Autowired 
-    IMessageService messageService;
 
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
@@ -46,17 +42,7 @@ public class UserController {
     	return model;
     }
     
-    @RequestMapping(value = "/sendMessage", method = RequestMethod.GET)
-    public ModelAndView sendMessage(@RequestParam(value = "adId", required = true) Long adId, Principal principal ) {
-    	
-    	User currentUser = userService.getUserByEmail(principal.getName());
-    	    	
-    	ModelAndView model = new ModelAndView("sendMessage");
-    	model.addObject("sender", currentUser);
-    	model.addObject("reciever", adService.getAdvertisement(adId).getCreator());
-    	model.addObject("messageForm", new MessageForm());  
-    	return model;
-    }
+  
 
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)

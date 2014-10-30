@@ -10,6 +10,7 @@ import org.eseTeam2.controller.pojos.MessageForm;
 import org.eseTeam2.controller.service.IAdDataService;
 import org.eseTeam2.controller.service.IMessageService;
 import org.eseTeam2.controller.service.IUserDataService;
+import org.eseTeam2.model.Message;
 import org.eseTeam2.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -48,6 +49,35 @@ public class MessageController {
 	    	return model;
 	    }
 	  
+	  @RequestMapping(value = "/sendNewMessage", method = RequestMethod.GET)
+	    public ModelAndView sendNewMessage( Principal principal ) {
+	    	
+	    	User currentUser = userService.getUserByEmail(principal.getName());
+	    	
+	    	    	
+	    	ModelAndView model = new ModelAndView("sendNewMessageToUser");
+	    	model.addObject("sender", currentUser);
+	    	
+	    	return model;
+	    }
+	  
+	  @RequestMapping(value = "/replyToMessage", method = RequestMethod.GET)
+	    public ModelAndView reply( @RequestParam(value = "messageId", required = true) Long messageId, Principal principal ) {
+	    	
+	    	User currentUser = userService.getUserByEmail(principal.getName());
+	    	Message messageToReplyTo = messageService.findOneMessage(messageId);
+	    	User authorOfReceivedMessage = messageToReplyTo.getSender();
+	    	
+	    	    	
+	    	ModelAndView model = new ModelAndView("reply");
+	    	model.addObject("messageForm", new MessageForm());
+	    	model.addObject("sender", currentUser);
+	    	model.addObject("recipient", authorOfReceivedMessage);
+	    	model.addObject("message", messageToReplyTo);
+	    	
+	    	return model;
+	    }
+	  
 	  
 	  @RequestMapping(value = "/send", method = RequestMethod.POST)
 		public ModelAndView send(@Valid MessageForm messageForm, Principal principal) {
@@ -60,8 +90,15 @@ public class MessageController {
 		  	
 			return model;
 			
-			
+		
 	  }
+	  
+	  @RequestMapping(value = "/showMessage", method = RequestMethod.GET)
+	    public String showMessage(@RequestParam(value = "messageId", required = true) Long messageId, Principal principal ) {
+		  return "redirect:/inbox?success=true";
+	    	
+	    	
+	    }
 	  
 	  
 }

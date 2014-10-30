@@ -60,9 +60,11 @@ public class MessageService implements IMessageService {
 		sender = userDao.save(sender);
 		
 		
-		
-		
-		
+				
+	}
+	
+	public Message findOneMessage (Long id) {
+		return messageDao.findOne(id);
 	}
 
 }

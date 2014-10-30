@@ -49,7 +49,7 @@ public class User {
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy ="recipient", cascade = CascadeType.ALL)
 	private Set<Message> recipient;
-	
+			
     
     public Long getId() {
         return id;
