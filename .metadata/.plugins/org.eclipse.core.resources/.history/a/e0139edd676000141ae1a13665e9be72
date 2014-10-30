@@ -63,7 +63,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Welcome</a>
+          <a class="navbar-brand" href="/Skeleton" color="#3fa9f5">Flattie</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -105,7 +105,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Welcome</a>
+          <a class="navbar-brand" href="/Skeleton" color="#3fa9f5">Flattie</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -119,17 +119,9 @@
       </div>
     </nav>
 </security:authorize>	
-		
 
-<a href="/Skeleton/">
-<div id="header">
-	<div class="jumbotron">
-		<title>Flattie v1.0</title>
-		<h1>Flattie v1.0</h1>
-    	<p>Brought to you by Carl, Peda, Foesu and Raff</p>	
-    </div>
-</div>	<!--  END OF #header -->
-</a>
+<div id="push_header"></div>
+
 
 
 <div id="container_background">

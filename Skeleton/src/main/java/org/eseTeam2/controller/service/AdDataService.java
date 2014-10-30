@@ -129,8 +129,7 @@ public class AdDataService implements IAdDataService {
 		ad.setGenderWeLookFor(adForm.getGenderWeLookFor());
 		
 		// other
-		ad.setTitle(adForm.getRooms() + " for " + adForm.getRoomPrice() + " in "
-				+ adForm.getCity());
+		ad.setTitle(adForm.getRoomPrice() + " CHF in " + adForm.getCity() + ", with " + adForm.getRooms()  + " Rooms");
 		adsOfUser.add(ad);
 		creator.setAdvertisements(adsOfUser);
 		
