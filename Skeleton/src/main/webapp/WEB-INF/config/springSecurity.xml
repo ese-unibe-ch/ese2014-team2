@@ -12,6 +12,7 @@
 		<security:intercept-url pattern="/placead" access="ROLE_USER" />
 		<security:intercept-url pattern="/placemate" access="ROLE_USER" />
 		<security:intercept-url pattern="/myprofile" access="ROLE_USER" />
+		<security:intercept-url pattern="/sendMessageFromAd/**" access="ROLE_USER" />
 		<security:form-login login-page="/login" authentication-failure-url="/login?error=true" 
 			default-target-url="/" />
 		 <security:logout invalidate-session="true" logout-success-url="/" 

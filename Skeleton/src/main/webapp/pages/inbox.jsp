@@ -6,39 +6,25 @@
 
 <c:import url="template/header.jsp" />
 
-<h1>${newProfile.firstName }'s Profile</h1>
+<h1>${user.firstName } ${user.lastName}'s  Inbox</h1>
 
 
 
-<table>
-	<tr>
-		<td>First Name:&nbsp;&nbsp;
-		<td>${user.firstName}
-	</td>
-	<tr>
-		<td>Last Name:&nbsp;&nbsp;
-		<td>${user.lastName}
-	</td>
-	<tr>
-		<td>Email:&nbsp;&nbsp;
-		<td>${user.email}
-	</td>
-
-	<tr>
-		<td>The ads of the user: &nbsp;&nbsp;
-		<td>
-		<c:forEach items="${user.advertisements}" var="ad">
-   <h1>${ad.title}</h1>
-</c:forEach>
-	</td>
-	<td>Messages: &nbsp;&nbsp;
-		<td>
-		<c:forEach items="${user.recipient}" var="message">
-   <h1>${message.title}</h1>
-</c:forEach>
-	</td>
+<c:forEach items="${receivedMessages}" var="message">
+   <a href="replyToMessage?messageId=${message.id}"><h1>${message.title}</h1></a>
+  
 	
-</table>
+   <a href="replyToMessage?messageId=${message.id}">
+	<div class="btnpink">
+		<span>Delete!</span>
+	</div>
+</a>
+</c:forEach>
+
+
+
+
+
 
 	<c:if test="${page_error != null }">
         <div class="alert alert-error">

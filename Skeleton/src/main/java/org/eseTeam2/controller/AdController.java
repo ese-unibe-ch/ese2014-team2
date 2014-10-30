@@ -119,6 +119,7 @@ public class AdController {
 			HttpSession session) {
 		
 		//ArrayList<Picture> adPictures = adService.getAdPictures(adId);
+		
 
 		ModelAndView model = new ModelAndView("adprofile");
 		model.addObject("newAdProfile", adService.getAdvertisement(adId));

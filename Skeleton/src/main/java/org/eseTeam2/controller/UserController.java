@@ -9,7 +9,10 @@ import javax.validation.Valid;
 
 import org.eseTeam2.controller.pojos.AdForm;
 import org.eseTeam2.controller.pojos.LoginForm;
+import org.eseTeam2.controller.pojos.MessageForm;
 import org.eseTeam2.controller.pojos.SignupForm;
+import org.eseTeam2.controller.service.IAdDataService;
+import org.eseTeam2.controller.service.IMessageService;
 import org.eseTeam2.controller.service.IUserDataService;
 import org.eseTeam2.controller.service.UserDataService;
 import org.eseTeam2.exceptions.InvalidUserException;
@@ -38,6 +41,9 @@ public class UserController {
     	model.addObject("signupForm", new SignupForm());  
     	return model;
     }
+    
+  
+
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
     public ModelAndView showProfileId(

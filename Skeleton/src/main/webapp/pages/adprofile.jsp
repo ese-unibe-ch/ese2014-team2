@@ -235,7 +235,7 @@
 
 
 		<a href="/Skeleton/ads">Back</a>
-		<td><a href="adprofile?adId=${newAdProfile.id}">Details</a>
+		<td><a href="sendMessageFromAd?adId=${newAdProfile.id}">Send Message to ad Owner</a>
 
 
 	<c:if test="${page_error != null }">
