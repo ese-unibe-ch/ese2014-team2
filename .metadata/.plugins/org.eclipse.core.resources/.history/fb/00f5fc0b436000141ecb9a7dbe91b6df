@@ -1,0 +1,354 @@
+/*
+
+	OWN STYLESHEET OF DOOM
+
+*/
+/* 
+	better reset first
+*/
+/*
+
+	Quicklist:
+		- Lightblue colorset: 	#3fa9f5
+		- Headerwhite: 			#f9f9f9
+		- Container grey:		#e0e0e0
+		- Footer black: 		#636265
+		
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/*  START OF BODY   */
+
+body {
+	background-color:#dce9ee;
+}
+
+/* END OF BODY */
+
+/*-------LOGIN STARTS HERE -------*/
+
+/* Login Container (default to float:right) */
+#loginContainer {
+    position:relative;
+    float:right;
+    font-size:12px;
+}
+
+.registerButton span {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+    color:#445058; 
+    font-size:14px; 
+    font-weight:bold; 
+    text-shadow:1px 1px #fff; 
+    padding:7px 29px 9px 10px;
+    display:block
+}
+
+/* Login Button */
+#loginButton { 
+	width:68px;
+	height:50px;
+    -moz-border-radius:3px;
+    position:relative;
+    z-index:30;
+    cursor:pointer;
+}
+
+/* Login Button Text */
+#loginButton span {
+	
+}
+
+#loginButton:hover {
+
+}
+/* Login Box */
+#loginBox {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+    position:absolute;
+    top:34px;
+    right:0;
+    display:none;
+    z-index:29;
+}
+
+/* If the Login Button has been clicked */    
+#loginButton.active {
+
+}
+
+#loginButton.active span {
+	
+}
+
+/* A Line added to overlap the border */
+#loginButton.active em {
+    position:absolute;
+    width:100%;
+    height:1px;
+    background:#d2e0ea;
+    bottom:-1px;
+}
+
+/* Login Form */
+#loginForm {
+    width:248px; 
+    border:1px solid #222;
+    border-radius:3px 0 3px 3px;
+    -moz-border-radius:3px 0 3px 3px;
+    margin-top:16px;
+    background:#222;
+    padding:6px;
+}
+
+#loginForm fieldset {
+    margin:0 0 12px 0;
+    display:block;
+    border:0;
+    padding:0;
+}
+
+fieldset#body {
+    background:#fff;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    padding:10px 13px;
+    margin:0;
+}
+
+#loginForm #checkbox {
+    width:auto;
+    margin:1px 9px 0 0;
+    float:left;
+    padding:0;
+    border:0;
+    *margin:-3px 9px 0 0; /* IE7 Fix */
+}
+
+#body label {
+    color:#3a454d;
+    margin:9px 0 0 0;
+    display:block;
+    float:left;
+}
+
+#loginForm #body fieldset label {
+    display:block;
+    float:none;
+    margin:0 0 6px 0;
+}
+
+/* Default Input */
+#loginForm input {
+    width:92%;
+    border:1px solid #899caa;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    color:#3a454d;
+    font-weight:bold;
+    padding:8px 8px;
+    box-shadow:inset 0px 1px 3px #bbb;
+    -webkit-box-shadow:inset 0px 1px 3px #bbb;
+    -moz-box-shadow:inset 0px 1px 3px #bbb;
+    font-size:12px;
+}
+
+/* Sign In Button */
+#loginForm #login {
+    width:auto;
+    float:left;
+    background:#339cdf url(../img/loginbuttonbg.png) repeat-x;
+    color:#fff;
+    padding:7px 10px 8px 10px;
+    text-shadow:0px -1px #278db8;
+    border:1px solid #339cdf;
+    box-shadow:none;
+    -moz-box-shadow:none;
+    -webkit-box-shadow:none;
+    margin:0 12px 0 0;
+    cursor:pointer;
+    *padding:7px 2px 8px 2px; /* IE7 Fix */
+}
+
+/* Forgot your password */
+#loginForm span {
+    text-align:center;
+    display:block;
+    padding:7px 0 4px 0;
+}
+
+#loginForm span a {
+    color:#3a454d;
+    text-shadow:1px 1px #fff;
+    font-size:12px;
+}
+
+input:focus {
+    outline:none;
+}
+
+.registeBox {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+    position:absolute;
+    top:34px;
+    right:0;
+    display:none;
+    z-index:29;
+}
+
+.registerContainer {
+  
+}
+
+.registerButton { 
+	width:68px;
+	height:50px;
+    -moz-border-radius:3px;
+    position:relative;
+    z-index:30;
+    cursor:pointer;
+}
+
+.registerButton:hover {
+}
+
+/* END OF LOGIN AND REGISTER BOX */
+
+/* START OF HEADER */
+
+a.hover {
+	text-decoration:none;
+}
+
+#header {
+	height:150px;
+	width:100%;
+	border-bottom-right-radius: 5pt 5pt;
+  	border-bottom-left-radius: 5pt 5pt;
+}
+
+#header_wrapper {
+	padding-top:3%;
+	width:900px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#header_wrapper a {
+	text-decoration:none;
+}
+
+
+/* END OF HEADER */
+
+/* START OF MAIN BOXES */
+.filler_big {
+	width:40%;
+	height:300px;
+}
+
+.main_button_left {
+	float:left;
+	height:300px;
+	width:49%;
+	background-color:#e0e0e0;
+	margin:5px;
+	border-top-left-radius: 5pt 5pt;
+ 	border-top-right-radius: 5pt 5pt;
+  	border-bottom-right-radius: 5pt 5pt;
+  	border-bottom-left-radius: 5pt 5pt;
+  	text-align:center;
+}
+
+.main_button_right {
+	float:right;
+	height:300px;
+	width:49%;
+	background-color:#e0e0e0;
+	margin:5px;
+	border-top-left-radius: 5pt 5pt;
+ 	border-top-right-radius: 5pt 5pt;
+  	border-bottom-right-radius: 5pt 5pt;
+  	border-bottom-left-radius: 5pt 5pt;
+  	text-align:center;
+}
+
+.main_button_small_left {
+	float:left;
+	height:150px;
+	width:49%;
+	background-color:#e0e0e0;
+	margin:5px;
+	border-top-left-radius: 5pt 5pt;
+ 	border-top-right-radius: 5pt 5pt;
+  	border-bottom-right-radius: 5pt 5pt;
+  	border-bottom-left-radius: 5pt 5pt;
+  	text-align:center;
+}
+
+.main_button_small_right {
+	float:right;
+	height:150px;
+	width:49%;
+	background-color:#e0e0e0;
+	margin:5px;
+	border-top-left-radius: 5pt 5pt;
+ 	border-top-right-radius: 5pt 5pt;
+  	border-bottom-right-radius: 5pt 5pt;
+  	border-bottom-left-radius: 5pt 5pt;
+  	text-align:center;
+}
+
+/* END OF MAINBOXES */
+
+/* START OF CONTAINER */
+
+/* END OF CONTAINER */
+
+/* START OF FOOTER */
+
+/* END OF FOOTER */

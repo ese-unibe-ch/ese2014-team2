@@ -10,29 +10,39 @@
 
 
 <c:forEach items="${ads}" var="ads">
-    <div class="main">
-    	<p class="pubimp">${ads.creationDate}</p>
-    	<h1 class="newstext">${ads.title}</h1>
-    	<table class="smalltable">
-    		<tr>
-    			<td>Creator:&nbsp;&nbsp;
-    			<td>${ads.creator.firstName}
-    		</tr>
-    
-    		<tr>
-    			<td>Rooms:&nbsp;&nbsp;
-    			<td>${ads.rooms}
-    		</tr>
-    		<tr>
-    			<td>Space:&nbsp;&nbsp;
-    			<td>${ads.roomSpace}
-    		</tr>
-    		<tr>
-		<td><a href="../">Back</a>
-		<td><a href="adprofile?adId=${ads.id}">Details</a>
-	</td>
-    	</table>
-    </div>	
+	<div class="row">
+        <div class="col-sm-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2 class="panel-title"><a href="adprofile?adId=${ads.id}">${ads.title}</a></h3>
+            </div>
+            <div class="panel-body">
+            		<img src="img/default_image.png"/>
+              		<table>
+              			<tr>
+              				<td>Creator:</td>
+              				<td>${ads.creator.firstName }</td>
+              			</tr>
+              			<tr>
+              				<td>Rooms:</td>
+              				<td>${ads.rooms}</td>
+              			</tr>
+              			<tr>
+              				<td>Roomspace:</td>
+              				<td>${ads.roomSpace}</td>
+              			</tr>
+              			<tr>
+              				<td>City:</td>
+              				<td>${ads.city}</td>
+              			</tr>
+              			<tr>
+              				<td>Price:</td>
+              				<td>${ads.roomPrice}</td>
+              			</tr>
+              		</table>
+            </div>
+          </div>
+    </div><!-- /.col-sm-4 -->
 </c:forEach>
 
 

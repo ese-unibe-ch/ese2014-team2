@@ -8,6 +8,7 @@
     	<title>About Princesses and Castles</title>
 
     	<link rel="stylesheet" type="text/css" href="css/stylesheet.css" media="all"/>
+    	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="screen" />
     	<script type="text/javascript"  src="dn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=1.4.2"></script>
@@ -50,16 +51,25 @@
         $("#datepicker2").datepicker();  
       });  
       </script>
-<!-- 
-<sec:authentication property="principal.authorities" />
 
--->
 <security:authorize access="isAnonymous()">
-	<div id="bar">
-        <div id="container">
-            <!-- Login Starts Here -->
-            <div id="loginContainer">
-                <a href="#" id="loginButton"><span>Login</span><em></em></a>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Welcome</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/Skeleton">Home</a></li>
+            <li><a href="register">Register</a></li>
+            <li><a href="#" id="loginButton"><span>Login</span><em></em></a>
                 <div style="clear:both"></div>
                 <div id="loginBox">                
                     <form id="loginForm" name="loginForm" action="<c:url value='j_spring_security_check' />" method="POST">
@@ -77,44 +87,41 @@
                         </fieldset>
                         <span><a href="#">Forgot your password?</a></span>
                     </form>
-                </div>
-            </div>
-            <!-- Login Ends Here -->
-            <!-- Register Starts Here -->
-            <div class="registerContainer">
-            	<a href="register"><div class="registerButton"><span>Regsiter</span><em></em></div></a>
-            </div>
-            <!-- Register Ends Here -->
-            
-        </div>
-    </div>
-</div>
+                </div></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
 </security:authorize>	
 
 <security:authorize access="isAuthenticated()">
-	<div class="loggedinBar">
-		<div id="loggedinMenu">
-			<ul>
-				<li><div class="menuButton"><span>Welcome</span></div></li>
-				<li><a href="myprofile"><div class="menuButton"><span>My Profile</span></div></a></li>
-				<li><a href="inbox"><div class="menuButton"><span>My Inbox</span></div></a></li>
-				<li><a href="myads"><div class="menuButton"><span>My Ads</span></div></a></li>
-				<li><a href="logout"><div class="registerButton"><span>Logout</span></div></a></li>
-			</ul>
-		</div>
-	</div>
+	    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Welcome</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/Skeleton">Home</a></li>
+            <li><a href="myprofile">My Profile</a></li>
+            <li><a href="myinbox">My Inbox<span class="badge">42</span></a></li>
+            <li><a href="myads">My Ads</a></li>
+            <li><a href="logout">Logout</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
 </security:authorize>	
-		
 
-<a href="/Skeleton/">
-<div id="header">
-	<div id="header_wrapper">
-		<title>About Princesses and Castles</title>
-		<h1>About Princesses and Castles</h1>
-    	<p>Brought to you by Carl, Peda, Foesu and Raff</p>	
-    </div>
-</div>	<!--  END OF #header -->
-</a>
+<div id="push_header"></div>
+
 
 
 <div id="container_background">
