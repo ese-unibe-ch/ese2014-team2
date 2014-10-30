@@ -11,7 +11,7 @@
 <!-- TEST WITH BOOTSTRAP PANELS -->
       <div class="row">
         <div class="col-sm-6">
-          <div class="panel panel-warning">
+          <div class="panel panel-orange">
             <div class="panel-heading">
               <h2 class="panel-title"><a href="ads">I'm looking for an Ad!</a></h3>
             </div>
@@ -22,7 +22,7 @@
               	</a>
             </div>
           </div>
-          <div class="panel panel-info">
+          <div class="panel panel-default">
             <div class="panel-heading">
               <h2 class="panel-title"><a href="placead">I'd like to place an Ad!</a></h3>
             </div>
@@ -34,7 +34,7 @@
           </div>
         </div><!-- /.col-sm-4 -->
         <div class="col-sm-6">
-          <div class="panel panel-warning">
+          <div class="panel panel-default">
             <div class="panel-heading">
               <h2 class="panel-title"><a href="roomies">I'm looking for Roomies!</a></h3>
             </div>
@@ -45,7 +45,7 @@
               	</a>
             </div>
           </div>
-          <div class="panel panel-info">
+          <div class="panel panel-default">
             <div class="panel-heading">
               <h2 class="panel-title"><a href="placeyourself">I'd like to get roomed!</a></h3>
             </div>

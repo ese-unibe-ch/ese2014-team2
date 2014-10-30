@@ -64,8 +64,9 @@ table {
 /*  START OF BODY   */
 
 body {
-   background:#428bca !important;
+	background-color:#dce9ee;
 }
+
 /* END OF BODY */
 
 /*-------LOGIN STARTS HERE -------*/

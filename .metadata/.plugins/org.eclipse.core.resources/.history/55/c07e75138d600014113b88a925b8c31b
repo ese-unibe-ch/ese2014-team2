@@ -64,8 +64,9 @@ table {
 /*  START OF BODY   */
 
 body {
-   background:#428bca !important;
+	background-color:#dce9ee;
 }
+
 /* END OF BODY */
 
 /*-------LOGIN STARTS HERE -------*/
@@ -334,8 +335,8 @@ p.caption {
 }
 
 .panel-warning .panel-heading {
-	background-color:#f0ad50;
-}
+
+	}
 
 .main {
 	width:900px;
