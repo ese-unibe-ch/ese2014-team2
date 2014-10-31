@@ -18,8 +18,10 @@ import org.springframework.beans.PropertyAccessor;
 import org.springframework.beans.PropertyAccessorFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -55,6 +57,17 @@ public class FilterAdsController {
 		
 		
 	}
+	
+	  @RequestMapping("/ads/{action}")
+	  public String message(Model model, @PathVariable String action ) {
+		  if ( action.equals("showFilter"))
+			  return "redirect:/ads?showFilter=true";
+		 
+		  
+		  return "redirect:/inbox";
+	    	
+	    	
+	    }
 		
 
 

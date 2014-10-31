@@ -10,6 +10,12 @@
             	<h3 class="panel-title">Filter Ads</h3>
             </div>
             <div class="panel-body">
+            
+             <a href="ads/showFilter">
+            <button class="btn btn-warning btn-lg btn-block" type="button">Zeige den Filter</button>
+            </a>
+            
+           <c:if test="${param.showFilter eq true}">
               <form:form method="post" modelAttribute="filterForm" action="filterAds"
 		id="filterForm" cssClass="form-horizontal" autocomplete="off"
 		enctype="multipart/form-data">
@@ -69,6 +75,7 @@
 				  			
 		</fieldset>
 		</form:form>
+		</c:if>
             </div>
           </div>
 
