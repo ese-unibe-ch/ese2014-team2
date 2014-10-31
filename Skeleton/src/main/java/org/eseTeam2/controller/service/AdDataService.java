@@ -51,7 +51,7 @@ public class AdDataService implements IAdDataService {
 		
 		Set<Picture> pictures = new HashSet<Picture>();
 		
-		for ( int i = 1; i < picturesToSave.size()-1; i++) {
+		for ( int i = 1; i < picturesToSave.size(); i++) {
 			pictures.add(picturesToSave.get(i));
 		}
 

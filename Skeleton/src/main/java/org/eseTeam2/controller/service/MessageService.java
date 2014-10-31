@@ -1,6 +1,8 @@
 package org.eseTeam2.controller.service;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.eseTeam2.controller.pojos.MessageForm;
@@ -28,14 +30,14 @@ public class MessageService implements IMessageService {
 		User sender = messageForm.getSender();
 		
 		
-		Set<Message> recipientMessages = new HashSet<Message>();
+		List<Message> recipientMessages = new ArrayList<Message>();
 		try {
 			recipientMessages = recipient.getRecipient();
 		}
 		catch (NullPointerException d){}
 		
 		
-		Set<Message> senderMessages = new HashSet<Message>();
+		List<Message> senderMessages = new ArrayList<Message>();
 		try {
 			senderMessages = sender.getSender();
 		}
@@ -65,6 +67,28 @@ public class MessageService implements IMessageService {
 	
 	public Message findOneMessage (Long id) {
 		return messageDao.findOne(id);
+	}
+
+	public void deleteRecipientMessage(Long messageId, User currentUser) {
+		Message message = messageDao.findOne(messageId);
+		message.setRecipientDeleted(true);
+		
+		if( message.isSenderDeleted() == true && message.isRecipientDeleted() == true)
+			messageDao.delete(messageId);
+		else 
+			messageDao.save(message);
+		
+		messageDao.save(message);
+	}
+
+	public void deleteSenderMessage(Long messageId, User currentUser) {
+		Message message = messageDao.findOne(messageId);
+		message.setSenderDeleted(true);
+		if( message.isSenderDeleted() == true && message.isRecipientDeleted() == true)
+			messageDao.delete(messageId);
+		else 
+			messageDao.save(message);
+		
 	}
 
 }

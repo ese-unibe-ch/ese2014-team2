@@ -1,5 +1,6 @@
 package org.eseTeam2.model;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -12,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.NaturalId;
 
 
@@ -44,11 +47,20 @@ public class User {
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
 	private Set<Advertisement> advertisements;
 	
+	/*
 	@OneToMany(fetch = FetchType.EAGER, mappedBy ="sender", cascade = CascadeType.ALL)
 	private Set<Message> sender;
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy ="recipient", cascade = CascadeType.ALL)
-	private Set<Message> recipient;
+	private Set<Message> recipient; */
+	
+	@OneToMany(mappedBy="sender", fetch=FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
+	private List<Message> sender;
+	
+	@OneToMany(mappedBy="recipient", fetch=FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
+	private List<Message> recipient;
 			
     
     public Long getId() {
@@ -123,21 +135,22 @@ public class User {
 		this.advertisements = advertisements;
 	}
 
-	public Set<Message> getSender() {
-		return sender;
-	}
-
-	public void setSender(Set<Message> sender) {
-		this.sender = sender;
-	}
-
-	public Set<Message> getRecipient() {
+	public List<Message> getRecipient() {
 		return recipient;
 	}
 
-	public void setRecipient(Set<Message> recipient) {
+	public void setRecipient(List<Message> recipient) {
 		this.recipient = recipient;
 	}
+
+	public List<Message> getSender() {
+		return sender;
+	}
+
+	public void setSender(List<Message> sender) {
+		this.sender = sender;
+	}
+
 
 
 	

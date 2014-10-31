@@ -32,7 +32,8 @@ public class Message {
 	@ManyToOne 
 	private User recipient;
 	
-	
+	private boolean senderDeleted;
+	private boolean recipientDeleted;
 
 	public void setId(Long id) {
 		this.id = id;
@@ -75,6 +76,22 @@ public class Message {
 
 	public void setMessageText(String messageText) {
 		this.messageText = messageText;
+	}
+
+	public boolean isSenderDeleted() {
+		return senderDeleted;
+	}
+
+	public void setSenderDeleted(boolean senderDeleted) {
+		this.senderDeleted = senderDeleted;
+	}
+
+	public boolean isRecipientDeleted() {
+		return recipientDeleted;
+	}
+
+	public void setRecipientDeleted(boolean recipientDeleted) {
+		this.recipientDeleted = recipientDeleted;
 	}
 
 	

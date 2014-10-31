@@ -30,13 +30,11 @@
 <c:if test="${param.showReceived eq true}">
 			
 <c:forEach items="${receivedMessages}" var="message">
-   <a href="replyToMessage?messageId=${message.id}"><h1>${message.title}</h1></a>
+   <a href="showMessage?messageId=${message.id}"><h1>${message.title}</h1></a>
   
 	
-   <a href="replyToMessage?messageId=${message.id}">
-	<div class="btnpink">
-		<span>Delete!</span>
-	</div>
+   <a href="deleteReceivedMsg?messageId=${message.id}">
+	<button type="button" class="btn btn-default"><b>Lösche die Nachricht</b></button>
 </a>
 </c:forEach>
 </c:if>
@@ -45,13 +43,11 @@
 <c:if test="${param.showSent eq true}">
 			
 <c:forEach items="${sentMessages}" var="message">
-   <a href="replyToMessage?messageId=${message.id}"><h1>${message.title}</h1></a>
+   <a href="showMessage?messageId=${message.id}"><h1>${message.title}</h1></a>
   
 	
-   <a href="replyToMessage?messageId=${message.id}">
-	<div class="btnpink">
-		<span>Delete!</span>
-	</div>
+    <a href="deleteSentMsg?messageId=${message.id}">
+	<button type="button" class="btn btn-default"><b>Lösche die Nachricht</b></button>
 </a>
 </c:forEach>
 </c:if>

@@ -1,6 +1,8 @@
 package org.eseTeam2.controller;
 
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -51,19 +53,9 @@ public class MessageController {
 	    	return model;
 	    }
 	  
-	  @RequestMapping(value = "/sendNewMessage", method = RequestMethod.GET)
-	    public ModelAndView sendNewMessage( Principal principal ) {
-	    	
-	    	User currentUser = userService.getUserByEmail(principal.getName());
-	    	
-	    	    	
-	    	ModelAndView model = new ModelAndView("sendNewMessageToUser");
-	    	model.addObject("sender", currentUser);
-	    	
-	    	return model;
-	    }
+	 
 	  
-	  @RequestMapping(value = "/replyToMessage", method = RequestMethod.GET)
+	  @RequestMapping(value = "/showMessage", method = RequestMethod.GET)
 	    public ModelAndView reply( @RequestParam(value = "messageId", required = true) Long messageId, Principal principal ) {
 	    	
 	    	User currentUser = userService.getUserByEmail(principal.getName());
@@ -71,7 +63,7 @@ public class MessageController {
 	    	User authorOfReceivedMessage = messageToReplyTo.getSender();
 	    	
 	    	    	
-	    	ModelAndView model = new ModelAndView("reply");
+	    	ModelAndView model = new ModelAndView("showMsg");
 	    	model.addObject("messageForm", new MessageForm());
 	    	model.addObject("sender", currentUser);
 	    	model.addObject("recipient", authorOfReceivedMessage);
@@ -114,12 +106,40 @@ public class MessageController {
 	    public ModelAndView inbox(Principal principal) {
 	    	
 	    	User currentUser = userService.getUserByEmail(principal.getName());
+	    	List<Message> recipientMessagesToDisplay = new ArrayList<Message>();
+	    	List<Message> senderMessagesToDisplay = new ArrayList<Message>();
+	    	List<Message> senderMessages = currentUser.getSender();
+	    	List<Message> recipientMessages = currentUser.getRecipient();
+	    	
+	    	for ( int i = 0; i < senderMessages.size();i++){
+	    		if( senderMessages.get(i).isSenderDeleted() == false )
+	    			senderMessagesToDisplay.add(senderMessages.get(i));
+	    	}
+	    	
+	    	for ( int i = 0; i < recipientMessages.size();i++){
+	    		if( recipientMessages.get(i).isRecipientDeleted() == false)
+	    			recipientMessagesToDisplay.add(recipientMessages.get(i));
+	    	}
 	    	
 	    	ModelAndView model = new ModelAndView("inbox");
-	    	model.addObject("receivedMessages", currentUser.getRecipient());
-	    	model.addObject("sentMessages", currentUser.getSender());
+	    	model.addObject("receivedMessages", recipientMessagesToDisplay);
+	    	model.addObject("sentMessages", senderMessagesToDisplay);
 	    	model.addObject("user", currentUser);
 	    	return model;
+	    }
+	  
+	  @RequestMapping(value = "/deleteSentMsg", method = RequestMethod.GET)
+	    public String deleteSentMessage( Principal principal, @RequestParam(value = "messageId", required = true) Long messageId) {
+	    	User currentUser = userService.getUserByEmail(principal.getName());
+	    	messageService.deleteSenderMessage(messageId, currentUser);
+	    	return "redirect:/myinbox";
+	    }
+	    
+	  @RequestMapping(value = "/deleteReceivedMsg", method = RequestMethod.GET)
+	    public String deleteReceivedMessage( Principal principal, @RequestParam(value = "messageId", required = true) Long messageId) {
+	    	User currentUser = userService.getUserByEmail(principal.getName());
+	    	messageService.deleteRecipientMessage(messageId, currentUser);
+	    	return "redirect:/myinbox";
 	    }
 	    
 	  
