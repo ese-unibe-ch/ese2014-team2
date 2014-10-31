@@ -17,6 +17,7 @@
               <h2 class="panel-title"><a href="adprofile?adId=${ads.id}">${ads.title}</a></h3>
             </div>
             <div class="panel-body">
+            <a href="adprofile?adId=${ads.id}">
             		<img src="getUserImage/ <c:out value="${ads.mainPic.id}"/>" width="200" height="200" >
               		<table>
               			<tr>
@@ -40,6 +41,7 @@
               				<td>${ads.roomPrice}</td>
               			</tr>
               		</table>
+              		</a>
             </div>
           </div>
     </div><!-- /.col-sm-4 -->
