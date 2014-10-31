@@ -13,7 +13,7 @@
         <div class="col-sm-6">
           <div class="panel panel-warning">
             <div class="panel-heading">
-              <h2 class="panel-title"><a href="ads"><font size="16">I'm looking for a room!</font></a></h2>
+              <h2 class="panel-title"><a href="ads?showFilter=false"><font size="16">I'm looking for a room!</font></a></h2>
             </div>
             <div class="panel-body">
             	<a href="ads">

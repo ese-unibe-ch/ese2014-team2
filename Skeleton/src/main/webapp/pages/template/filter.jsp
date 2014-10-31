@@ -11,9 +11,16 @@
             </div>
             <div class="panel-body">
             
+            <c:if test="${param.showFilter eq false}">
              <a href="ads/showFilter">
-            <button class="btn btn-warning btn-lg btn-block" type="button">Zeige den Filter</button>
+            <button class="btn btn-success btn-lg btn-block" type="button">Zeige den Filter</button>
             </a>
+            </c:if>
+            <c:if test="${param.showFilter eq true}">
+            	<a href="ads/closeFilter">
+            <button class="btn btn-warning btn-lg btn-block" type="button">Verstecke den Filter</button>
+            </a>
+            </c:if>
             
            <c:if test="${param.showFilter eq true}">
               <form:form method="post" modelAttribute="filterForm" action="filterAds"

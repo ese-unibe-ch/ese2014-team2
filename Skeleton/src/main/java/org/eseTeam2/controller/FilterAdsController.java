@@ -62,8 +62,8 @@ public class FilterAdsController {
 	  public String message(Model model, @PathVariable String action ) {
 		  if ( action.equals("showFilter"))
 			  return "redirect:/ads?showFilter=true";
-		 
-		  
+		  if ( action.equals("closeFilter"))
+			  return "redirect:/ads?showFilter=false";
 		  return "redirect:/inbox";
 	    	
 	    	
