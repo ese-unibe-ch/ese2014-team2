@@ -14,117 +14,64 @@
 		id="filterForm" cssClass="form-horizontal" autocomplete="off"
 		enctype="multipart/form-data">
 		<fieldset>
-			
-				<div class="controls-left">
-						<label class="control-label" for="field-furnished">Möbliert:</label> 
-						<div class="controls">
-						<form:checkbox	path="furnished" id="field-furnished" tabindex="1" />
-						</div>
-					 
-					 
-						<label class="control-label" for="field-Laundry">Waschmachine:</label>
-						<div class="controls"> 
-						<form:checkbox	path="hasLaundry" id="field-Laundry" tabindex="2" />
-						</div>
-					 
-					 
-						<label class="control-label" for="field-Dishwasher">Geschirrspüler:</label> 
-						<div class="controls">
-						<form:checkbox	path="hasDishwasher" id="field-Dishwasher" tabindex="3" />
-						</div>
-					 
-					 
-						<label class="control-label" for="field-Balcony">Balkon:</label> 
-						<div class="controls">
-						<form:checkbox	path="hasBalcony" id="field-Balcony" tabindex="4" />
-						</div>
-					 
-				  
-				  
-				 	 
-						<label class="control-label" for="field-smokingInside">Rauchen im Haus:</label> 
-						<div class="controls">
-						<form:checkbox	path="smokingInside" id="field-smokingInside" tabindex="5" />
-						</div>
-						
-						<label class="control-label" for="field-pets">Sind Haustiere erwünscht/ erlaubt:</label>
-						<div class="controls"> 
-						<form:checkbox	path="hasPets" id="field-pets" tabindex="6" />
-						</div>
-					 
-					 
-						<label class="control-label" for="field-wlan">Wlan:</label> 
-						<div class="controls">
-						<form:checkbox	path="wlan" id="field-wlan" tabindex="7" />
-						</div>
-					 
-					 
-						<label class="control-label" for="field-closet">Einbauschrank in zimmer:</label> 
-						<div class="controls">
-						<form:checkbox	path="hasBuiltInCloset" id="field-closet" tabindex="8" />
-						</div>
-						
-						
-					 </div>
-					 <div class="controls-right">
-						
-					 
-					 
-				  
-				   	 
-						<label class="control-label" for="field-isToBalcony">Balkonzugang vom Zimmer aus:</label>
-						<div class="controls"> 
-						<form:checkbox	path="toBalcony" id="field-isToBalcony" tabindex="9" />
-						</div>
-					 
-					 
-						<label class="control-label" for="field-Cables">Kabelanschlüsse im Zimmer:</label> 
-						<div class="controls">
-						<form:checkbox	path="hasCables" id="field-Cables" tabindex="10" />
-						</div>
-					 
-					 
-						<label class="control-label" for="field-wgType">Grober Wgtyp:</label> 
-						<div class="controls">
-							<form:select path="wgType" id="field-wgType"
-								tabindex="7">
+		
+				     
+			     
+  				<div class="row">
+				  <div class="col-lg-5">
+				    <div class="input-group">
+				                				
+        					<h3><label class="label label-warning" ><form:checkbox path="furnished" id="field-furnished" />Möbliert</label></h3>
+							<h3><label class="label label-warning" ><form:checkbox	path="hasLaundry" id="field-Laundry" />Waschmachine</label></h3>
+							<h3><label class="label label-warning" ><form:checkbox	path="hasDishwasher" id="field-Dishwasher" />Geschirrspüler</label></h3>
+							<h3><label class="label label-warning" ><form:checkbox	path="hasBalcony" id="field-Balcony"/>Balkon</label></h3>
+							<h3><label class="label label-warning" ><form:checkbox	path="smokingInside" id="field-smokingInside"/> Rauchen im Haus</label></h3>
+							<h3><label class="label label-warning" ><form:checkbox	path="hasPets" id="field-pets" />Haustiere erlaubt</label></h3>
+							<h3><label class="label label-warning" ><form:checkbox	path="wlan" id="field-wlan" />Wlan</label></h3>
+
+										
+    
+				    </div><!-- /input-group -->
+				  </div><!-- /.col-lg-6 -->
+				  <div class="col-lg-5">
+				    <div class="input-group">
+				      		<h3><label class="label label-warning" ><form:checkbox	path="hasBuiltInCloset" id="field-closet"/>Einbauschrank im Zimmer</label></h3>
+				      		<h3><label class="label label-warning" ><form:checkbox	path="toBalcony" id="field-isToBalcony"/>Balkonzugang vom Zimmer</label></h3>
+				      		<h3><label class="label label-warning" ><form:checkbox	path="hasCables" id="field-Cables"/>Kabelanschluss im Zimmer</label></h3>
+				      		<h3><label class="label label-warning" >
+				      		<font color="000000"> <form:select path="wgType" id="field-wgType">
 								<option value="undef">egal</option>
 								<option value="wild">eher wild</option>
 								<option value="calm">eher ruhig</option>
 						
 
-							</form:select>
-						</div>
-					 
-					 
-						<label class="control-label" for="field-roomPrice">Zimmerpreis</label> 
-						<div class="controls">
-						<form:input path="roomPrice" id="field-roomPrice" tabindex="11"
-					maxlength="10" />
-					 	</div>
-				  
-				   
-				   	 
-						<label class="control-label" for="field-city">In welchem Stadt/ Dorf:</label> 
-						<div class="controls">
-						<form:input path="city" id="field-city" tabindex="12"
-					maxlength="10" />
-						</div>
-					 
-						<label class="control-label" for="field-wgGender">Geschlechteraufteilung in der wg: </label>
-						 
-						<div class="controls">
-							<form:select path="wgGender" id="field-wgGender"
+							</form:select> </font> Grober Wg Typ</label></h3>
+							
+				      		<h3><label class="label label-warning" ><font color="000000"><form:input path="roomPrice" id="field-roomPrice" maxlength="6" /></font> Maximaler Zimmerpreis</label></h3>
+				      		<h3><label class="label label-warning" ><font color="000000"><form:input path="city" id="field-city" maxlength="15" /></font>Stadt</label></h3>
+				      		<h3><label class="label label-warning" ><font color="000000"><form:select path="wgGender" id="field-wgGender"
 								tabindex="13">
 								<option value="dontcare"> Egal</option>
 								<option value="female">Reine Frauenwg</option>
 								<option value="male">Reine Männerwg</option>
 						
 
-							</form:select>
-						</div>
-					 		<button type="submit" class="btnpink">Filter</button>
-						</div>	  
+							</form:select></font>Geschlechteraufteilung in der WG</label></h3>
+				      		
+				      			<button type="submit" class="btn btn-primary btn-lg btn-block">Filter</button>
+				    </div><!-- /input-group -->
+				  </div><!-- /.col-lg-6 -->
+				</div><!-- /.row -->
+				
+			
+	 		 
+				
+							
+						 				   	 
+					
+						
+							
+			 
 				  			
 		</fieldset>
 		</form:form>
