@@ -9,11 +9,13 @@
 
 
 <div class="main">
-	<h1 class="h1_inline">Antwort an: ${recipient.firstName }  ${recipient.lastName } auf die Nachricht ${message.title}</h1>
+	<h1 class="h1_inline">Antwort an: ${recipient.firstName }  ${recipient.lastName } auf die Nachricht: ${message.title}</h1>
 
-	<label class="control-label" for="field-title">Nachricht: </label>
+	<label class="control-label" for="field-title"><font size="10"> Nachricht von ${recipient.firstName }  ${recipient.lastName }: </font></label>
 			<div class="controls">
-				${message.messageText}
+				<font size="5">
+					${message.messageText}
+				</font>
 			</div>	
 	
 	
@@ -29,7 +31,7 @@
 						</div>
 
 				
-				<label class="control-label" for="field-title">Titel: </label>
+				<label class="control-label" for="field-title"><font size="10">Titel:  </font></label>
 			<div class="controls">
 				<form:input path="title" id="field-title" tabindex="1"
 					maxlength="1000" />
@@ -37,7 +39,7 @@
 				
 		
 				<label class="control-label"
-						for="field-Mesasge">Nachricht: </label>
+						for="field-Mesasge"><font size="10">Nachricht: </font></label>
 						<div class="controls">
 							<form:textarea rows="10" cols="90" path="message"
 								id="field-Message" tabindex="24" />
@@ -45,10 +47,13 @@
 
 
 
-
-			<div class="form-actions">
-							<button type="submit" class="btnpink">Send</button>
-				<button type="button" class="btnred">Cancel</button>
+	<div class="btn-group btn-group-lg">
+				
+				  <button type="submit" class="btn btn-default">Senden</button>
+				
+				<a href="myinbox">
+				  <button type="button" class="btn btn-default">Zurück</button>
+				</a>
 			</div>
 		
 					</fieldset>
