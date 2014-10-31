@@ -14,7 +14,9 @@ import org.eseTeam2.model.Message;
 import org.eseTeam2.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -93,12 +95,33 @@ public class MessageController {
 		
 	  }
 	  
-	  @RequestMapping(value = "/showMessage", method = RequestMethod.GET)
-	    public String showMessage(@RequestParam(value = "messageId", required = true) Long messageId, Principal principal ) {
-		  return "redirect:/inbox?success=true";
+	  @RequestMapping("/inboxShow/{action}")
+	  public String message(Model model, @PathVariable String action ) {
+		  if ( action.equals("showSent"))
+			  return "redirect:/myinbox?showSent=true";
+		  if ( action.equals("showReceived"))
+		  	return "redirect:/myinbox?showReceived=true";
+		  	
+		  if(action.equals("publicQuestion"))
+			  return "redirect:/myinbox?showQuestion=true";
+		  
+		  return "redirect:/inbox";
 	    	
 	    	
 	    }
+	  
+	  @RequestMapping(value = "/myinbox", method = RequestMethod.GET)
+	    public ModelAndView inbox(Principal principal) {
+	    	
+	    	User currentUser = userService.getUserByEmail(principal.getName());
+	    	
+	    	ModelAndView model = new ModelAndView("inbox");
+	    	model.addObject("receivedMessages", currentUser.getRecipient());
+	    	model.addObject("sentMessages", currentUser.getSender());
+	    	model.addObject("user", currentUser);
+	    	return model;
+	    }
+	    
 	  
 	  
 }
