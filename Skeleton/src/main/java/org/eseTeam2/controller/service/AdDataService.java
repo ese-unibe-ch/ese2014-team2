@@ -10,7 +10,7 @@ import org.eseTeam2.controller.pojos.AdForm;
 import org.eseTeam2.model.Advertisement;
 import org.eseTeam2.model.Picture;
 import org.eseTeam2.model.User;
-import org.eseTeam2.model.dao.AddressDao;
+
 import org.eseTeam2.model.dao.AdvertisementDao;
 import org.eseTeam2.model.dao.PictureDao;
 import org.eseTeam2.model.dao.UserDao;
@@ -177,6 +177,19 @@ public class AdDataService implements IAdDataService {
 
 	public Set<Picture> getPicturesOfAd(Long adId) {
 		return advertisementDao.findOne(adId).getPictures();
+	}
+
+	public void deleteOne(Long adId, User user) {
+		Set<Advertisement> userAds = user.getAdvertisements();
+		for( Advertisement ad : userAds) {
+			if(ad.getId() == adId)
+				userAds.remove(ad);
+		}
+		
+		user.setAdvertisements(userAds);
+		userDao.save(user);
+		
+		advertisementDao.delete(adId);
 	}
 
 	

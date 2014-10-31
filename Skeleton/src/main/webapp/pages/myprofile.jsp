@@ -6,39 +6,38 @@
 
 <c:import url="template/header.jsp" />
 
-<h1>${newProfile.firstName }'s Profile</h1>
+<div class="panel panel-default">
+			  <!-- Default panel contents -->
+			  <div class="panel-heading"><h1>${user.firstName }'s Profile</h1></div>
+			  <div class="panel-body">
+			  <table>
+			  	<tr>
+			  		<td> <font size="5">Vorname:&nbsp;&nbsp;   </font>	</td>
+			  		<td> <font size="5">${user.firstName}</font></td>
+			  	</tr>
+			  	<tr>
+			  		<td> <font size="5">Nachname:&nbsp;&nbsp;   </font>	</td>
+			  		<td> <font size="5">${user.lastName}</font></td>
+			  	</tr>
+			  	<tr>
+			  		<td> <font size="5">Email:&nbsp;&nbsp;   </font>	</td>
+			  		<td> <font size="5">${user.email}</font></td>
+			  	</tr>
+			  
+			  </table>
+			  </div>
+			
+			
+			</div>
 
 
 
-<table>
-	<tr>
-		<td>First Name:&nbsp;&nbsp;
-		<td>${user.firstName}
-	</td>
-	<tr>
-		<td>Last Name:&nbsp;&nbsp;
-		<td>${user.lastName}
-	</td>
-	<tr>
-		<td>Email:&nbsp;&nbsp;
-		<td>${user.email}
-	</td>
 
-	<tr>
-		<td>The ads of the user: &nbsp;&nbsp;
-		<td>
-		<c:forEach items="${user.advertisements}" var="ad">
-   <h1>${ad.title}</h1>
-</c:forEach>
-	</td>
-	<td>Messages: &nbsp;&nbsp;
-		<td>
-		<c:forEach items="${user.recipient}" var="message">
-   <h1>${message.title}</h1>
-</c:forEach>
-	</td>
 	
-</table>
+
+
+
+			
 
 	<c:if test="${page_error != null }">
         <div class="alert alert-error">

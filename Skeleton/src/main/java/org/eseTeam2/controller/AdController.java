@@ -151,6 +151,19 @@ public class AdController {
 		return model;
 
 	}
+	
+	@RequestMapping(value = "/deleteAd", method = RequestMethod.GET)
+	public String deleteAd(
+			@RequestParam(value = "adId", required = true) Long adId,
+			HttpServletRequest request, HttpServletResponse response,
+			HttpSession session,  Principal principal) {
+		
+		User currentUser = userService.getUserByEmail(principal.getName());
+		adService.deleteOne(adId,currentUser);
+	
+
+		return "redirect:/myads";
+	}
 
 	@RequestMapping(value = "/getUserImage/{id}")
 	public void getUserImage(HttpServletResponse response,

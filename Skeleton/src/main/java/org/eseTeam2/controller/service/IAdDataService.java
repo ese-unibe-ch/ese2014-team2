@@ -6,6 +6,7 @@ import java.util.Set;
 import org.eseTeam2.controller.pojos.AdForm;
 import org.eseTeam2.model.Advertisement;
 import org.eseTeam2.model.Picture;
+import org.eseTeam2.model.User;
 import org.springframework.web.multipart.MultipartFile;
 
 public interface IAdDataService {
@@ -19,6 +20,7 @@ public interface IAdDataService {
 	public Picture getAdMainPic(Long adId);
 	public ArrayList<Picture> getAdPictures(Long adId);
 	public Set<Picture> getPicturesOfAd(Long adId);
+	public void deleteOne(Long adId, User user);
 	
 
 		

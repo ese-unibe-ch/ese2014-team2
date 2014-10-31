@@ -8,11 +8,10 @@ import org.eseTeam2.controller.pojos.AdForm;
 import org.eseTeam2.controller.pojos.LoginForm;
 import org.eseTeam2.controller.pojos.SignupForm;
 import org.eseTeam2.exceptions.InvalidUserException;
-import org.eseTeam2.model.Address;
+
 import org.eseTeam2.model.Advertisement;
 import org.eseTeam2.model.User;
 import org.eseTeam2.model.UserRole;
-import org.eseTeam2.model.dao.AddressDao;
 import org.eseTeam2.model.dao.AdvertisementDao;
 import org.eseTeam2.model.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +29,7 @@ public class UserDataService implements IUserDataService {
 
     @Autowired    
     UserDao userDao;
-    @Autowired    
-    AddressDao addDao;
+ 
     
 
     public SignupForm saveFrom(SignupForm signupForm) throws InvalidUserException{
@@ -44,14 +42,14 @@ public class UserDataService implements IUserDataService {
         
         BCryptPasswordEncoder password = new BCryptPasswordEncoder();
 
-        Address address = new Address();
-        address.setStreet("TestStreet");
+        
+       
         
         User user = new User();
         user.setFirstName(signupForm.getFirstName());
         user.setEmail(signupForm.getEmail());
         user.setLastName(signupForm.getLastName());
-        user.setAddress(address);
+   
         user.setPassword(password.encode(signupForm.getPassword()));
         
         user.setEnabled(true);
@@ -66,7 +64,6 @@ public class UserDataService implements IUserDataService {
 		
         
         
-        address = addDao.save(address);  
         user = userDao.save(user);   // save object to DB
         
         

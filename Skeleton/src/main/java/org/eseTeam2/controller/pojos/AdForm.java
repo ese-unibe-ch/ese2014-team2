@@ -2,7 +2,6 @@ package org.eseTeam2.controller.pojos;
 
 import java.util.Date;
 
-import org.eseTeam2.model.Address;
 import org.eseTeam2.model.Picture;
 import org.eseTeam2.model.User;
 

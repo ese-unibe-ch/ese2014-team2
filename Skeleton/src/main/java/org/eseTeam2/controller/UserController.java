@@ -66,6 +66,16 @@ public class UserController {
 		return model; }
     
     
+    @RequestMapping(value = "/myads", method = RequestMethod.GET)
+    @ResponseBody
+    public ModelAndView myAds(Principal principal) {
+    	
+    	User currentUser = userService.getUserByEmail(principal.getName());
+    	
+    	ModelAndView model = new ModelAndView("myAds");
+    	model.addObject("user", currentUser);
+		return model; }
+    
    		
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public ModelAndView create(@Valid SignupForm signupForm, BindingResult result, RedirectAttributes redirectAttributes) {

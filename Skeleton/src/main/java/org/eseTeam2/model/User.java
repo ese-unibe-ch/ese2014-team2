@@ -36,15 +36,14 @@ public class User {
     private String email;
     private String password;
     
-    @OneToOne
-    private Address address; 
+  
    
 	private boolean enabled;
 
 	@OneToMany(mappedBy = "user", cascade= CascadeType.ALL)
 	private Set<UserRole> userRole;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
+	@OneToMany(fetch = FetchType.EAGER)
 	private Set<Advertisement> advertisements;
 	
 	/*
@@ -95,13 +94,7 @@ public class User {
         this.email = email;
     }
 
-	public Address getAddress() {
-		return address;
-	}
 
-	public void setAddress(Address address) {
-		this.address = address;
-	}
 
 	public String getPassword() {
 		return password;
