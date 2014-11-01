@@ -13,7 +13,7 @@
         <div class="col-sm-6">
           <div class="panel panel-warning">
             <div class="panel-heading">
-              <h2 class="panel-title"><a href="ads?showFilter=false"><font size="16">I'm looking for a room!</font></a></h2>
+              <h2 class="panel-title"><a href="ads?showFilter=false">I'm looking for a room!</font></a></h2>
             </div>
             <div class="panel-body">
             	<a href="ads">
@@ -24,7 +24,7 @@
           </div>
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h2 class="panel-title"><a href="placead"><font size="16">I'd like to place a room!</font></a></h2>
+              <h2 class="panel-title"><a href="placead">I'd like to place a room!</font></a></h2>
             </div>
             <div class="panel-body">
              	<a href="placead">
@@ -36,7 +36,7 @@
         <div class="col-sm-6">
           <div class="panel panel-warning">
             <div class="panel-heading">
-              <h2 class="panel-title"><a href="roomies"><font size="16">I'm looking for Roomies!</font></a></h2>
+              <h2 class="panel-title"><a href="roomies">I'm looking for Roomies!</font></a></h2>
             </div>
             <div class="panel-body">
             	<a href="roomies">
@@ -47,7 +47,7 @@
           </div>
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h2 class="panel-title"><a href="placeyourself"><font size="16">I'd like to get roomed!</font></a></h2>
+              <h2 class="panel-title"><a href="placeyourself">I'd like to get roomed!</font></a></h2>
             </div>
             <div class="panel-body">
             	<a href="placeyourself">
