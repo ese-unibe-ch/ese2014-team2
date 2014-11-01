@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -26,7 +27,7 @@ import org.hibernate.annotations.NaturalId;
 public class User {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
     private String firstName;
@@ -70,8 +71,8 @@ public class User {
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Appointment> adOwnerAppointments;
 	
-	@ManyToMany 
-	private  List<Advertisement> adsUserIsInterestedIn;
+	@ManyToMany (mappedBy="interessents", fetch=FetchType.EAGER)
+	private  Set<Advertisement> adsUserIsInterestedIn;
 			
     
     public Long getId() {
@@ -154,6 +155,14 @@ public class User {
 
 	public void setSender(List<Message> sender) {
 		this.sender = sender;
+	}
+
+	public Set<Advertisement> getAdsUserIsInterestedIn() {
+		return adsUserIsInterestedIn;
+	}
+
+	public void setAdsUserIsInterestedIn(Set<Advertisement> adsUserIsInterestedIn) {
+		this.adsUserIsInterestedIn = adsUserIsInterestedIn;
 	}
 
 

@@ -12,6 +12,7 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
@@ -26,7 +27,7 @@ import org.hibernate.annotations.FetchMode;
 public class Advertisement {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	private String title;
@@ -95,7 +96,7 @@ public class Advertisement {
 	private Appointment appointment;
 	
 	@ManyToMany 
-	private List<User> interessents;
+	private Set<User> interessents;
 
 	public Set<Picture> getPictures() {
 		return pictures;
@@ -397,6 +398,14 @@ public class Advertisement {
 
 	public void setAppointment(Appointment appointment) {
 		this.appointment = appointment;
+	}
+
+	public Set<User> getInteressents() {
+		return interessents;
+	}
+
+	public void setInteressents(Set<User> interessents) {
+		this.interessents = interessents;
 	}
 
 }
