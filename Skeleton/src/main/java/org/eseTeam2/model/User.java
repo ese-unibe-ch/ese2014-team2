@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -60,6 +61,17 @@ public class User {
 	@OneToMany(mappedBy="recipient", fetch=FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Message> recipient;
+	
+	@OneToMany(mappedBy="interessent", fetch=FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
+	private List<Appointment> interessentAppointments;
+	
+	@OneToMany(mappedBy="adOwner", fetch=FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
+	private List<Appointment> adOwnerAppointments;
+	
+	@ManyToMany 
+	private  List<Advertisement> adsUserIsInterestedIn;
 			
     
     public Long getId() {
