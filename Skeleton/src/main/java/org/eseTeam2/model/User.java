@@ -45,6 +45,9 @@ public class User {
 	
 	@OneToMany(fetch = FetchType.EAGER)
 	private Set<Advertisement> advertisements;
+
+	@OneToMany(fetch = FetchType.EAGER)
+	private Set<Roomie> roomies;
 	
 	/*
 	@OneToMany(fetch = FetchType.EAGER, mappedBy ="sender", cascade = CascadeType.ALL)
@@ -126,6 +129,14 @@ public class User {
 
 	public void setAdvertisements(Set<Advertisement> advertisements) {
 		this.advertisements = advertisements;
+	}
+
+	public Set<Roomie> getRoomies() {
+		return roomies;
+	}
+
+	public void setRoomies(Set<Roomie> roomies) {
+		this.roomies = roomies;
 	}
 
 	public List<Message> getRecipient() {

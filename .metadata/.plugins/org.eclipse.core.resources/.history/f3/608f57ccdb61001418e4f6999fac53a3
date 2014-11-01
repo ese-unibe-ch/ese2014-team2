@@ -1,0 +1,199 @@
+package org.eseTeam2.controller.service;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
+import org.eseTeam2.controller.pojos.AdForm;
+import org.eseTeam2.model.Advertisement;
+import org.eseTeam2.model.Picture;
+import org.eseTeam2.model.Roomie;
+import org.eseTeam2.model.User;
+import org.eseTeam2.model.dao.AdvertisementDao;
+import org.eseTeam2.model.dao.PictureDao;
+import org.eseTeam2.model.dao.RoomieDao;
+import org.eseTeam2.model.dao.UserDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
+
+@Service
+public class RoomieDataService implements IRoomieDataService {
+
+	@Autowired
+	RoomieDao roomieDao;
+
+	@Autowired
+	PictureDao pictureDao;
+
+	@Autowired
+	UserDao userDao;
+
+	public Iterable<Roomie> getRoomies() {
+		return roomieDao.findAll();
+	}
+
+	public Roomie getRoomie(Long id) {
+		return roomieDao.findOne(id);
+	}
+
+	public RoomieForm saveFrom(RoomieForm roomieForm, ArrayList<Picture> picturesToSave) {
+
+		Roomie roomie = new Roomie();
+		Set<Advertisement> roomiesOfUser = new HashSet<Roomie>();
+		// set the pictures
+		User creator = roomieForm.getCreator();
+		if ( !creator.getRoomies().isEmpty()) {
+			adsOfUser = creator.getAdvertisements();
+		}
+		
+		Set<Picture> pictures = new HashSet<Picture>();
+		
+		for ( int i = 1; i < picturesToSave.size(); i++) {
+			pictures.add(picturesToSave.get(i));
+		}
+
+		ad.setPictures(pictures);
+		ad.setMainPic(picturesToSave.get(0));
+		
+		for ( int i = 0; i < picturesToSave.size(); i++) {
+			try {
+				pictureDao.save(picturesToSave.get(i));
+			}
+			catch (Exception d) {}
+		}
+
+		// set basics for ad
+		ad.setDescription(adForm.getDescription());
+		ad.setCreator(adForm.getCreator());
+		ad.setCreationDate(new Date());
+		
+		ad.setStart(adForm.getStart());
+		ad.setUntil(adForm.getUntil());
+		
+		ad.setRooms(adForm.getRooms());
+		ad.setRoomPrice(adForm.getRoomPrice());
+		ad.setRoomSpace(adForm.getRoomSpace());
+		ad.setWgType(adForm.getWgType());
+		ad.setFurnished(adForm.isFurnished());
+		ad.setNmbrOfRoommates(adForm.getNmbrOfRoommates());
+		
+		
+		// address stuff
+		
+		ad.setKanton(adForm.getKanton());
+		ad.setPlz(adForm.getPlz());
+		ad.setCity(adForm.getCity());
+		ad.setAddress(adForm.getAddress());
+		
+		// info about flat
+		ad.setDescription_ad(adForm.getDescription_ad());
+		ad.setHasLaundry(adForm.getHasLaundry());
+		ad.setHasBalcony(adForm.getHasBalcony());
+		ad.setHasDishwasher(adForm.getHasDishwasher());
+		ad.setSmokingInside(adForm.isSmokingInside());
+		ad.setHasPets(adForm.isHasPets());
+		ad.setWlan(adForm.isWlan());
+		
+		
+		// room info
+		ad.setDescription_room(adForm.getDescription_room());
+		ad.setToBalcony(adForm.getIsToBalcony());
+		ad.setHasCables(adForm.getHasCables());
+		ad.setHasBuiltInCloset(adForm.isHasBuiltInCloset());
+		
+		// info about us
+		ad.setDescription_us(adForm.getDescription_us());
+		ad.setWgGender(adForm.getWgGender());
+		
+		// info about who we are looking for		
+		ad.setWhoWeAreLookingFor(adForm.getWhoWeAreLookingFor());
+		ad.setSmoker(adForm.getSmoker());
+		ad.setAgeRange(adForm.getAgeRange());
+		ad.setGenderWeLookFor(adForm.getGenderWeLookFor());
+		
+		// other
+		ad.setTitle(adForm.getRoomPrice() + " CHF in " + adForm.getCity() + ", with " + adForm.getRooms()  + " Rooms");
+		adsOfUser.add(ad);
+		creator.setAdvertisements(adsOfUser);
+		
+		
+		ad = advertisementDao.save(ad); // save object to DB
+		
+		creator  = userDao.save(creator);
+		
+		adForm.setId(ad.getId());
+
+		return adForm;
+	}
+
+	public String getPicture(Long picId) {
+		return pictureDao.findOne(picId).getAbsoluteFilePath();
+	}
+
+	public ArrayList<Long> getRoomiePictureIds(Long roomieId) {
+
+		Set<Picture> pictures = getRoomie(roomieId).getPictures();
+		ArrayList<Long> pics = new ArrayList<Long>();
+
+		for (Picture picture : pictures) {
+			if (picture.getAbsoluteFilePath() != null) {
+
+				if (picture.getIsMainPic() == false)
+					pics.add(picture.getId());
+
+			}
+
+		}
+		return pics;
+
+	}
+	
+	public ArrayList<Picture> getRoomiePictures(Long roomieId) {
+
+		Set<Picture> pictures = getRoomie(roomieId).getPictures();
+		ArrayList<Picture> pics = new ArrayList<Picture>();
+		
+
+		for (Picture picture : pictures) {
+			if (picture.getAbsoluteFilePath() != null) {
+
+				if (picture.getIsMainPic() == false)
+					pics.add(picture);
+
+			}
+
+		}
+		return pics;
+
+	}
+
+	public Picture getRoomieMainPic (Long roomieId) {
+		return roomieDao.findOne(roomieId).getMainPic();
+	}
+
+
+	public Set<Picture> getPicturesOfRoomie(Long roomieId) {
+		return roomieDao.findOne(roomieId).getPictures();
+	}
+
+	public void deleteOne(Long roomieId, User user) {
+		Set<Roomie> userRoomies= user.getRoomies();
+		for( Roomie roomie: userRoomies) {
+			if(roomie.getId() == roomieId)
+				userRoomies.remove(roomie);
+		}
+		
+		user.setRoomies(userRoomies);
+		userDao.save(user);
+		
+		roomieDao.delete(roomieId);
+	}
+	}
+
+

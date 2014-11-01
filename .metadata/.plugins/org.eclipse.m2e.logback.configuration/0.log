@@ -5026,3 +5026,965 @@
 2014-10-31 00:34:10,198 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
 2014-10-31 00:34:10,199 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2014-10-31 00:34:10,199 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-10-31 18:22:14,290 [Worker-2] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: Skeleton:Skeleton:1.0 @ /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/pom.xml.
+2014-10-31 18:22:18,153 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-10-31 18:22:18,153 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-10-31 18:22:18,153 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-10-31 18:22:18,156 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-10-31 18:22:18,156 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-10-31 18:22:39,399 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-10-31 18:22:39,403 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-10-31 18:22:39,403 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-10-31 18:22:39,405 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-10-31 18:22:39,405 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-10-31 18:24:33,288 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-10-31 18:24:33,288 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-10-31 18:24:33,288 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-10-31 18:24:33,290 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-10-31 18:24:33,290 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-10-31 18:24:47,664 [Worker-12] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: Skeleton:Skeleton:1.0 @ /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/pom.xml.
+2014-10-31 18:24:49,042 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-10-31 18:24:49,043 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-10-31 18:24:49,043 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-10-31 18:24:49,045 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-10-31 18:24:49,045 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-10-31 18:25:23,952 [Worker-10] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton
+2014-10-31 18:25:23,952 [Worker-10] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jetty:stop jetty:run
+2014-10-31 18:25:57,942 [main] INFO  o.e.m2e.actions.ExecutePomAction - Using existing launch configuration
+2014-10-31 18:25:57,956 [Worker-8] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton
+2014-10-31 18:25:57,956 [Worker-8] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jetty:stop jetty:run
+2014-10-31 18:26:12,682 [Worker-8] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton
+2014-10-31 18:26:12,682 [Worker-8] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jetty:stop jetty:run
+2014-11-01 10:09:45,025 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 10:09:45,031 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 10:09:45,031 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 10:09:45,034 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 10:09:45,034 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 10:12:30,133 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 10:12:30,134 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 10:12:30,134 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 10:12:30,140 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 10:12:30,140 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 10:12:34,290 [Worker-9] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton
+2014-11-01 10:12:34,292 [Worker-9] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jetty:stop jetty:run
+2014-11-01 10:14:25,537 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 10:14:25,537 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 10:14:25,538 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 10:14:25,540 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 10:14:25,540 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 11:28:04,535 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:28:04,540 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:28:04,541 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:28:04,545 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:28:04,545 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 11:29:02,471 [main] INFO  o.e.m2e.actions.ExecutePomAction - Using existing launch configuration
+2014-11-01 11:29:02,546 [Worker-5] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton
+2014-11-01 11:29:02,547 [Worker-5] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jetty:stop jetty:run
+2014-11-01 11:32:05,603 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:32:05,604 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:32:05,604 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:32:05,605 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:32:05,606 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 11:36:16,375 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:36:16,376 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:36:16,376 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:36:16,378 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:36:16,378 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 11:37:17,064 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:37:17,064 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:37:17,064 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:37:17,066 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:37:17,066 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 11:38:22,418 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:38:22,419 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:38:22,419 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:38:22,420 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:38:22,421 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 11:45:10,918 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:45:10,919 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:45:10,919 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:45:10,920 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:45:10,920 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 11:46:49,860 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:46:49,860 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:46:49,860 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:46:49,862 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:46:49,862 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 11:47:19,851 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:47:19,852 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:47:19,852 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:47:19,855 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:47:19,856 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 11:47:35,082 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:47:35,083 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:47:35,083 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:47:35,084 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:47:35,084 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 11:47:54,605 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:47:54,605 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:47:54,605 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:47:54,607 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:47:54,607 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 11:48:02,145 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:48:02,145 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:48:02,145 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:48:02,146 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:48:02,147 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 11:49:18,342 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:49:18,342 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:49:18,342 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:49:18,343 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:49:18,343 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 11:51:09,550 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:51:09,550 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:51:09,550 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:51:09,552 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:51:09,552 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 11:52:32,438 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:52:32,438 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:52:32,438 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:52:32,439 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:52:32,439 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 11:53:12,662 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:53:12,662 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:53:12,662 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:53:12,663 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:53:12,664 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 11:53:44,328 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:53:44,329 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:53:44,329 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:53:44,331 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:53:44,332 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 11:55:31,478 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:55:31,478 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:55:31,478 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:55:31,481 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:55:31,482 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 11:55:41,397 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:55:41,397 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:55:41,398 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 11:55:41,399 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 11:55:41,399 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:00:20,561 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:00:20,561 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:00:20,561 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:00:20,563 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:00:20,563 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:00:57,556 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:00:57,557 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:00:57,557 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:00:57,558 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:00:57,558 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:00:59,626 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:00:59,627 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:00:59,627 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:00:59,628 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:00:59,628 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:02:27,609 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:02:27,610 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:02:27,610 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:02:27,611 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:02:27,611 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:02:34,733 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:02:34,733 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:02:34,733 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:02:34,735 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:02:34,735 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:03:05,602 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:03:05,602 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:03:05,602 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:03:05,603 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:03:05,603 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:04:51,699 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:04:51,699 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:04:51,699 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:04:51,700 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:04:51,700 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:06:01,106 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:06:01,107 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:06:01,107 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:06:01,108 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:06:01,108 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:07:18,287 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:07:18,287 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:07:18,287 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:07:18,288 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:07:18,289 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:07:36,281 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:07:36,281 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:07:36,281 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:07:36,282 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:07:36,282 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:07:47,174 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:07:47,174 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:07:47,174 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:07:47,175 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:07:47,175 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:08:38,320 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:08:38,320 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:08:38,320 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:08:38,321 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:08:38,321 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:09:31,551 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:09:31,551 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:09:31,552 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:09:31,553 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:09:31,553 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:10:05,181 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:10:05,181 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:10:05,181 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:10:05,182 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:10:05,187 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:10:12,030 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:10:12,031 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:10:12,031 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:10:12,031 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:10:12,032 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:12:59,441 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:12:59,441 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:12:59,441 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:12:59,442 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:12:59,442 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:13:54,840 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:13:54,841 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:13:54,841 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:13:54,847 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:13:54,847 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:14:48,681 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:14:48,681 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:14:48,681 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:14:48,682 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:14:48,682 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:15:23,191 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:15:23,191 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:15:23,191 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:15:23,193 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:15:23,193 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:15:44,125 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:15:44,125 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:15:44,125 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:15:44,126 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:15:44,126 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:15:51,603 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:15:51,603 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:15:51,603 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:15:51,604 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:15:51,605 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:17:09,626 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:17:09,627 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:17:09,627 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:17:09,628 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:17:09,628 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:18:38,885 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:18:38,885 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:18:38,885 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:18:38,886 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:18:38,886 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:19:18,564 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:19:18,564 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:19:18,565 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:19:18,566 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:19:18,566 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:19:29,366 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:19:29,366 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:19:29,366 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:19:29,367 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:19:29,367 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:23:59,991 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:23:59,991 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:23:59,991 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:23:59,993 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:23:59,993 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:24:32,516 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:24:32,516 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:24:32,516 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:24:32,517 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:24:32,517 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:24:49,130 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:24:49,133 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:24:49,133 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:24:49,134 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:24:49,134 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:25:04,481 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:25:04,482 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:25:04,482 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:25:04,483 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:25:04,483 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:26:41,777 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:26:41,777 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:26:41,777 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:26:41,778 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:26:41,778 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:27:16,942 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:27:16,942 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:27:16,942 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:27:16,943 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:27:16,944 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:27:45,649 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:27:45,649 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:27:45,649 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:27:45,650 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:27:45,650 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:27:55,876 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:27:55,876 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:27:55,876 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:27:55,879 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:27:55,879 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:33:47,963 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:33:47,964 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:33:47,964 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:33:47,965 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:33:47,965 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:34:04,298 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:34:04,299 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:34:04,299 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:34:04,300 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:34:04,300 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:36:51,781 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:36:51,781 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:36:51,782 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:36:51,783 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:36:51,783 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:36:59,383 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:36:59,383 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:36:59,383 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:36:59,384 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:36:59,385 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:37:28,312 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:37:28,312 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:37:28,312 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:37:28,313 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:37:28,314 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:37:35,834 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:37:35,835 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:37:35,835 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:37:35,836 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:37:35,836 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:38:36,459 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:38:36,459 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:38:36,459 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:38:36,460 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:38:36,460 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:43:46,643 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:43:46,643 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:43:46,643 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:43:46,644 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:43:46,645 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:44:03,432 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:44:03,432 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:44:03,432 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:44:03,433 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:44:03,433 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:45:32,865 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:45:32,865 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:45:32,865 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:45:32,867 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:45:32,867 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:45:37,652 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:45:37,652 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:45:37,652 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:45:37,653 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:45:37,653 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:45:44,085 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:45:44,085 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:45:44,085 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:45:44,086 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:45:44,087 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:46:17,072 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:46:17,072 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:46:17,072 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:46:17,074 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:46:17,074 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:46:44,452 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:46:44,452 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:46:44,452 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:46:44,454 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:46:44,454 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:51:19,808 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:51:19,808 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:51:19,808 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:51:19,809 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:51:19,809 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:52:11,070 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:52:11,070 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:52:11,070 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:52:11,071 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:52:11,071 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:52:23,731 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:52:23,731 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:52:23,731 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:52:23,732 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:52:23,732 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:52:38,444 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:52:38,444 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:52:38,444 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:52:38,445 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:52:38,445 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:53:14,752 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:53:14,752 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:53:14,752 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:53:14,753 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:53:14,753 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:57:42,032 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:57:42,033 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:57:42,033 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:57:42,034 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:57:42,034 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 12:59:39,331 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:59:39,331 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:59:39,331 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 12:59:39,332 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 12:59:39,332 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 13:03:33,225 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:03:33,225 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:03:33,226 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:03:33,226 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:03:33,226 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 13:04:20,243 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:04:20,243 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:04:20,243 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:04:20,244 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:04:20,244 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 13:04:29,881 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:04:29,881 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:04:29,881 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:04:29,882 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:04:29,882 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 13:06:32,385 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:06:32,385 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:06:32,385 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:06:32,386 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:06:32,386 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 13:06:47,220 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:06:47,220 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:06:47,220 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:06:47,222 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:06:47,222 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 13:09:05,793 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:09:05,793 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:09:05,793 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:09:05,794 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:09:05,794 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 13:09:28,650 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:09:28,650 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:09:28,650 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:09:28,651 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:09:28,651 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 13:10:04,485 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:10:04,485 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:10:04,485 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:10:04,490 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:10:04,490 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 13:10:37,589 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:10:37,589 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:10:37,589 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:10:37,590 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:10:37,590 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 13:10:56,574 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:10:56,575 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:10:56,575 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:10:56,576 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:10:56,576 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 13:11:46,111 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:11:46,111 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:11:46,111 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:11:46,112 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:11:46,112 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 13:12:21,946 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:12:21,946 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:12:21,946 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:12:21,947 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:12:21,947 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 13:13:04,048 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:13:04,048 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:13:04,049 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:13:04,050 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:13:04,050 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 13:26:03,868 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:26:03,868 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:26:03,868 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:26:03,868 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:26:03,868 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 13:57:56,219 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:57:56,219 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:57:56,220 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:57:56,220 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:57:56,220 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 13:58:04,501 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:58:04,501 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:58:04,501 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:58:04,502 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:58:04,502 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 13:59:55,217 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:59:55,217 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:59:55,217 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 13:59:55,217 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 13:59:55,217 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 14:01:15,736 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:01:15,736 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:01:15,736 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:01:15,741 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:01:15,741 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 14:02:08,046 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:02:08,046 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:02:08,046 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:02:08,047 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:02:08,047 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 14:02:10,948 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:02:10,948 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:02:10,949 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:02:10,950 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:02:10,950 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 14:02:59,528 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:02:59,529 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:02:59,529 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:02:59,530 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:02:59,530 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 14:03:31,902 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:03:31,902 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:03:31,902 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:03:31,903 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:03:31,903 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 14:04:23,434 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:04:23,434 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:04:23,434 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:04:23,435 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:04:23,436 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 14:04:49,432 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:04:49,432 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:04:49,432 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:04:49,433 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:04:49,433 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 14:06:01,420 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:06:01,420 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:06:01,420 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:06:01,421 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:06:01,421 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 14:36:56,263 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:36:56,263 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:36:56,263 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:36:56,264 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:36:56,264 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 14:38:14,323 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:38:14,323 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:38:14,323 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:38:14,323 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:38:14,323 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 14:38:47,902 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:38:47,902 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:38:47,902 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:38:47,903 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:38:47,903 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 14:40:45,602 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:40:45,602 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:40:45,602 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:40:45,603 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:40:45,604 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 14:41:11,261 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:41:11,261 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:41:11,261 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:41:11,262 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:41:11,263 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 14:41:18,005 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:41:18,005 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:41:18,005 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:41:18,006 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:41:18,006 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 14:41:25,112 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:41:25,112 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:41:25,112 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:41:25,114 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:41:25,114 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 14:42:17,561 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:42:17,561 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:42:17,562 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:42:17,562 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:42:17,562 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 14:42:55,445 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:42:55,445 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:42:55,445 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:42:55,446 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:42:55,446 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 14:44:14,625 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:44:14,628 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:44:14,628 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:44:14,629 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:44:14,630 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 14:44:18,693 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:44:18,693 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:44:18,693 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:44:18,694 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:44:18,694 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 14:44:33,972 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:44:33,973 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:44:33,973 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:44:33,974 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:44:33,974 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 14:46:44,101 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:46:44,101 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:46:44,101 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:46:44,102 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:46:44,102 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 14:56:32,420 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:56:32,420 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:56:32,420 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 14:56:32,421 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 14:56:32,421 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 14:57:13,121 [main] INFO  o.e.m2e.actions.ExecutePomAction - Using existing launch configuration
+2014-11-01 14:57:13,137 [Worker-21] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton
+2014-11-01 14:57:13,137 [Worker-21] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jetty:stop jetty:run
+2014-11-01 15:16:26,954 [main] INFO  o.e.m2e.actions.ExecutePomAction - Using existing launch configuration
+2014-11-01 15:16:27,015 [Worker-24] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton
+2014-11-01 15:16:27,015 [Worker-24] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jetty:stop jetty:run
+2014-11-01 15:21:06,339 [main] INFO  o.e.m2e.actions.ExecutePomAction - Using existing launch configuration
+2014-11-01 15:21:06,388 [Worker-26] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton
+2014-11-01 15:21:06,388 [Worker-26] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jetty:stop jetty:run
+2014-11-01 15:22:02,302 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 15:22:02,302 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 15:22:02,302 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 15:22:02,303 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 15:22:02,303 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 15:22:07,759 [Worker-13] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton
+2014-11-01 15:22:07,763 [Worker-13] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jetty:stop jetty:run
+2014-11-01 15:22:37,594 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 15:22:37,594 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 15:22:37,594 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 15:22:37,595 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 15:22:37,595 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 15:22:42,633 [Worker-24] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton
+2014-11-01 15:22:42,634 [Worker-24] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jetty:stop jetty:run
+2014-11-01 15:23:11,219 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 15:23:11,219 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 15:23:11,220 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 15:23:11,221 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 15:23:11,221 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 15:23:14,346 [Worker-24] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton
+2014-11-01 15:23:14,346 [Worker-24] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jetty:stop jetty:run
+2014-11-01 15:24:05,342 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 15:24:05,348 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 15:24:05,348 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 15:24:05,351 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 15:24:05,351 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 15:31:50,089 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 15:31:50,094 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 15:31:50,094 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 15:31:50,097 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 15:31:50,097 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 15:32:05,459 [main] INFO  o.e.m2e.actions.ExecutePomAction - Using existing launch configuration
+2014-11-01 15:32:05,532 [Worker-6] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton
+2014-11-01 15:32:05,532 [Worker-6] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jetty:stop jetty:run
+2014-11-01 15:33:43,167 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 15:33:43,167 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 15:33:43,167 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 15:33:43,169 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 15:33:43,169 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 15:33:48,089 [Worker-2] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton
+2014-11-01 15:33:48,091 [Worker-2] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jetty:stop jetty:run
+2014-11-01 15:35:10,315 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 15:35:10,316 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 15:35:10,316 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 15:35:10,318 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 15:35:10,319 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 15:35:14,805 [Worker-7] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton
+2014-11-01 15:35:14,805 [Worker-7] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jetty:stop jetty:run
+2014-11-01 15:36:43,974 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 15:36:43,974 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 15:36:43,974 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 15:36:43,976 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 15:36:43,976 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 15:36:48,079 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton
+2014-11-01 15:36:48,079 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jetty:stop jetty:run
+2014-11-01 15:57:16,191 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 15:57:16,192 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 15:57:16,192 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 15:57:16,194 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 15:57:16,194 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 15:58:04,415 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 15:58:04,416 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 15:58:04,416 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 15:58:04,418 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 15:58:04,418 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 15:58:14,818 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 15:58:14,818 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 15:58:14,818 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 15:58:14,820 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 15:58:14,821 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 15:59:02,361 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 15:59:02,361 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 15:59:02,361 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 15:59:02,363 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 15:59:02,363 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 15:59:37,337 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 15:59:37,337 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 15:59:37,337 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 15:59:37,339 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 15:59:37,339 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:01:25,652 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:01:25,653 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:01:25,653 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:01:25,655 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:01:25,655 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:01:38,070 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:01:38,071 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:01:38,071 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:01:38,072 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:01:38,073 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:18:26,596 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:18:26,596 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:18:26,596 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:18:26,613 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:18:26,613 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:19:02,838 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:19:02,839 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:19:02,839 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:19:02,840 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:19:02,840 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:19:10,808 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:19:10,808 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:19:10,808 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:19:10,811 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:19:10,811 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:19:50,113 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:19:50,113 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:19:50,113 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:19:50,114 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:19:50,114 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:20:30,196 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:20:30,196 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:20:30,196 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:20:30,199 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:20:30,199 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:20:43,717 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:20:43,717 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:20:43,717 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:20:43,719 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:20:43,719 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:21:43,528 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:21:43,528 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:21:43,528 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:21:43,529 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:21:43,529 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:22:35,265 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:22:35,265 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:22:35,266 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:22:35,267 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:22:35,267 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:22:55,258 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:22:55,258 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:22:55,258 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:22:55,261 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:22:55,261 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:23:22,436 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:23:22,436 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:23:22,436 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:23:22,444 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:23:22,445 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:24:12,154 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:24:12,154 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:24:12,154 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:24:12,155 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:24:12,155 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:24:42,518 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:24:42,518 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:24:42,518 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:24:42,521 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:24:42,521 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:25:14,431 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:25:14,432 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:25:14,432 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:25:14,434 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:25:14,434 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:25:45,690 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:25:45,690 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:25:45,690 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:25:45,691 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:25:45,691 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:26:31,930 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:26:31,931 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:26:31,931 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:26:31,945 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:26:31,946 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:26:59,720 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:26:59,721 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:26:59,721 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:26:59,722 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:26:59,722 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:27:14,744 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:27:14,745 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:27:14,745 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:27:14,747 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:27:14,747 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:27:17,802 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:27:17,802 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:27:17,802 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:27:17,804 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:27:17,804 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:27:53,215 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:27:53,215 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:27:53,215 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:27:53,217 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:27:53,217 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:28:08,369 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:28:08,373 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:28:08,373 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:28:08,375 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:28:08,375 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:28:49,515 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:28:49,515 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:28:49,515 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:28:49,516 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:28:49,517 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:28:58,336 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:28:58,336 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:28:58,336 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:28:58,337 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:28:58,337 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:29:09,322 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:29:09,322 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:29:09,322 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:29:09,323 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:29:09,323 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:29:13,061 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:29:13,061 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:29:13,062 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:29:13,063 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:29:13,063 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:30:15,443 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:30:15,443 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:30:15,443 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:30:15,444 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:30:15,445 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:32:37,052 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:32:37,053 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:32:37,053 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:32:37,054 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:32:37,054 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:32:45,312 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:32:45,312 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:32:45,312 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:32:45,313 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:32:45,313 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:32:59,152 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:32:59,152 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:32:59,153 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:32:59,153 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:32:59,153 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:34:37,951 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:34:37,951 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:34:37,951 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:34:37,951 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:34:37,952 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:35:52,523 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:35:52,523 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:35:52,523 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:35:52,524 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:35:52,524 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:36:12,678 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:36:12,678 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:36:12,678 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:36:12,679 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:36:12,679 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:36:24,447 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:36:24,447 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:36:24,447 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:36:24,448 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:36:24,448 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:37:11,388 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:37:11,388 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:37:11,388 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:37:11,388 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:37:11,388 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:37:29,012 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:37:29,012 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:37:29,012 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:37:29,013 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:37:29,013 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:38:21,072 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:38:21,072 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:38:21,072 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:38:21,074 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:38:21,074 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:39:03,344 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:39:03,344 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:39:03,345 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:39:03,345 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:39:03,345 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:39:07,204 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:39:07,204 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:39:07,204 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:39:07,205 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:39:07,205 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:39:55,877 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:39:55,878 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:39:55,878 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:39:55,878 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:39:55,878 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:40:36,587 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:40:36,587 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:40:36,588 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:40:36,588 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:40:36,588 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:41:03,541 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:41:03,541 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:41:03,541 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:41:03,542 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:41:03,542 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:41:23,486 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:41:23,486 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:41:23,486 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:41:23,487 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:41:23,487 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:41:28,456 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:41:28,456 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:41:28,456 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:41:28,457 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:41:28,458 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:42:01,440 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:42:01,440 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:42:01,440 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:42:01,441 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:42:01,441 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:43:29,438 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:43:29,438 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:43:29,438 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:43:29,439 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:43:29,439 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:43:59,602 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:43:59,603 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:43:59,603 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:43:59,603 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:43:59,604 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:44:18,941 [main] INFO  o.e.m2e.actions.ExecutePomAction - Using existing launch configuration
+2014-11-01 16:44:18,968 [Worker-13] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton
+2014-11-01 16:44:18,968 [Worker-13] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jetty:stop jetty:run
+2014-11-01 16:49:03,319 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:49:03,320 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:49:03,320 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:49:03,321 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:49:03,322 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:50:24,427 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:50:24,428 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:50:24,428 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:50:24,429 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:50:24,429 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:53:01,220 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:53:01,220 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:53:01,220 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:53:01,221 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:53:01,221 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:53:05,934 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton
+2014-11-01 16:53:05,934 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jetty:stop jetty:run
+2014-11-01 16:55:12,449 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton
+2014-11-01 16:55:12,450 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jetty:stop jetty:run
+2014-11-01 16:58:25,815 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:58:25,815 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:58:25,815 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:58:25,816 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:58:25,816 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 16:59:08,512 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:59:08,512 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:59:08,512 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-01 16:59:08,513 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-01 16:59:08,513 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
+2014-11-01 17:00:55,948 [Worker-10] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton
+2014-11-01 17:00:55,948 [Worker-10] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jetty:stop jetty:run

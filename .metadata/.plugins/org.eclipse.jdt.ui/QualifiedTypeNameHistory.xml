@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.eseTeam2.model.Roomie"/>
+<fullyQualifiedTypeName name="org.eseTeam2.controller.pojos.RoomieForm"/>
+<fullyQualifiedTypeName name="org.eseTeam2.controller.service.IRoomieDataService"/>
+</qualifiedTypeNameHistroy>
