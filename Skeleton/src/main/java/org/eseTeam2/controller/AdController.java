@@ -21,6 +21,7 @@ import javax.validation.Valid;
 import org.apache.commons.io.IOUtils;
 import org.eseTeam2.PictureManager;
 import org.eseTeam2.controller.pojos.AdForm;
+import org.eseTeam2.controller.pojos.AppointmentFinderForm;
 import org.eseTeam2.controller.pojos.FilterForm;
 import org.eseTeam2.controller.pojos.LoginForm;
 import org.eseTeam2.controller.pojos.SignupForm;
@@ -206,6 +207,24 @@ public class AdController {
 		return model;
 	}
 	
+	
+	@RequestMapping(value = "/setzeBesichtigungstermin", method = RequestMethod.GET)
+	public ModelAndView besichtigungsterminSetzen(
+			@RequestParam(value = "adId", required = true) Long adId,
+			HttpServletRequest request, HttpServletResponse response,
+			HttpSession session,  Principal principal) {
+		
+		Advertisement ad = adService.getAdvertisement(adId);
+		Set<User> interessents = ad.getInteressents();
+			
+	
+		ModelAndView model = new ModelAndView("setAppointmentForAd");
+		model.addObject("interessents", interessents);
+		model.addObject("ad", ad);
+		model.addObject("AppointmentForm", new AppointmentFinderForm());
+		return model;
+	}
+	
 	@RequestMapping(value = "/getUserImage/{id}")
 	public void getUserImage(HttpServletResponse response,
 			@PathVariable("id") long picId) throws IOException {
@@ -217,6 +236,13 @@ public class AdController {
 		InputStream in1 = new  ByteArrayInputStream(picture); 
 		IOUtils.copy(in1, response.getOutputStream());
 		 
+	}
+	
+	@RequestMapping(value="/setAppointmentAndInform", method = RequestMethod.POST)
+	public ModelAndView setAppointmentDateAndInform (@Valid AppointmentFinderForm appointmentForm, BindingResult result,
+	RedirectAttributes redirectAttributes,Principal principal) {
+		return null;
+		
 	}
 	
 	
