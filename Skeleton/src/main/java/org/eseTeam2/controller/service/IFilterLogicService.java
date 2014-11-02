@@ -12,4 +12,6 @@ public interface IFilterLogicService {
 	public Advertisement getAdToCompare ( ArrayList<String> getterMethodNames, ArrayList<String> setterMethodNames, FilterForm filterForm   );
 	public ArrayList<Advertisement> getAdsThatMachTheFilter(
 			Advertisement adToCompare, ArrayList<String> getters);
+	public ArrayList<Advertisement> getAdsThatMatchTheSmallFilter(String city,
+			int roomPrice);
 }

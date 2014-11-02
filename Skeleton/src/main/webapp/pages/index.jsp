@@ -16,10 +16,7 @@
               <h2 class="panel-title"><a href="ads?showFilter=false">I'm looking for a room!</font></a></h2>
             </div>
             <div class="panel-body">
-            	<a href="ads">
-              		<div class="filler_big">
-              		</div>
-              	</a>
+            	<c:import url="template/smallFilter.jsp"/> 
             </div>
           </div>
           <div class="panel panel-info">
