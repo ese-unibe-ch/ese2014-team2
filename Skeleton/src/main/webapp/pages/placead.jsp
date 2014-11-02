@@ -1,4 +1,5 @@
-<%@ page language="java" pageEncoding="UTF-8" contentType="text/html;charset=utf-8"%>
+<%@ page language="java" pageEncoding="UTF-8"
+	contentType="text/html;charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -27,61 +28,68 @@
 					maxlength="10" />
 			</div>
 
-		<label class="control-label" for="field-von">Ab wann ist das Zimmer frei: </label>
-			 <div class="controls">
-			 <form:input path="start" type = "field-von" id ="datepicker" tabindex="2" />  
-			 </div>
- 
-  
-			
-				<label class="control-label" for="field-bis">Bis wann ist das Zimmer frei: </label>
+			<label class="control-label" for="field-von">Ab wann ist das
+				Zimmer frei: </label>
 			<div class="controls">
-			 	<form:input path="until" type = "field-bis" id ="datepicker2" tabindex="3" />  
-			 </div>
+				<form:input path="start" type="field-von" id="datepicker"
+					tabindex="2" />
+			</div>
 
 
-	<label class="control-label" for="field-rooms">Anzahl an Zimmer: </label>
+
+			<label class="control-label" for="field-bis">Bis wann ist das
+				Zimmer frei: </label>
+			<div class="controls">
+				<form:input path="until" type="field-bis" id="datepicker2"
+					tabindex="3" />
+			</div>
+
+
+			<label class="control-label" for="field-rooms">Anzahl an
+				Zimmer: </label>
 			<div class="controls">
 				<form:input path="rooms" id="field-rooms" tabindex="4"
 					maxlength="10" />
 			</div>
-			
-			
-	<label class="control-label" for="field-roomSpace">Grösse des Zimmers:</label>
+
+
+			<label class="control-label" for="field-roomSpace">Grösse des
+				Zimmers:</label>
 			<div class="controls">
 				<form:input path="roomSpace" id="field-roomSpace" tabindex="5"
 					maxlength="10" />
 			</div>
-			
-			<label class="control-label" for="field-adNmbrOfRoommates">Wie viele Mitbewohner (Exkl. der gesuchten Person)</label>
-			<div class="controls">
-							<form:select path="nmbrOfRoommates" id="field-adNmbrOfRoommates"
-								tabindex="6">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
 
-							</form:select>
-						</div>
-						
-				<label class="control-label" for="field-wgType">Ungefährer wg-typ</label>
+			<label class="control-label" for="field-adNmbrOfRoommates">Wie
+				viele Mitbewohner (Exkl. der gesuchten Person)</label>
 			<div class="controls">
-							<form:select path="wgType" id="field-wgType"
-								tabindex="7">
-								<option value="calm">eher ruhig</option>
-								<option value="wild">eher wild</option>
-								<option value="undef">undefiniert</option>
-						
+				<form:select path="nmbrOfRoommates" id="field-adNmbrOfRoommates"
+					tabindex="6">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
 
-							</form:select>
-						</div>
-						
-						<label
-						class="control-label" for="field-furnished">Möbliert:</label> 
-						<form:checkbox	path="furnished" id="field-furnished" tabindex="8" /></td>
+				</form:select>
+			</div>
+
+			<label class="control-label" for="field-wgType">Ungefährer
+				wg-typ</label>
+			<div class="controls">
+				<form:select path="wgType" id="field-wgType" tabindex="7">
+					<option value="calm">eher ruhig</option>
+					<option value="wild">eher wild</option>
+					<option value="undef">undefiniert</option>
+
+
+				</form:select>
+			</div>
+
+			<label class="control-label" for="field-furnished">Möbliert:</label>
+			<form:checkbox path="furnished" id="field-furnished" tabindex="8" />
+			</td>
 
 
 
@@ -171,25 +179,19 @@
 						</div></td>
 					<td><label class="control-label" for="field-adLaundry">Waschmaschine:</label>
 						<form:checkbox path="hasLaundry" id="field-adLaundry"
-							tabindex="12" /> <br></br>
-						<label class="control-label"
+							tabindex="12" /> <br></br> <label class="control-label"
 						for="field-adDishwasher">Geschirrspüler:</label> <form:checkbox
 							path="hasDishwasher" id="field-adDishwasher" tabindex="13" /> <br></br>
-							
-							<label
-						class="control-label" for="field-smokingInside">Wird in
-							der Wohnung geraucht:</label> <form:checkbox path="smokingInside"
-							id="field-smokingInside" tabindex="14" /> <br></br>
-							<label
+
+						<label class="control-label" for="field-smokingInside">Wird
+							in der Wohnung geraucht:</label> <form:checkbox path="smokingInside"
+							id="field-smokingInside" tabindex="14" /> <br></br> <label
 						class="control-label" for="field-hasPets">Gibt es
-							Haustiere in der Wohnung/ dürfen welche gehalten werden?:</label> 
-							<form:checkbox
-							path="hasPets" id="field-hasPets" tabindex="15" /> <br></br>
-							<label
+							Haustiere in der Wohnung/ dürfen welche gehalten werden?:</label> <form:checkbox
+							path="hasPets" id="field-hasPets" tabindex="15" /> <br></br> <label
 						class="control-label" for="field-adBalcony">Balkon:</label> <form:checkbox
 							path="hasBalcony" id="field-adBalcony" tabindex="16" /><br></br>
-							 <label
-						class="control-label" for="field-wlan">Wlan:</label> <form:checkbox
+						<label class="control-label" for="field-wlan">Wlan:</label> <form:checkbox
 							path="wlan" id="field-wlan" tabindex="17" /></td>
 				</tr>
 
@@ -252,8 +254,7 @@
 					<td><label class="control-label" for="field-wgGender">Wir
 							sind eine: </label>
 						<div class="controls">
-							<form:select path="wgGender" id="field-wgGender"
-								tabindex="23">
+							<form:select path="wgGender" id="field-wgGender" tabindex="23">
 								<option value="male">reine Männer WG</option>
 								<option value="female">reine Frauen WG</option>
 								<option value="mixed">gemischt WG</option>
@@ -274,13 +275,13 @@
 								id="field-whoWeAreLookingFor" tabindex="24"
 								placeholder="Du bist... Du machst gerne... " />
 						</div></td>
-					<td>
-						<label class="control-label" for="field-AgeRange">Du bist im Alter von - bis: </label>
+					<td><label class="control-label" for="field-AgeRange">Du
+							bist im Alter von - bis: </label>
 						<div class="controls">
-							<form:input path="ageRange" id="field-AgeRange" tabindex="5" maxlength="10" />
-						</div>
-					
-					 <label class="control-label" for="field-Smoker">Raucher/ Nichtraucher: </label>
+							<form:input path="ageRange" id="field-AgeRange" tabindex="5"
+								maxlength="10" />
+						</div> <label class="control-label" for="field-Smoker">Raucher/
+							Nichtraucher: </label>
 						<div class="controls">
 							<form:select path="smoker" id="field-Smoker" tabindex="26">
 								<option value="smoker">Raucher</option>

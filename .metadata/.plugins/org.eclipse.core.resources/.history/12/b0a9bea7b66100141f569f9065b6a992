@@ -1,0 +1,268 @@
+package org.eseTeam2.controller.pojos;
+
+import java.util.Date;
+
+import org.eseTeam2.model.Picture;
+import org.eseTeam2.model.User;
+
+
+public class RoomieForm {
+	
+	// basic info
+	private Long id;
+	private String sureName;
+	private String firstName;
+	private User creator;
+	private Date creationDate;
+	
+	// pictures
+	private Picture img_one;
+	
+	// info about the person
+	private String description_ad;
+	private boolean smoker;
+	private boolean hasPets;
+	private String gender;
+	private String description;
+	private int age;
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	public Date getCreationDate() {
+		return creationDate;
+	}
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
+
+	public int getRooms() {
+		return rooms;
+	}
+	public void setRooms(int rooms) {
+		this.rooms = rooms;
+	}
+	public int getRoomPrice() {
+		return roomPrice;
+	}
+	public void setRoomPrice(int price) {
+		this.roomPrice = price;
+	}
+	public int getRoomSpace() {
+		return roomSpace;
+	}
+	public void setRoomSpace(int space) {
+		this.roomSpace = space;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getStart() {
+		return start;
+	}
+	public void setStart(String start) {
+		this.start = start;
+	}
+	public String getUntil() {
+		return until;
+	}
+	public void setUntil(String until) {
+		this.until = until;
+	}
+	public int getNmbrOfRoommates() {
+		return nmbrOfRoommates;
+	}
+	public void setNmbrOfRoommates(int roomies) {
+		this.nmbrOfRoommates = roomies;
+	}
+	public String getKanton() {
+		return kanton;
+	}
+	public void setKanton(String kanton) {
+		this.kanton = kanton;
+	}
+	public int getPlz() {
+		return plz;
+	}
+	public void setPlz(int plz) {
+		this.plz = plz;
+	}
+	
+
+	public String getDescription_ad() {
+		return description_ad;
+	}
+	public void setDescription_ad(String description_ad) {
+		this.description_ad = description_ad;
+	}
+	public boolean getHasLaundry() {
+		return hasLaundry;
+	}
+	public void setHasLaundry(boolean hasLaundry) {
+		this.hasLaundry = hasLaundry;
+	}
+	public boolean getHasDishwasher() {
+		return hasDishwasher;
+	}
+	public void setHasDishwasher(boolean hasDishwasher) {
+		this.hasDishwasher = hasDishwasher;
+	}
+	public boolean getHasBalcony() {
+		return hasBalcony;
+	}
+	public void setHasBalcony(boolean hasBalcony) {
+		this.hasBalcony = hasBalcony;
+	}
+	public String getDescription_room() {
+		return description_room;
+	}
+	public void setDescription_room(String description_room) {
+		this.description_room = description_room;
+	}
+	public boolean getIsToBalcony() {
+		return isToBalcony;
+	}
+	public void setIsToBalcony(boolean isToBalcony) {
+		this.isToBalcony = isToBalcony;
+	}
+	public boolean getHasCables() {
+		return hasCables;
+	}
+	public void setHasCables(boolean hasCables) {
+		this.hasCables = hasCables;
+	}
+	public String getDescription_us() {
+		return description_us;
+	}
+	public void setDescription_us(String description_us) {
+		this.description_us = description_us;
+	}
+	public String getWhoWeAreLookingFor() {
+		return whoWeAreLookingFor;
+	}
+	public void setWhoWeAreLookingFor(String whoWeAreLookingFor) {
+		this.whoWeAreLookingFor = whoWeAreLookingFor;
+	}
+
+
+	public String getWgType() {
+		return wgType;
+	}
+	public void setWgType(String wgType) {
+		this.wgType = wgType;
+	}
+	public boolean isFurnished() {
+		return furnished;
+	}
+	public void setFurnished(boolean furnished) {
+		this.furnished = furnished;
+	}
+	public boolean isSmokingInside() {
+		return smokingInside;
+	}
+	public void setSmokingInside(boolean smokingInside) {
+		this.smokingInside = smokingInside;
+	}
+	public boolean isHasPets() {
+		return hasPets;
+	}
+	public void setHasPets(boolean hasPets) {
+		this.hasPets = hasPets;
+	}
+	public boolean isWlan() {
+		return wlan;
+	}
+	public void setWlan(boolean wlan) {
+		this.wlan = wlan;
+	}
+	public boolean isHasBuiltInCloset() {
+		return hasBuiltInCloset;
+	}
+	public void setHasBuiltInCloset(boolean hasBuiltInCloset) {
+		this.hasBuiltInCloset = hasBuiltInCloset;
+	}
+	public String getWgGender() {
+		return wgGender;
+	}
+	public void setWgGender(String wgGender) {
+		this.wgGender = wgGender;
+	}
+	
+	public String getAgeRange() {
+		return ageRange;
+	}
+	public void setAgeRange(String ageRange) {
+		this.ageRange = ageRange;
+	}
+	public String getGenderWeLookFor() {
+		return genderWeLookFor;
+	}
+	public void setGenderWeLookFor(String genderWeLookFor) {
+		this.genderWeLookFor = genderWeLookFor;
+	}
+	public String getSmoker() {
+		return smoker;
+	}
+	public void setSmoker(String smoker) {
+		this.smoker = smoker;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public User getCreator() {
+		return creator;
+	}
+	public void setCreator(User creator) {
+		this.creator = creator;
+	}
+	public Picture getImg_one() {
+		return img_one;
+	}
+	public void setImg_one(Picture img_one) {
+		this.img_one = img_one;
+	}
+	public Picture getImg_two() {
+		return img_two;
+	}
+	public void setImg_two(Picture img_two) {
+		this.img_two = img_two;
+	}
+	public Picture getImg_three() {
+		return img_three;
+	}
+	public void setImg_three(Picture img_three) {
+		this.img_three = img_three;
+	}
+	public Picture getImg_four() {
+		return img_four;
+	}
+	public void setImg_four(Picture img_four) {
+		this.img_four = img_four;
+	}
+
+	
+	
+}
