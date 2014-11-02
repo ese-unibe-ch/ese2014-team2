@@ -6275,3 +6275,8 @@
 2014-11-02 14:22:43,492 [Worker-26] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jetty:stop jetty:run
 2014-11-02 14:25:45,154 [Worker-22] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton
 2014-11-02 14:25:45,154 [Worker-22] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jetty:stop jetty:run
+2014-11-02 15:25:16,609 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-02 15:25:16,609 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-02 15:25:16,609 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/main/resources
+2014-11-02 15:25:16,611 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-02 15:25:16,611 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
