@@ -16,5 +16,7 @@ public interface IMessageService {
 	public void deleteRecipientMessage(Long messageId, User currentUser);
 
 	public void deleteSenderMessage(Long messageId, User currentUser);
+
+	public void deleteNotification(Long messageId, User currentUser);
 	
 }

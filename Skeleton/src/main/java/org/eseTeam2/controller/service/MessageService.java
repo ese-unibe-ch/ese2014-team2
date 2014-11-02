@@ -91,4 +91,9 @@ public class MessageService implements IMessageService {
 		
 	}
 
+	public void deleteNotification(Long messageId, User currentUser) {
+		messageDao.delete(messageId);
+		
+	}
+
 }

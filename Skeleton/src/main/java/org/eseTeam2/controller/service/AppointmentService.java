@@ -2,16 +2,19 @@ package org.eseTeam2.controller.service;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.eseTeam2.controller.pojos.AppointmentFinderForm;
 import org.eseTeam2.model.Advertisement;
 import org.eseTeam2.model.Appointment;
 import org.eseTeam2.model.AppointmentDate;
+import org.eseTeam2.model.Message;
 import org.eseTeam2.model.User;
 import org.eseTeam2.model.dao.AdvertisementDao;
 import org.eseTeam2.model.dao.AppointmentDao;
 import org.eseTeam2.model.dao.AppointmentDateDao;
+import org.eseTeam2.model.dao.MessageDao;
 import org.eseTeam2.model.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +31,9 @@ public class AppointmentService implements IAppointmentService{
 	
 	@Autowired
 	AppointmentDao appDao;
+	
+	@Autowired
+	MessageDao messageDao;
 	
 	@Autowired
 	AppointmentDateDao dateDao;
@@ -70,7 +76,13 @@ public class AppointmentService implements IAppointmentService{
 		Set<Advertisement> ads = new LinkedHashSet<Advertisement>();
 		Set<User> interessents = new LinkedHashSet<User>();
 		
-		Set<Advertisement> creatorAds = adCreator.getAdvertisements();
+		Message notification = new Message();
+		
+		
+		List<Message> creatorNotifications = new ArrayList<Message>();
+		
+		if( adCreator.getNotifications().isEmpty() == false)
+			creatorNotifications = adCreator.getNotifications();
 		
 		if ( !currentUser.getAdsUserIsInterestedIn().isEmpty())
 			ads = currentUser.getAdsUserIsInterestedIn();
@@ -93,10 +105,20 @@ public class AppointmentService implements IAppointmentService{
 		}
 		creatorAds.add(ad); */
 		
-		adCreator.setAdvertisements(creatorAds);
+		//adCreator.setAdvertisements(creatorAds);
 		
 		/*userDao.save(adCreator);*/
 		
+		notification.setMessageText("Hey, "+adCreator.getFirstName()+", du hast einen neuen Interessenten für dein Ad mit dem Titel "+ad.getTitle());
+		notification.setTitle("Neuen Interessenten für, "+ ad.getTitle());
+		notification.setNotifications(adCreator);
+				
+		creatorNotifications.add(notification);
+		adCreator.setNotifications(creatorNotifications);
+		
+		messageDao.save(notification);
+		
+		userDao.save(adCreator);
 		userDao.save(currentUser);
 		
 		adDao.save(ad);

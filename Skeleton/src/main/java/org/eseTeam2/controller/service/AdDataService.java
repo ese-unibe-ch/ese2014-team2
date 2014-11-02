@@ -195,6 +195,8 @@ public class AdDataService implements IAdDataService {
 		
 		advertisementDao.delete(adId);
 	}
+	
+	
 
 	
 

@@ -63,6 +63,12 @@ public class User {
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Message> recipient;
 	
+	
+	@OneToMany(mappedBy="notifications", fetch=FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
+	private List<Message> notifications;
+	
+	
 	@OneToMany(mappedBy="interessent", fetch=FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Appointment> interessentAppointments;
@@ -163,6 +169,14 @@ public class User {
 
 	public void setAdsUserIsInterestedIn(Set<Advertisement> adsUserIsInterestedIn) {
 		this.adsUserIsInterestedIn = adsUserIsInterestedIn;
+	}
+
+	public List<Message> getNotifications() {
+		return notifications;
+	}
+
+	public void setNotifications(List<Message> notifications) {
+		this.notifications = notifications;
 	}
 
 
