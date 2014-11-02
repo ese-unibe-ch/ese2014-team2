@@ -235,7 +235,13 @@
 
 
 		<a href="/Skeleton/ads">Back</a>
-		<td><a href="sendMessageFromAd?adId=${newAdProfile.id}">Send Message to ad Owner</a>
+		<td><a href="sendMessageFromAd?adId=${newAdProfile.id}"> 
+	<button type="button" class="btn btn-default"><b>Stelle eine private Frage an den Inseratsteller</b></button>
+</a>
+
+<a href="userInterested?adId=${newAdProfile.id}"> 
+	<button type="button" class="btn btn-default"><b>Ich hätte interesse an einer Besichtigung</b></button>
+</a>
 
 
 	<c:if test="${page_error != null }">

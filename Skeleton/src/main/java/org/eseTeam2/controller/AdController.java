@@ -26,9 +26,11 @@ import org.eseTeam2.controller.pojos.LoginForm;
 import org.eseTeam2.controller.pojos.SignupForm;
 import org.eseTeam2.controller.service.AdDataService;
 import org.eseTeam2.controller.service.IAdDataService;
+import org.eseTeam2.controller.service.IAppointmentService;
 import org.eseTeam2.controller.service.IUserDataService;
 import org.eseTeam2.controller.service.UserDataService;
 import org.eseTeam2.exceptions.InvalidUserException;
+import org.eseTeam2.model.Advertisement;
 import org.eseTeam2.model.Picture;
 import org.eseTeam2.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,6 +57,9 @@ public class AdController {
 	
 	@Autowired
 	private ServletContext servletContext;
+	
+	@Autowired
+	private IAppointmentService appointmentService;
 
 	public final String PICTURE_LOCATION = "/img/adPictures";
 
@@ -164,7 +169,39 @@ public class AdController {
 
 		return "redirect:/myads";
 	}
+	
+	
+	@RequestMapping (value ="/userInterested", method = RequestMethod.GET)
+	public String interestedInAd (	@RequestParam(value = "adId", required = true) Long adId,
+			HttpServletRequest request, HttpServletResponse response,
+			HttpSession session,  Principal principal) {
+		User currentUser = userService.getUserByEmail(principal.getName());
+		
+		appointmentService.addInteressent(currentUser, adId);
+		
+		
+	
+		return "redirect:/adprofile?adId="+adId;
+	}
+	
+	@RequestMapping(value = "/showInteressents", method = RequestMethod.GET)
+	public ModelAndView showInteressentsOfAd(
+			@RequestParam(value = "adId", required = true) Long adId,
+			HttpServletRequest request, HttpServletResponse response,
+			HttpSession session,  Principal principal) {
+		
+		Advertisement ad = adService.getAdvertisement(adId);
+		Set<User>interessents = ad.getInteressents();
 
+	
+		
+	
+		ModelAndView model = new ModelAndView("interessents");
+		model.addObject("interessents", interessents);
+		model.addObject("ad", ad);
+		return model;
+	}
+	
 	@RequestMapping(value = "/getUserImage/{id}")
 	public void getUserImage(HttpServletResponse response,
 			@PathVariable("id") long picId) throws IOException {

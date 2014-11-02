@@ -95,7 +95,7 @@ public class Advertisement {
 	@OneToOne(mappedBy="ad", fetch=FetchType.EAGER)
 	private Appointment appointment;
 	
-	@ManyToMany 
+	@ManyToMany (fetch = FetchType.EAGER)
 	private Set<User> interessents;
 
 	public Set<Picture> getPictures() {

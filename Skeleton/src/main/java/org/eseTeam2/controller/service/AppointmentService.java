@@ -1,6 +1,8 @@
 package org.eseTeam2.controller.service;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 import org.eseTeam2.controller.pojos.AppointmentFinderForm;
 import org.eseTeam2.model.Advertisement;
@@ -54,6 +56,51 @@ public class AppointmentService implements IAppointmentService{
 			
 		}
 	
+		
+		
+		
+		
+	}
+
+
+	public void addInteressent(User currentUser, Long adId) {
+		
+		Advertisement ad = adDao.findOne(adId);
+		User adCreator = ad.getCreator();
+		Set<Advertisement> ads = new LinkedHashSet<Advertisement>();
+		Set<User> interessents = new LinkedHashSet<User>();
+		
+		Set<Advertisement> creatorAds = adCreator.getAdvertisements();
+		
+		if ( !currentUser.getAdsUserIsInterestedIn().isEmpty())
+			ads = currentUser.getAdsUserIsInterestedIn();
+		
+		if ( ad.getInteressents() != null && !ad.getInteressents().isEmpty())
+			interessents = ad.getInteressents();
+		
+		interessents.add(currentUser);
+		
+		ad.setInteressents(interessents);
+			
+		ads.add(ad);
+		
+		currentUser.setAdsUserIsInterestedIn(ads);
+		
+		/*
+		for ( Advertisement adv : creatorAds)  {
+			if( adv.getId() == adId)
+				creatorAds.remove(adv);
+		}
+		creatorAds.add(ad); */
+		
+		adCreator.setAdvertisements(creatorAds);
+		
+		/*userDao.save(adCreator);*/
+		
+		userDao.save(currentUser);
+		
+		adDao.save(ad);
+		
 		
 		
 		
