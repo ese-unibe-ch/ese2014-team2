@@ -43,30 +43,28 @@ public class RoomieDataService implements IRoomieDataService {
 		return roomieDao.findOne(id);
 	}
 
-	public RoomieForm saveFrom(RoomieForm roomieForm, ArrayList<Picture> picturesToSave) {
+	public RoomieForm saveFrom(RoomieForm roomieForm,
+			ArrayList<Picture> picturesToSave) {
 
 		Roomie roomie = new Roomie();
-		Set<Roomie> roomiesOfUser = new HashSet<Roomie>();
 		// set the pictures
 		User creator = roomieForm.getCreator();
-		if ( !creator.getRoomies().isEmpty()) {
-			roomiesOfUser = creator.getRoomies();
-		}
-		
+
 		Set<Picture> pictures = new HashSet<Picture>();
-		
-		for ( int i = 1; i < picturesToSave.size(); i++) {
+
+		for (int i = 1; i < picturesToSave.size(); i++) {
 			pictures.add(picturesToSave.get(i));
 		}
 
 		roomie.setPictures(pictures);
-		roomie.setMainPic(picturesToSave.get(0));
-		
-		for ( int i = 0; i < picturesToSave.size(); i++) {
+		if (!(picturesToSave.isEmpty()))
+			roomie.setMainPic(picturesToSave.get(0));
+
+		for (int i = 0; i < picturesToSave.size(); i++) {
 			try {
 				pictureDao.save(picturesToSave.get(i));
+			} catch (Exception d) {
 			}
-			catch (Exception d) {}
 		}
 
 		// set basics for roomie
@@ -74,20 +72,20 @@ public class RoomieDataService implements IRoomieDataService {
 		roomie.setCreator(roomieForm.getCreator());
 		roomie.setCreationDate(new Date());
 		roomie.setPersonalityType(roomieForm.getPersonalityType());
-		roomie.setSmoker(roomieForm.isSmoker());
+		roomie.setSmoker(roomieForm.getSmoker());
 		roomie.setHasPets(roomieForm.isHasPets());
 		roomie.setGender(roomieForm.getGender());
 		roomie.setAge(roomieForm.getAge());
-		
+		roomie.setFirstName(roomieForm.getFirstName());
+		roomie.setLastName(roomieForm.getLastName());
+
 		// other
-		roomiesOfUser.add(roomie);
-		creator.setRoomies(roomiesOfUser);
-		
-		
+		creator.setRoomie(roomie);
+
 		roomie = roomieDao.save(roomie); // save object to DB
-		
-		creator  = userDao.save(creator);
-		
+
+		creator = userDao.save(creator);
+
 		roomieForm.setId(roomie.getId());
 
 		return roomieForm;
@@ -114,12 +112,11 @@ public class RoomieDataService implements IRoomieDataService {
 		return pics;
 
 	}
-	
+
 	public ArrayList<Picture> getRoomiePictures(Long roomieId) {
 
 		Set<Picture> pictures = getRoomie(roomieId).getPictures();
 		ArrayList<Picture> pics = new ArrayList<Picture>();
-		
 
 		for (Picture picture : pictures) {
 			if (picture.getAbsoluteFilePath() != null) {
@@ -134,27 +131,19 @@ public class RoomieDataService implements IRoomieDataService {
 
 	}
 
-	public Picture getRoomieMainPic (Long roomieId) {
+	public Picture getRoomieMainPic(Long roomieId) {
 		return roomieDao.findOne(roomieId).getMainPic();
 	}
-
 
 	public Set<Picture> getPicturesOfRoomie(Long roomieId) {
 		return roomieDao.findOne(roomieId).getPictures();
 	}
 
 	public void deleteOne(Long roomieId, User user) {
-		Set<Roomie> userRoomies= user.getRoomies();
-		for( Roomie roomie: userRoomies) {
-			if(roomie.getId() == roomieId)
-				userRoomies.remove(roomie);
-		}
-		
-		user.setRoomies(userRoomies);
+
+		user.setRoomie(null);
 		userDao.save(user);
-		
+
 		roomieDao.delete(roomieId);
 	}
-	}
-
-
+}

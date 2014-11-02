@@ -63,7 +63,6 @@
 							<form:select path="smoker" id="field-Smoker" tabindex="26">
 								<option value="smoker">Raucher</option>
 								<option value="nonsmoker">Nichtraucher</option>
-
 							</form:select>
 							<label class="control-label" for="field-hasPets">Besitzt
 								du Haustiere?:</label>

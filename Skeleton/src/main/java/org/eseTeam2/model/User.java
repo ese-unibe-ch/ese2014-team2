@@ -45,9 +45,14 @@ public class User {
 	
 	@OneToMany(fetch = FetchType.EAGER)
 	private Set<Advertisement> advertisements;
+	
+	@OneToOne(fetch = FetchType.EAGER)
+	private Roomie roomie;
 
+	/*
 	@OneToMany(fetch = FetchType.EAGER)
 	private Set<Roomie> roomies;
+	*/
 	
 	/*
 	@OneToMany(fetch = FetchType.EAGER, mappedBy ="sender", cascade = CascadeType.ALL)
@@ -131,12 +136,12 @@ public class User {
 		this.advertisements = advertisements;
 	}
 
-	public Set<Roomie> getRoomies() {
-		return roomies;
+	public Roomie getRoomie() {
+		return roomie;
 	}
 
-	public void setRoomies(Set<Roomie> roomies) {
-		this.roomies = roomies;
+	public void setRoomie(Roomie roomie) {
+		this.roomie = roomie;
 	}
 
 	public List<Message> getRecipient() {

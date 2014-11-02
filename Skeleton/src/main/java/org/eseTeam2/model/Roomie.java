@@ -38,7 +38,7 @@ public class Roomie {
 	private String personalityType;
 
 	// info about the flat
-	private boolean smoker;
+	private int smoker;
 	private boolean hasPets;
 
 	// About us
@@ -65,12 +65,13 @@ public class Roomie {
 		this.pictures = pictures;
 	}
 
-	public boolean isSmoker() {
+	public int getSmoker() {
 		return smoker;
 	}
 
-	public void setSmoker(boolean smoker) {
-		this.smoker = smoker;
+	public void setSmoker(String smoker) {
+		if ( smoker.equals ( "smoker" ) ) this.smoker = 1;
+		else this.smoker = 0;
 	}
 
 	public String getPersonalityType() {
