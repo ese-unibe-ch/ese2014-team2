@@ -11,8 +11,10 @@
 		enctype="multipart/form-data">
 		<fieldset>
 		
-		<h3><label class="btn btn-warning btn-lg" ><font color="000000"><form:input path="roomPrice" id="field-roomPrice" maxlength="6" /></font> Maximaler Zimmerpreis</label></h3>
-		<h3><label class="btn btn-warning btn-lg" ><font color="000000"><form:input path="city" id="field-city" maxlength="15" /></font>Stadt</label></h3>
+		<h3><label class="btn btn-warning btn-lg" ><font color="000000"></font> Maximaler Zimmerpreis</label></h3>
+		<form:input path="roomPrice" id="field-roomPrice" maxlength="6" />
+		<h3><label class="btn btn-warning btn-lg" ><font color="000000"></font>Stadt</label></h3>
+		<form:input path="city" id="field-city" maxlength="15" />
 		
 		<button type="submit" class="btn btn-success btn-lg btn-block">Los!</button>
 		
