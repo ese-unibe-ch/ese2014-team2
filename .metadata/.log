@@ -2462,6 +2462,7 @@ java.lang.ClassCastException: org.eclipse.osgi.internal.framework.EquinoxConfigu
 
 !ENTRY org.eclipse.jst.jsp.core 4 4 2014-10-31 00:06:22.749
 !MESSAGE A workspace crash was detected. The previous session did not exit normally. Not using saved taglib indexes.
+<<<<<<< HEAD
 !SESSION 2014-10-31 18:21:45.444 -----------------------------------------------
 eclipse.buildId=4.4.1.M20140925-0400
 java.version=1.8.0_20
@@ -2620,6 +2621,17 @@ Chain 2:
 	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
 
 !ENTRY org.eclipse.m2e.logback.configuration 2 0 2014-11-01 11:27:50.242
+=======
+!SESSION 2014-10-31 21:18:28.630 -----------------------------------------------
+eclipse.buildId=4.4.1.M20140925-0400
+java.version=1.8.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=de_DE
+Framework arguments:  -product org.eclipse.epp.package.jee.product -keyring /Users/Raffael/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.jee.product -keyring /Users/Raffael/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.m2e.logback.configuration 2 0 2014-10-31 21:18:34.791
+>>>>>>> 280062202c43466f2dcba9bff298f55961acc69a
 !MESSAGE Exception while setting up logging:org.eclipse.osgi.internal.framework.EquinoxConfiguration$1 cannot be cast to java.lang.String
 !STACK 0
 java.lang.ClassCastException: org.eclipse.osgi.internal.framework.EquinoxConfiguration$1 cannot be cast to java.lang.String
@@ -2631,6 +2643,7 @@ java.lang.ClassCastException: org.eclipse.osgi.internal.framework.EquinoxConfigu
 	at java.util.TimerThread.mainLoop(Timer.java:555)
 	at java.util.TimerThread.run(Timer.java:505)
 
+<<<<<<< HEAD
 !ENTRY org.eclipse.core.net 1 0 2014-11-01 11:27:53.069
 !MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
 
@@ -3918,3 +3931,7 @@ Binding(COMMAND+/,
 
 !ENTRY org.eclipse.ui 4 4 2014-11-02 12:56:38.517
 !MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.wst.xml.ui.reload.dependencies
+=======
+!ENTRY org.eclipse.core.net 1 0 2014-10-31 21:18:39.562
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+>>>>>>> 280062202c43466f2dcba9bff298f55961acc69a

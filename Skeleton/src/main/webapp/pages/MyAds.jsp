@@ -23,6 +23,14 @@
   						</td>
   						<td>
   							<div class="btn-group btn-group-lg">
+  							
+  							<a href="showInteressents?adId=${ad.id}">
+							    <button type="button" class="btn btn-default"><b>Zeige Interessenten </b></button>
+							    </a>
+							    
+							    <a href="setzeBesichtigungstermin?adId=${ad.id}">
+							    <button type="button" class="btn btn-default"><b>Besichtigungstermin setzen </b></button>
+							    </a>
 							  
 							    <a href="adprofile?adId=${ad.id}">
 							    <button type="button" class="btn btn-default"><b>Bearbeiten </b></button>

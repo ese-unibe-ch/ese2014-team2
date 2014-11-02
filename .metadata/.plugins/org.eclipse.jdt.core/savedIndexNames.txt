@@ -1,5 +1,4 @@
 INDEX VERSION 1.127+/Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/.metadata/.plugins/org.eclipse.jdt.core
-4207758793.index
 3546302550.index
 2247865843.index
 3940512258.index
@@ -27,7 +26,6 @@ INDEX VERSION 1.127+/Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/.metada
 1334622778.index
 639694709.index
 474228644.index
-1095549677.index
 1447988484.index
 597050260.index
 4056274146.index

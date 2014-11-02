@@ -93,9 +93,10 @@ public class MessageController {
 			  return "redirect:/myinbox?showSent=true";
 		  if ( action.equals("showReceived"))
 		  	return "redirect:/myinbox?showReceived=true";
-		  	
 		  if(action.equals("publicQuestion"))
 			  return "redirect:/myinbox?showQuestion=true";
+		  if(action.equals("notifications"))
+			  return "redirect:/myinbox?showNotifications=true";
 		  
 		  return "redirect:/inbox";
 	    	
@@ -124,6 +125,7 @@ public class MessageController {
 	    	ModelAndView model = new ModelAndView("inbox");
 	    	model.addObject("receivedMessages", recipientMessagesToDisplay);
 	    	model.addObject("sentMessages", senderMessagesToDisplay);
+	    	model.addObject("notifications", currentUser.getNotifications());
 	    	model.addObject("user", currentUser);
 	    	return model;
 	    }
@@ -139,6 +141,13 @@ public class MessageController {
 	    public String deleteReceivedMessage( Principal principal, @RequestParam(value = "messageId", required = true) Long messageId) {
 	    	User currentUser = userService.getUserByEmail(principal.getName());
 	    	messageService.deleteRecipientMessage(messageId, currentUser);
+	    	return "redirect:/myinbox";
+	    }
+	  
+	  @RequestMapping(value = "/deleteNotification", method = RequestMethod.GET)
+	    public String deleteNotification( Principal principal, @RequestParam(value = "messageId", required = true) Long messageId) {
+	    	User currentUser = userService.getUserByEmail(principal.getName());
+	    	messageService.deleteNotification(messageId, currentUser);
 	    	return "redirect:/myinbox";
 	    }
 	    

@@ -21,14 +21,17 @@ import javax.validation.Valid;
 import org.apache.commons.io.IOUtils;
 import org.eseTeam2.PictureManager;
 import org.eseTeam2.controller.pojos.AdForm;
+import org.eseTeam2.controller.pojos.AppointmentFinderForm;
 import org.eseTeam2.controller.pojos.FilterForm;
 import org.eseTeam2.controller.pojos.LoginForm;
 import org.eseTeam2.controller.pojos.SignupForm;
 import org.eseTeam2.controller.service.AdDataService;
 import org.eseTeam2.controller.service.IAdDataService;
+import org.eseTeam2.controller.service.IAppointmentService;
 import org.eseTeam2.controller.service.IUserDataService;
 import org.eseTeam2.controller.service.UserDataService;
 import org.eseTeam2.exceptions.InvalidUserException;
+import org.eseTeam2.model.Advertisement;
 import org.eseTeam2.model.Picture;
 import org.eseTeam2.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +39,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -55,6 +59,9 @@ public class AdController {
 	
 	@Autowired
 	private ServletContext servletContext;
+	
+	@Autowired
+	private IAppointmentService appointmentService;
 
 	public final String PICTURE_LOCATION = "/img/adPictures";
 
@@ -135,11 +142,14 @@ public class AdController {
 	}
 
 	@RequestMapping(value = "/ads", method = RequestMethod.GET)
-	public ModelAndView showAds() {
+	public ModelAndView showAds( @ModelAttribute("adsParam") ArrayList<Advertisement> filteredAds) {
 		ModelAndView model = new ModelAndView("ads");
 		
 		model.addObject("filterForm", new FilterForm());
-		model.addObject("ads", adService.getAds());
+		if ( filteredAds.isEmpty())
+			model.addObject("ads", adService.getAds());
+		else 
+			model.addObject("ads", filteredAds);
 		return model;
 
 	}
@@ -164,7 +174,57 @@ public class AdController {
 
 		return "redirect:/myads";
 	}
+	
+	
+	@RequestMapping (value ="/userInterested", method = RequestMethod.GET)
+	public String interestedInAd (	@RequestParam(value = "adId", required = true) Long adId,
+			HttpServletRequest request, HttpServletResponse response,
+			HttpSession session,  Principal principal) {
+		User currentUser = userService.getUserByEmail(principal.getName());
+		
+		appointmentService.addInteressent(currentUser, adId);
+		
+		
+	
+		return "redirect:/adprofile?adId="+adId;
+	}
+	
+	@RequestMapping(value = "/showInteressents", method = RequestMethod.GET)
+	public ModelAndView showInteressentsOfAd(
+			@RequestParam(value = "adId", required = true) Long adId,
+			HttpServletRequest request, HttpServletResponse response,
+			HttpSession session,  Principal principal) {
+		
+		Advertisement ad = adService.getAdvertisement(adId);
+		Set<User>interessents = ad.getInteressents();
 
+	
+		
+	
+		ModelAndView model = new ModelAndView("interessents");
+		model.addObject("interessents", interessents);
+		model.addObject("ad", ad);
+		return model;
+	}
+	
+	
+	@RequestMapping(value = "/setzeBesichtigungstermin", method = RequestMethod.GET)
+	public ModelAndView besichtigungsterminSetzen(
+			@RequestParam(value = "adId", required = true) Long adId,
+			HttpServletRequest request, HttpServletResponse response,
+			HttpSession session,  Principal principal) {
+		
+		Advertisement ad = adService.getAdvertisement(adId);
+		Set<User> interessents = ad.getInteressents();
+			
+	
+		ModelAndView model = new ModelAndView("setAppointmentForAd");
+		model.addObject("interessents", interessents);
+		model.addObject("ad", ad);
+		model.addObject("AppointmentForm", new AppointmentFinderForm());
+		return model;
+	}
+	
 	@RequestMapping(value = "/getUserImage/{id}")
 	public void getUserImage(HttpServletResponse response,
 			@PathVariable("id") long picId) throws IOException {
@@ -176,6 +236,13 @@ public class AdController {
 		InputStream in1 = new  ByteArrayInputStream(picture); 
 		IOUtils.copy(in1, response.getOutputStream());
 		 
+	}
+	
+	@RequestMapping(value="/setAppointmentAndInform", method = RequestMethod.POST)
+	public ModelAndView setAppointmentDateAndInform (@Valid AppointmentFinderForm appointmentForm, BindingResult result,
+	RedirectAttributes redirectAttributes,Principal principal) {
+		return null;
+		
 	}
 	
 	

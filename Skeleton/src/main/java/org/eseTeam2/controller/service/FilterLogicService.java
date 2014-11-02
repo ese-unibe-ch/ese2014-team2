@@ -244,5 +244,40 @@ public class FilterLogicService implements IFilterLogicService {
 		}
 		return desiredAds;
 	}
+	
+	public ArrayList<Advertisement> getAdsThatMatchTheSmallFilter(
+			String city, int roomPrice) {
+		Iterable<Advertisement> filteredAds= new ArrayList<Advertisement>();
+		
+		
+		if (!city.equals("") && roomPrice > 0) {
+			filteredAds = adDao.findByCityAndRoomPriceLessThan(city, roomPrice);
+		
+		}
+		
+		if (city.equals("") && roomPrice <= 0) {
+			filteredAds = adDao.findAll();
+		
+		}
+		
+		if (city.equals("") && roomPrice > 0) {
+			filteredAds = adDao.findByRoomPriceLessThan(roomPrice);
+		
+		}
+		
+		if (!city.equals("") && roomPrice <= 0) {
+			filteredAds = adDao.findByCity(city);
+		
+		}
+		
+		ArrayList<Advertisement> filteredAdsList = new ArrayList<Advertisement>();
+		for ( Advertisement ad : filteredAds )
+			filteredAdsList .add(ad);
+		
+		return filteredAdsList;
+	
+	}
+
+	
 
 }

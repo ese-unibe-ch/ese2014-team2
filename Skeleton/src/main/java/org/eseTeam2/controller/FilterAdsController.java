@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 public class FilterAdsController {
@@ -42,7 +43,7 @@ public class FilterAdsController {
 
 
 	@RequestMapping(value = "/filterAds", method = RequestMethod.POST)
-	public ModelAndView filterAds(@Valid FilterForm filterForm, BindingResult result,
+	public String filterAds(@Valid FilterForm filterForm, BindingResult result,
 			RedirectAttributes redirectAttributes) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		
 		ArrayList<String> getters = filterService.getGetters();
@@ -51,12 +52,36 @@ public class FilterAdsController {
 		
 		ArrayList<Advertisement> filteredAds = filterService.getAdsThatMachTheFilter(adToCompare, getters);
 	
-		ModelAndView model = new ModelAndView("ads");
-		model.addObject("ads", filteredAds);
-		return model;
+		
+		redirectAttributes.addFlashAttribute("adsParam", filteredAds);
+
+		return "redirect:/ads?showFilter=false";
 		
 		
 	}
+	
+	@RequestMapping(value = "/filterAdsIndex", method = RequestMethod.POST)
+	public String filterAdsIndex(@Valid FilterForm filterForm, BindingResult result,
+			RedirectAttributes redirectAttributes) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		
+		
+		
+		ArrayList<Advertisement> filteredAds = filterService.getAdsThatMatchTheSmallFilter(filterForm.getCity(), filterForm.getRoomPrice());
+	
+		redirectAttributes.addFlashAttribute("adsParam", filteredAds);
+		
+		return "redirect:/ads?showFilter=false";
+		
+		
+	}
+	
+	
+          
+
+        
+
+	
+	
 	
 	  @RequestMapping("/ads/{action}")
 	  public String message(Model model, @PathVariable String action ) {
@@ -64,7 +89,7 @@ public class FilterAdsController {
 			  return "redirect:/ads?showFilter=true";
 		  if ( action.equals("closeFilter"))
 			  return "redirect:/ads?showFilter=false";
-		  return "redirect:/inbox";
+		  return "redirect:/ads?showFilter=false";
 	    	
 	    	
 	    }

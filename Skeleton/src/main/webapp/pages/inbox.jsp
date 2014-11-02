@@ -25,6 +25,11 @@
   <div class="btn-group">
     <button type="button" class="btn btn-default"><b>öffentliche Fragen zu einem ad</b></button>
   </div>
+  <div class="btn-group">
+  <a href="inboxShow/notifications">
+    <button type="button" class="btn btn-default"><b>Benachrichtigungen</b></button>
+    </a>
+  </div>
 </div>
 
 <c:if test="${param.showReceived eq true}">
@@ -53,7 +58,17 @@
 </c:if>
 
 
-
+<c:if test="${param.showNotifications eq true}">
+			
+<c:forEach items="${notifications}" var="notification">
+   <a href="showMessage?messageId=${notification.id}"><h1>${notification.title}</h1></a>
+  
+	
+   <a href="deleteNotification?messageId=${notification.id}">
+	<button type="button" class="btn btn-default"><b>Lösche die Nachricht</b></button>
+</a>
+</c:forEach>
+</c:if>
 
 
 	<c:if test="${page_error != null }">

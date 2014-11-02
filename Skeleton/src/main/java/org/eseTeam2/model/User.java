@@ -8,7 +8,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -25,7 +27,7 @@ import org.hibernate.annotations.NaturalId;
 public class User {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
     private String firstName;
@@ -68,6 +70,23 @@ public class User {
 	@OneToMany(mappedBy="recipient", fetch=FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Message> recipient;
+	
+	
+	@OneToMany(mappedBy="notifications", fetch=FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
+	private List<Message> notifications;
+	
+	
+	@OneToMany(mappedBy="interessent", fetch=FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
+	private List<Appointment> interessentAppointments;
+	
+	@OneToMany(mappedBy="adOwner", fetch=FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
+	private List<Appointment> adOwnerAppointments;
+	
+	@ManyToMany (mappedBy="interessents", fetch=FetchType.EAGER)
+	private  Set<Advertisement> adsUserIsInterestedIn;
 			
     
     public Long getId() {
@@ -158,6 +177,22 @@ public class User {
 
 	public void setSender(List<Message> sender) {
 		this.sender = sender;
+	}
+
+	public Set<Advertisement> getAdsUserIsInterestedIn() {
+		return adsUserIsInterestedIn;
+	}
+
+	public void setAdsUserIsInterestedIn(Set<Advertisement> adsUserIsInterestedIn) {
+		this.adsUserIsInterestedIn = adsUserIsInterestedIn;
+	}
+
+	public List<Message> getNotifications() {
+		return notifications;
+	}
+
+	public void setNotifications(List<Message> notifications) {
+		this.notifications = notifications;
 	}
 
 

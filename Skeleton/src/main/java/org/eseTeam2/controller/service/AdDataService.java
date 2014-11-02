@@ -56,7 +56,10 @@ public class AdDataService implements IAdDataService {
 		}
 
 		ad.setPictures(pictures);
+		try {
 		ad.setMainPic(picturesToSave.get(0));
+		}
+		catch (Exception d){}
 		
 		for ( int i = 0; i < picturesToSave.size(); i++) {
 			try {
@@ -121,6 +124,7 @@ public class AdDataService implements IAdDataService {
 		
 		
 		ad = advertisementDao.save(ad); // save object to DB
+		
 		
 		creator  = userDao.save(creator);
 		
@@ -191,6 +195,8 @@ public class AdDataService implements IAdDataService {
 		
 		advertisementDao.delete(adId);
 	}
+	
+	
 
 	
 

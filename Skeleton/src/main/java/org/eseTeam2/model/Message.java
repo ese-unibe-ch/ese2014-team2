@@ -32,6 +32,9 @@ public class Message {
 	@ManyToOne 
 	private User recipient;
 	
+	@ManyToOne 
+	private User notifications;
+	
 	private boolean senderDeleted;
 	private boolean recipientDeleted;
 
@@ -92,6 +95,14 @@ public class Message {
 
 	public void setRecipientDeleted(boolean recipientDeleted) {
 		this.recipientDeleted = recipientDeleted;
+	}
+
+	public User getNotifications() {
+		return notifications;
+	}
+
+	public void setNotifications(User notifications) {
+		this.notifications = notifications;
 	}
 
 	

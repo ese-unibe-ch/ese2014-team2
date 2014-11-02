@@ -12,23 +12,28 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 public class Advertisement {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	private String title;
 	private String description;
 	
-	@ManyToOne
+	@ManyToOne 
 	private User creator;
 	
 	private Date creationDate;
@@ -86,8 +91,12 @@ public class Advertisement {
 	@OneToOne
 	private Picture mainPic;
 	
-	@ManyToOne
-	private Advertisement ad;
+	
+	@OneToOne(mappedBy="ad", fetch=FetchType.EAGER)
+	private Appointment appointment;
+	
+	@ManyToMany (fetch = FetchType.EAGER)
+	private Set<User> interessents;
 
 	public Set<Picture> getPictures() {
 		return pictures;
@@ -365,13 +374,7 @@ public class Advertisement {
 		this.city = city;
 	}
 
-	public Advertisement getAd() {
-		return ad;
-	}
 
-	public void setAd(Advertisement ad) {
-		this.ad = ad;
-	}
 
 	public User getCreator() {
 		return creator;
@@ -387,6 +390,22 @@ public class Advertisement {
 
 	public void setMainPic(Picture mainPic) {
 		this.mainPic = mainPic;
+	}
+
+	public Appointment getAppointment() {
+		return appointment;
+	}
+
+	public void setAppointment(Appointment appointment) {
+		this.appointment = appointment;
+	}
+
+	public Set<User> getInteressents() {
+		return interessents;
+	}
+
+	public void setInteressents(Set<User> interessents) {
+		this.interessents = interessents;
 	}
 
 }
