@@ -38,7 +38,7 @@
 		<form:hidden path="adId"  value="${ad.id }" />
 		
     <div id="datetimepicker" class="input-append date">
-      <form:input type="text" data-format="MM/dd/yyyy" path="appointmentDate"></form:input>
+      <form:input type="text" data-format="dd/MM/yyyy" path="appointmentDate"></form:input>
       <span class="add-on">
         <i data-date-icon="icon-calendar"></i>
       </span>

@@ -38,6 +38,9 @@ public class Message {
 	@ManyToOne 
 	private User appointmentInvitations;
 	
+	
+	private Long appointedAd;
+	
 	private boolean senderDeleted;
 	private boolean recipientDeleted;
 
@@ -115,6 +118,16 @@ public class Message {
 	public void setAppointmentInvitations(User appointmentInvitations) {
 		this.appointmentInvitations = appointmentInvitations;
 	}
+
+	public Long getAppointedAd() {
+		return appointedAd;
+	}
+
+	public void setAppointedAd(Long appointedAd) {
+		this.appointedAd = appointedAd;
+	}
+
+
 
 	
 }

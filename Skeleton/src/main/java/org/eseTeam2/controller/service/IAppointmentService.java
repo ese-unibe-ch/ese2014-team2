@@ -9,4 +9,6 @@ public interface IAppointmentService {
 
 	void sendOutAppointment(AppointmentFinderForm appointmentForm);
 
+	void informAdOwner(User currentUser, Long appointmentId);
+
 }

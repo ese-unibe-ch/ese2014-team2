@@ -77,14 +77,7 @@ public class Advertisement {
 	private String ageRange;
 	private String genderWeLookFor;
 
-	/*
-	 * private String img_one = "../img/default_image.jpg"; private String
-	 * img_two = "../img/default_image.jpg"; private String img_three =
-	 * "../img/default_image.jpg"; private String img_four =
-	 * "../img/default_image.jpg";
-	 */
 
-	// @OneToMany(mappedBy="Advertisement",cascade = CascadeType.ALL)
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
 	private Set<Picture> pictures;
 	
@@ -94,6 +87,10 @@ public class Advertisement {
 	
 	@OneToOne(mappedBy="ad", fetch=FetchType.EAGER)
 	private Appointment appointment;
+	
+	/*
+	@OneToOne(mappedBy="appointedAd", fetch=FetchType.EAGER)
+	private List<Message> appointmentInvitationMessages; */
 	
 	@ManyToMany (fetch = FetchType.EAGER)
 	private Set<User> interessents;
@@ -407,5 +404,8 @@ public class Advertisement {
 	public void setInteressents(Set<User> interessents) {
 		this.interessents = interessents;
 	}
+
+
+
 
 }

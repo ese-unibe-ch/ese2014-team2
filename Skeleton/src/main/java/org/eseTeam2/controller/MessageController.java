@@ -12,6 +12,7 @@ import org.eseTeam2.controller.pojos.MessageForm;
 import org.eseTeam2.controller.service.IAdDataService;
 import org.eseTeam2.controller.service.IMessageService;
 import org.eseTeam2.controller.service.IUserDataService;
+import org.eseTeam2.model.Advertisement;
 import org.eseTeam2.model.Message;
 import org.eseTeam2.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,22 +74,7 @@ public class MessageController {
 	    }
 	  
 	  
-	  @RequestMapping(value = "/showInvitation", method = RequestMethod.GET)
-	    public ModelAndView invitation( @RequestParam(value = "messageId", required = true) Long messageId, Principal principal ) {
-	    	
-	    	User currentUser = userService.getUserByEmail(principal.getName());
-	    	Message messageToReplyTo = messageService.findOneMessage(messageId);
-	    	User authorOfReceivedMessage = messageToReplyTo.getSender();
-	    	
-	    	    	
-	    	ModelAndView model = new ModelAndView("showMsg");
-	    	model.addObject("messageForm", new MessageForm());
-	    	model.addObject("sender", currentUser);
-	    	model.addObject("recipient", authorOfReceivedMessage);
-	    	model.addObject("message", messageToReplyTo);
-	    	
-	    	return model;
-	    }
+	 
 	  
 	  
 	  @RequestMapping(value = "/send", method = RequestMethod.POST)

@@ -167,14 +167,19 @@ public class AppointmentService implements IAppointmentService{
 			Message inform = new Message ();
 			inform.setTitle("Einladung zu einer Wohnungbesichtigung");
 			inform.setMessageText("Hallo, du wurdest von " + adOwner.getFirstName() + " " + adOwner.getLastName() +" zur besichtigung eingeladen\n"
+					+" der Termin wäre am"+appointmentDates.get(0).getDay()+" um" +appointmentDates.get(0).getStartHour()
 					+ "clicke auf den Knopf am ende dieser Nachricht um auszuwählen ob es dir passt oder nicht");
 			appointmentInvitationMessages.add(inform);
-			interessent.setAppointmentInvitations(appointmentInvitationMessages);
 			
+			interessent.setAppointmentInvitations(appointmentInvitationMessages);
+					
 			adInvitations.add(interessent);
 			
 			inform.setAppointmentInvitations(interessent);
 			
+			inform.setSender(adOwner);
+			
+			inform.setAppointedAd(ad.getId());
 			userDao.save(interessent);
 			
 			messageDao.save(inform);
@@ -199,6 +204,40 @@ public class AppointmentService implements IAppointmentService{
 		
 		
 
+		
+	}
+
+
+
+	public void informAdOwner(User currentUser, Long appointmentId) {
+		Appointment appointment = appDao.findOne(appointmentId);
+		
+		List<Message> notifications = new ArrayList<Message>();
+		User adOwner = appointment.getAdOwner();
+		
+		try {
+			adOwner.getNotifications();
+		}
+		catch (Exception d) {}
+		
+		Message answerToInviter = new Message();
+		
+		answerToInviter.setMessageText("Hey \n" + currentUser.getFirstName() + " " + currentUser.getLastName() + " hat deine Einladung angenommen\n"
+				+"er wird zum gegebenen Termin am" +appointment.getAppointmentDate().get(0).getDay() +" zwischen "
+				+appointment.getAppointmentDate().get(0).getStartHour() +" und" +appointment.getAppointmentDate().get(0).getEndHour() +"erscheinen");
+		answerToInviter.setTitle(currentUser.getFirstName() +" "+ currentUser.getLastName() +" hat die Einladung angenommen");
+		
+		notifications.add(answerToInviter);
+		answerToInviter.setNotifications(adOwner);
+		
+		adOwner.setNotifications(notifications);
+		
+		messageDao.save(answerToInviter);
+		userDao.save(adOwner);
+		
+		
+		
+		
 		
 	}
 }
