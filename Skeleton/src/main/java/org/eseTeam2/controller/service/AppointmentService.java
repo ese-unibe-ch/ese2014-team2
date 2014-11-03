@@ -1,6 +1,9 @@
 package org.eseTeam2.controller.service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -39,34 +42,9 @@ public class AppointmentService implements IAppointmentService{
 	AppointmentDateDao dateDao;
 	
 	
-	public void saveAppointment(AppointmentFinderForm appForm) {
-		
-		Appointment appointment = new Appointment();
-		User adOwner = appForm.getAdOwner();
-		User interessent = new User();
-		AppointmentDate date = new AppointmentDate();
-		Advertisement ad = adDao.findOne(appForm.getAdId());
-		
-		
-		
-		appointment.setBlockLength(appForm.getBlockLength());
-		appointment.setAdditionalInfosForTheVisitors(appForm.getAdditionalInfosForTheVisitors());
-		
-		for ( int i = 0; i < appForm.getAppointmentDate().size(); i++) {
-			date.setAppointment(appointment);
-			date.setDay(appForm.getAppointmentDate().get(i));
-			date.setStartHour(appForm.getStartTimes().get(i));
-			date.setEndHour(appForm.getEndTimes().get(i));
-			
-			dateDao.save(date);
-			
-		}
 	
 		
-		
-		
-		
-	}
+	
 
 
 	public void addInteressent(User currentUser, Long adId) {
@@ -126,6 +104,99 @@ public class AppointmentService implements IAppointmentService{
 		
 		
 		
+		
+	}
+
+
+	
+	public void sendOutAppointment(AppointmentFinderForm appForm) {
+		
+		Appointment appointment = new Appointment();
+		AppointmentDate date = new AppointmentDate();
+		
+		List<AppointmentDate>  appointmentDates = new ArrayList<AppointmentDate>();
+		
+		
+		User adOwner = appForm.getAdOwner();
+		
+		
+		Advertisement ad = adDao.findOne(appForm.getAdId());
+		Set<User> interessentsOfAd = ad.getInteressents();
+		
+		
+		
+		
+		appointment.setBlockLength(appForm.getBlockLength());
+		appointment.setAdditionalInfosForTheVisitors(appForm.getAdditionalInfosForTheVisitors());
+		
+		for ( int i = 0; i < appForm.getAppointmentDate().size(); i++) {
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+			Date d = null;
+			try {
+				 d = sdf.parse(appForm.getAppointmentDate().get(i));
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			date.setDay(d);
+			date.setStartHour(appForm.getStartTimes().get(i));
+			date.setEndHour(appForm.getEndTimes().get(i));
+			
+			appointmentDates.add(date);
+			
+			dateDao.save(date);
+			
+		}
+		
+		
+		appointment.setAppointmentDate(appointmentDates);
+	
+		List<User> adInvitations = new ArrayList<User>();
+		
+		
+		for ( User interessent: interessentsOfAd) {
+			
+			List<Message> appointmentInvitationMessages = new ArrayList<Message>();
+			
+			try {
+				appointmentInvitationMessages = interessent.getAppointmentInvitations();
+			}
+			catch (Exception d){}
+			
+			Message inform = new Message ();
+			inform.setTitle("Einladung zu einer Wohnungbesichtigung");
+			inform.setMessageText("Hallo, du wurdest von " + adOwner.getFirstName() + " " + adOwner.getLastName() +" zur besichtigung eingeladen\n"
+					+ "clicke auf den Knopf am ende dieser Nachricht um auszuwählen ob es dir passt oder nicht");
+			appointmentInvitationMessages.add(inform);
+			interessent.setAppointmentInvitations(appointmentInvitationMessages);
+			
+			adInvitations.add(interessent);
+			
+			userDao.save(interessent);
+			
+			messageDao.save(inform);
+			
+			
+		}
+		
+		appointment.setInvitations(adInvitations);
+		appointment.setAd(ad);
+		appointment.setAdOwner(adOwner);
+		
+		ad.setAppointment(appointment);
+		
+		appDao.save(appointment);
+		
+		adDao.save(ad);
+		
+		
+	
+		
+		
+		
+		
+
 		
 	}
 }

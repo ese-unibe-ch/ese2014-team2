@@ -38,7 +38,7 @@
 		<form:hidden path="adId"  value="${ad.id }" />
 		
     <div id="datetimepicker" class="input-append date">
-      <form:input type="text" path="appointmentDate"></form:input>
+      <form:input type="text" data-format="MM/dd/yyyy" path="appointmentDate"></form:input>
       <span class="add-on">
         <i data-date-icon="icon-calendar"></i>
       </span>
@@ -46,7 +46,7 @@
     
     
   <div id="timepicker1" class="input-append">
-    <form:input data-format="hh:mm:ss" type="text" path="startTimes"></form:input>
+    <form:input data-format="hh:mm" type="text" path="startTimes"></form:input>
     <span class="add-on">
       <i data-time-icon="icon-time" data-date-icon="icon-calendar">
       </i>
@@ -56,7 +56,7 @@
     
  
   <div id="timepicker2" class="input-append">
-    <form:input data-format="hh:mm:ss" type="text" path="endTimes"></form:input>
+    <form:input data-format="hh:mm" type="text" path="endTimes"></form:input>
     <span class="add-on">
       <i data-time-icon="icon-time" data-date-icon="icon-calendar">
       </i>

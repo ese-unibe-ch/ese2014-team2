@@ -239,11 +239,12 @@ public class AdController {
 	}
 	
 	@RequestMapping(value="/setAppointmentAndInform", method = RequestMethod.POST)
-	public ModelAndView setAppointmentDateAndInform (@Valid AppointmentFinderForm appointmentForm, BindingResult result,
+	public String setAppointmentDateAndInform (@Valid AppointmentFinderForm appointmentForm, BindingResult result,
 	RedirectAttributes redirectAttributes,Principal principal) {
 		
 		appointmentForm.setAdOwner(userService.getUserByEmail(principal.getName()));
-		return null;
+		appointmentService.sendOutAppointment(appointmentForm);
+		return "redirect:/myads";
 		
 	}
 	

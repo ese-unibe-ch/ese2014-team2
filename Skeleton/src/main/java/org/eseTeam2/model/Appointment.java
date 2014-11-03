@@ -34,10 +34,10 @@ public class Appointment {
 	@ManyToOne
 	private User adOwner;
 	
-	@ManyToOne
-	private User interessent;
+	@ManyToMany
+	private List<User> invitations;
 	
-	@OneToMany(mappedBy="appointment", fetch=FetchType.EAGER)
+	@OneToMany(fetch=FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<AppointmentDate> appointmentDate;
 	
@@ -69,6 +69,31 @@ public class Appointment {
 	public void setAppointmentDate(List<AppointmentDate> appointmentDate) {
 		this.appointmentDate = appointmentDate;
 	}
+
+	public Advertisement getAd() {
+		return ad;
+	}
+
+	public void setAd(Advertisement ad) {
+		this.ad = ad;
+	}
+
+	public List<User> getInvitations() {
+		return invitations;
+	}
+
+	public void setInvitations(List<User> invitations) {
+		this.invitations = invitations;
+	}
+
+	public User getAdOwner() {
+		return adOwner;
+	}
+
+	public void setAdOwner(User adOwner) {
+		this.adOwner = adOwner;
+	}
+
 
 
 

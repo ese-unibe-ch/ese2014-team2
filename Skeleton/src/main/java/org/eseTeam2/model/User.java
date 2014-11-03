@@ -77,9 +77,13 @@ public class User {
 	private List<Message> notifications;
 	
 	
-	@OneToMany(mappedBy="interessent", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="appointmentInvitations", fetch=FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
-	private List<Appointment> interessentAppointments;
+	private List<Message> appointmentInvitations;
+	
+	
+	@ManyToMany(mappedBy="invitations", fetch=FetchType.EAGER)
+	private List<Appointment> usersInvitations;
 	
 	@OneToMany(mappedBy="adOwner", fetch=FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
@@ -193,6 +197,22 @@ public class User {
 
 	public void setNotifications(List<Message> notifications) {
 		this.notifications = notifications;
+	}
+
+	public List<Message> getAppointmentInvitations() {
+		return appointmentInvitations;
+	}
+
+	public void setAppointmentInvitations(List<Message> appointmentInvitations) {
+		this.appointmentInvitations = appointmentInvitations;
+	}
+
+	public List<Appointment> getUsersInvitations() {
+		return usersInvitations;
+	}
+
+	public void setUsersInvitations(List<Appointment> usersInvitations) {
+		this.usersInvitations = usersInvitations;
 	}
 
 

@@ -1,5 +1,7 @@
 package org.eseTeam2.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,22 +15,17 @@ public class AppointmentDate {
 	@GeneratedValue
 	private Long id;
 	
-	private String day;
+	private Date day;
 	
 	private String startHour;
 	
 	private String endHour;
 	
+	/*
 	@ManyToOne
-	private Appointment appointment;
+	private Appointment appointment;*/
 
-	public String getDay() {
-		return day;
-	}
 
-	public void setDay(String day) {
-		this.day = day;
-	}
 
 	public String getStartHour() {
 		return startHour;
@@ -46,12 +43,23 @@ public class AppointmentDate {
 		this.endHour = endHour;
 	}
 
+	/*
 	public Appointment getAppointment() {
 		return appointment;
 	}
 
 	public void setAppointment(Appointment appointment) {
 		this.appointment = appointment;
+	} */
+
+	public Date getDay() {
+		return day;
 	}
+
+	public void setDay(Date day) {
+		this.day = day;
+	}
+
+	
 
 }

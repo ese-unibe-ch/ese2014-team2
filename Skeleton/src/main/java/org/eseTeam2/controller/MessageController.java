@@ -73,6 +73,24 @@ public class MessageController {
 	    }
 	  
 	  
+	  @RequestMapping(value = "/showInvitation", method = RequestMethod.GET)
+	    public ModelAndView invitation( @RequestParam(value = "messageId", required = true) Long messageId, Principal principal ) {
+	    	
+	    	User currentUser = userService.getUserByEmail(principal.getName());
+	    	Message messageToReplyTo = messageService.findOneMessage(messageId);
+	    	User authorOfReceivedMessage = messageToReplyTo.getSender();
+	    	
+	    	    	
+	    	ModelAndView model = new ModelAndView("showMsg");
+	    	model.addObject("messageForm", new MessageForm());
+	    	model.addObject("sender", currentUser);
+	    	model.addObject("recipient", authorOfReceivedMessage);
+	    	model.addObject("message", messageToReplyTo);
+	    	
+	    	return model;
+	    }
+	  
+	  
 	  @RequestMapping(value = "/send", method = RequestMethod.POST)
 		public ModelAndView send(@Valid MessageForm messageForm, Principal principal) {
 		  
@@ -95,6 +113,8 @@ public class MessageController {
 		  	return "redirect:/myinbox?showReceived=true";
 		  if(action.equals("publicQuestion"))
 			  return "redirect:/myinbox?showQuestion=true";
+		  if(action.equals("invitations"))
+			  return "redirect:/myinbox?showInvitations=true";
 		  if(action.equals("notifications"))
 			  return "redirect:/myinbox?showNotifications=true";
 		  
@@ -111,6 +131,7 @@ public class MessageController {
 	    	List<Message> senderMessagesToDisplay = new ArrayList<Message>();
 	    	List<Message> senderMessages = currentUser.getSender();
 	    	List<Message> recipientMessages = currentUser.getRecipient();
+	    	List<Message> getInvitations = currentUser.getAppointmentInvitations();
 	    	
 	    	for ( int i = 0; i < senderMessages.size();i++){
 	    		if( senderMessages.get(i).isSenderDeleted() == false )
@@ -126,6 +147,7 @@ public class MessageController {
 	    	model.addObject("receivedMessages", recipientMessagesToDisplay);
 	    	model.addObject("sentMessages", senderMessagesToDisplay);
 	    	model.addObject("notifications", currentUser.getNotifications());
+	    	model.addObject("invitations", getInvitations);
 	    	model.addObject("user", currentUser);
 	    	return model;
 	    }

@@ -1,6 +1,7 @@
 package org.eseTeam2.controller.pojos;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.eseTeam2.model.User;
 
@@ -20,14 +21,7 @@ public class AppointmentFinderForm {
 	
 	private String additionalInfosForTheVisitors;
 
-	public ArrayList<String> getAppointmentDate() {
-		return appointmentDate;
-	}
-
-	public void setAppointmentDate(ArrayList<String> appointmentDate) {
-		this.appointmentDate = appointmentDate;
-	}
-
+	
 	public ArrayList<String> getStartTimes() {
 		return startTimes;
 	}
@@ -76,4 +70,14 @@ public class AppointmentFinderForm {
 	public void setAdOwner(User adOwner) {
 		this.adOwner = adOwner;
 	}
+
+	public ArrayList<String> getAppointmentDate() {
+		return appointmentDate;
+	}
+
+	public void setAppointmentDate(ArrayList<String> appointmentDate) {
+		this.appointmentDate = appointmentDate;
+	}
+
+	
 }

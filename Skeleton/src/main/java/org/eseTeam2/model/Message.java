@@ -35,6 +35,9 @@ public class Message {
 	@ManyToOne 
 	private User notifications;
 	
+	@ManyToOne 
+	private User appointmentInvitations;
+	
 	private boolean senderDeleted;
 	private boolean recipientDeleted;
 
@@ -103,6 +106,14 @@ public class Message {
 
 	public void setNotifications(User notifications) {
 		this.notifications = notifications;
+	}
+
+	public User getAppointmentInvitations() {
+		return appointmentInvitations;
+	}
+
+	public void setAppointmentInvitations(User appointmentInvitations) {
+		this.appointmentInvitations = appointmentInvitations;
 	}
 
 	

@@ -26,6 +26,11 @@
     <button type="button" class="btn btn-default"><b>öffentliche Fragen zu einem ad</b></button>
   </div>
   <div class="btn-group">
+  <a href="inboxShow/invitations">
+    <button type="button" class="btn btn-default"><b>Zeige Besichtigungseinladungen</b></button>
+    </a>
+  </div>
+  <div class="btn-group">
   <a href="inboxShow/notifications">
     <button type="button" class="btn btn-default"><b>Benachrichtigungen</b></button>
     </a>
@@ -55,6 +60,18 @@
 	<button type="button" class="btn btn-default"><b>Lösche die Nachricht</b></button>
 </a>
 </c:forEach>
+</c:if>
+
+<c:if test="${param.showInvitations eq true}">
+<c:forEach items="${invitations}" var="message">
+   <a href="showInvitation?messageId=${message.id}"><h1>${message.title}</h1></a>
+  
+	
+    <a href="deleteSentMsg?messageId=${message.id}">
+	<button type="button" class="btn btn-default"><b>Lösche die Einladung</b></button>
+</a>
+</c:forEach>
+
 </c:if>
 
 
