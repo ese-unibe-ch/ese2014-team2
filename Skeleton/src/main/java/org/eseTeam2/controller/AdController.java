@@ -221,7 +221,7 @@ public class AdController {
 		ModelAndView model = new ModelAndView("setAppointmentForAd");
 		model.addObject("interessents", interessents);
 		model.addObject("ad", ad);
-		model.addObject("AppointmentForm", new AppointmentFinderForm());
+		model.addObject("appointmentForm", new AppointmentFinderForm());
 		return model;
 	}
 	
@@ -241,6 +241,8 @@ public class AdController {
 	@RequestMapping(value="/setAppointmentAndInform", method = RequestMethod.POST)
 	public ModelAndView setAppointmentDateAndInform (@Valid AppointmentFinderForm appointmentForm, BindingResult result,
 	RedirectAttributes redirectAttributes,Principal principal) {
+		
+		appointmentForm.setAdOwner(userService.getUserByEmail(principal.getName()));
 		return null;
 		
 	}

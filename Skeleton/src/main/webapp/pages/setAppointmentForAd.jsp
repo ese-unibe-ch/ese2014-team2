@@ -5,38 +5,110 @@
 
 <c:import url="template/header.jsp" />
 
-<div class="container">
-    <div class="row">
-        
-        
-<form:form method="post" modelAttribute="appointmentForm" action="setAppointmentAndInform"
-		id="filterForm" cssClass="form-horizontal" autocomplete="off"
+ <head>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen"
+     href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
+  </head>
+  <body>
+  
+    <script type="text/javascript"
+     src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+    </script> 
+    <script type="text/javascript"
+     src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js">
+    </script>
+    <script type="text/javascript"
+     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
+    </script>
+    <script type="text/javascript"
+     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
+    </script>
+    
+ <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Setze einen Termin/ mehrere Termine für die Besichtigung</h3>
+  </div>
+  <div class="panel-body">
+   <form:form method="post" modelAttribute="appointmentForm" action="setAppointmentAndInform"
+		id="appointmentForm" cssClass="form-horizontal" autocomplete="off"
 		enctype="multipart/form-data">
 		<fieldset>
 		
-<div class='col-sm-6'>
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker1').datetimepicker();
-            });
-        </script>
+		<form:hidden path="adId"  value="${ad.id }" />
+		
+    <div id="datetimepicker" class="input-append date">
+      <form:input type="text" path="appointmentDate"></form:input>
+      <span class="add-on">
+        <i data-date-icon="icon-calendar"></i>
+      </span>
+    </div>
+    
+    
+  <div id="timepicker1" class="input-append">
+    <form:input data-format="hh:mm:ss" type="text" path="startTimes"></form:input>
+    <span class="add-on">
+      <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+      </i>
+    </span>
+  </div>
+
+    
+ 
+  <div id="timepicker2" class="input-append">
+    <form:input data-format="hh:mm:ss" type="text" path="endTimes"></form:input>
+    <span class="add-on">
+      <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+      </i>
+    </span>
+  </div>
   
-		<button type="submit" class="btn btn-success btn-lg btn-block">Setze die Daten!</button>
+  <div>
+  <label class="control-label"
+						for="field-Mesasge"><font size="10">Weitere infos für die : </font></label>
+						<div class="controls">
+							<form:textarea rows="10" cols="300" path="additionalInfosForTheVisitors"
+								id="field-Message" />
+						</div>
+  </div>
+
+  
+    <script type="text/javascript">
+  $(function() {
+    $('#datetimepicker').datetimepicker({
+      pickTime: false
+    });
+  });
+</script>
+    
+   <script type="text/javascript">
+  $(function() {
+    $('#timepicker1').datetimepicker({
+      pickDate: false
+    });
+  });
+</script>
+ <script type="text/javascript">
+  $(function() {
+    $('#timepicker2').datetimepicker({
+      pickDate: false
+    });
+  });
+</script>
+    
+    <button type="submit" class="btn btn-success btn-lg btn-block">Setze die Daten!</button>
 		
 		</fieldset>
 		</form:form>
-		
-		  </div>
+  </div>
 </div>
+  
+  
+  </body>
+
+
 		
+	
 		
 		
 <c:import url="template/footer.jsp" />
