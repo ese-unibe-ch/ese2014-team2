@@ -173,6 +173,8 @@ public class AppointmentService implements IAppointmentService{
 			
 			adInvitations.add(interessent);
 			
+			inform.setAppointmentInvitations(interessent);
+			
 			userDao.save(interessent);
 			
 			messageDao.save(inform);
