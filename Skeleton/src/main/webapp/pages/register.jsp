@@ -57,8 +57,8 @@
 	</td>
 	<tr>
 		<td><div class="form-actions">
-           <button type="submit" class="btnpink">Sign up!</button>
-            <button type="button" class="btnred">Cancel</button>
+           <button type="submit" class="btn btn-primary">Sign up!</button>
+            <button type="button" class="btn btn-danger">Cancel</button>
         </div>
     </fieldset>
 </form:form>
