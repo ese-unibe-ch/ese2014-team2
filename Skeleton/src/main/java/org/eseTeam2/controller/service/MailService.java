@@ -5,6 +5,12 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+/**
+ * This is the mail Service class It uses spring mail API to handle mailing.
+ * Mailserver is configured in springData.xml
+ * @author Icewater
+ *
+ */
 @Service
 public class MailService implements IMailService {
 	
