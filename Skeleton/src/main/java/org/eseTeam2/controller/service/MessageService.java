@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * 
+ * This service is handling all the logic to send Messages.
  * @author Icewater
  *
  */
@@ -27,6 +27,10 @@ public class MessageService implements IMessageService {
 	@Autowired
 	UserDao userDao;
 
+	/**
+	 * Creates a message Object from a given messageForm. Adds the message to the User and updates all the corresponding
+	 * database objects.
+	 */
 	public void sendMessage(MessageForm messageForm) {
 		
 		
@@ -70,10 +74,18 @@ public class MessageService implements IMessageService {
 				
 	}
 	
+	/**
+	 * 
+	 */
 	public Message findOneMessage (Long id) {
 		return messageDao.findOne(id);
 	}
 
+	/**
+	 * deletes a message locally for an user. therefore it sets the recipient deleted flag to true
+	 * Doesnt delete the message in the database. 
+	 * Deletes the message in the database, if all corresponding users have deleted the message locally.
+	 */
 	public void deleteRecipientMessage(Long messageId, User currentUser) {
 		Message message = messageDao.findOne(messageId);
 		message.setRecipientDeleted(true);
@@ -86,6 +98,11 @@ public class MessageService implements IMessageService {
 		messageDao.save(message);
 	}
 
+	/**
+	 * deletes a message locally for an user. therefore it sets the sender deleted flag to true
+	 * Doesnt delete the message in the database. 
+	 * Deletes the message in the database, if all corresponding users have deleted the message locally.
+	 */
 	public void deleteSenderMessage(Long messageId, User currentUser) {
 		Message message = messageDao.findOne(messageId);
 		message.setSenderDeleted(true);

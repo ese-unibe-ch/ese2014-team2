@@ -24,7 +24,11 @@ import org.springframework.util.StringUtils;
 
 
 
-
+/**
+ * handling all the logic corresponding to Users.
+ * @author Icewater
+ *
+ */
 @Service
 public class UserDataService implements IUserDataService {
 
@@ -36,6 +40,10 @@ public class UserDataService implements IUserDataService {
  
     
 
+    /**
+     * Creates a new User Object from a given signupForm. 
+     * Stores it into the database.
+     */
     public SignupForm saveFrom(SignupForm signupForm) throws InvalidUserException{
 
         String firstName = signupForm.getFirstName();
@@ -71,10 +79,7 @@ public class UserDataService implements IUserDataService {
         user = userDao.save(user);   // save object to DB
         
         
-        
-        // Iterable<Address> addresses = addDao.findAll();  // find all 
-        // Address anAddress = addDao.findOne((long)3); // find by ID
-        
+             
         
         signupForm.setId(user.getId());
 
@@ -95,7 +100,9 @@ public class UserDataService implements IUserDataService {
 
 
 
-
+	/**
+	 * creates the given CustomFilterAd. Adds it to the  user and stores the user and the ad to the database
+	 */
 	public void saveExampleAd(CustomFilterAd adToCompare, User currentUser) {
 		adToCompare.setExampleAdUser(currentUser);
 		currentUser.setExampleAd(adToCompare);

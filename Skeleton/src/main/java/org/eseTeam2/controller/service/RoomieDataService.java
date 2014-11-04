@@ -23,6 +23,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+/**
+ * handles all the logic corresponding to Rommate ads. Similar to AdDataService. Commenting therefore redundant
+ * @author Icewater
+ *
+ */
 @Service
 public class RoomieDataService implements IRoomieDataService {
 
