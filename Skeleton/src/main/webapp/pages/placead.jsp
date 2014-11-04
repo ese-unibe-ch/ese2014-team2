@@ -308,36 +308,13 @@
 
 
 			<div class="form-actions">
-				<button type="submit" class="btnpink">Create</button>
-				<button type="button" class="btnred">Cancel</button>
+				<button type="submit" class="btn btn-primary">Create</button>
+				<button type="button" class="btn btn-danger">Cancel</button>
 			</div>
 		</fieldset>
 
 	</form:form>
 
-<!-- <div class="container">
-<form role="form">
-  <div class="row">
-  	<label class="col-md-1" for="inputEmail1">Email</label>
-    <div class="col-md-4"><input type="email" class="form-control" id="inputEmail1" placeholder="Email"></div>
-  </div>
-  <div class="row">
-    <label class="col-md-1" for="inputPassword1">Password</label>
-    <div class="col-md-4"><input type="password" class="form-control" id="inputPassword1" placeholder="Password"></div>
-  </div>
-  <div class="row">
-    <label class="col-md-5" for="TextArea">Text Area</label>
-  </div>
-  <div class="row">
-    <div class="col-md-5"><textarea class="form-control" id="TextArea"></textarea></div>
-  </div>
-  <div class="row">
-    <div class="col-md-5">
-      <button type="submit" class="btn btn-default">Sign in</button>
-    </div>
-  </div>
-</form>
-</div> -->
 
 <c:if test="${page_error != null }">
 	<div class="alert alert-error">

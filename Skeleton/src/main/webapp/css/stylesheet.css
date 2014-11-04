@@ -395,9 +395,10 @@ p.caption {
 	margin-right:auto;
 	overflow: hidden;
 	position:relative;
-	height:400px;
+	height:300px;
 	width:100%;
 	top:auto;
+	background-color:black;
 }
 #image_slider{
 
