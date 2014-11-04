@@ -197,7 +197,7 @@ public class AdDataService implements IAdDataService {
 		return advertisementDao.findOne(adId).getPictures();
 	}
 
-	public void deleteOne(Long adId, User user) {
+	public void deleteOneAd(Long adId, User user) {
 		Set<Advertisement> userAds = user.getAdvertisements();
 		for( Advertisement ad : userAds) {
 			if(ad.getId() == adId)

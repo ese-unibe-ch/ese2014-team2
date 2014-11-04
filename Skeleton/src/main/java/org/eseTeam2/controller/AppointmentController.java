@@ -1,5 +1,3 @@
-
-
 package org.eseTeam2.controller;
 
 import java.security.Principal;
@@ -31,54 +29,73 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+/**
+ * This controller handles all mappings related to appointments.
+ * 
+ * @author Icewater
+ *
+ */
 @Controller
 public class AppointmentController {
 
-	
-    @Autowired
-    private IAdDataService adService;
+	@Autowired
+	private IAdDataService adService;
 
-    @Autowired 
-    private IMessageService messageService;
-    
-    @Autowired 
-    private IUserDataService userService;
-    
-    @Autowired
-    private IAppointmentService appointmentService;
-    
+	@Autowired
+	private IMessageService messageService;
+
+	@Autowired
+	private IUserDataService userService;
+
+	@Autowired
+	private IAppointmentService appointmentService;
+
+	/**
+	 * this mapping method is used to accept sent out appointments and inform
+	 * the User which created the ad. Mapping is triggered when the user clicks
+	 * on accept invitation button in the message.
+	 * 
+	 * @param appointmentId
+	 * @param principal
+	 * @return
+	 */
+	@RequestMapping(value = "/acceptInvitation", method = RequestMethod.GET)
+	public String sendMessageFromAd(
+			@RequestParam(value = "appointmentId", required = true) Long appointmentId,
+			Principal principal) {
+		User currentUser = userService.getUserByEmail(principal.getName());
+		appointmentService.informAdOwner(currentUser, appointmentId);
+
+		return "redirect:myinbox";
+	}
 	
-	  @RequestMapping(value = "/acceptInvitation", method = RequestMethod.GET)
-	    public String sendMessageFromAd(@RequestParam(value = "appointmentId", required = true) Long appointmentId, Principal principal ) {
-	    	
-	    	User currentUser = userService.getUserByEmail(principal.getName());
-	    	
-	    	appointmentService.informAdOwner(currentUser, appointmentId);
-	    	
-	    	return "redirect:myinbox";
-	    }
-	  
-	 
-	  @RequestMapping(value = "/showInvitation", method = RequestMethod.GET)
-	    public ModelAndView invitation( @RequestParam(value = "messageId", required = true) Long messageId, Principal principal ) {
-	    	
-	    	User currentUser = userService.getUserByEmail(principal.getName());
-	    	Message invitationMessage = messageService.findOneMessage(messageId);
-	    	User authorOfReceivedMessage = invitationMessage.getSender();
-	    	
-	    	Advertisement adUserIsInvitedTo = adService.getAdvertisement(invitationMessage.getAppointedAd());
-	    	Appointment appointment = adUserIsInvitedTo.getAppointment();
-	    	
-	    	    	
-	    	ModelAndView model = new ModelAndView("handleInvitation");
-	    	model.addObject("appointment", appointment);
-	    	model.addObject("sender", authorOfReceivedMessage);
-	    	model.addObject("ad", adUserIsInvitedTo);
-	    	model.addObject("message", invitationMessage);
-	    	
-	    	return model;
-	    }
-	    
-	  
-	  
+	/**
+	 * This mapping method is triggered when clicked on an invitation message in the inbox.jsp
+	 * displays the details of the received message. 
+	 * @param messageId the message id of the invitation messag4e
+	 * @param principal
+	 * @return
+	 */
+	@RequestMapping(value = "/showInvitation", method = RequestMethod.GET)
+	public ModelAndView invitation(
+			@RequestParam(value = "messageId", required = true) Long messageId,
+			Principal principal) {
+
+
+		Message invitationMessage = messageService.findOneMessage(messageId);
+		User authorOfReceivedMessage = invitationMessage.getSender();
+
+		Advertisement adUserIsInvitedTo = adService
+				.getAdvertisement(invitationMessage.getAppointedAd());
+		Appointment appointment = adUserIsInvitedTo.getAppointment();
+
+		ModelAndView model = new ModelAndView("handleInvitation");
+		model.addObject("appointment", appointment);
+		model.addObject("sender", authorOfReceivedMessage);
+		model.addObject("ad", adUserIsInvitedTo);
+		model.addObject("message", invitationMessage);
+
+		return model;
+	}
+
 }

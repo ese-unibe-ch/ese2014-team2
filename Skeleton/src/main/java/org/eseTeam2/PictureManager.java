@@ -21,6 +21,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+/**
+ * This is the Picture Manager, it handles picture uploads from the website.
+ * @author Icewater
+ *
+ */
 public class PictureManager {
 	
 
@@ -31,6 +36,14 @@ public class PictureManager {
 	 
 	 
 	 
+	    /**
+	     * This method takes a list of given pictures in the format of a MultipartFile Array, and stores them on the server under 
+	     * ../img/adPictures/..
+	     * @param path  This is the absolute folderpath, where the file folder will be
+	     * @param filename This is the temporary filename
+	     * @param files This is the list of all the pictures which will be uploapded
+	     * @return returns A list with all the picture names 
+	     */
 	     public ArrayList<String> uploadMultipleFile(String path, String filename, MultipartFile[] files) {
 	 
 	      
@@ -73,8 +86,13 @@ public class PictureManager {
 	    }
 	    
 	     
-	     public byte[] getByteArrayFromPath(String picture) {
-	 		File file = new File(picture);
+	     /**
+	      * this is a helper method which loads a picture from a given string path and puts it into a byte array
+	      * @param picture  The path of the picture
+	      * @return returns the byte array which contains the picture
+	      */
+	     public byte[] getByteArrayFromPath(String picturePath) {
+	 		File file = new File(picturePath);
 	 		
 	 		        FileInputStream fin = null;
 	 		

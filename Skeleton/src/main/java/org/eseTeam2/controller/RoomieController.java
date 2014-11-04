@@ -47,6 +47,11 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+/**
+ * This controller class maps all the Actions related to creating ads for roommates. 
+ * @author Icewater
+ *
+ */
 @Controller
 public class RoomieController {
 
@@ -61,6 +66,11 @@ public class RoomieController {
 
 	public final String PICTURE_LOCATION = "/img/roomiePictures";
 
+	/**
+	 * this mapping method triggers when someone wants to place a new person on the index.jsp page
+	 * redirects the user to the placeyourself.jsp with a newRoomieForm to fill out.
+	 * @return
+	 */
 	@RequestMapping(value = "/placeyourself", method = RequestMethod.GET)
 	public ModelAndView createRoomie() {
 		ModelAndView model = new ModelAndView("placeyourself");
@@ -68,6 +78,17 @@ public class RoomieController {
 		return model;
 	}
 
+	/**
+	 * triggered when the newRoomieForm is submitted. 
+	 * Creates a new "roomie" database object and stores the images.
+	 * In decelopment
+	 * @param roomieForm
+	 * @param result
+	 * @param redirectAttributes
+	 * @param principal
+	 * @param files
+	 * @return
+	 */
 	@RequestMapping(value = "/enlistroomie", method = RequestMethod.POST)
 	public ModelAndView enlistroomie(@Valid RoomieForm roomieForm, BindingResult result,
 			RedirectAttributes redirectAttributes,Principal principal,

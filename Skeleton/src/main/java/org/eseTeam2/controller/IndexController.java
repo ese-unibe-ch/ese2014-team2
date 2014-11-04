@@ -25,37 +25,50 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+/**
+ * this contoller class handles the mappings to the index.jsp page
+ * @author Icewater
+ *
+ */
 @Controller
 public class IndexController {
-	
+
 	@Autowired
 	private IUserDataService userService;
 
-  
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ModelAndView index() {
-    	ModelAndView model = new ModelAndView("index");
-    	model.addObject("filterForm", new FilterForm());
-        return model;
-    }
-    
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ModelAndView login() {
-    	ModelAndView model = new ModelAndView("login");
-    	model.addObject("loginForm", new SignupForm());  
-    	return model;
-    }
-    
-     
-    
-     
-    
-    @RequestMapping(value = "/security-error", method = RequestMethod.GET)
-    public String securityError(RedirectAttributes redirectAttributes) {
-        redirectAttributes.addFlashAttribute("page_error", "You do have have permission to do that!");
-        return "redirect:/";
-    }
+	/**
+	 * redirects the user to the index page. 
+	 * Filter form is added for the small index page filter.
+	 * @return
+	 */
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public ModelAndView index() {
+		ModelAndView model = new ModelAndView("index");
+		model.addObject("filterForm", new FilterForm());
+		return model;
+	}
+
+	/**
+	 * this maping method redirects the user to the signup form
+	 * @return
+	 */
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public ModelAndView login() {
+		ModelAndView model = new ModelAndView("login");
+		model.addObject("loginForm", new SignupForm());
+		return model;
+	}
+
+	/**
+	 * 
+	 * @param redirectAttributes
+	 * @return
+	 */
+	@RequestMapping(value = "/security-error", method = RequestMethod.GET)
+	public String securityError(RedirectAttributes redirectAttributes) {
+		redirectAttributes.addFlashAttribute("page_error",
+				"You do have have permission to do that!");
+		return "redirect:/";
+	}
 
 }
-
-
