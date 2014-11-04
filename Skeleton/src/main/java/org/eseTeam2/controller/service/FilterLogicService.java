@@ -8,6 +8,7 @@ import org.eseTeam2.controller.pojos.FilterForm;
 import org.eseTeam2.model.Advertisement;
 import org.eseTeam2.model.CustomFilterAd;
 import org.eseTeam2.model.dao.AdvertisementDao;
+import org.eseTeam2.model.dao.CustomFilterAdDao;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 
@@ -23,6 +24,8 @@ public class FilterLogicService implements IFilterLogicService {
 
 	@Autowired
 	AdvertisementDao adDao;
+	
+	
 
 	/**
 	 * the idea is to get all the getters and parameter names from the "filter"
@@ -112,7 +115,7 @@ public class FilterLogicService implements IFilterLogicService {
 		return desiredAd;
 	}
 
-	public ArrayList<Advertisement> getAdsThatMachTheFilter(
+	public ArrayList<Advertisement> getAdsThatMatchTheFilter(
 			Advertisement adToCompare, ArrayList<String> getters) {
 		ArrayList<Advertisement> desiredAds = new ArrayList<Advertisement>();
 
@@ -294,6 +297,132 @@ public class FilterLogicService implements IFilterLogicService {
 				}
 			}
 			return desiredAd;
+	}
+	
+	
+	public ArrayList<Advertisement> getAdsThatMatchTheFilter(
+			CustomFilterAd adToCompare, ArrayList<String> getters) {
+		ArrayList<Advertisement> desiredAds = new ArrayList<Advertisement>();
+
+		// this is what takes the most time :( Takes the ads out of the db by
+		// one predefined statement. Not what I want in the end, but it works so
+		// far.
+		Iterable<Advertisement> allAdsInDb = null;
+		
+		
+		
+		if (adToCompare.getWgType().contains("undef")) {
+			if (!adToCompare.getCity().equals("") && adToCompare.getRoomPrice() > 0) {
+				allAdsInDb = adDao.findByCityAndRoomPriceLessThan(
+								adToCompare.getCity(), adToCompare.getRoomPrice());
+				//System.out.println("1");
+				
+			}
+			if (adToCompare.getCity().equals("") && adToCompare.getRoomPrice() > 0) {
+				allAdsInDb = adDao.findByRoomPriceLessThan(adToCompare.getRoomPrice());
+				//System.out.println("2");
+			
+			}
+			if (adToCompare.getCity().equals("") && adToCompare.getRoomPrice() <= 0) {
+				allAdsInDb = adDao.findAll();
+				//System.out.println("other thing");
+				
+			}
+			if (!adToCompare.getCity().equals("") && adToCompare.getRoomPrice() <= 0) {
+				allAdsInDb = adDao.findByCity(adToCompare.getCity());
+				//System.out.println("3");
+				
+
+			}
+		}
+		else if (!adToCompare.getWgType().contains("undef")){
+			if (!adToCompare.getCity().equals("") && adToCompare.getRoomPrice() > 0) {
+				allAdsInDb = adDao.findByCityAndRoomPriceLessThanAndWgType(
+								adToCompare.getCity(), adToCompare.getRoomPrice(), adToCompare.getWgType());
+				//System.out.println("4");
+				
+			}
+			if (adToCompare.getCity().equals("") && adToCompare.getRoomPrice() > 0) {
+				allAdsInDb = adDao.findByRoomPriceLessThanAndWgType(adToCompare.getRoomPrice(), adToCompare.getWgType());
+				//System.out.println("5");
+			
+			}
+			if (adToCompare.getCity().equals("") && adToCompare.getRoomPrice() <= 0) {
+				allAdsInDb = adDao.findByWgType(adToCompare.getWgType());
+				//System.out.println("6");
+				
+			}
+			if (!adToCompare.getCity().equals("") && adToCompare.getRoomPrice() <= 0) {
+				allAdsInDb = adDao.findByCityAndWgType(adToCompare.getCity(), adToCompare.getWgType());
+				//System.out.println("7");
+				
+
+			}
+		}
+		else {		
+			allAdsInDb = adDao.findAll();
+			//System.out.println("did else");
+		}
+		
+		ArrayList<Advertisement> allAdsInDbList = new ArrayList<Advertisement>();
+		// split in bool and non bool getters
+		ArrayList<String> booleanGetterNames = new ArrayList<String>();
+		ArrayList<String> nonBooleanGetterNames = new ArrayList<String>();
+
+		PropertyAccessor access;
+		PropertyAccessor accessDesiredAd = PropertyAccessorFactory
+				.forBeanPropertyAccess(adToCompare);
+
+		for (int i = 0; i < getters.size(); i++) {
+			if (getters.get(i).substring(0, 2).contains("is"))
+				booleanGetterNames.add(getters.get(i));
+			else
+				nonBooleanGetterNames.add(getters.get(i));
+		}
+		for (Advertisement adInDb : allAdsInDb) {
+			allAdsInDbList.add(adInDb);
+		}
+
+		// compare bools
+		boolean stillAMatch = true;
+		for (int i = 0; i < allAdsInDbList.size(); i++) {
+			stillAMatch = true;
+			access = PropertyAccessorFactory
+					.forBeanPropertyAccess(allAdsInDbList.get(i));
+			// check all bools
+			for (int j = 0; j < booleanGetterNames.size(); j++) {
+
+				try {
+					boolean tmpAllAd = (Boolean) access.getPropertyValue(booleanGetterNames.get(j).substring(2));
+					boolean tmpDesAd = (Boolean) accessDesiredAd
+							.getPropertyValue(booleanGetterNames.get(j)
+									.substring(2));
+
+					if (tmpDesAd == true) {
+						if (tmpDesAd != tmpAllAd) {
+					
+							stillAMatch = false;
+
+						}
+
+					}
+
+				} catch (Exception d) {
+				}
+			}
+			// individual check other fields
+			
+			
+			if (!adToCompare.getWgGender().equals("dontcare") && (!allAdsInDbList.get(i).getWgGender()
+								.contains(adToCompare.getWgGender())))
+					stillAMatch = false;
+			
+		
+			if (stillAMatch == true)
+				desiredAds.add(allAdsInDbList.get(i));
+
+		}
+		return desiredAds;
 	}
 
 	

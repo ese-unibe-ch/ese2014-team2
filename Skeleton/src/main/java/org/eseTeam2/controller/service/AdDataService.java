@@ -32,6 +32,8 @@ public class AdDataService implements IAdDataService {
 	UserDao userDao;
 	@Autowired
 	IMailService mailer;
+	@Autowired
+	IFilterLogicService filterService;
 
 
 	public Iterable<Advertisement> getAds() {
@@ -125,12 +127,17 @@ public class AdDataService implements IAdDataService {
 		adsOfUser.add(ad);
 		creator.setAdvertisements(adsOfUser);
 		
-		Iterable<User> usersWithFilters = userDao.findByExampleAdNotNull(); 
 		
-		for ( User filterUser : usersWithFilters)
-			mailer.sendEmail(filterUser.getEmail(), "test", "test");
 		
 		ad = advertisementDao.save(ad); // save object to DB
+		
+		Iterable<User> usersWithFilters = userDao.findByExampleAdNotNull(); 
+		
+		ArrayList<String> getters = filterService.getGetters();
+		for ( User filterUser : usersWithFilters) {
+			if( !filterService.getAdsThatMatchTheFilter(filterUser.getExampleAd(), getters).isEmpty())
+				mailer.sendEmail(filterUser.getEmail(), "A new ad has been put up "+ advertisementDao.findOne(ad.getId()), "A new ad which might interest you has been put online.");
+		}
 		
 		
 		creator  = userDao.save(creator);

@@ -54,7 +54,7 @@ public class FilterAdsController {
 		ArrayList<String> paramNames = filterService.getParamsOfFilterForm(getters);
 		Advertisement adToCompare = filterService.getAdToCompare(getters, paramNames, filterForm);
 		
-		ArrayList<Advertisement> filteredAds = filterService.getAdsThatMachTheFilter(adToCompare, getters);
+		ArrayList<Advertisement> filteredAds = filterService.getAdsThatMatchTheFilter(adToCompare, getters);
 	
 		
 		redirectAttributes.addFlashAttribute("adsParam", filteredAds);

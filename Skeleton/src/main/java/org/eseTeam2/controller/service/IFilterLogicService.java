@@ -11,10 +11,12 @@ public interface IFilterLogicService {
 	public ArrayList<String> getGetters();
 	public ArrayList<String> getParamsOfFilterForm(ArrayList<String> getters);
 	public Advertisement getAdToCompare ( ArrayList<String> getterMethodNames, ArrayList<String> setterMethodNames, FilterForm filterForm   );
-	public ArrayList<Advertisement> getAdsThatMachTheFilter(
+	public ArrayList<Advertisement> getAdsThatMatchTheFilter(
 			Advertisement adToCompare, ArrayList<String> getters);
 	public ArrayList<Advertisement> getAdsThatMatchTheSmallFilter(String city,
 			int roomPrice);
 	public CustomFilterAd getFilterAdToCompare(ArrayList<String> getters,
 			ArrayList<String> paramNames, FilterForm filterForm);
+	public ArrayList<Advertisement> getAdsThatMatchTheFilter(CustomFilterAd exampleAd,
+			ArrayList<String> getters);
 }
