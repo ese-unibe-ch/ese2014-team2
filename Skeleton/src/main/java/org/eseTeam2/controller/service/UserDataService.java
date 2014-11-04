@@ -29,6 +29,9 @@ public class UserDataService implements IUserDataService {
 
     @Autowired    
     UserDao userDao;
+    
+    @Autowired
+    AdvertisementDao adDao;
  
     
 
@@ -87,6 +90,22 @@ public class UserDataService implements IUserDataService {
 	
 	public User getUserByEmail(String email) {
 		return userDao.findByEmail(email);
+	}
+
+
+
+
+	public void saveExampleAd(Advertisement adToCompare, User currentUser) {
+		currentUser.setExampleAd(adToCompare); 
+		
+		
+		
+		adDao.save(adToCompare);
+		
+		userDao.save(currentUser);
+		
+		
+		
 	}
 
 

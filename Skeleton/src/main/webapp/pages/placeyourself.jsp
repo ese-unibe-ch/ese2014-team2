@@ -85,8 +85,9 @@
 
 
 			<div class="form-actions">
-				<button type="submit" class="btnpink">Create</button>
-				<button type="button" class="btnred">Cancel</button>
+				<button type="submit" class="btn btn-primary btn-lg">Erstellen!</button>
+				<button type="button" class="btn btn-default btn-lg">Cancel</button>
+				
 			</div>
 		</fieldset>
 

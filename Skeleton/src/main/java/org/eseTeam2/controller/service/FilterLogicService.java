@@ -20,15 +20,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class FilterLogicService implements IFilterLogicService {
 
-	/*
-	 * private SessionFactory sessionFactory;
-	 * 
-	 * public ArrayList<Advertisement> findSuitableAds(Advertisement ad) {
-	 * 
-	 * Query query = sessionFactory.getCurrentSession().createQuery(
-	 * "from Stock where stockCode = :code "); query.setParameter("code",
-	 * "7277"); List list = query.list(); return null; }
-	 */
 	@Autowired
 	AdvertisementDao adDao;
 

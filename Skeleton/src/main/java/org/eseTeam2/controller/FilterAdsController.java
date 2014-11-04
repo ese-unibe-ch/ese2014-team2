@@ -6,6 +6,9 @@ import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Set;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.eseTeam2.controller.pojos.AdForm;
@@ -14,6 +17,7 @@ import org.eseTeam2.controller.service.FilterLogicService;
 import org.eseTeam2.controller.service.IAdDataService;
 import org.eseTeam2.controller.service.IFilterLogicService;
 import org.eseTeam2.model.Advertisement;
+import org.eseTeam2.model.Picture;
 import org.springframework.beans.PropertyAccessor;
 import org.springframework.beans.PropertyAccessorFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,12 +79,9 @@ public class FilterAdsController {
 		
 	}
 	
-	
-          
+         
 
-        
-
-	
+        	
 	
 	
 	  @RequestMapping("/ads/{action}")

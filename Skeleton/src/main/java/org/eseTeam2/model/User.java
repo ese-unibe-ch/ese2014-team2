@@ -92,6 +92,9 @@ public class User {
 	@ManyToMany (mappedBy="interessents", fetch=FetchType.EAGER)
 	private  Set<Advertisement> adsUserIsInterestedIn;
 			
+	
+	@OneToOne 
+	private Advertisement exampleAd;
     
     public Long getId() {
         return id;
@@ -213,6 +216,14 @@ public class User {
 
 	public void setUsersInvitations(List<Appointment> usersInvitations) {
 		this.usersInvitations = usersInvitations;
+	}
+
+	public Advertisement getExampleAd() {
+		return exampleAd;
+	}
+
+	public void setExampleAd(Advertisement exampleAd) {
+		this.exampleAd = exampleAd;
 	}
 
 

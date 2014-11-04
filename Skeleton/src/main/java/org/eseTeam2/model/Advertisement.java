@@ -76,6 +76,9 @@ public class Advertisement {
 	private String smoker;
 	private String ageRange;
 	private String genderWeLookFor;
+	
+	@OneToOne (mappedBy="exampleAd", fetch=FetchType.EAGER)
+	private User exampleAdUser;
 
 
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
@@ -403,6 +406,14 @@ public class Advertisement {
 
 	public void setInteressents(Set<User> interessents) {
 		this.interessents = interessents;
+	}
+
+	public User getExampleAdUser() {
+		return exampleAdUser;
+	}
+
+	public void setExampleAdUser(User exampleAdUser) {
+		this.exampleAdUser = exampleAdUser;
 	}
 
 

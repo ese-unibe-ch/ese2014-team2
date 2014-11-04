@@ -25,6 +25,12 @@
 			  	</tr>
 			  
 			  </table>
+			  
+			  
+			 <a href="setInformFilter">
+				<button type="submit" class="btn btn-primary btn-lg">Erstelle einen Benachrichtigungs Filter!</button>
+			 </a>
+		
 			  </div>
 			
 			
