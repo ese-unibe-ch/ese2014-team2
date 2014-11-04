@@ -41,6 +41,9 @@ public class AppointmentService implements IAppointmentService{
 	@Autowired
 	AppointmentDateDao dateDao;
 	
+	@Autowired
+	IMailService mailer;
+	
 	
 	
 		
@@ -180,6 +183,12 @@ public class AppointmentService implements IAppointmentService{
 			inform.setSender(adOwner);
 			
 			inform.setAppointedAd(ad.getId());
+			
+			String message = "Hallo, " +interessent.getFirstName() + " "+ interessent.getLastName() +"\n"
+					+" du wurdest eingeladen zu einer Wohnungbesichtigung. Logge dich doch bitte auf deinem Account ein und gehe in deine Inbox \n"
+					+" Dort erhälst du alle Details.";
+			
+			mailer.sendEmail(interessent.getEmail(), message , "Einladung zur Wohnungsbesichtigung");
 			userDao.save(interessent);
 			
 			messageDao.save(inform);
