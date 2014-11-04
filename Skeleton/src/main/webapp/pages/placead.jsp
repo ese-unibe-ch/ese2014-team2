@@ -8,158 +8,148 @@
 <c:import url="template/header.jsp" />
 
 
-<div class="main">
-	<h1 class="h1_inline">Post your Ad!</h1>
+	<h1>Post your Ad!</h1>
 
 
-	<form:form method="post" modelAttribute="newAdForm" action="enlistad"
-		id="newAdForm" cssClass="form-horizontal" autocomplete="off"
-		enctype="multipart/form-data">
+	<form:form method="post" modelAttribute="newAdForm" action="enlistad" id="newAdForm" cssClass="form-horizontal" autocomplete="off" enctype="multipart/form-data">
 		<fieldset>
-
-			<h1 class="h1_inline">Grundlegende infos:</h1>
-
-
-
-			<label class="control-label" for="field-price">Preis des
-				Zimmers: </label>
-			<div class="controls">
-				<form:input path="roomPrice" id="field-price" tabindex="1"
-					maxlength="10" />
+			<legend>Grundlegende Infos:</legend>
+			<div class="row">
+				<label class="col-md-4" for="field-price">Preis des Zimmers: </label>
+				<div class="col-md-4">
+					<form:input path="roomPrice" id="field-price" tabindex="1" maxlength="10" />
+				</div>
+			</div>
+			
+			<div class="row">
+				<label class="col-md-4" for="field-von">Ab wann ist das Zimmer frei: </label>
+				<div class="col-md-4">
+					<form:input path="start" type="field-von" id="datepicker" tabindex="2" />
+				</div>
+			</div>
+			
+			<div class="row">
+				<label class="col-md-4" for="field-bis">Bis wann ist das Zimmer frei: </label>
+				<div class="col-md-4">
+					<form:input path="until" type="field-bis" id="datepicker2" tabindex="3" />
+				</div>
+			</div>
+	
+			<div class="row">
+				<label class="col-md-4" for="field-rooms">Anzahl an Zimmer: </label>
+				<div class="col-md-4">
+					<form:input path="rooms" id="field-rooms" tabindex="4" maxlength="10" />
+				</div>
 			</div>
 
-			<label class="control-label" for="field-von">Ab wann ist das
-				Zimmer frei: </label>
-			<div class="controls">
-				<form:input path="start" type="field-von" id="datepicker"
-					tabindex="2" />
+			<div class="row">
+				<label class="col-md-4" for="field-roomSpace">Grösse des Zimmers:</label>
+				<div class="col-md-4">
+					<form:input path="roomSpace" id="field-roomSpace" tabindex="5" maxlength="10" />
+				</div>
+			</div>
+			
+			<div class="row">
+				<label class="col-md-4" for="field-adNmbrOfRoommates">Wie viele Mitbewohner (Exkl. der gesuchten Person)</label>
+				<div class="col-md-4">
+					<form:select path="nmbrOfRoommates" id="field-adNmbrOfRoommates" tabindex="6">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+					</form:select>
+				</div>
 			</div>
 
 
-
-			<label class="control-label" for="field-bis">Bis wann ist das
-				Zimmer frei: </label>
-			<div class="controls">
-				<form:input path="until" type="field-bis" id="datepicker2"
-					tabindex="3" />
+			<div class="row">
+				<label class="col-md-4" for="field-wgType">Ungefährer WG-Typ</label>
+				<div class="col-md-4">
+					<form:select path="wgType" id="field-wgType" tabindex="7">
+						<option value="calm">eher ruhig</option>
+						<option value="wild">eher wild</option>
+						<option value="undef">undefiniert</option>
+					</form:select>
+				</div>
 			</div>
-
-
-			<label class="control-label" for="field-rooms">Anzahl an
-				Zimmer: </label>
-			<div class="controls">
-				<form:input path="rooms" id="field-rooms" tabindex="4"
-					maxlength="10" />
+			
+			<div class="row">
+				<label class="col-md-4" for="field-furnished">Möbliert:</label>
+				<div class="col-md-4">
+					<form:checkbox path="furnished" id="field-furnished" tabindex="8" />
+				</div>
 			</div>
-
-
-			<label class="control-label" for="field-roomSpace">Grösse des
-				Zimmers:</label>
-			<div class="controls">
-				<form:input path="roomSpace" id="field-roomSpace" tabindex="5"
-					maxlength="10" />
-			</div>
-
-			<label class="control-label" for="field-adNmbrOfRoommates">Wie
-				viele Mitbewohner (Exkl. der gesuchten Person)</label>
-			<div class="controls">
-				<form:select path="nmbrOfRoommates" id="field-adNmbrOfRoommates"
-					tabindex="6">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-
-				</form:select>
-			</div>
-
-			<label class="control-label" for="field-wgType">Ungefährer
-				wg-typ</label>
-			<div class="controls">
-				<form:select path="wgType" id="field-wgType" tabindex="7">
-					<option value="calm">eher ruhig</option>
-					<option value="wild">eher wild</option>
-					<option value="undef">undefiniert</option>
-
-
-				</form:select>
-			</div>
-
-			<label class="control-label" for="field-furnished">Möbliert:</label>
-			<form:checkbox path="furnished" id="field-furnished" tabindex="8" />
-			</td>
 
 
 
 			<div class="seperator"></div>
 
 
-			<h1 class="h1_inline">Addresse der WG:</h1>
+			<legend>Adresse der WG:</legend>
 
-
-			<label class="control-label" for="field-adKanton">Kanton:</label>
-			<div class="controls">
-				<form:input path="kanton" id="field-adKanton" tabindex="7"
-					maxlength="10" placeholder="Kanton" />
+			<div class="row">
+				<label class="col-md-4" for="field-adKanton">Kanton:</label>
+				<div class="col-md-4">
+					<form:input path="kanton" id="field-adKanton" tabindex="7" maxlength="10" placeholder="Kanton" />
+				</div>
+			</div>
+			
+			
+			<div class="row">
+				<label class="col-md-4" for="field-adPlz">Postleitzahl:</label>
+				<div class="col-md-4">
+					<form:input path="plz" id="field-adPlz" tabindex="8" maxlength="4" placeholder="PLZ" />
+				</div>
+			</div>
+			
+			<div class="row">
+				<label class="col-md-4" for="field-city">Ort:</label>
+				<div class="col-md-4">
+					<form:input path="city" id="field-city" tabindex="9" maxlength="20" placeholder="City" />
+				</div>
 			</div>
 
-
-			<label class="control-label" for="field-adPlz">Postleitzahl:</label>
-			<div class="controls">
-				<form:input path="plz" id="field-adPlz" tabindex="8" maxlength="4"
-					placeholder="PLZ" />
+			<div class="row">
+				<label class="col-md-4" for="field-adAddress">Strasse mit Hausnummer</label>
+				<div class="col-md-4">
+					<form:input path="address" id="field-adAddress" tabindex="10" maxlength="30" />
+				</div>
 			</div>
-
-
-			<label class="control-label" for="field-city">Ort:</label>
-			<div class="controls">
-				<form:input path="city" id="field-city" tabindex="9" maxlength="20"
-					placeholder="City" />
-			</div>
-
-
-			<label class="control-label" for="field-adAddress">Strasse
-				mit Hausnummer</label>
-			<div class="controls">
-				<form:input path="address" id="field-adAddress" tabindex="10"
-					maxlength="30" />
-			</div>
-
+			
 
 			<div class="seperator"></div>
 
-			<h1 class="h1_inline">Bilder:</h1>
-
-
-			<table border="1" cellpadding="5" width="700">
-				<tr>
-					<label for="image"> TitleImage (in JPEG format only, and
-						max 700kb):</label>
-					<input name="image" type="file" />
-					</br>
-				</tr>
-				<tr>
-					<label for="image"> Ad Image 1 (in JPEG format only, and
-						max 700kb):</label>
-					<input name="image" type="file" />
-					</br>
-				</tr>
-				<tr>
-					<label for="image">Ad Image 2 (in JPEG format only, and max
-						700kb):</label>
-					<input name="image" type="file" />
-					</br>
-				</tr>
-				<tr>
-					<label for="image">Ad Image 3 (in JPEG format only, and max
-						700kb):</label>
-					<input name="image" type="file" />
-					</br>
-				</tr>
-
-			</table>
+			<legend>Bilder:</legend>
+					
+					<div class="row">
+						<label for="image">: TitleImage (in JPEG format only, and max 700kb)</label>
+						<div class="col-md-4">
+							<input name="image" type="file" />
+						</div>
+					</div>
+					
+					<div class="row">
+						<label for="image">: Ad Image 1 (in JPEG format only, and max 700kb)</label>
+						<div class="col-md-4">
+							<input name="image" type="file" />
+						</div>
+					</div>
+					
+					<div class="row">
+						<label for="image">: Ad Image 2 (in JPEG format only, and max 700kb)</label>
+						<div class="col-md-4">
+							<input name="image" type="file" />
+						</div>
+					</div>
+					
+					<div class="row">
+						<label for="image">: Ad Image 3 (in JPEG format only, and max 700kb)</label>
+						<div class="col-md-4">
+							<input name="image" type="file" />
+						</div>
+					</div>
 
 
 
@@ -167,143 +157,153 @@
 			<div class="seperator"></div>
 
 
-			<h1 class="h1_inline">Zur Wohnung:</h1>
+			<legend>Zur Wohnung:</legend>
 
-			<table border="1" cellpadding="5" width="700">
-				<tr>
-					<td><label class="control-label" for="field-adDescription_ad">Wohnungsbeschreibung:</label>
-						<div class="controls">
-							<form:textarea rows="10" cols="90" path="description_ad"
-								id="field-adDescription_ad" tabindex="11"
-								placeholder="Unsere Wohnung ist... Unsere Wohnung hat... In der Nähe befindet sich..." />
-						</div></td>
-					<td><label class="control-label" for="field-adLaundry">Waschmaschine:</label>
-						<form:checkbox path="hasLaundry" id="field-adLaundry"
-							tabindex="12" /> <br></br> <label class="control-label"
-						for="field-adDishwasher">Geschirrspüler:</label> <form:checkbox
-							path="hasDishwasher" id="field-adDishwasher" tabindex="13" /> <br></br>
+			<div class="row">
+				<label class="col-md-4">Wohnungsbeschreibung:</label>
+			</div>
+			<div class="row">
+					<div class="textareabig">
+						<form:textarea path="description_ad" tabindex="11" placeholder="Unsere Wohnung ist... Unsere Wohnung hat... In der Nähe befindet sich..." />
+					</div>
+			</div>
+			
+			<div class="row">	
+				<label class="col-md-4" for="field-adLaundry">Waschmaschine:</label>
+					<div class="col-md-4">
+						<form:checkbox path="hasLaundry" id="field-adLaundry" tabindex="12" />
+					</div>
+			</div>
+			
+			<div class="row">		
+				<label class="col-md-4" for="field-adDishwasher">Geschirrspüler:</label> 
+					<div class="col-md-4">
+						<form:checkbox path="hasDishwasher" id="field-adDishwasher" tabindex="13" />
+					</div>
+			</div>
+			
+			<div class="row">
+				<label class="col-md-4" for="field-smokingInside">Wird in der Wohnung geraucht:</label> 
+					<div class="col-md-4">
+						<form:checkbox path="smokingInside" id="field-smokingInside" tabindex="14" />
+					</div>
+			</div>
+			
+			<div class="row">		
+				<label class="col-md-4" for="field-hasPets">Gibt es Haustiere in der Wohnung/ dürfen welche gehalten werden?:</label> 
+					<div class="col-md-4">
+						<form:checkbox path="hasPets" id="field-hasPets" tabindex="15" />
+					</div>
+			</div>
+			
+			<div class="row">	
+				<label class="col-md-4" for="field-adBalcony">Balkon:</label> 
+					<div class="col-md-4">
+						<form:checkbox path="hasBalcony" id="field-adBalcony" tabindex="16" />
+					</div>
+			</div>
+			
+			<div class="row">	
+				<label class="col-md-4" for="field-wlan">Wlan:</label> 
+					<div class="col-md-4">
+						<form:checkbox path="wlan" id="field-wlan" tabindex="17" />
+					</div>
+			</div>
 
-						<label class="control-label" for="field-smokingInside">Wird
-							in der Wohnung geraucht:</label> <form:checkbox path="smokingInside"
-							id="field-smokingInside" tabindex="14" /> <br></br> <label
-						class="control-label" for="field-hasPets">Gibt es
-							Haustiere in der Wohnung/ dürfen welche gehalten werden?:</label> <form:checkbox
-							path="hasPets" id="field-hasPets" tabindex="15" /> <br></br> <label
-						class="control-label" for="field-adBalcony">Balkon:</label> <form:checkbox
-							path="hasBalcony" id="field-adBalcony" tabindex="16" /><br></br>
-						<label class="control-label" for="field-wlan">Wlan:</label> <form:checkbox
-							path="wlan" id="field-wlan" tabindex="17" /></td>
-				</tr>
-
-			</table>
-
-
-
-
-
-
-
-
-
+			<div class="seperator"></div>
+			<legend>Zum Zimmer:</legend>
+			
+			<div class="row">
+			<label class="col-md-4">Beschreibung des Zimmers:</label>
+			</div>
+			<div class="row">
+				<div class="textareabig">
+					<form:textarea path="description_room" tabindex="18" placeholder="Das Zimmer ist... Das Zimmer besitzt..." />
+				</div>
+			</div>
+			
+			<div class="row">	
+			<label class="col-md-4" for="field-adIsToBalcony">Balkonzugang:</label>
+				<div class="col-md-4">		
+					<form:checkbox path="isToBalcony" id="field-adIsToBalcony" tabindex="19" /> 
+				</div>
+			</div>
+			
+			<div class="row">		
+			<label class="col-md-4" for="field-adHasCables">Kabelanschlüsse:</label> 
+				<div class="col-md-4">
+					<form:checkbox path="hasCables" id="field-adHasCables" tabindex="20" /> 
+				</div>
+			</div>
+			
+			<div class="row">	
+			<label class="col-md-4" for="field-hasBuiltIncloset">Einbauschrank:</label>
+				<div class="col-md-4">		
+					<form:checkbox path="hasBuiltInCloset" id="field-hasBuiltIncloset" tabindex="21" />
+				</div>
+			</div>
 
 
 			<div class="seperator"></div>
-			<h1 class="h1_inline">Zum Zimmer:</h1>
-			<table border="1" cellpadding="5" width="700">
-				<tr>
-					<td><label class="control-label" for="field-description_room">Beschreibung
-							des Zimmers:</label>
-						<div class="controls">
-							<form:textarea rows="10" cols="90" path="description_room"
-								id="field-adDescription_room" tabindex="18"
-								placeholder="Das Zimmer ist... Das Zimmer besitzt..." />
-						</div></td>
-					<td><label class="control-label" for="field-adIsToBalcony">Balkonzugang:</label>
-						<form:checkbox path="isToBalcony" id="field-adIsToBalcony"
-							tabindex="19" /> <label class="control-label"
-						for="field-adHasCables">Kabelanschlüsse:</label> <form:checkbox
-							path="hasCables" id="field-adHasCables" tabindex="20" /> <label
-						class="control-label" for="field-hasBuiltIncloset">Einbauschrank:</label>
-						<form:checkbox path="hasBuiltInCloset" id="field-hasBuiltIncloset"
-							tabindex="21" /></td>
-				</tr>
+			<legend>Zu den Persönlichkeiten:</legend>
+		
+		<div class="row">
+			<label class="col-md-4">Wir sind:</label>
+		</div>
+		<div class="row">
+				<div class="textareabig">
+					<form:textarea path="description_us" tabindex="22" placeholder="Wir sind... Wir bevorzugen... Wir machen gerne..." />
+				</div>
+		</div>
+		
+		<div class="row">		
+			<label class="col-md-4" for="field-wgGender">Wir sind eine: </label>
+				<div class="col-md-4">
+					<form:select path="wgGender" id="field-wgGender" tabindex="23">
+						<option value="male">reine Männer WG</option>
+						<option value="female">reine Frauen WG</option>
+						<option value="mixed">gemischt WG</option>
+					</form:select>
+				</div>
+		</div>
 
-			</table>
-
-
-
-
-
-
-
-
-
-
-			<div class="seperator"></div>
-			<h1 class="h1_inline">Zu Persönlichkeiten:</h1>
-
-			<table border="1" cellpadding="5" width="700">
-				<tr>
-					<td><label class="control-label" for="field-adDescription_us">Wir
-							sind:</label>
-						<div class="controls">
-							<form:textarea rows="10" cols="90" path="description_us"
-								id="field-adDescription_us" tabindex="22"
-								placeholder="Wir sind... Wir bevorzugen... Wir machen gerne..." />
-						</div></td>
-					<td><label class="control-label" for="field-wgGender">Wir
-							sind eine: </label>
-						<div class="controls">
-							<form:select path="wgGender" id="field-wgGender" tabindex="23">
-								<option value="male">reine Männer WG</option>
-								<option value="female">reine Frauen WG</option>
-								<option value="mixed">gemischt WG</option>
-
-							</form:select>
-						</div></td>
-				</tr>
-
-			</table>
-
-
-			<table border="1" cellpadding="5" width="700">
-				<tr>
-					<td><label class="control-label"
-						for="field-whoWeAreLookingFor">Wir suchen:</label>
-						<div class="controls">
-							<form:textarea rows="10" cols="90" path="whoWeAreLookingFor"
-								id="field-whoWeAreLookingFor" tabindex="24"
-								placeholder="Du bist... Du machst gerne... " />
-						</div></td>
-					<td><label class="control-label" for="field-AgeRange">Du
-							bist im Alter von - bis: </label>
-						<div class="controls">
-							<form:input path="ageRange" id="field-AgeRange" tabindex="5"
-								maxlength="10" />
-						</div> <label class="control-label" for="field-Smoker">Raucher/
-							Nichtraucher: </label>
-						<div class="controls">
-							<form:select path="smoker" id="field-Smoker" tabindex="26">
-								<option value="smoker">Raucher</option>
-								<option value="nonsmoker">Nichtraucher</option>
-								<option value="dontcare">Ist uns egal</option>
-
-							</form:select>
-						</div> <label class="control-label" for="field-gender">Du bist:</label>
-						<div class="controls">
-							<form:select path="genderWeLookFor" id="field-gender"
-								tabindex="27">
-								<option value="male">Mann</option>
-								<option value="female">Frau</option>
-								<option value="dontcare">Ist uns egal</option>
-
-							</form:select>
-						</div></td>
-				</tr>
-
-			</table>
-
-
+		<div class="row">
+			<label class="col-md-4">Wir suchen:</label>
+		</div>
+		<div class="row">
+				<div class="textareabig">
+					<form:textarea path="whoWeAreLookingFor" tabindex="24" placeholder="Du bist... Du machst gerne... " />
+				</div>
+		</div>
+		
+		<div class="row">	
+			<label class="col-md-4" for="field-AgeRange">Du bist im Alter von - bis: </label>
+				<div class="col-md-4">
+					<form:input path="ageRange" id="field-AgeRange" tabindex="5" maxlength="10" />
+				</div>
+		</div>
+		
+		<div class="row">				 
+			<label class="col-md-4" for="field-Smoker">Raucher/Nichtraucher: </label>
+				<div class="col-md-4">
+					<form:select path="smoker" id="field-Smoker" tabindex="26">
+						<option value="smoker">Raucher</option>
+						<option value="nonsmoker">Nichtraucher</option>
+						<option value="dontcare">Ist uns egal</option>
+					</form:select>
+				</div> 
+		</div>
+		
+		<div class="row">		
+			<label class="col-md-4" for="field-gender">Du bist:</label>
+				<div class="col-md-4">
+					<form:select path="genderWeLookFor" id="field-gender" tabindex="27">
+						<option value="male">Mann</option>
+						<option value="female">Frau</option>
+						<option value="dontcare">Ist uns egal</option>
+					</form:select>
+				</div>
+		</div>
 
 
 
@@ -315,8 +315,29 @@
 
 	</form:form>
 
-</div>
-
+<!-- <div class="container">
+<form role="form">
+  <div class="row">
+  	<label class="col-md-1" for="inputEmail1">Email</label>
+    <div class="col-md-4"><input type="email" class="form-control" id="inputEmail1" placeholder="Email"></div>
+  </div>
+  <div class="row">
+    <label class="col-md-1" for="inputPassword1">Password</label>
+    <div class="col-md-4"><input type="password" class="form-control" id="inputPassword1" placeholder="Password"></div>
+  </div>
+  <div class="row">
+    <label class="col-md-5" for="TextArea">Text Area</label>
+  </div>
+  <div class="row">
+    <div class="col-md-5"><textarea class="form-control" id="TextArea"></textarea></div>
+  </div>
+  <div class="row">
+    <div class="col-md-5">
+      <button type="submit" class="btn btn-default">Sign in</button>
+    </div>
+  </div>
+</form>
+</div> -->
 
 <c:if test="${page_error != null }">
 	<div class="alert alert-error">
