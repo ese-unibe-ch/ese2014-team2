@@ -10,13 +10,13 @@ import org.eseTeam2.controller.pojos.AdForm;
 import org.eseTeam2.model.Advertisement;
 import org.eseTeam2.model.Picture;
 import org.eseTeam2.model.User;
-
 import org.eseTeam2.model.dao.AdvertisementDao;
 import org.eseTeam2.model.dao.PictureDao;
 import org.eseTeam2.model.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.security.config.authentication.UserServiceBeanDefinitionParser;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -30,6 +30,9 @@ public class AdDataService implements IAdDataService {
 	PictureDao pictureDao;
 	@Autowired
 	UserDao userDao;
+	@Autowired
+	IMailService mailer;
+
 
 	public Iterable<Advertisement> getAds() {
 		return advertisementDao.findAll();
@@ -122,6 +125,10 @@ public class AdDataService implements IAdDataService {
 		adsOfUser.add(ad);
 		creator.setAdvertisements(adsOfUser);
 		
+		Iterable<User> usersWithFilters = userDao.findByExampleAdNotNull(); 
+		
+		for ( User filterUser : usersWithFilters)
+			mailer.sendEmail(filterUser.getEmail(), "test", "test");
 		
 		ad = advertisementDao.save(ad); // save object to DB
 		
