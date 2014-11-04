@@ -66,7 +66,7 @@ public class FilterAdsController {
 	public String filterAds(@Valid FilterForm filterForm, BindingResult result,	RedirectAttributes redirectAttributes)throws IllegalAccessException, IllegalArgumentException,
 			InvocationTargetException {
 
-		ArrayList<String> getters = filterService.getGetters();
+		ArrayList<String> getters = filterService.getGettersOfFilterForm();
 		ArrayList<String> paramNames = filterService.getParamsOfFilterForm(getters);
 		Advertisement adToCompare = filterService.getAdToCompare(getters,paramNames, filterForm);
 

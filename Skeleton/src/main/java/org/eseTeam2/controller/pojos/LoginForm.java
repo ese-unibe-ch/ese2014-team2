@@ -3,6 +3,14 @@ package org.eseTeam2.controller.pojos;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+
+/**
+ * This is the form used to login. 
+ * Not sure if Depreciated or not.
+ * 
+ * @author Icewater
+ *
+ */
 public class LoginForm {
 
 

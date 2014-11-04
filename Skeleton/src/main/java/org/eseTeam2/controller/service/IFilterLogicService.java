@@ -8,7 +8,7 @@ import org.eseTeam2.model.CustomFilterAd;
 
 public interface IFilterLogicService {
 	
-	public ArrayList<String> getGetters();
+	public ArrayList<String> getGettersOfFilterForm();
 	public ArrayList<String> getParamsOfFilterForm(ArrayList<String> getters);
 	public Advertisement getAdToCompare ( ArrayList<String> getterMethodNames, ArrayList<String> setterMethodNames, FilterForm filterForm   );
 	public ArrayList<Advertisement> getAdsThatMatchTheFilter(

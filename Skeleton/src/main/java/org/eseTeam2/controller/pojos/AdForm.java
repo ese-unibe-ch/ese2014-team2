@@ -5,7 +5,13 @@ import java.util.Date;
 import org.eseTeam2.model.Picture;
 import org.eseTeam2.model.User;
 
-
+/**
+ * This is the Form class which is user to place a new Room Advertisement.
+ * It contains all the parameters needed to create an Advertisement Object.
+ *
+ * @author Icewater
+ *
+ */
 public class AdForm {
 	
 	// basic info

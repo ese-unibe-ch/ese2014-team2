@@ -3,9 +3,14 @@ package org.eseTeam2.controller.pojos;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+/**
+ * Signup form, used to register. COntains all information to create a new User object.
+ * @author Icewater
+ *
+ */
 public class SignupForm {
 
-
+	
     private Long id;
     private String firstName;
     private String lastName;    

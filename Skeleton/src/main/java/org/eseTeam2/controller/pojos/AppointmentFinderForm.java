@@ -5,6 +5,13 @@ import java.util.Date;
 
 import org.eseTeam2.model.User;
 
+
+/**
+ * This class is used to create Appointments, It contains all the necessary parameters to create an Appointment Entity from it
+ * 
+ * @author Icewater
+ *
+ */
 public class AppointmentFinderForm {
 	
 	private ArrayList<String> appointmentDate;

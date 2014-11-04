@@ -2,6 +2,12 @@ package org.eseTeam2.controller.pojos;
 
 import java.util.Date;
 
+/**
+ * This is the form used to create a Filter to filter ads. It contains all necessary information to create an example Advertisement from it
+ * 
+ * @author Icewater
+ *
+ */
 public class FilterForm {
 	
 	// basic info

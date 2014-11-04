@@ -5,6 +5,11 @@ import javax.validation.constraints.Pattern;
 
 import org.eseTeam2.model.User;
 
+/**
+ * Message form, contains all the information used to create a new Message object.
+ * @author Icewater
+ *
+ */
 public class MessageForm {
 
 

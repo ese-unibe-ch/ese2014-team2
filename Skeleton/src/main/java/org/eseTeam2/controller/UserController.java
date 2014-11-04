@@ -171,7 +171,7 @@ public class UserController {
 			RedirectAttributes redirectAttributes, Principal principal) throws IllegalAccessException,
 			IllegalArgumentException, InvocationTargetException {
 
-		ArrayList<String> getters = filterService.getGetters();
+		ArrayList<String> getters = filterService.getGettersOfFilterForm();
 		ArrayList<String> paramNames = filterService.getParamsOfFilterForm(getters);
 		CustomFilterAd adToCompare = filterService.getFilterAdToCompare(getters, paramNames, filterForm);
 

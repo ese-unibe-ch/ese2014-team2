@@ -4,7 +4,12 @@ import java.util.Date;
 
 import org.eseTeam2.model.Picture;
 import org.eseTeam2.model.User;
-
+/**
+ * Roomie form, used to create a new Person ad, contains all the information needed to create a new Roomie object
+ * 
+ * @author Icewater
+ *
+ */
 public class RoomieForm {
 
 	// basic info
