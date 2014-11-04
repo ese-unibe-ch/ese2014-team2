@@ -34,6 +34,11 @@ legend {
 	margin-bottom:5px;
 }
 
+#field-Message {
+	width:80% !important;
+	height:200px !important;
+}
+
 #description_ad {
 	width:80% !important;
 	height:200px !important;

@@ -12,68 +12,36 @@
 	<h1 class="h1_inline">Send a Message to ${reciever.firstName }</h1>
 
 
-	<form:form method="post" modelAttribute="messageForm" action="send"
-		id="messageForm" cssClass="form-horizontal" autocomplete="off"
-		enctype="multipart/form-data">
+	<form:form method="post" modelAttribute="messageForm" action="send" id="messageForm" cssClass="form-horizontal" autocomplete="off" enctype="multipart/form-data">
 		<fieldset>
-		
-		
 
+			<p>Empfänger:&nbsp;&nbsp; ${reciever.firstName}</p>
+			<p>Absender:&nbsp;&nbsp; ${sender.firstName}</p>
+			
 
-			<table>
-				<tr>
-					<td>Empfänger:&nbsp;&nbsp;
-						<td>${reciever.firstName}
-						
-	</td>
-	
-
-	
-		
-		<td>Absender:&nbsp;&nbsp;
-		
-					<td>${sender.firstName}
-	</td>
-	<td>
-					<label class="control-label" for=field-reciever>Wir
-							sind eine: </label>
-						<div class="controls">
-							<form:hidden path="recipientId" id="field-reciever"
-								tabindex="23" value="${reciever.id }" />
-								
-
+			<form:hidden path="recipientId" id="field-reciever"tabindex="23" value="${reciever.id }" />
+			
+			<div class="row">
+			<label class="col-md-4">Titel: </label>
+				<div class="col-md-4">
+					<form:input path="title" id="field-title" tabindex="1" maxlength="10" />
+				</div>
+			</div>
+			
+			<div class="row">
+				<label class="col-md-4">Nachricht: </label>
+			</div>
+			<div class="row">
+						<div class="textareabig">
+							<form:textarea rows="10" cols="90" path="message" id="field-Message" tabindex="24" />
 						</div>
+			</div>
 	
-				</td>
-				
-				<td> 
-				<label class="control-label" for="field-title">Titel: </label>
-			<div class="controls">
-				<form:input path="title" id="field-title" tabindex="1"
-					maxlength="10" />
-			</div> </td>
-				
-				
-		<td>The ads of the user: &nbsp;&nbsp;
-		
-					<td>
-				<label class="control-label"
-						for="field-Mesasge">Nachricht: </label>
-						<div class="controls">
-							<form:textarea rows="10" cols="90" path="message"
-								id="field-Message" tabindex="24" />
-						</div></td>
-	
-	
-
-			</table>
-
-
 
 
 			<div class="form-actions">
-							<button type="submit" class="btnpink">Send</button>
-				<button type="button" class="btnred">Cancel</button>
+							<button type="submit" class="btn btn-primary">Send</button>
+				<button type="button" class="btn btn-danger">Cancel</button>
 			</div>
 		
 					</fieldset>
