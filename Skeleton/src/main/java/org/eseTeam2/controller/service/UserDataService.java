@@ -8,11 +8,12 @@ import org.eseTeam2.controller.pojos.AdForm;
 import org.eseTeam2.controller.pojos.LoginForm;
 import org.eseTeam2.controller.pojos.SignupForm;
 import org.eseTeam2.exceptions.InvalidUserException;
-
 import org.eseTeam2.model.Advertisement;
+import org.eseTeam2.model.CustomFilterAd;
 import org.eseTeam2.model.User;
 import org.eseTeam2.model.UserRole;
 import org.eseTeam2.model.dao.AdvertisementDao;
+import org.eseTeam2.model.dao.CustomFilterAdDao;
 import org.eseTeam2.model.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -31,7 +32,7 @@ public class UserDataService implements IUserDataService {
     UserDao userDao;
     
     @Autowired
-    AdvertisementDao adDao;
+    CustomFilterAdDao adDao;
  
     
 
@@ -95,14 +96,20 @@ public class UserDataService implements IUserDataService {
 
 
 
-	public void saveExampleAd(Advertisement adToCompare, User currentUser) {
-		currentUser.setExampleAd(adToCompare); 
-		
+	public void saveExampleAd(CustomFilterAd adToCompare, User currentUser) {
+		adToCompare.setExampleAdUser(currentUser);
+		currentUser.setExampleAd(adToCompare);
 		
 		
 		adDao.save(adToCompare);
-		
 		userDao.save(currentUser);
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		

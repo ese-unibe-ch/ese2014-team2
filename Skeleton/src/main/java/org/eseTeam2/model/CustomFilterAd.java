@@ -24,7 +24,7 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 @Entity
-public class Advertisement  {
+public class CustomFilterAd {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,9 +36,6 @@ public class Advertisement  {
 	@ManyToOne 
 	private User creator;
 	
-	private Date creationDate;
-	private String start;
-	private String until;
 	private int rooms;
 	private int roomPrice;
 	private int roomSpace;
@@ -81,30 +78,8 @@ public class Advertisement  {
 	private User exampleAdUser;
 
 
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
-	private Set<Picture> pictures;
-	
-	@OneToOne
-	private Picture mainPic;
-	
-	
-	@OneToOne(mappedBy="ad", fetch=FetchType.EAGER)
-	private Appointment appointment;
-	
-	/*
-	@OneToOne(mappedBy="appointedAd", fetch=FetchType.EAGER)
-	private List<Message> appointmentInvitationMessages; */
-	
-	@ManyToMany (fetch = FetchType.EAGER)
-	private Set<User> interessents;
 
-	public Set<Picture> getPictures() {
-		return pictures;
-	}
-
-	public void setPictures(Set<Picture> pictures) {
-		this.pictures = pictures;
-	}
+	
 
 	public String getTitle() {
 		return title;
@@ -124,29 +99,6 @@ public class Advertisement  {
 
 	
 
-	public Date getCreationDate() {
-		return creationDate;
-	}
-
-	public void setCreationDate(Date creationDate) {
-		this.creationDate = creationDate;
-	}
-
-	public String getStart() {
-		return start;
-	}
-
-	public void setStart(String start) {
-		this.start = start;
-	}
-
-	public String getUntil() {
-		return until;
-	}
-
-	public void setUntil(String until) {
-		this.until = until;
-	}
 
 	public int getRooms() {
 		return rooms;
@@ -384,29 +336,7 @@ public class Advertisement  {
 		this.creator = creator;
 	}
 
-	public Picture getMainPic() {
-		return mainPic;
-	}
 
-	public void setMainPic(Picture mainPic) {
-		this.mainPic = mainPic;
-	}
-
-	public Appointment getAppointment() {
-		return appointment;
-	}
-
-	public void setAppointment(Appointment appointment) {
-		this.appointment = appointment;
-	}
-
-	public Set<User> getInteressents() {
-		return interessents;
-	}
-
-	public void setInteressents(Set<User> interessents) {
-		this.interessents = interessents;
-	}
 
 	public User getExampleAdUser() {
 		return exampleAdUser;

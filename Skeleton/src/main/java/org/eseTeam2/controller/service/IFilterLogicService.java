@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.eseTeam2.controller.pojos.FilterForm;
 import org.eseTeam2.model.Advertisement;
+import org.eseTeam2.model.CustomFilterAd;
 
 public interface IFilterLogicService {
 	
@@ -14,4 +15,6 @@ public interface IFilterLogicService {
 			Advertisement adToCompare, ArrayList<String> getters);
 	public ArrayList<Advertisement> getAdsThatMatchTheSmallFilter(String city,
 			int roomPrice);
+	public CustomFilterAd getFilterAdToCompare(ArrayList<String> getters,
+			ArrayList<String> paramNames, FilterForm filterForm);
 }

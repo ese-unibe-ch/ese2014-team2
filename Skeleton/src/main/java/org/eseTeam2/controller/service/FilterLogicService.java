@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import org.eseTeam2.controller.pojos.FilterForm;
 import org.eseTeam2.model.Advertisement;
+import org.eseTeam2.model.CustomFilterAd;
 import org.eseTeam2.model.dao.AdvertisementDao;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
@@ -269,6 +270,33 @@ public class FilterLogicService implements IFilterLogicService {
 	
 	}
 
+	public CustomFilterAd getFilterAdToCompare(ArrayList<String> getterMethodNames,
+			ArrayList<String> paramNames, FilterForm filterForm) {
+		
+			CustomFilterAd desiredAd = new CustomFilterAd();
+			Class c = FilterForm.class;
+			PropertyAccessor access = PropertyAccessorFactory
+					.forBeanPropertyAccess(desiredAd);
+
+			for (int i = 0; i < getterMethodNames.size(); i++) {
+
+				try {
+
+					// method call chain of doom !
+					// desAd.getDeclaredMethod((getMethodNames.get(i).replace("is","set").replace("get",
+					// "set"))).invoke(desiredAd,
+					// (c.getDeclaredMethod(getMethodNames.get(i)).invoke(filterForm)));
+					access.setPropertyValue(
+							paramNames.get(i),
+							c.getDeclaredMethod(getterMethodNames.get(i)).invoke(
+									filterForm));
+				} catch (Exception d) {
+				}
+			}
+			return desiredAd;
+	}
+
 	
+
 
 }

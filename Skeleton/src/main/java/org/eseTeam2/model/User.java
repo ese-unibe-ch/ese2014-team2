@@ -94,7 +94,7 @@ public class User {
 			
 	
 	@OneToOne 
-	private Advertisement exampleAd;
+	private CustomFilterAd exampleAd;
     
     public Long getId() {
         return id;
@@ -218,13 +218,15 @@ public class User {
 		this.usersInvitations = usersInvitations;
 	}
 
-	public Advertisement getExampleAd() {
+	public CustomFilterAd getExampleAd() {
 		return exampleAd;
 	}
 
-	public void setExampleAd(Advertisement exampleAd) {
+	public void setExampleAd(CustomFilterAd exampleAd) {
 		this.exampleAd = exampleAd;
 	}
+
+	
 
 
 

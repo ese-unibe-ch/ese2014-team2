@@ -21,6 +21,7 @@ import org.eseTeam2.controller.service.IUserDataService;
 import org.eseTeam2.controller.service.UserDataService;
 import org.eseTeam2.exceptions.InvalidUserException;
 import org.eseTeam2.model.Advertisement;
+import org.eseTeam2.model.CustomFilterAd;
 import org.eseTeam2.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -109,7 +110,7 @@ public class UserController {
 		
 		ArrayList<String> getters = filterService.getGetters();
 		ArrayList<String> paramNames = filterService.getParamsOfFilterForm(getters);
-		Advertisement adToCompare = filterService.getAdToCompare(getters, paramNames, filterForm);
+		CustomFilterAd adToCompare = filterService.getFilterAdToCompare(getters, paramNames, filterForm);
 		
 		userService.saveExampleAd(adToCompare, userService.getUserByEmail(principal.getName()));
 	

@@ -4,6 +4,7 @@ import org.eseTeam2.controller.pojos.LoginForm;
 import org.eseTeam2.controller.pojos.SignupForm;
 import org.eseTeam2.exceptions.InvalidUserException;
 import org.eseTeam2.model.Advertisement;
+import org.eseTeam2.model.CustomFilterAd;
 import org.eseTeam2.model.User;
 
 public interface IUserDataService {
@@ -14,6 +15,6 @@ public interface IUserDataService {
 	public User getUserByEmail(String email);
 
 
-	public void saveExampleAd(Advertisement adToCompare, User currentUser);
+	public void saveExampleAd(CustomFilterAd adToCompare, User currentUser);
 
 }
