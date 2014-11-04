@@ -17,6 +17,6 @@ public interface IFilterLogicService {
 			int roomPrice);
 	public CustomFilterAd getFilterAdToCompare(ArrayList<String> getters,
 			ArrayList<String> paramNames, FilterForm filterForm);
-	public ArrayList<Advertisement> getAdsThatMatchTheFilter(CustomFilterAd exampleAd,
-			ArrayList<String> getters);
+	public boolean isNewAdMatch(CustomFilterAd exampleAd,
+			ArrayList<String> getters, Advertisement ad);
 }

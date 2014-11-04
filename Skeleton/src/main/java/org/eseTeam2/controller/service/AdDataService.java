@@ -135,7 +135,7 @@ public class AdDataService implements IAdDataService {
 		
 		ArrayList<String> getters = filterService.getGetters();
 		for ( User filterUser : usersWithFilters) {
-			if( !filterService.getAdsThatMatchTheFilter(filterUser.getExampleAd(), getters).isEmpty())
+			if( filterService.isNewAdMatch(filterUser.getExampleAd(), getters, ad) == true )
 				mailer.sendEmail(filterUser.getEmail(), "A new ad has been put up "+ advertisementDao.findOne(ad.getId()), "A new ad which might interest you has been put online.");
 		}
 		

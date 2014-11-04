@@ -300,71 +300,36 @@ public class FilterLogicService implements IFilterLogicService {
 	}
 	
 	
-	public ArrayList<Advertisement> getAdsThatMatchTheFilter(
-			CustomFilterAd adToCompare, ArrayList<String> getters) {
-		ArrayList<Advertisement> desiredAds = new ArrayList<Advertisement>();
+	public boolean isNewAdMatch(
+			CustomFilterAd adToCompare, ArrayList<String> getters, Advertisement placedAd) {
+	
 
 		// this is what takes the most time :( Takes the ads out of the db by
 		// one predefined statement. Not what I want in the end, but it works so
-		// far.
-		Iterable<Advertisement> allAdsInDb = null;
+		// far.	
 		
 		
-		
-		if (adToCompare.getWgType().contains("undef")) {
-			if (!adToCompare.getCity().equals("") && adToCompare.getRoomPrice() > 0) {
-				allAdsInDb = adDao.findByCityAndRoomPriceLessThan(
-								adToCompare.getCity(), adToCompare.getRoomPrice());
-				//System.out.println("1");
-				
-			}
-			if (adToCompare.getCity().equals("") && adToCompare.getRoomPrice() > 0) {
-				allAdsInDb = adDao.findByRoomPriceLessThan(adToCompare.getRoomPrice());
-				//System.out.println("2");
+		if( !adToCompare.getWgType().contains("undef")  && (adToCompare.getWgType().contains(placedAd.getWgType()))== false) {
 			
-			}
-			if (adToCompare.getCity().equals("") && adToCompare.getRoomPrice() <= 0) {
-				allAdsInDb = adDao.findAll();
-				//System.out.println("other thing");
-				
-			}
-			if (!adToCompare.getCity().equals("") && adToCompare.getRoomPrice() <= 0) {
-				allAdsInDb = adDao.findByCity(adToCompare.getCity());
-				//System.out.println("3");
-				
-
-			}
-		}
-		else if (!adToCompare.getWgType().contains("undef")){
-			if (!adToCompare.getCity().equals("") && adToCompare.getRoomPrice() > 0) {
-				allAdsInDb = adDao.findByCityAndRoomPriceLessThanAndWgType(
-								adToCompare.getCity(), adToCompare.getRoomPrice(), adToCompare.getWgType());
-				//System.out.println("4");
-				
-			}
-			if (adToCompare.getCity().equals("") && adToCompare.getRoomPrice() > 0) {
-				allAdsInDb = adDao.findByRoomPriceLessThanAndWgType(adToCompare.getRoomPrice(), adToCompare.getWgType());
-				//System.out.println("5");
-			
-			}
-			if (adToCompare.getCity().equals("") && adToCompare.getRoomPrice() <= 0) {
-				allAdsInDb = adDao.findByWgType(adToCompare.getWgType());
-				//System.out.println("6");
-				
-			}
-			if (!adToCompare.getCity().equals("") && adToCompare.getRoomPrice() <= 0) {
-				allAdsInDb = adDao.findByCityAndWgType(adToCompare.getCity(), adToCompare.getWgType());
-				//System.out.println("7");
-				
-
-			}
-		}
-		else {		
-			allAdsInDb = adDao.findAll();
-			//System.out.println("did else");
+			return false;
 		}
 		
-		ArrayList<Advertisement> allAdsInDbList = new ArrayList<Advertisement>();
+		if( !adToCompare.getWgGender().contains("dontcare")  && (adToCompare.getWgGender().contains(placedAd.getWgGender()))== false) {
+			
+			return false;
+		}
+		
+		if( !adToCompare.getCity().equals("")  && (adToCompare.getCity().contains(placedAd.getCity()))== false) {
+			
+			return false;
+		}
+		
+		if( adToCompare.getRoomPrice()> 0  && (adToCompare.getRoomPrice() >= placedAd.getRoomPrice()) == false) {
+			
+			return false;
+		}
+			
+		
 		// split in bool and non bool getters
 		ArrayList<String> booleanGetterNames = new ArrayList<String>();
 		ArrayList<String> nonBooleanGetterNames = new ArrayList<String>();
@@ -379,16 +344,12 @@ public class FilterLogicService implements IFilterLogicService {
 			else
 				nonBooleanGetterNames.add(getters.get(i));
 		}
-		for (Advertisement adInDb : allAdsInDb) {
-			allAdsInDbList.add(adInDb);
-		}
-
+	
 		// compare bools
-		boolean stillAMatch = true;
-		for (int i = 0; i < allAdsInDbList.size(); i++) {
-			stillAMatch = true;
+	
+		
 			access = PropertyAccessorFactory
-					.forBeanPropertyAccess(allAdsInDbList.get(i));
+					.forBeanPropertyAccess(placedAd);
 			// check all bools
 			for (int j = 0; j < booleanGetterNames.size(); j++) {
 
@@ -400,8 +361,9 @@ public class FilterLogicService implements IFilterLogicService {
 
 					if (tmpDesAd == true) {
 						if (tmpDesAd != tmpAllAd) {
+						
 					
-							stillAMatch = false;
+							return false;
 
 						}
 
@@ -413,16 +375,7 @@ public class FilterLogicService implements IFilterLogicService {
 			// individual check other fields
 			
 			
-			if (!adToCompare.getWgGender().equals("dontcare") && (!allAdsInDbList.get(i).getWgGender()
-								.contains(adToCompare.getWgGender())))
-					stillAMatch = false;
-			
-		
-			if (stillAMatch == true)
-				desiredAds.add(allAdsInDbList.get(i));
-
-		}
-		return desiredAds;
+		return true;
 	}
 
 	
