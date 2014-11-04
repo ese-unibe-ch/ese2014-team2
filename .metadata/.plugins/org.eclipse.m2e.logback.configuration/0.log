@@ -1,2 +1,0 @@
-2014-11-04 20:58:33,915 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
-2014-11-04 20:58:33,916 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/user/Google Drive/INFO-SEM3/ESE/ese2014-team2/Skeleton/src/test/resources
