@@ -253,7 +253,7 @@
 	
 
 		<a href="/Skeleton/ads"><button class="btn btn-danger">Back</button></a>
-		<td><a href="sendMessageFromAd?adId=${newAdProfile.id}"> 
+		<a href="sendMessageFromAd?adId=${newAdProfile.id}"> 
 	<button type="button" class="btn btn-default"><b>Stelle eine private Frage an den Inseratsteller</b></button>
 </a>
 
@@ -270,5 +270,5 @@
         </div>
     </c:if>
 
-
+</div>
 <c:import url="template/footer.jsp" />
