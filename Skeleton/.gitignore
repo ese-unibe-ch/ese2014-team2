@@ -1,1 +1,13 @@
 /target/
+
+# Java class files
+*.class
+
+# Eclipse Metadata
+.metadata/
+
+# Mac OS X clutter
+*.DS_Store
+
+# Git
+.gitignore
