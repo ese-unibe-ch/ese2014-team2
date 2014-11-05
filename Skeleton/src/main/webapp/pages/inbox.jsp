@@ -39,52 +39,81 @@
 
 <c:if test="${param.showReceived eq true}">
 			
+	
+<br><br>
+<font size="6">Nachrichten Titel:</font>
+<br>
+
 <c:forEach items="${receivedMessages}" var="message">
-   <a href="showMessage?messageId=${message.id}"><h1>${message.title}</h1></a>
+<div class="row">
+  <div class="col-md-8"> <font size="6"><a href="showMessage?messageId=${message.id}">${message.title}</a></font></div>
   
 	
-   <a href="deleteReceivedMsg?messageId=${message.id}">
-	<button type="button" class="btn btn-default"><b>Lösche die Nachricht</b></button>
-</a>
+  <div class="col-md-4"> <a href="deleteReceivedMsg?messageId=${message.id}">
+	<button type="button" class="btn btn-default btn btn-block"><b>Lösche die Nachricht</b></button></a></div>
+</div>
 </c:forEach>
+
 </c:if>
 
 
 <c:if test="${param.showSent eq true}">
-			
+
+<br><br>
+<font size="6">Nachrichten Titel:</font>
+<br>
+
 <c:forEach items="${sentMessages}" var="message">
-   <a href="showMessage?messageId=${message.id}"><h1>${message.title}</h1></a>
+<div class="row">
+  <div class="col-md-8"> <font size="6"><a href="showMessage?messageId=${message.id}">${message.title}</a></font></div>
   
 	
-    <a href="deleteSentMsg?messageId=${message.id}">
-	<button type="button" class="btn btn-default"><b>Lösche die Nachricht</b></button>
-</a>
+  <div class="col-md-4"> <a href="deleteSentMsg?messageId=${message.id}">
+	<button type="button" class="btn btn-default btn btn-block"><b>Lösche die Nachricht</b></button></a></div>
+</div>
 </c:forEach>
+
+		
 </c:if>
 
+
+
 <c:if test="${param.showInvitations eq true}">
+
+<br><br>
+<font size="6">Nachrichten Titel:</font>
+<br>
+
 <c:forEach items="${invitations}" var="message">
-   <a href="showInvitation?messageId=${message.id}"><h1>${message.title}</h1></a>
+<div class="row">
+  <div class="col-md-8"> <font size="6"><a href="showInvitation?messageId=${message.id}">${message.title}</a></font></div>
   
 	
-    <a href="deleteSentMsg?messageId=${message.id}">
-	<button type="button" class="btn btn-default"><b>Lösche die Einladung</b></button>
-</a>
+  <div class="col-md-4"> <a href="deleteSentMsg?messageId=${message.id}">
+	<button type="button" class="btn btn-default btn btn-block"><b>Lösche die Einladung</b></button></a></div>
+</div>
 </c:forEach>
+
 
 </c:if>
 
 
 <c:if test="${param.showNotifications eq true}">
-			
-<c:forEach items="${notifications}" var="notification">
-   <a href="showMessage?messageId=${notification.id}"><h1>${notification.title}</h1></a>
+
+<br><br>
+<font size="6">Nachrichten Titel:</font>
+<br>
+
+<c:forEach items="${notifications}" var="message">
+<div class="row">
+  <div class="col-md-8"> <font size="6"><a href="showMessage?messageId=${message.id}">${message.title}</a></font></div>
   
 	
-   <a href="deleteNotification?messageId=${notification.id}">
-	<button type="button" class="btn btn-default"><b>Lösche die Nachricht</b></button>
-</a>
+  <div class="col-md-4"> <a href="deleteNotification?messageId=${message.id}">
+	<button type="button" class="btn btn-default btn btn-block"><b>Lösche die Nachricht</b></button></a></div>
+</div>
 </c:forEach>
+
 </c:if>
 
 
