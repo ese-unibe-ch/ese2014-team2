@@ -9,18 +9,19 @@
 <c:import url="template/header.jsp" />
 
 
-<div class="main">
+
+
 
 <legend>Bilder:</legend>
 
 <div class="slider_wrapper">
 					<ul id="image_slider">
 						<li>
-							<img src="getUserImage/ <c:out value="${mainPic.id}"/>" width="400" height="400" >
+							<img src="getUserImage/ <c:out value="${mainPic.id}"/>" width="700" height="700" >
 						</li>
 						<c:forEach items="${pictures}" var="pics">
 							<li>
-								<img src="getUserImage/ <c:out value="${pics.id}"/>" width="400" height="400" >
+								<img src="getUserImage/ <c:out value="${pics.id}"/>" width="700" height="700" >
 							</li>
 						</c:forEach>
 					</ul>
@@ -31,42 +32,58 @@
 				</ul>
 
 
-
-
 <legend>Grundlegendes:</legend>	
 
-	<div class="row">
-		<label class="col-md-4">Monatliche Miete:</label>
+
+  
+  
+  <div class="row col-md-6"  >
+    	    	
+                
+       <div class="row">
+		<label class="col-md-6">Monatliche Miete:</label>
 		<p>${newAdProfile.roomPrice }</p>
 	</div>
 	
+		
 	<div class="row">
-		<label class="col-md-4">Von:</label>
+		<label class="col-md-6">Von:</label>
 		<p>${newAdProfile.start}</p>
 	</div>
 	
 	<div class="row">
-		<label class="col-md-4">Bis:</label>
+		<label class="col-md-6">Bis:</label>
 		<p>${newAdProfile.until}</p>
 	</div>
 	
 	<div class="row">
-		<label class="col-md-4">Zimmergrösse:</label>
+		<label class="col-md-6">Zimmergrösse:</label>
 		<p>${newAdProfile.roomSpace}</p>
 	</div>
+
+		
+       
+    </div>
+ 
+    
+    
+    
+    <div class="row">
+    <div class="col-md-6">
+   
 	
-	<div class="row">
-		<label class="col-md-4">Anzahl an Mitbewohnern:</label>
+	 <div class="row">
+		<label class="col-md-6">Anzahl an Mitbewohnern:</label>
 		<p>${newAdProfile.nmbrOfRoommates}</p>
 	</div>
 	
 	<div class="row">
-		<label class="col-md-4">Grundlegender WG-Typ:</label>
+		<label class="col-md-6">Grundlegender WG-Typ:</label>
 		<p>${newAdProfile.wgType}</p>
 	</div>
 	
 	<div class="row">
-		<label class="col-md-4">Ist es möbliert?</label>
+		<label class="col-md-6">Ist es möbliert?</label>
 		<p>
 			<c:choose>
 					<c:when test="${newAdProfile.furnished}">
@@ -78,28 +95,41 @@
 				</c:choose>	
 		</p>
 	</div>
+	
+        
+        </div>
+    </div>
 
-<div class="seperator"></div>
-
-
+        
 <legend>Gut zu wissende Dinge:</legend>
 
-	<div class="row">
-		<label class="col-md-4">Hat es einen Geschirrspüler?</label>
-		<p>
+
+<div class="row col-md-6"  >
+    	    	
+                
+       <div class="row">
+       
+		<label  class="col-md-6">Hat es einen Geschirrspüler?</label>
+					
 			<c:choose>
 					<c:when test="${newAdProfile.hasDishwasher}">
+					
 						<c:out value="Ja"/>
+						<>
 					</c:when>
 					<c:otherwise>
+					
 						<c:out value="Nein"/>
+					
 					</c:otherwise>
 				</c:choose>
-		</p>
-	</div>
+				</div>
 	
-	<div class="row">
-		<label class="col-md-4">Hat es eine Waschmachine?</label>
+		
+
+	
+		<div class="row">
+		<label class="col-md-6">Hat es eine Waschmachine?</label>
 		<p>
 			<c:choose>
 					<c:when test="${newAdProfile.hasLaundry}">
@@ -111,8 +141,9 @@
 				</c:choose>
 		</p>
 	</div>
+	
 	<div class="row">
-		<label class="col-md-4">Hat es einen Balkon?</label>
+		<label class="col-md-6">Hat es einen Balkon?</label>
 		<p>
 			<c:choose>
 					<c:when test="${newAdProfile.hasBalcony}">
@@ -124,8 +155,10 @@
 				</c:choose>
 		</p>
 	</div>
+	
+		
 	<div class="row">
-		<label class="col-md-4">Wird im Haus geraucht?</label>
+		<label class="col-md-6">Wird im Haus geraucht?</label>
 		<p>
 			<c:choose>
 					<c:when test="${newAdProfile.smokingInside}">
@@ -138,7 +171,7 @@
 		</p>
 	</div>
 	<div class="row">
-		<label class="col-md-4">Sind Haustiere erlaubt?</label>
+		<label class="col-md-6">Sind Haustiere erlaubt?</label>
 		<p>
 			<c:choose>
 					<c:when test="${newAdProfile.hasPets}">
@@ -150,8 +183,9 @@
 				</c:choose>
 		</p>
 	</div>
+	
 	<div class="row">
-		<label class="col-md-4">Hat es Wlan?</label>
+		<label class="col-md-6">Hat es Wlan?</label>
 		<p>
 			<c:choose>
 					<c:when test="${newAdProfile.wlan}">
@@ -163,8 +197,18 @@
 				</c:choose>
 		</p>
 	</div>
+       
+    </div>
+ 
+    
+    
+    
+    <div class="row">
+    <div class="col-md-6">
+   
+	
 	<div class="row">
-		<label class="col-md-4">Hat es im Zimmer einen Einbauschrank?</label>
+		<label class="col-md-8">Hat es im Zimmer einen Einbauschrank?</label>
 		<p>
 			<c:choose>
 					<c:when test="${newAdProfile.hasBuiltInCloset}">
@@ -176,8 +220,23 @@
 				</c:choose>
 		</p>
 	</div>
+	
 	<div class="row">
-		<label class="col-md-4">Hat das Zimmer Balkonzugang?</label>
+		<label class="col-md-8">Ist es möbliert?</label>
+		<p>
+			<c:choose>
+					<c:when test="${newAdProfile.furnished}">
+						<c:out value="Ja"/>
+					</c:when>
+					<c:otherwise>
+						<c:out value="Nein"/>
+					</c:otherwise>
+				</c:choose>	
+		</p>
+	</div>
+	
+	<div class="row">
+		<label class="col-md-8">Hat das Zimmer Balkonzugang?</label>
 		<p>
 			<c:choose>
 					<c:when test="${newAdProfile.hasBalcony}">
@@ -189,8 +248,9 @@
 				</c:choose>
 		</p>
 	</div>
+	
 	<div class="row">
-		<label class="col-md-4">Hat es Kabelanschlüsse im Zimmer?</label>
+		<label class="col-md-8">Hat es Kabelanschlüsse im Zimmer?</label>
 		<p>
 			<c:choose>
 					<c:when test="${newAdProfile.hasCables}">
@@ -202,20 +262,18 @@
 				</c:choose>
 		</p>
 	</div>
-	<div class="row">
-		<label class="col-md-4">Geschlechterverteilung in der WG</label>
-		<p>	
-			<c:choose>
-					<c:when test="${newAdProfile.wgGender}">
-						<c:out value="Ja"/>
-					</c:when>
-					<c:otherwise>
-						<c:out value="Nein"/>
-					</c:otherwise>
-				</c:choose>
-		</p>
+		<div class="row">
+		<label class="col-md-8">Geschlechterverteilung in der WG</label>
+	
+		<p>${newAdProfile.wgGender}</p>
 	</div>
 	
+        
+        </div>
+    </div>
+
+    
+    
 	
 	
 	<legend>Über die Wohnung:</legend>
@@ -271,4 +329,12 @@
     </c:if>
 
 </div>
+
+
+</div>
+
+
+
+
+				    
 <c:import url="template/footer.jsp" />

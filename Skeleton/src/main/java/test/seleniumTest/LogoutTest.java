@@ -1,4 +1,4 @@
-package Test.seleniumTest;
+package test.seleniumTest;
 
 import java.awt.AWTException;
 import java.awt.Robot;
