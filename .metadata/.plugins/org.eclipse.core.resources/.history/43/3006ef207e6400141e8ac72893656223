@@ -1,0 +1,145 @@
+package test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import java.util.ArrayList;
+
+import org.eseTeam2.controller.service.FilterLogicService;
+import org.eseTeam2.model.Advertisement;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+public class FilterLogicServiceTest {
+	
+	public FilterLogicService filterLogicService;
+	public Advertisement expectedAd;
+	public ArrayList<String> getterMethodNames;
+	public ArrayList<String> parameterNames;
+	public FilterForm filterForm;
+	
+	@Before
+	public void setUp () {
+		this.filterLogicService = new FilterLogicService();
+		this.expectedAd = new Advertisement();
+		this.initializeGetterMethodNames();
+		this.initializeParameterNames();
+		
+		assert ( null != this.filterLogicService );
+		assert ( null != this.expectedAd);
+		assert ( null != this.getterMethodNames);
+		assert ( null != this.parameterNames);
+	}
+	
+	@After
+	public void tearDown () {
+		this.filterLogicService = null;
+		this.expectedAd = null; 
+		this.getterMethodNames = null;
+		this.parameterNames = null;
+
+		assert ( null == this.filterLogicService );
+		assert ( null == this.expectedAd);
+		assert ( null == this.getterMethodNames);
+		assert ( null == this.parameterNames);
+	}
+	
+	@Test
+	public void getGettersOfFilterFormTest () {
+		ArrayList<String> getters = this.filterLogicService.getGettersOfFilterForm();
+
+		for ( int indx = 0; indx < getters.size(); indx++ ) {
+			assertTrue ( getters.get(indx).substring ( 0, 3 ).equals ( "get" )
+					|| getters.get(indx).substring ( 0, 2 ).equals ( "is" ) );
+		}
+	}
+	
+	@Test
+	public void getAdToCompareTest () {
+		Advertisement receivedAd = this.filterLogicService.getAdToCompare ( this.getterMethodNames, this.parameterNames, this.filterForm);
+		
+		assert ( expectedAd.getId() == receivedAd.getId() );
+		assertEquals ( expectedAd.getTitle(), receivedAd.getTitle() );
+		assertEquals ( expectedAd.getDescription(), receivedAd.getDescription() );
+		assertEquals ( expectedAd.getCreator().getEmail(), receivedAd.getCreator().getEmail() );
+		assert ( expectedAd.getCreationDate().equals(receivedAd.getCreationDate()) );
+		assertEquals ( expectedAd.getStart(), receivedAd.getStart() );
+		assertEquals ( expectedAd.getUntil(), receivedAd.getUntil() );
+		assert ( expectedAd.getRooms() == receivedAd.getRooms() );
+		assert ( expectedAd.getRoomPrice() == receivedAd.getRoomPrice() );
+		assert ( expectedAd.getRoomSpace() == receivedAd.getRoomSpace() );
+		assert ( expectedAd.getNmbrOfRoommates() == receivedAd.getNmbrOfRoommates() );
+		assertEquals ( expectedAd.getWgType(), receivedAd.getWgType() );
+		assert ( expectedAd.isFurnished() == receivedAd.isFurnished() );
+		assertEquals ( expectedAd.getKanton(), receivedAd.getKanton() );
+		assert ( expectedAd.getPlz() == receivedAd.getPlz() );
+		assertEquals ( expectedAd.getCity(), receivedAd.getCity() );
+		assertEquals ( expectedAd.getAddress(), receivedAd.getAddress() );
+		assertEquals ( expectedAd.getDescription_ad(), receivedAd.getDescription_ad() );
+		assert ( expectedAd.isHasLaundry() == receivedAd.isHasLaundry() );
+		assert ( expectedAd.isHasDishwasher() == receivedAd.isHasDishwasher() );
+		assert ( expectedAd.isHasBalcony() == receivedAd.isHasBalcony() );
+		assert ( expectedAd.isSmokingInside() == receivedAd.isSmokingInside() );
+		assert ( expectedAd.isHasPets() == receivedAd.isHasPets() );
+		assert ( expectedAd.isWlan() == receivedAd.isWlan() );
+		assert ( expectedAd.isHasBuiltInCloset() == receivedAd.isHasBuiltInCloset() );
+		assertEquals ( expectedAd.getDescription_room(), receivedAd.getDescription_room() );
+		assert ( expectedAd.isToBalcony() == receivedAd.isToBalcony() );
+		assert ( expectedAd.isHasCables() == receivedAd.isHasCables() );
+		assertEquals ( expectedAd.getDescription_us(), receivedAd.getDescription_us() );
+		assertEquals ( expectedAd.getWgGender(), receivedAd.getWgGender() );
+		assertEquals ( expectedAd.getWhoWeAreLookingFor(), receivedAd.getWhoWeAreLookingFor() );
+		assertEquals ( expectedAd.getSmoker(), receivedAd.getSmoker() );
+		assertEquals ( expectedAd.getAgeRange(), receivedAd.getAgeRange() );
+		assertEquals ( expectedAd.getGenderWeLookFor(), receivedAd.getGenderWeLookFor() );
+	}
+	
+	private void initializeGetterMethodNames () {
+		int i = 0;
+		this.getterMethodNames = new ArrayList<String>(33);
+
+		this.getterMethodNames.set ( i++, "getId" );
+		this.getterMethodNames.set ( i++, "getTitle" );
+		this.getterMethodNames.set ( i++, "getDescription" );
+		this.getterMethodNames.set ( i++, "getCreator" );
+		this.getterMethodNames.set ( i++, "getCreationDate" );
+		this.getterMethodNames.set ( i++, "getStart" );
+		this.getterMethodNames.set ( i++, "getUntil" );
+		this.getterMethodNames.set ( i++, "getRooms" );
+		this.getterMethodNames.set ( i++, "getRoomPrice" );
+		this.getterMethodNames.set ( i++, "getRoomSpace" );
+		this.getterMethodNames.set ( i++, "getNmbrOfRoommates" );
+		this.getterMethodNames.set ( i++, "getWgType" );
+		this.getterMethodNames.set ( i++, "isFurnished" );
+		this.getterMethodNames.set ( i++, "getKanton" );
+		this.getterMethodNames.set ( i++, "getPlz" );
+		this.getterMethodNames.set ( i++, "getCity" );
+		this.getterMethodNames.set ( i++, "getAddress" );
+		this.getterMethodNames.set ( i++, "getDescription_ad" );
+		this.getterMethodNames.set ( i++, "isHasLaundry" );
+		this.getterMethodNames.set ( i++, "isHasDishwasher" );
+		this.getterMethodNames.set ( i++, "isHasBalcony" );
+		this.getterMethodNames.set ( i++, "isSmokingInside" );
+		this.getterMethodNames.set ( i++, "isHasPets" );
+		this.getterMethodNames.set ( i++, "isWlan" );
+		this.getterMethodNames.set ( i++, "isHasBuiltInCloset" );
+		this.getterMethodNames.set ( i++, "getDescription_room" );
+		this.getterMethodNames.set ( i++, "isToBalcony" );
+		this.getterMethodNames.set ( i++, "isHasCables" );
+		this.getterMethodNames.set ( i++, "getDescription_us" );
+		this.getterMethodNames.set ( i++, "getWgGender" );
+	}
+	
+	private void initializeParameterNames () {
+		this.parameterNames = new ArrayList<String>(this.getterMethodNames.size());
+
+		String param;
+		for ( int indx = 0; indx < this.getterMethodNames.size(); indx++ ) {
+			param = this.getterMethodNames.get(indx);
+			if ( param.substring(0,2).equals("is"))
+				this.parameterNames.set ( indx, param.substring(2,param.length()));
+			else this.parameterNames.set ( indx, param.substring(3,param.length()));
+		}
+	}
+}
