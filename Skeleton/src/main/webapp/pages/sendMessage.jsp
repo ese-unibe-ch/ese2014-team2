@@ -40,7 +40,7 @@
 
 
 			<div class="form-actions">
-							<button type="submit" class="btn btn-primary">Send</button>
+							<button type="submit" class="btn btn-primary" id="send">Send</button>
 				<button type="button" class="btn btn-danger">Cancel</button>
 			</div>
 		

@@ -57,7 +57,7 @@
 	</td>
 	<tr>
 		<td><div class="form-actions">
-           <button type="submit" class="btn btn-primary">Sign up!</button>
+           <button type="submit" id="submitB" class="btn btn-primary">Sign up!</button>
             <button type="button" class="btn btn-danger">Cancel</button>
         </div>
     </fieldset>

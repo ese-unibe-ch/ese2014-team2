@@ -77,9 +77,7 @@ public class Advertisement  {
 	private String ageRange;
 	private String genderWeLookFor;
 	
-	@OneToOne (mappedBy="exampleAd", fetch=FetchType.EAGER)
-	private User exampleAdUser;
-
+	
 
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
 	private Set<Picture> pictures;
@@ -408,13 +406,7 @@ public class Advertisement  {
 		this.interessents = interessents;
 	}
 
-	public User getExampleAdUser() {
-		return exampleAdUser;
-	}
-
-	public void setExampleAdUser(User exampleAdUser) {
-		this.exampleAdUser = exampleAdUser;
-	}
+	
 
 
 

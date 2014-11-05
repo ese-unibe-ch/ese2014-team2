@@ -254,7 +254,7 @@
 
 		<a href="/Skeleton/ads"><button class="btn btn-danger">Back</button></a>
 		<a href="sendMessageFromAd?adId=${newAdProfile.id}"> 
-	<button type="button" class="btn btn-default"><b>Stelle eine private Frage an den Inseratsteller</b></button>
+	<button type="button" class="btn btn-default" id="messageSend"><b>Stelle eine private Frage an den Inseratsteller</b></button>
 </a>
 
 <a href="userInterested?adId=${newAdProfile.id}"> 
