@@ -28,7 +28,7 @@ public class Appointment {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@OneToOne
+	@OneToOne 
 	private Advertisement ad;
 	
 	@ManyToOne
@@ -37,7 +37,7 @@ public class Appointment {
 	@ManyToMany
 	private List<User> invitations;
 	
-	@OneToMany(fetch=FetchType.EAGER)
+	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.REMOVE)
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<AppointmentDate> appointmentDate;
 	

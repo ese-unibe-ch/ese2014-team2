@@ -92,14 +92,14 @@ public class Advertisement  {
 	private Picture mainPic;
 	
 	
-	@OneToOne(mappedBy="ad", fetch=FetchType.EAGER)
+	@OneToOne(mappedBy="ad", fetch=FetchType.EAGER, cascade=CascadeType.REMOVE)
 	private Appointment appointment;
 	
 	/*
 	@OneToOne(mappedBy="appointedAd", fetch=FetchType.EAGER)
 	private List<Message> appointmentInvitationMessages; */
 	
-	@ManyToMany (fetch = FetchType.EAGER)
+	@ManyToMany (fetch = FetchType.EAGER,  cascade=CascadeType.REMOVE)
 	private Set<User> interessents;
 
 	public Set<Picture> getPictures() {

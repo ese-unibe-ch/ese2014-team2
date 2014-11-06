@@ -238,11 +238,21 @@ public class AdDataService implements IAdDataService {
 	 */
 	public void deleteOneAd(Long adId, User user) {
 		Set<Advertisement> userAds = user.getAdvertisements();
+		// need a tmp variable because you can not remove something during iteration.
+		Advertisement tmp = new Advertisement();
 		for (Advertisement ad : userAds) {
 			if (ad.getId() == adId)
-				userAds.remove(ad);
+				tmp = ad;
+			
 		}
+		userAds.remove(tmp);
 
+		// clear interessents list to avoid db constraint problems.
+		Advertisement tmp2 = advertisementDao.findOne(adId);
+		tmp2.setInteressents(null);
+		advertisementDao.save(tmp2);
+		
+		
 		user.setAdvertisements(userAds);
 		userDao.save(user);
 
