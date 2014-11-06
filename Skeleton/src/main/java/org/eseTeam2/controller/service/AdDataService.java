@@ -6,6 +6,9 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.servlet.ServletContext;
+
+import org.eseTeam2.ErrorSaver;
 import org.eseTeam2.controller.pojos.AdForm;
 import org.eseTeam2.model.Advertisement;
 import org.eseTeam2.model.Picture;
@@ -41,6 +44,8 @@ public class AdDataService implements IAdDataService {
 	IMailService mailer;
 	@Autowired
 	IFilterLogicService filterService;
+	@Autowired
+	ServletContext servletContext;
 
 	/**
 	 * uses the AdvertisementDao to get all Advertisements stored in the
@@ -237,6 +242,8 @@ public class AdDataService implements IAdDataService {
 	 * 
 	 */
 	public void deleteOneAd(Long adId, User user) {
+		
+		try {
 		Set<Advertisement> userAds = user.getAdvertisements();
 		// need a tmp variable because you can not remove something during iteration.
 		Advertisement tmp = new Advertisement();
@@ -257,6 +264,14 @@ public class AdDataService implements IAdDataService {
 		userDao.save(user);
 
 		advertisementDao.delete(adId);
+		
+		}
+		catch (Exception e) {
+			ErrorSaver error = new ErrorSaver();
+			String absolutePath = servletContext.getRealPath("/error");
+			
+			error.saveErrorMessage(e, e.getClass().toString(), servletContext.getRealPath("/error"));
+		}
 	}
 
 }
