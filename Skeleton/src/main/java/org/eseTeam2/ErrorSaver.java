@@ -30,15 +30,22 @@ public class ErrorSaver {
 			  
 			     String message = sw.getBuffer().toString();
 			
-			
-			
+						
 			File dir = new File(absolutePath);
             
             if (!dir.exists())
                 dir.mkdirs();
 
-            
+            // creates a new file and looksif afile with that name already exists.if it does then it adds a int number to the filename
+            // and checks again.
 			File newTextFile = new File(dir.getAbsolutePath()+File.separator+name+".txt");
+			int i = 0;
+			while (newTextFile.exists()) {
+				
+				newTextFile = new File( dir.getAbsolutePath()+File.separator+name+i+".txt");
+				i++;
+			}
+			
 
 			FileWriter fw = new FileWriter(newTextFile);
 			fw.write(message);
