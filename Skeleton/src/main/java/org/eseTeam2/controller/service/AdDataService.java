@@ -264,13 +264,13 @@ public class AdDataService implements IAdDataService {
 		userDao.save(user);
 
 		advertisementDao.delete(adId);
-		
 		}
 		catch (Exception e) {
 			ErrorSaver error = new ErrorSaver();
 			String absolutePath = servletContext.getRealPath("/error");
 			
 			error.saveErrorMessage(e, e.getClass().toString(), servletContext.getRealPath("/error"));
+			e.printStackTrace();
 		}
 	}
 
