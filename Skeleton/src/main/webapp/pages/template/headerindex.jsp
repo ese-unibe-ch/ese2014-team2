@@ -130,22 +130,29 @@
       <div class="carousel-inner">
         <div class="item active">
           <!--<img src="img/slider/Fotolia_30977559_XS.jpg" alt="slide 1">-->
-          <img src="img/slider_banner_1.gif" alt="Slide1">
-          <div class="container">
-            <div class="carousel-caption"></div>
-          </div>
-        </div>
-        <div class="item">
-          <img src="img/Slider_banner_2.gif" alt="Slide2">
+          <img src="img/slider_beige.gif" alt="Slide1">
           <div class="container">
             <div class="carousel-caption">
+            	<h1><font color="#D5DED9">Flattie v1.0</font></h1>
+            	<p><font color="black">Searching for Flats and Ads has never been that easy!</font></p>
             </div>
           </div>
         </div>
         <div class="item">
-          <img src="img/Slider_banner_3.gif" alt="Slide3">
+          <img src="img/slider_lightgrey.gif" alt="Slide2">
           <div class="container">
             <div class="carousel-caption">
+            	<h1><font color="#948C75">Flattie v1.0</font></h1>
+            	<p><font color="black">With thousands of satisfied customers!</font><p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="img/slider_lightmarine.gif" alt="Slide3">
+          <div class="container">
+            <div class="carousel-caption">
+            	<h1><font color="#D9CEB2">Flattie v1.0</font></h1>
+            	<p><font color="black">HAIL TO THE KING!</font></p>
             </div>
           </div>
         </div>
