@@ -57,18 +57,12 @@
 		<div class="col-md-4">
 			<form:password path="password" id="field-password" tabindex="4" maxlength="35" placeholder="Password"/>
    		</div>
-<<<<<<< HEAD
-   	</div>
-	
-	
-		<div class="form-actions">
-           <button type="submit" class="btn btn-primary">Sign up!</button>
-=======
+</div>
 	</td>
 	<tr>
 		<td><div class="form-actions">
            <button type="submit" id="submitB" class="btn btn-primary">Sign up!</button>
->>>>>>> 4e549cebb36a3b8d9b82c9cf1278e480c6a1098d
+
             <button type="button" class="btn btn-danger">Cancel</button>
         </div>
     </fieldset>
