@@ -238,4 +238,38 @@ public class AppointmentService implements IAppointmentService {
 		userDao.save(adOwner);
 
 	}
+
+	public void deleteInteressent(Long adId, Long interessentId) {
+		Advertisement ad = adDao.findOne(adId);
+		Set<User> interessents = ad.getInteressents();
+		
+		User interessent = userDao.findOne(interessentId);
+		Set<Advertisement> adsUserIsInterestedIn = interessent.getAdsUserIsInterestedIn();
+		
+		// remove user from ads interessent list
+		User userToDelete= null;
+		for( User u : interessents ) {
+			if( u.getId() == interessentId) 
+				userToDelete = u;
+		}
+		
+		interessents.remove(userToDelete);
+		ad.setInteressents(interessents);
+		// remove ad from users interestedIn Ads list
+		Advertisement adToDelete= null;
+		for( Advertisement a : adsUserIsInterestedIn ) {
+			if( a.getId() == adId) 
+				adToDelete = a;
+		}
+		
+		adsUserIsInterestedIn.remove(adToDelete);
+		interessent.setAdsUserIsInterestedIn(adsUserIsInterestedIn);
+		
+		adDao.save(ad);
+		userDao.save(interessent);
+		
+		
+		
+		
+	}
 }

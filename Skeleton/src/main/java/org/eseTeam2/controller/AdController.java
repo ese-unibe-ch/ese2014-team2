@@ -250,33 +250,7 @@ public class AdController {
 		return "redirect:/adprofile?adId="+adId;
 	}
 	
-	/**
-	 * This mapping method is used to print out all the interessents of an ad
-	 * @param adId to get the interessents from
-	 * @param request
-	 * @param response
-	 * @param session
-	 * @param principal
-	 * @return
-	 */
-	@RequestMapping(value = "/showInteressents", method = RequestMethod.GET)
-	public ModelAndView showInteressentsOfAd(
-			@RequestParam(value = "adId", required = true) Long adId,
-			HttpServletRequest request, HttpServletResponse response,
-			HttpSession session,  Principal principal) {
-		
-		Advertisement ad = adService.getAdvertisement(adId);
-		Set<User>interessents = ad.getInteressents();
 
-	
-		
-	
-		ModelAndView model = new ModelAndView("interessents");
-		model.addObject("interessents", interessents);
-		model.addObject("ad", ad);
-		return model;
-	}
-	
 	/**
 	 * This mapping method is used to create an appointment for flat visiting. Redirects the user
 	 * to the setAppointmentForAd page, where he can set the visit date.

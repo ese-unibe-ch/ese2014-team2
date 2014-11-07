@@ -25,7 +25,7 @@
   							<div class="btn-group btn-group-lg">
   							
   							<a href="showInteressents?adId=${ad.id}">
-							    <button type="button" class="btn btn-default"><b>Zeige Interessenten </b></button>
+							    <button type="button" class="btn btn-default"><b>Interessenten </b></button>
 							    </a>
 							    
 							    <a href="setzeBesichtigungstermin?adId=${ad.id}">

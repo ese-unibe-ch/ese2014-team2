@@ -11,4 +11,6 @@ public interface IAppointmentService {
 
 	void informAdOwner(User currentUser, Long appointmentId);
 
+	void deleteInteressent(Long adId, Long interessentId);
+
 }
