@@ -17,7 +17,6 @@
             </div>
             <div class="panel-body">
            		 <div class="filler_big">
-              		
             		<c:import url="template/smallFilter.jsp"/> 
             	</div>
             </div>
