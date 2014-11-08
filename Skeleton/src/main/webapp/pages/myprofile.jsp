@@ -28,10 +28,16 @@
 		<td>The ads of the user: &nbsp;&nbsp;
 		<td>
 		<c:forEach items="${user.advertisements}" var="ad">
-   <h1>${ad.title}</h1>
+  		<a href="adprofile?adId=${ad.id}">
+  		 <h1>${ad.title}</h1>
+  		 </a>
 </c:forEach>
 	</td>
 	
+	 <a href="setInformFilter">
+				<button type="submit" class="btn btn-primary btn-lg">Erstelle einen Benachrichtigungs Filter!</button>
+			 </a>
+			 
 </table>
 
 	<c:if test="${page_error != null }">
@@ -41,6 +47,8 @@
                 ${page_error}
         </div>
     </c:if>
+    
+    
 
 
 <c:import url="template/footer.jsp" />

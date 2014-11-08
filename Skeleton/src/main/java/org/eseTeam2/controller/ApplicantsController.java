@@ -144,10 +144,14 @@ public class ApplicantsController {
 	public ModelAndView showInteressentDetails (  @RequestParam (value ="applicationId", required = true) Long applicationId) {
 		
 		ModelAndView model = new ModelAndView("interessentDetails");
-		model.addObject("application", appointmentService.findOneApplication(applicationId));
+		AdApplication application = appointmentService.findOneApplication(applicationId);
+		if(application.getTimeLimitation().equals(""))
+			application.setTimeLimitation("nicht limitiert");
+		
+		model.addObject("application", application);
 		
 		
-		return null;
+		return model;
 	}
 	
 	

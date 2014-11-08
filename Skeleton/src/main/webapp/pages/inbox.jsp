@@ -89,7 +89,7 @@
   <div class="col-md-8"> <font size="6"><a href="showInvitation?messageId=${message.id}">${message.title}</a></font></div>
   
 	
-  <div class="col-md-4"> <a href="deleteSentMsg?messageId=${message.id}">
+  <div class="col-md-4"> <a href="deleteNotification?messageId=${message.id}">
 	<button type="button" class="btn btn-default btn btn-block"><b>Lösche die Einladung</b></button></a></div>
 </div>
 </c:forEach>
