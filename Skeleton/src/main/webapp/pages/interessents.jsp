@@ -16,33 +16,42 @@
 	<div class="panel-body">
 
 
-		<!-- Table -->
-		<table class="table">
 
-
+<br>
+			<br>
+			<font size="6">Nachrichten Titel:</font>
+			<br>
 
 			<c:forEach items="${interessents}" var="interessent">
-				<tr>
+				
+					<div class="row">
+					<div class="col-md-8">
+					<a href="interessentDetails?applicationId=${interessent.id}">
+							<font size="5"> ${interessent.applicant.firstName},
+								${interessent.applicant.lastName }</font> </a>
+								</div>
+							
+					
+					<div class="col-md-4">
+								
 
-					<td><a href="interessentDetails?messageId=${message.id}">
-							<font size="5"> ${interessent.firstName},
-								${interessent.lastName }</font> 
-								
-								
-							<form:form action="/removeInteressent" method="POST" commandName="cmd">
-
-								<input type="hidden" value="${interessent.id}" name="interessentId" />
-								<input type="hidden" value="${ad.id}" name="adId" />
-								
-								<button type="submit" class="btn btn-default">
+							
+								<a href="removeInteressent?applicationId=${interessent.id}">
+								<button type="button" class="btn btn-default">
 									<b> Lehne den Bewerber ab </b>
 								</button>
+								</a>
 
-							</form:form> </td>
-				</tr>
+						
+							</div>
+							</div>
+				
 			</c:forEach>
 
-		</table>
+
+
+			
+
 	</div>
 </div>
 

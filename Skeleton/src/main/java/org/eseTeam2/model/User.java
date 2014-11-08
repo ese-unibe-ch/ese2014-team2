@@ -75,6 +75,12 @@ public class User {
 	@OneToMany(mappedBy="notifications", fetch=FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Message> notifications;
+
+	
+	
+	@OneToMany(mappedBy="applicant", fetch=FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
+	private List<AdApplication> applications;
 	
 	
 	@OneToMany(mappedBy="appointmentInvitations", fetch=FetchType.EAGER)
@@ -89,9 +95,7 @@ public class User {
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Appointment> adOwnerAppointments;
 	
-	@ManyToMany (mappedBy="interessents", fetch=FetchType.EAGER)
-	private  Set<Advertisement> adsUserIsInterestedIn;
-			
+
 	
 	@OneToOne 
 	private CustomFilterAd exampleAd;
@@ -186,13 +190,6 @@ public class User {
 		this.sender = sender;
 	}
 
-	public Set<Advertisement> getAdsUserIsInterestedIn() {
-		return adsUserIsInterestedIn;
-	}
-
-	public void setAdsUserIsInterestedIn(Set<Advertisement> adsUserIsInterestedIn) {
-		this.adsUserIsInterestedIn = adsUserIsInterestedIn;
-	}
 
 	public List<Message> getNotifications() {
 		return notifications;
@@ -226,10 +223,15 @@ public class User {
 		this.exampleAd = exampleAd;
 	}
 
+	public List<AdApplication> getApplications() {
+		return applications;
+	}
+
+	public void setApplications(List<AdApplication> applications) {
+		this.applications = applications;
+	}
+
 	
-
-
-
 	
 	
 }

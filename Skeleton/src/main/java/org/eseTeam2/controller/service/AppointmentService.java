@@ -8,12 +8,15 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.eseTeam2.controller.pojos.ApplicantForm;
 import org.eseTeam2.controller.pojos.AppointmentFinderForm;
+import org.eseTeam2.model.AdApplication;
 import org.eseTeam2.model.Advertisement;
 import org.eseTeam2.model.Appointment;
 import org.eseTeam2.model.AppointmentDate;
 import org.eseTeam2.model.Message;
 import org.eseTeam2.model.User;
+import org.eseTeam2.model.dao.AdApplicationDao;
 import org.eseTeam2.model.dao.AdvertisementDao;
 import org.eseTeam2.model.dao.AppointmentDao;
 import org.eseTeam2.model.dao.AppointmentDateDao;
@@ -50,22 +53,33 @@ public class AppointmentService implements IAppointmentService {
 	@Autowired
 	IMailService mailer;
 
+	@Autowired
+	AdApplicationDao adApplicationDao;
 	
 	/**
-	 * This method adds User objects to an Advertisement. It adds those users who are interested in an Advertisement. 
-	 * It therefore updates the corresponding advertisement entity and the corresponding user entity.
-	 * ADds a notification Message to the ad Creator User object informing him that an User is interested in his ad.
+	 * This method creates an AdApplication. Therefore it creates an AdApplication for the interested user
+	 * and adds the application to the Advertisement he is interested in.
+	 * Then it sends out a Message to inform the ad owner, that he has a new application.
 	 *
-	 * @param currentUser
-	 * @param adId
 	 */
 	// refactor potential
-	public void addInteressent(User currentUser, Long adId) {
-
-		Advertisement ad = adDao.findOne(adId);
+	public void addInteressent(ApplicantForm applicantForm) {
+		
+		AdApplication application = new AdApplication();
+		
+		Advertisement ad = adDao.findOne(applicantForm.getAdId());
+		User interessent = applicantForm.getInteressent();
+		
+		application.setAd(ad);
+		application.setApplicant(applicantForm.getInteressent());
+		application.setMessage(applicantForm.getMessage());
+		application.setTitle(applicantForm.getTitle());
+		application.setTimeLimitation(applicantForm.getBisWann());
+		application.setSmoker(applicantForm.isSmoker());
+		
 		User adCreator = ad.getCreator();
-		Set<Advertisement> ads = new LinkedHashSet<Advertisement>();
-		Set<User> interessents = new LinkedHashSet<User>();
+		List<AdApplication> ads = new ArrayList<AdApplication>();
+		List<AdApplication> interessents = new ArrayList<AdApplication>();
 
 		Message notification = new Message();
 
@@ -74,19 +88,19 @@ public class AppointmentService implements IAppointmentService {
 		if (adCreator.getNotifications().isEmpty() == false)
 			creatorNotifications = adCreator.getNotifications();
 
-		if (!currentUser.getAdsUserIsInterestedIn().isEmpty())
-			ads = currentUser.getAdsUserIsInterestedIn();
+		if (!interessent.getApplications().isEmpty())
+			ads = applicantForm.getInteressent().getApplications();
 
-		if (ad.getInteressents() != null && !ad.getInteressents().isEmpty())
-			interessents = ad.getInteressents();
+		if (ad.getApplications() != null && !ad.getApplications().isEmpty())
+			interessents = ad.getApplications();
 
-		interessents.add(currentUser);
+		interessents.add(application);
 
-		ad.setInteressents(interessents);
+		ad.setApplications(interessents);
 
-		ads.add(ad);
+		ads.add(application);
 
-		currentUser.setAdsUserIsInterestedIn(ads);
+		interessent.setApplications(ads);
 
 	
 
@@ -99,9 +113,10 @@ public class AppointmentService implements IAppointmentService {
 		adCreator.setNotifications(creatorNotifications);
 
 		messageDao.save(notification);
-
+		adApplicationDao.save(application);
+		
 		userDao.save(adCreator);
-		userDao.save(currentUser);
+		userDao.save(interessent);
 
 		adDao.save(ad);
 
@@ -123,7 +138,13 @@ public class AppointmentService implements IAppointmentService {
 		User adOwner = appForm.getAdOwner();
 
 		Advertisement ad = adDao.findOne(appForm.getAdId());
-		Set<User> interessentsOfAd = ad.getInteressents();
+		List<AdApplication> applicationsOfAd = ad.getApplications();
+		Set<User> interessentsOfAd = new LinkedHashSet<User>();
+		
+		for ( AdApplication application : applicationsOfAd) {
+			interessentsOfAd.add(application.getApplicant());
+			
+		}
 
 		appointment.setBlockLength(appForm.getBlockLength());
 		appointment.setAdditionalInfosForTheVisitors(appForm.getAdditionalInfosForTheVisitors());
@@ -239,37 +260,43 @@ public class AppointmentService implements IAppointmentService {
 
 	}
 
-	public void deleteInteressent(Long adId, Long interessentId) {
-		Advertisement ad = adDao.findOne(adId);
-		Set<User> interessents = ad.getInteressents();
+	public void deleteInteressent(Long applicationId) {
+		AdApplication application = adApplicationDao.findOne(applicationId);
+		Advertisement ad = adDao.findOne(application.getAd().getId());
+		User interessent = userDao.findOne(application.getApplicant().getId());
+		List<AdApplication> applications = ad.getApplications();
+		List<AdApplication> usersApplications = new ArrayList<AdApplication>();
 		
-		User interessent = userDao.findOne(interessentId);
-		Set<Advertisement> adsUserIsInterestedIn = interessent.getAdsUserIsInterestedIn();
+			
 		
 		// remove user from ads interessent list
-		User userToDelete= null;
-		for( User u : interessents ) {
-			if( u.getId() == interessentId) 
-				userToDelete = u;
-		}
-		
-		interessents.remove(userToDelete);
-		ad.setInteressents(interessents);
-		// remove ad from users interestedIn Ads list
-		Advertisement adToDelete= null;
-		for( Advertisement a : adsUserIsInterestedIn ) {
-			if( a.getId() == adId) 
+		AdApplication userToDelete= null;
+		AdApplication adToDelete= null;
+		for( AdApplication  a : applications ) {
+			if( a.getApplicant().getId() == interessent.getId()) 
+				userToDelete = a;
+			if( a.getAd().getId() == ad.getId()) 
 				adToDelete = a;
+				
 		}
 		
-		adsUserIsInterestedIn.remove(adToDelete);
-		interessent.setAdsUserIsInterestedIn(adsUserIsInterestedIn);
+		applications.remove(userToDelete);
+		ad.setApplications(applications);
+		
+		
+		
+		usersApplications.remove(adToDelete);
+		interessent.setApplications(usersApplications);
 		
 		adDao.save(ad);
 		userDao.save(interessent);
+		adApplicationDao.delete(application);
 		
 		
 		
-		
+	}
+
+	public AdApplication findOneApplication(Long applicationId) {
+		return adApplicationDao.findOne(applicationId);
 	}
 }

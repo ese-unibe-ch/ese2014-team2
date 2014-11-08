@@ -256,7 +256,7 @@ public class AdDataService implements IAdDataService {
 
 		// clear interessents list to avoid db constraint problems.
 		Advertisement tmp2 = advertisementDao.findOne(adId);
-		tmp2.setInteressents(null);
+		tmp2.setApplications(null);
 		advertisementDao.save(tmp2);
 		
 		

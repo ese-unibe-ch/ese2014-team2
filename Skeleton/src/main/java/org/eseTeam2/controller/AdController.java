@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import javax.servlet.ServletContext;
@@ -21,6 +22,7 @@ import javax.validation.Valid;
 import org.apache.commons.io.IOUtils;
 import org.eseTeam2.PictureManager;
 import org.eseTeam2.controller.pojos.AdForm;
+import org.eseTeam2.controller.pojos.ApplicantForm;
 import org.eseTeam2.controller.pojos.AppointmentFinderForm;
 import org.eseTeam2.controller.pojos.FilterForm;
 import org.eseTeam2.controller.pojos.LoginForm;
@@ -31,6 +33,7 @@ import org.eseTeam2.controller.service.IAppointmentService;
 import org.eseTeam2.controller.service.IUserDataService;
 import org.eseTeam2.controller.service.UserDataService;
 import org.eseTeam2.exceptions.InvalidUserException;
+import org.eseTeam2.model.AdApplication;
 import org.eseTeam2.model.Advertisement;
 import org.eseTeam2.model.Picture;
 import org.eseTeam2.model.User;
@@ -238,16 +241,17 @@ public class AdController {
 	 * @return
 	 */
 	@RequestMapping (value ="/userInterested", method = RequestMethod.GET)
-	public String interestedInAd (	@RequestParam(value = "adId", required = true) Long adId,
+	public ModelAndView interestedInAd (	@RequestParam(value = "adId", required = true) Long adId,
 			HttpServletRequest request, HttpServletResponse response,
 			HttpSession session,  Principal principal) {
 		User currentUser = userService.getUserByEmail(principal.getName());
 		
-		appointmentService.addInteressent(currentUser, adId);
+		ModelAndView model = new ModelAndView("interestedInAd");
+		model.addObject("applicantForm", new ApplicantForm());
+		model.addObject("adId", adId);
 		
-		
-	
-		return "redirect:/adprofile?adId="+adId;
+			
+		return model;
 	}
 	
 
@@ -268,7 +272,12 @@ public class AdController {
 			HttpSession session,  Principal principal) {
 		
 		Advertisement ad = adService.getAdvertisement(adId);
-		Set<User> interessents = ad.getInteressents();
+		List<AdApplication> applications = ad.getApplications();
+		List<User> interessents = new ArrayList<User>();
+		
+		for ( AdApplication a: applications) {
+			interessents.add(a.getApplicant());
+		}
 			
 	
 		ModelAndView model = new ModelAndView("setAppointmentForAd");

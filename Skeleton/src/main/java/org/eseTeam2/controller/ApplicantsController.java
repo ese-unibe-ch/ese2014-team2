@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import javax.servlet.ServletContext;
@@ -21,6 +22,7 @@ import javax.validation.Valid;
 import org.apache.commons.io.IOUtils;
 import org.eseTeam2.PictureManager;
 import org.eseTeam2.controller.pojos.AdForm;
+import org.eseTeam2.controller.pojos.ApplicantForm;
 import org.eseTeam2.controller.pojos.AppointmentFinderForm;
 import org.eseTeam2.controller.pojos.FilterForm;
 import org.eseTeam2.controller.pojos.LoginForm;
@@ -31,6 +33,7 @@ import org.eseTeam2.controller.service.IAppointmentService;
 import org.eseTeam2.controller.service.IUserDataService;
 import org.eseTeam2.controller.service.UserDataService;
 import org.eseTeam2.exceptions.InvalidUserException;
+import org.eseTeam2.model.AdApplication;
 import org.eseTeam2.model.Advertisement;
 import org.eseTeam2.model.Picture;
 import org.eseTeam2.model.User;
@@ -81,15 +84,30 @@ public class ApplicantsController {
 	 * @param principal
 	 * @return
 	 */
-	@RequestMapping(value = "/removeInteressent", method = RequestMethod.POST)
-	public String deleteAd( @RequestParam("adId") Long adId, @RequestParam("interessentId") Long interessentId,
+	@RequestMapping(value = "/removeInteressent", method = RequestMethod.GET)
+	public String deleteAd( @RequestParam("applicationId") Long applicationId, 
 			HttpServletRequest request, HttpServletResponse response,
 			HttpSession session,  Principal principal) {
 		
-		appointmentService.deleteInteressent(adId, interessentId);
+		appointmentService.deleteInteressent(applicationId);
 	
 
 		return "redirect:/myads";
+	}
+	
+
+	@RequestMapping(value="/sendResume", method = RequestMethod.POST)
+	public String setAppointmentDateAndInform (@Valid ApplicantForm applicantForm, BindingResult result,
+	RedirectAttributes redirectAttributes,Principal principal) {
+		
+		User currentUser = userService.getUserByEmail(principal.getName());
+		
+		applicantForm.setInteressent(currentUser);
+		
+		appointmentService.addInteressent(applicantForm);
+		
+		return "redirect:/adprofile?adId="+applicantForm.getAdId();
+		
 	}
 	
 	
@@ -110,7 +128,7 @@ public class ApplicantsController {
 			HttpSession session,  Principal principal) {
 		
 		Advertisement ad = adService.getAdvertisement(adId);
-		Set<User>interessents = ad.getInteressents();
+		List<AdApplication>interessents = ad.getApplications();
 
 	
 		
@@ -123,7 +141,12 @@ public class ApplicantsController {
 	
 	
 	@RequestMapping(value ="/interessentDetails", method = RequestMethod.GET) 
-	public ModelAndView showInteressentDetails (  @RequestParam (value ="messageId", required = true) Long messageId) {
+	public ModelAndView showInteressentDetails (  @RequestParam (value ="applicationId", required = true) Long applicationId) {
+		
+		ModelAndView model = new ModelAndView("interessentDetails");
+		model.addObject("application", appointmentService.findOneApplication(applicationId));
+		
+		
 		return null;
 	}
 	

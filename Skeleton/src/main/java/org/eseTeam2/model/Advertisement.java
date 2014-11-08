@@ -84,6 +84,12 @@ public class Advertisement  {
 	private String genderWeLookFor;
 	
 	
+	@OneToMany(mappedBy="ad", fetch=FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
+	private List<AdApplication> applications;
+	
+	
+	
 
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
 	private Set<Picture> pictures;
@@ -99,8 +105,7 @@ public class Advertisement  {
 	@OneToOne(mappedBy="appointedAd", fetch=FetchType.EAGER)
 	private List<Message> appointmentInvitationMessages; */
 	
-	@ManyToMany (fetch = FetchType.EAGER,  cascade=CascadeType.REMOVE)
-	private Set<User> interessents;
+
 
 	public Set<Picture> getPictures() {
 		return pictures;
@@ -404,12 +409,14 @@ public class Advertisement  {
 		this.appointment = appointment;
 	}
 
-	public Set<User> getInteressents() {
-		return interessents;
+
+
+	public List<AdApplication> getApplications() {
+		return applications;
 	}
 
-	public void setInteressents(Set<User> interessents) {
-		this.interessents = interessents;
+	public void setApplications(List<AdApplication> applications) {
+		this.applications = applications;
 	}
 
 	
