@@ -46,48 +46,36 @@
 					</div>
 				</div>
    
-   				
-   				<div class="row">
-					<div class="col-sm-2 col-md-4">
-						<label>Beginn:</label>
-					</div>
-					<div class="col-sm-4 col-md-6">
-						 <div id="timepicker1" class="input-append">
-    						<form:input data-format="hh:mm" type="text" path="startTimes"></form:input>
-    						<span class="add-on">
-      							<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
-    						</span>
-  						</div>
-					</div>
-				</div>
     
-    			
-    			<div class="row">
-					<div class="col-sm-2 col-md-4">
-						<label>Ende:</label>
-					</div>
-					<div class="col-sm-4 col-md-6">
-						<div id="timepicker2" class="input-append">
-    						<form:input data-format="hh:mm" type="text" path="endTimes"></form:input>
-    						<span class="add-on">
-      							<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
-    						</span>
-  						</div>
-  					</div>
-				</div>
-  
-				<div class="row">
-					<div class="col-sm-6 col-md-8">
-						 <label>Weitere infos für die Besichtigung:</label>
-					</div>
-				</div>
-				
-				<div class="row">
-					<div class="textareabig">
-						<form:textarea rows="10" cols="300" path="additionalInfosForTheVisitors" id="field-Message" />
-					</div>
-				</div>
+    
+  <div id="timepicker1" class="input-append">
+    <form:input data-format="hh:mm" type="text" path="startTimes"></form:input>
+    <span class="add-on">
+      <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+      </i>
+    </span>
+  </div>
 
+    
+ 
+  <div id="timepicker2" class="input-append">
+    <form:input data-format="hh:mm" type="text" path="endTimes"></form:input>
+    <span class="add-on">
+      <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+      </i>
+    </span>
+  </div>
+  
+  <div>
+  <label class="control-label"
+						for="field-Mesasge"><font size="10">Weitere infos für die : </font></label>
+						<div class="controls">
+							<form:textarea rows="10" cols="300" path="additionalInfosForTheVisitors"
+								id="field-Message" />
+						</div>
+  </div>
+
+  
     <script type="text/javascript">
   $(function() {
     $('#datetimepicker').datetimepicker({
@@ -111,7 +99,7 @@
   });
 </script>
     
-    <button type="submit" class="btn btn-primary btn-lg">Setze die Daten!</button>
+    <button type="submit" class="btn btn-success btn-lg btn-block">Setze die Daten!</button>
 		
 		</fieldset>
 		</form:form>
