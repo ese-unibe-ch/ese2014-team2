@@ -17,44 +17,38 @@
 			<label>Bis wann möchte der Bewerber in der Wohnung leben?</label>
 		</div>
 		<div class="col-sm-2 col-md-4">
-			<p>${application.timeLimitation }</p>
+			<p>${user.email}</p>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-sm-2 col-md-4">
-			<label>Titel:</label>
-		</div>
-		<div class="col-sm-2 col-md-4">
-			<p>${application.title }</p>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-sm-2 col-md-4">
-			<label>Nachricht:</label>
-		</div>
-		<div class="col-sm-2 col-md-4">
-			<p>${application.message }</p>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-sm-2 col-md-4">
-			<label>Raucht der Bewerber:</label>
-		</div>
-		<div class="col-sm-2 col-md-4">
-			<p>
-				<c:choose>
+	<p></p>
+	
+	<p> </p>
+	<p> ${application.timeLimitation } </p>
+	<br><br>
+	<p> Titel: </p>
+	<p> ${application.title }	 </p>
+	<p> Nachricht:  </p>
+	<p> ${application.message } </p>
+	
+	<br><br>
+	<p> raucht der Bewerber? </p>
+		<p>
+			<c:choose>
 					<c:when test="${application.smoker}">
 						<c:out value="Ja"/>
 					</c:when>
 					<c:otherwise>
 						<c:out value="Nein"/>
 					</c:otherwise>
-				</c:choose>
-			</p>
-		</div>
-	</div>
+				</c:choose>	
+		</p>
+	
+
 </div>
 </div>
+
+
+	
 
 
 <c:if test="${page_error != null }">

@@ -53,8 +53,29 @@
 			</p>
 		</div>
 	</div>
+	
+	<p></p>
+	
+	<p> </p>
+	<p>  </p>
+	<br><br>
+	<p>  </p>
+	<p> 	 </p>
+	<p>   </p>
+	<p>  </p>
+	
+	<br><br>
+	<p> raucht der Bewerber? </p>
+		<p>
+				
+		</p>
+	
+
 </div>
 </div>
+
+
+	
 
 
 <c:if test="${page_error != null }">
