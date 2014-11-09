@@ -6,40 +6,47 @@
 
 <c:import url="template/header.jsp" />
 
+
+
 <h1>${newProfile.firstName }'s Profile</h1>
 
-
-
-<table>
-	<tr>
-		<td>First Name:&nbsp;&nbsp;
-		<td>${user.firstName}
-	</td>
-	<tr>
-		<td>Last Name:&nbsp;&nbsp;
-		<td>${user.lastName}
-	</td>
-	<tr>
-		<td>Email:&nbsp;&nbsp;
-		<td>${user.email}
-	</td>
-
-	<tr>
-		<td>The ads of the user: &nbsp;&nbsp;
-		<td>
-		<c:forEach items="${user.advertisements}" var="ad">
-  		<a href="adprofile?adId=${ad.id}">
-  		 <h1>${ad.title}</h1>
-  		 </a>
-</c:forEach>
-	</td>
+<div class="container">
+	<legend>Personal Data:</legend>
+	<div class="row">
+		<div class="col-sm-2 col-md-4">
+			<label>First Name:</label>
+		</div>
+		<div class="col-sm-2 col-md-4">
+			<p>${user.firstName}</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-2 col-md-4">
+			<label>Last Name:</label>
+		</div>
+		<div class="col-sm-2 col-md-4">
+			<p>${user.lastName}</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-2 col-md-4">
+			<label>Email:</label>
+		</div>
+		<div class="col-sm-2 col-md-4">
+			<p>${user.email}</p>
+		</div>
+	</div>
 	
-	 <a href="setInformFilter">
-				<button type="submit" class="btn btn-primary btn-lg">Erstelle einen Benachrichtigungs Filter!</button>
-			 </a>
-			 
-</table>
+	<legend>The Ads of the User:</legend>
+	<c:forEach items="${user.advertisements }" var="ad">
+		<a href="adprofile?adId=${ad.id }">${ad.title }</a>
+	</c:forEach>
 
+	<legend>Benachrichtigungsfilter:</legend>
+	<a href="setInformFilter">
+		<button type="submit" class="btn-sm btn-primary">Erstelle deinen Benachrichtigungsfilter!</button>
+	</a>
+	
 	<c:if test="${page_error != null }">
         <div class="alert alert-error">
             <button type="button" class="close" data-dismiss="alert">&times;</button>

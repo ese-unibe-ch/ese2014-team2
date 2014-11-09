@@ -8,7 +8,6 @@
 <c:import url="template/filter.jsp"/>
 
 
-<div class="main">
 <c:forEach items="${ads}" var="ads">
 	<div class="row">
         <div class="col-sm-6">
@@ -46,7 +45,6 @@
           </div>
     </div><!-- /.col-sm-4 -->
 </c:forEach>
-</div>
 
 
 	<c:if test="${page_error != null }">
