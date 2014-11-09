@@ -103,9 +103,11 @@ public class AppointmentService implements IAppointmentService {
 		interessent.setApplications(ads);
 
 	
+		application = adApplicationDao.save(application);
 
 		notification.setMessageText("Hey, " + adCreator.getFirstName()
-				+ ", du hast einen neuen Interessenten für dein Ad mit dem Titel " + ad.getTitle());
+				+ ", du hast einen neuen Interessenten für dein Ad mit dem Titel " + ad.getTitle()+  "clicke <a href=\"interessentDetails?applicationId="+application.getId()+"\">"	
+							+"HIER </a> um die Bewerbung anzusehen.");
 		notification.setTitle("Neuen Interessenten für, " + ad.getTitle());
 		notification.setNotifications(adCreator);
 
@@ -113,7 +115,7 @@ public class AppointmentService implements IAppointmentService {
 		adCreator.setNotifications(creatorNotifications);
 
 		messageDao.save(notification);
-		adApplicationDao.save(application);
+		
 		
 		userDao.save(adCreator);
 		userDao.save(interessent);

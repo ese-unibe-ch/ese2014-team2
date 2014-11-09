@@ -77,7 +77,7 @@ public class MessageController {
 	 * @return
 	 */
 	@RequestMapping(value = "/showMessage", method = RequestMethod.GET)
-	public ModelAndView reply(@RequestParam(value = "messageId", required = true) Long messageId, Principal principal) {
+	public ModelAndView showMessage(@RequestParam(value = "messageId", required = true) Long messageId, Principal principal) {
 
 		User currentUser = userService.getUserByEmail(principal.getName());
 		Message messageToReplyTo = messageService.findOneMessage(messageId);
@@ -91,6 +91,34 @@ public class MessageController {
 
 		return model;
 	}
+	
+	
+	/**
+	 * this mapping method is used to show the details of a message. It redirects to the "showMsg.jsp" page.
+	 * Triggered when user clicks on a message (inbox.jsp)
+	 * It inserts the sender, the recipient, and the message into the jsp, ans offers the user a way to answer the message
+	 * 
+	 * 
+	 * @param messageId Id of the message where the details should be shown for.
+	 * @param principal
+	 * @return
+	 */
+	@RequestMapping(value = "/showNotification", method = RequestMethod.GET)
+	public ModelAndView showNotification(@RequestParam(value = "messageId", required = true) Long messageId, Principal principal) {
+
+		User currentUser = userService.getUserByEmail(principal.getName());
+		Message messageToReplyTo = messageService.findOneMessage(messageId);
+		User authorOfReceivedMessage = messageToReplyTo.getSender();
+
+		ModelAndView model = new ModelAndView("showNotification");
+		model.addObject("messageForm", new MessageForm());
+		model.addObject("sender", currentUser);
+		model.addObject("recipient", authorOfReceivedMessage);
+		model.addObject("message", messageToReplyTo);
+
+		return model;
+	}
+
 
 	/**
 	 * this mapping method is triggered from all the message sending forms. Takes in a message Form and converts it to

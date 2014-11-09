@@ -106,7 +106,7 @@
 
 <c:forEach items="${notifications}" var="message">
 <div class="row">
-  <div class="col-md-8"> <font size="6"><a href="showMessage?messageId=${message.id}">${message.title}</a></font></div>
+  <div class="col-md-8"> <font size="6"><a href="showNotification?messageId=${message.id}">${message.title}</a></font></div>
   
 	
   <div class="col-md-4"> <a href="deleteNotification?messageId=${message.id}">
