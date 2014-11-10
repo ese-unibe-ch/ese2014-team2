@@ -16,12 +16,6 @@
 		
 */
 
-#carousel-example-generic {
-	width:700px !important;
-	margin-left:auto;
-	margin-right:auto;	
-}
-
 legend {
 	font-size:28px !important;	
 }
