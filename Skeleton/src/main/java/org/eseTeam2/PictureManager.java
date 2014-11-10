@@ -29,12 +29,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class PictureManager {
 	
 
-	
-	 
-	    private static final Logger logger = LoggerFactory
-	            .getLogger(PictureManager.class);
-	 
-	 
+		 
 	 
 	    /**
 	     * This method takes a list of given pictures in the format of a MultipartFile Array, and stores them on the server under 
@@ -48,8 +43,7 @@ public class PictureManager {
 	 
 	      
 	    	 ArrayList<String> names = new ArrayList<String>();
-	        String name = "";
-	        
+	 
 	        for (int i = 0; i < files.length; i++) {
 	            MultipartFile file = files[i];
 	         	
@@ -99,14 +93,13 @@ public class PictureManager {
 	 		        try {
 	 		
 	 		            // create FileInputStream object
-	 		
 	 		            fin = new FileInputStream(file);
 	 		
 	 		 
 	 		
 	 		            byte fileContent[] = new byte[(int)file.length()];
 	 		
-	 		             
+	 		            
 	 		           // Reads up to certain bytes of data from this input stream into an array of bytes.
 	 		
 	 		            fin.read(fileContent);
