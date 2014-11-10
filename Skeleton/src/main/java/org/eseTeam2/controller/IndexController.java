@@ -65,6 +65,19 @@ public class IndexController {
 		return model;
 	}
 	
+	/**
+	 * under construction page
+	 * @return
+	 */
+	@RequestMapping(value = "/underConstr", method = RequestMethod.GET)
+	public ModelAndView underConstruction() {
+		ModelAndView model = new ModelAndView("underConstruction");
+	
+		return model;
+	}
+	
+	
+	
 
 	/**
 	 * 

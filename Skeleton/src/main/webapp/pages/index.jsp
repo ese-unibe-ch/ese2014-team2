@@ -35,7 +35,7 @@
         <div class="col-sm-6">
           <div class="panel panel-warning">
             <div class="panel-heading">
-              <h2 class="panel-title"><a href="roomies">I'm looking for Roomies!</font></a></h2>
+              <h2 class="panel-title"><a href="underConstr">I'm looking for Roomies!</font></a></h2>
             </div>
             <div class="panel-body">
             	<a href="roomies">
@@ -46,7 +46,7 @@
           </div>
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h2 class="panel-title"><a href="placeyourself">I'd like to get roomed!</font></a></h2>
+              <h2 class="panel-title"><a href="underConstr">I'd like to get roomed!</font></a></h2>
             </div>
             <div class="panel-body">
             	<a href="placeyourself">
