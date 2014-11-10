@@ -112,7 +112,6 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/Skeleton">Home</a></li>
             <li><a href="myprofile">My Profile</a></li>
             <li><a href="myinbox">My Inbox</a></li>
             <li><a href="myads">My Ads</a></li>

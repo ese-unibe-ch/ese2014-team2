@@ -2,6 +2,9 @@ package org.eseTeam2.controller.pojos;
 
 import java.util.Date;
 
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 /**
  * This is the form used to create a Filter to filter ads. It contains all necessary information to create an example Advertisement from it
  * 

@@ -2,6 +2,7 @@ package org.eseTeam2.controller.pojos;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 /**
  * Signup form, used to register. COntains all information to create a new User object.
@@ -12,13 +13,16 @@ public class SignupForm {
 
 	
     private Long id;
+    @Size(min=1, message = "Please enter your first name.")
     private String firstName;
-    private String lastName;    
+    @Size(min=1, message = "Please enter your last name.")
+    private String lastName;
+    @Size(min=6, max=20, message="Please enter a password with a character count between 6 and 20.")
     private String password;
 
     @NotNull
     @Pattern(regexp = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", 
-    message = "Must be valid email address")
+    message = "Please enter a valid email address.")
     private String email;
 
     public String getFirstName() {

@@ -50,17 +50,17 @@
             </div>
         </div>
 	
-	
+		<c:set var="passwordErrors"><form:errors path="password"/></c:set>	
 
 	<div class="row">
 		<label class="col-md-4" for="field-password">Password:</label>
 		<div class="col-md-4">
 			<form:password path="password" id="field-password" tabindex="4" maxlength="35" placeholder="Password"/>
+			<form:errors path="password" cssClass="help-inline" element="span"/>
    		</div>
 </div>
-	</td>
-	<tr>
-		<td><div class="form-actions">
+
+<div class="form-actions">
            <button type="submit" id="submitB" class="btn btn-primary">Sign up!</button>
 
             <button type="button" class="btn btn-danger">Cancel</button>

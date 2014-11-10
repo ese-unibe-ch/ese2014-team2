@@ -135,7 +135,6 @@ public class UserController {
 			}
 		} else {
 				model = new ModelAndView("register");
-							
 		}
 		return model;
 	}

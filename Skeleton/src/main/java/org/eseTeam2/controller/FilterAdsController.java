@@ -16,6 +16,7 @@ import org.eseTeam2.controller.pojos.FilterForm;
 import org.eseTeam2.controller.service.FilterLogicService;
 import org.eseTeam2.controller.service.IAdDataService;
 import org.eseTeam2.controller.service.IFilterLogicService;
+import org.eseTeam2.exceptions.InvalidUserException;
 import org.eseTeam2.model.Advertisement;
 import org.eseTeam2.model.Picture;
 import org.springframework.beans.PropertyAccessor;
@@ -94,13 +95,15 @@ public class FilterAdsController {
 			BindingResult result, RedirectAttributes redirectAttributes)
 			throws IllegalAccessException, IllegalArgumentException,
 			InvocationTargetException {
-
-		ArrayList<Advertisement> filteredAds = filterService.getAdsThatMatchTheSmallFilter(filterForm.getCity(),
-						filterForm.getRoomPrice());
-
-		redirectAttributes.addFlashAttribute("adsParam", filteredAds);
-
-		return "redirect:/ads?showFilter=false";
+		
+		if (!result.hasErrors()) {
+			ArrayList<Advertisement> filteredAds = filterService.getAdsThatMatchTheSmallFilter(filterForm.getCity(),filterForm.getRoomPrice());
+			redirectAttributes.addFlashAttribute("adsParam", filteredAds);
+			return "redirect:/ads?showFilter=false";
+		}
+		else{
+			return "redirect:/";
+		}
 
 	}
 

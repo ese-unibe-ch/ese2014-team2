@@ -2,6 +2,11 @@ package org.eseTeam2.controller.pojos;
 
 import java.util.Date;
 
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
 import org.eseTeam2.model.Picture;
 import org.eseTeam2.model.User;
 
@@ -23,6 +28,9 @@ public class AdForm {
 	private String start;
 	private String until;
 	private int rooms;
+	@NotNull
+	@Max(9999)
+	@Min(10)
 	private int roomPrice;
 	private int roomSpace;
 	private int nmbrOfRoommates;

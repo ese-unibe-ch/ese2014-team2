@@ -11,13 +11,15 @@
 	<h1>Post your Ad!</h1>
 
 
-	<form:form method="post" modelAttribute="newAdForm" action="enlistad" id="newAdForm" cssClass="form-horizontal" autocomplete="off" enctype="multipart/form-data">
+	<form:form method="post" modelAttribute="adForm" action="enlistad" id="adForm" cssClass="form-horizontal" autocomplete="off" enctype="multipart/form-data">
 		<fieldset>
 			<legend>Grundlegende Infos:</legend>
+			<c:set var="roomPriceErrors"><form:errors path="roomPrice"/></c:set>
 			<div class="row">
 				<label class="col-md-4" for="field-price">Preis des Zimmers: </label>
 				<div class="col-md-4">
 					<form:input path="roomPrice" id="field-price" tabindex="1" maxlength="10" />
+					<form:errors path="roomPrice" cssClass="help-inline" element="span"/>
 				</div>
 			</div>
 			
