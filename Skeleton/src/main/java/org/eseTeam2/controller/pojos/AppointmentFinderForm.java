@@ -32,7 +32,7 @@ public class AppointmentFinderForm {
 	private ArrayList<String> endTimes;
 	
 	private String blockLength;
-	@Size(min=3, message="fuck fuchs")
+	@Size(min=3, message="gugushjgjhghkjgljg jhjhglg özgluhguz")
 	private String additionalInfosForTheVisitors;
 
 	
