@@ -60,9 +60,19 @@ public class AppointmentController {
 	 * @return
 	 */
 	@RequestMapping(value = "/acceptInvitation", method = RequestMethod.GET)
-	public String sendMessageFromAd(
+	public String acceptInvitation(
 			@RequestParam(value = "appointmentId", required = true) Long appointmentId,
 			Principal principal) {
+		User currentUser = userService.getUserByEmail(principal.getName());
+		appointmentService.informAdOwner(currentUser, appointmentId);
+
+		return "redirect:myinbox";
+	}
+	
+	@RequestMapping(value="/rejectInvitation, method = RequestMethod.GET")
+	public String rejectInvitation (@RequestParam(value = "appointmentId", required = true) Long appointmentId,
+			Principal principal) {
+		
 		User currentUser = userService.getUserByEmail(principal.getName());
 		appointmentService.informAdOwner(currentUser, appointmentId);
 

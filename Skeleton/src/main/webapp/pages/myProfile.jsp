@@ -45,7 +45,12 @@
 
 	<legend>Benachrichtigungsfilter:</legend>
 	<a href="setInformFilter">
-		<button type="submit" class="btn-sm btn-primary">Erstelle deinen Benachrichtigungsfilter!</button>
+		<c:if test="${empty user.exampleAd}">
+			<button type="submit" class="btn-sm btn-primary">Erstelle deinen Benachrichtigungsfilter!</button>
+		</c:if>
+		<c:if test="${not empty user.exampleAd}">
+			<button type="submit" class="btn-sm btn-primary">Editiere deinen Benachrichtigungsfilter!</button>
+		</c:if>
 	</a>
 	
 	<c:if test="${page_error != null }">
