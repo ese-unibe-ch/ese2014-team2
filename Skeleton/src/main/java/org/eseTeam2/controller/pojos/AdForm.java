@@ -6,6 +6,8 @@ import javax.validation.constraints.Digits;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import org.eseTeam2.model.Picture;
 import org.eseTeam2.model.User;
@@ -25,23 +27,43 @@ public class AdForm {
 	private String description;
 	private User creator;
 	private Date creationDate;
+	@NotNull
+	@Pattern(regexp = "(0?[1-9]|1[012])/(0?[1-9]|[12][0-9]|3[01])/((19|20)\\d\\d)", message="Please enter a date mm/dd/yyyy")
 	private String start;
+	@NotNull
+	@Pattern(regexp = "(0?[1-9]|1[012])/(0?[1-9]|[12][0-9]|3[01])/((19|20)\\d\\d)", message="Please enter a date mm/dd/yyyy")
 	private String until;
+	@NotNull
+	@Digits(fraction = 0, integer = 1, message="Please enter a Value between 1 and 9")
+	@Min(value=1, message="Please enter a Value between 1 and 9")
 	private int rooms;
 	@NotNull
-	@Max(9999)
-	@Min(10)
+	@Digits(fraction = 0, integer = 4, message="Please enter a Value between 10 and 9999")
+	@Min(value=10, message="Please enter a Value between 10 and 9999")
 	private int roomPrice;
+	@NotNull
+	@Digits(fraction = 0, integer = 2, message="Please enter a Value between 1 and 99")
+	@Min(value=1, message="Please enter a Value between 1 and 99")
 	private int roomSpace;
+	@NotNull
 	private int nmbrOfRoommates;
 	private String wgType;
 	private boolean furnished;
 	
 	
 	// address
+	@NotNull
+	@Size(min=3, message="Please enter the name of the Canton.")
 	private String kanton;
+	@NotNull
+	@Min(value = 1000, message = "Please enter your ZIP code")
+	@Max(value = 9999, message = "Please enter your ZIP code")
 	private int plz;
+	@NotNull
+	@Size(min=3, message="Please enter the name of your city.")
 	private String city;
+	@NotNull
+	@Size(min=3, message="Please enter your address.")
 	private String address;
 	//private String region;
 	

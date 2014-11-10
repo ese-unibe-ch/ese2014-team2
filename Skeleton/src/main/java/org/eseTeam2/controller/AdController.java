@@ -209,7 +209,6 @@ public class AdController {
 			model = new ModelAndView("placead");
 			// model.addObject("newAdForm", new AdForm());
 		}
-		System.out.println("fuck");
 		return model;
 	}
 

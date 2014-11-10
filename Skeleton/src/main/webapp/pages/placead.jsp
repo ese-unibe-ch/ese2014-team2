@@ -14,6 +14,7 @@
 	<form:form method="post" modelAttribute="adForm" action="enlistad" id="adForm" cssClass="form-horizontal" autocomplete="off" enctype="multipart/form-data">
 		<fieldset>
 			<legend>Grundlegende Infos:</legend>
+			
 			<c:set var="roomPriceErrors"><form:errors path="roomPrice"/></c:set>
 			<div class="row">
 				<label class="col-md-4" for="field-price">Preis des Zimmers: </label>
@@ -23,34 +24,43 @@
 				</div>
 			</div>
 			
+			<c:set var="startErrors"><form:errors path="start"/></c:set>
 			<div class="row">
 				<label class="col-md-4" for="field-von">Ab wann ist das Zimmer frei: </label>
 				<div class="col-md-4">
 					<form:input path="start" type="field-von" id="datepicker" tabindex="2" />
+					<form:errors path="start" cssClass="help-inline" element="span"/>
 				</div>
 			</div>
 			
+			<c:set var="untilErrors"><form:errors path="until"/></c:set>
 			<div class="row">
 				<label class="col-md-4" for="field-bis">Bis wann ist das Zimmer frei: </label>
 				<div class="col-md-4">
 					<form:input path="until" type="field-bis" id="datepicker2" tabindex="3" />
+					<form:errors path="until" cssClass="help-inline" element="span"/>
 				</div>
 			</div>
-	
+			
+			<c:set var="roomsErrors"><form:errors path="rooms"/></c:set>
 			<div class="row">
 				<label class="col-md-4" for="field-rooms">Anzahl an Zimmer: </label>
 				<div class="col-md-4">
 					<form:input path="rooms" id="field-rooms" tabindex="4" maxlength="10" />
+					<form:errors path="rooms" cssClass="help-inline" element="span"/>
 				</div>
 			</div>
-
+			
+			<c:set var="roomSpaceErrors"><form:errors path="roomSpace"/></c:set>
 			<div class="row">
 				<label class="col-md-4" for="field-roomSpace">Grösse des Zimmers:</label>
 				<div class="col-md-4">
 					<form:input path="roomSpace" id="field-roomSpace" tabindex="5" maxlength="10" />
+					<form:errors path="roomSpace" cssClass="help-inline" element="span"/>
 				</div>
 			</div>
 			
+			<c:set var="nmbrOfRoommatesErrors"><form:errors path="nmbrOfRoommates"/></c:set>
 			<div class="row">
 				<label class="col-md-4" for="field-adNmbrOfRoommates">Wie viele Mitbewohner (Exkl. der gesuchten Person)</label>
 				<div class="col-md-4">
@@ -62,25 +72,29 @@
 						<option value="5">5</option>
 						<option value="6">6</option>
 					</form:select>
+					<form:errors path="nmbrOfRoommates" cssClass="help-inline" element="span"/>
 				</div>
 			</div>
 
-
+			<c:set var="wgTypeErrors"><form:errors path="wgType"/></c:set>
 			<div class="row">
 				<label class="col-md-4" for="field-wgType">Ungefährer WG-Typ</label>
 				<div class="col-md-4">
 					<form:select path="wgType" id="field-wgType" tabindex="7">
+						<option value="undef">undefiniert</option>
 						<option value="calm">eher ruhig</option>
 						<option value="wild">eher wild</option>
-						<option value="undef">undefiniert</option>
 					</form:select>
+					<form:errors path="wgType" cssClass="help-inline" element="span"/>
 				</div>
 			</div>
 			
+			<c:set var="furnishedErrors"><form:errors path="furnished"/></c:set>
 			<div class="row">
 				<label class="col-md-4" for="field-furnished">Möbliert:</label>
 				<div class="col-md-4">
 					<form:checkbox path="furnished" id="field-furnished" tabindex="8" />
+					<form:errors path="furnished" cssClass="help-inline" element="span"/>
 				</div>
 			</div>
 
@@ -91,32 +105,39 @@
 
 			<legend>Adresse der WG:</legend>
 
+			<c:set var="kantonErrors"><form:errors path="kanton"/></c:set>
 			<div class="row">
 				<label class="col-md-4" for="field-adKanton">Kanton:</label>
 				<div class="col-md-4">
 					<form:input path="kanton" id="field-adKanton" tabindex="7" maxlength="10" placeholder="Kanton" />
+					<form:errors path="kanton" cssClass="help-inline" element="span"/>
 				</div>
 			</div>
 			
-			
+			<c:set var="plzErrors"><form:errors path="plz"/></c:set>
 			<div class="row">
 				<label class="col-md-4" for="field-adPlz">Postleitzahl:</label>
 				<div class="col-md-4">
 					<form:input path="plz" id="field-adPlz" tabindex="8" maxlength="4" placeholder="PLZ" />
+					<form:errors path="plz" cssClass="help-inline" element="span"/>
 				</div>
 			</div>
 			
+			<c:set var="cityErrors"><form:errors path="city"/></c:set>
 			<div class="row">
 				<label class="col-md-4" for="field-city">Ort:</label>
 				<div class="col-md-4">
 					<form:input path="city" id="field-city" tabindex="9" maxlength="20" placeholder="City" />
+					<form:errors path="city" cssClass="help-inline" element="span"/>
 				</div>
 			</div>
 
+			<c:set var="addressErrors"><form:errors path="address"/></c:set>
 			<div class="row">
 				<label class="col-md-4" for="field-adAddress">Strasse mit Hausnummer</label>
 				<div class="col-md-4">
 					<form:input path="address" id="field-adAddress" tabindex="10" maxlength="30" />
+					<form:errors path="address" cssClass="help-inline" element="span"/>
 				</div>
 			</div>
 			
