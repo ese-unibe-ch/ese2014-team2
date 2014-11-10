@@ -15,6 +15,7 @@ public class LoginForm {
 
 
     private Long id;
+    @NotNull
     private String password;
 
     @NotNull
