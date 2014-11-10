@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +42,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -75,6 +77,46 @@ public class AdController {
 
 	public final String PICTURE_LOCATION = "/img/adPictures";
 
+	
+
+	
+	/**
+	 * This mapping method is used to redirects the user to an overview over all ads.
+	 * Takes in the filteredAds (All Ads filtered by Filter.jsp or Smallfilter.jsp) and prints them out on the ads overview page
+	 * 
+	 * @param filteredAds The ads which are filtered to the users desires.
+	 * @return
+	 */
+	@RequestMapping(value = "/ads", method = RequestMethod.GET)
+	public ModelAndView showAds( @ModelAttribute("adsParam") ArrayList<Advertisement> filteredAds) {
+		ModelAndView model = new ModelAndView("ads");
+		// gives in the filter, so the user can filter on the ads page.
+		model.addObject("filterForm", new FilterForm());
+		// looks if the ads were already filtered on the index page
+		model.addObject("ads", filteredAds);
+		
+		return model;
+
+	}
+	
+	/**
+	 * If the user doesnt filter ads on the mainpage, this mapping method redirects him to all ads.
+	 * 
+	 */
+	@RequestMapping("/unfilteredAds")
+	public ModelAndView showUnfilteredAds( ) {
+		
+		ModelAndView model = new ModelAndView("ads");
+		// gives in the filter, so the user can filter on the ads page.
+		model.addObject("filterForm", new FilterForm());
+		// looks if the ads were already filtered on the index page
+	
+		model.addObject("ads", adService.getAds());
+			
+		return model;
+
+	}
+	
 	
 	/**
 	 * This Mapping method executes when a User wants to place an ad. it redirects him to the place a new ad page.
@@ -175,31 +217,7 @@ public class AdController {
 		return model;
 	}
 
-	/**
-	 * This mapping method is used to redirects the user to an overview over all ads.
-	 * Takes in the filteredAds (All Ads filtered by Filter.jsp or Smallfilter.jsp) and prints them out on the ads overview page
-	 * 
-	 * @param filteredAds The ads which are filtered to the users desires.
-	 * @return
-	 */
-	@RequestMapping(value = "/ads", method = RequestMethod.GET)
-	public ModelAndView showAds( @ModelAttribute("adsParam") ArrayList<Advertisement> filteredAds) {
-		ModelAndView model = new ModelAndView("ads");
-		// gives in the filter, so the user can filter on the ads page.
-		model.addObject("filterForm", new FilterForm());
-		// looks if the ads were already filtered on the index page
 	
-			
-		
-		
-		if ( null == filteredAds )
-			model.addObject("ads", adService.getAds());
-		else
-			model.addObject("ads", filteredAds);
-		
-		return model;
-
-	}
 	/**
 	 * This mapping method redirects to the place yourself page. In development
 	 * @return
