@@ -79,46 +79,46 @@ public class AdController {
 
 	public final String PICTURE_LOCATION = "/img/adPictures";
 
-
-	
 	/**
-	 * This mapping method is used to redirects the user to an overview over all ads.
-	 * Takes in the filteredAds (All Ads filtered by Filter.jsp or Smallfilter.jsp) and prints them out on the ads overview page
+	 * This mapping method is used to redirects the user to an overview over all
+	 * ads. Takes in the filteredAds (All Ads filtered by Filter.jsp or
+	 * Smallfilter.jsp) and prints them out on the ads overview page
 	 * 
-	 * @param filteredAds The ads which are filtered to the users desires.
+	 * @param filteredAds
+	 *            The ads which are filtered to the users desires.
 	 * @return
 	 */
 	@RequestMapping(value = "/ads", method = RequestMethod.GET)
-	public ModelAndView showAds( @ModelAttribute("adsParam") ArrayList<Advertisement> filteredAds) {
+	public ModelAndView showAds(@ModelAttribute("adsParam") ArrayList<Advertisement> filteredAds) {
 		ModelAndView model = new ModelAndView("ads");
 		// gives in the filter, so the user can filter on the ads page.
 		model.addObject("filterForm", new FilterForm());
 		// looks if the ads were already filtered on the index page
 		model.addObject("ads", filteredAds);
-		
+
 		return model;
 
 	}
-	
+
 	/**
-	 * If the user doesnt filter ads on the mainpage, this mapping method redirects him to all ads.
+	 * If the user doesnt filter ads on the mainpage, this mapping method
+	 * redirects him to all ads.
 	 * 
 	 */
 	@RequestMapping("/unfilteredAds")
-	public ModelAndView showUnfilteredAds( ) {
-		
+	public ModelAndView showUnfilteredAds() {
+
 		ModelAndView model = new ModelAndView("ads");
 		// gives in the filter, so the user can filter on the ads page.
 		model.addObject("filterForm", new FilterForm());
 		// looks if the ads were already filtered on the index page
-	
+
 		model.addObject("ads", adService.getAds());
-			
+
 		return model;
 
 	}
-	
-	
+
 	/**
 	 * This Mapping method executes when a User wants to place an ad. it
 	 * redirects him to the place a new ad page.
@@ -151,29 +151,25 @@ public class AdController {
 	 * @return
 	 */
 	@RequestMapping(value = "/enlistad", method = RequestMethod.POST)
-	public ModelAndView enlistad(@Valid AdForm adForm, BindingResult result,
-			RedirectAttributes redirectAttributes, Principal principal,
-			@RequestParam("image") MultipartFile[] files) {
+	public ModelAndView enlistad(@Valid AdForm adForm, BindingResult result, RedirectAttributes redirectAttributes,
+			Principal principal, @RequestParam("image") MultipartFile[] files) {
 		ModelAndView model;
 
 		if (!result.hasErrors()) {
 			User creator = userService.getUserByEmail(principal.getName());
 			adForm.setCreator(creator);
 			PictureManager picmgr = new PictureManager();
-			String relativePath = PICTURE_LOCATION + "/"
-					+ adForm.getCreator().getEmail();
+			String relativePath = PICTURE_LOCATION + "/" + adForm.getCreator().getEmail();
 			String absolutePath = servletContext.getRealPath(relativePath);
 
 			// creates a filename for the uploaded file, containing the room
 			// price, the address of the ad and the city, just a random name,
 			// more will be added inside the
 			// picture manager.
-			String filename = String.valueOf(adForm.getRoomPrice())
-					+ adForm.getAddress() + adForm.getCity();
+			String filename = String.valueOf(adForm.getRoomPrice()) + adForm.getAddress() + adForm.getCity();
 			// store pictures to the server and get picture names to store the
 			// paths in the DB afterwards.
-			ArrayList<String> pictureNames = (picmgr.uploadMultipleFile(
-					absolutePath, filename, files));
+			ArrayList<String> pictureNames = (picmgr.uploadMultipleFile(absolutePath, filename, files));
 
 			ArrayList<Picture> picturesToSave = new ArrayList<Picture>();
 
@@ -184,10 +180,8 @@ public class AdController {
 					Picture picTmp = new Picture();
 					try {
 						if (pictureNames.get(i) != null) {
-							picTmp.setRelativeFilePath(relativePath
-									+ (pictureNames.get(i).replace("\\", "/")));
-							picTmp.setAbsoluteFilePath(absolutePath
-									+ pictureNames.get(i));
+							picTmp.setRelativeFilePath(relativePath + (pictureNames.get(i).replace("\\", "/")));
+							picTmp.setAbsoluteFilePath(absolutePath + pictureNames.get(i));
 							if (i == 0)
 								picTmp.setIsMainPic(true);
 							else
@@ -224,29 +218,25 @@ public class AdController {
 	 * @return
 	 */
 	@RequestMapping(value = "/adprofile", method = RequestMethod.GET)
-	public ModelAndView showAdId(
-			@RequestParam(value = "adId", required = true) Long adId,
-			HttpServletRequest request, HttpServletResponse response,
-			HttpSession session) {
+	public ModelAndView showAdId(@RequestParam(value = "adId", required = true) Long adId, HttpServletRequest request,
+			HttpServletResponse response, HttpSession session) {
 
 		// the model for this is the adprofile.jsp page
 		ModelAndView model = new ModelAndView("adprofile");
-		Set<Picture> pictures =null;
-		Picture mainPic  = null;
-		
-		if ( adService.getPicturesOfAd(adId) != null) 
-		     pictures = adService.getPicturesOfAd(adId);
-		if ( adService.getAdMainPic(adId) != null)
-		    mainPic = adService.getAdMainPic(adId);
-		
+		Set<Picture> pictures = null;
+		Picture mainPic = null;
+
+		if (adService.getPicturesOfAd(adId) != null)
+			pictures = adService.getPicturesOfAd(adId);
+		if (adService.getAdMainPic(adId) != null)
+			mainPic = adService.getAdMainPic(adId);
+
 		model.addObject("newAdProfile", adService.getAdvertisement(adId));
 		model.addObject("pictures", pictures);
 		model.addObject("mainPic", mainPic);
 
 		return model;
 	}
-
-	
 
 	/**
 	 * This mapping method redirects to the place yourself page. In development
@@ -275,10 +265,8 @@ public class AdController {
 	 * @return
 	 */
 	@RequestMapping(value = "/deleteAd", method = RequestMethod.GET)
-	public String deleteAd(
-			@RequestParam(value = "adId", required = true) Long adId,
-			HttpServletRequest request, HttpServletResponse response,
-			HttpSession session, Principal principal) {
+	public String deleteAd(@RequestParam(value = "adId", required = true) Long adId, HttpServletRequest request,
+			HttpServletResponse response, HttpSession session, Principal principal) {
 
 		User currentUser = userService.getUserByEmail(principal.getName());
 		adService.deleteOneAd(adId, currentUser);
@@ -298,10 +286,8 @@ public class AdController {
 	 * @return
 	 */
 	@RequestMapping(value = "/userInterested", method = RequestMethod.GET)
-	public ModelAndView interestedInAd(
-			@RequestParam(value = "adId", required = true) Long adId,
-			HttpServletRequest request, HttpServletResponse response,
-			HttpSession session, Principal principal) {
+	public ModelAndView interestedInAd(@RequestParam(value = "adId", required = true) Long adId,
+			HttpServletRequest request, HttpServletResponse response, HttpSession session, Principal principal) {
 		User currentUser = userService.getUserByEmail(principal.getName());
 
 		ModelAndView model = new ModelAndView("interestedInAd");
@@ -324,10 +310,8 @@ public class AdController {
 	 * @return
 	 */
 	@RequestMapping(value = "/setzeBesichtigungstermin", method = RequestMethod.GET)
-	public ModelAndView besichtigungsterminSetzen(
-			@RequestParam(value = "adId", required = true) Long adId,
-			HttpServletRequest request, HttpServletResponse response,
-			HttpSession session, Principal principal) {
+	public ModelAndView besichtigungsterminSetzen(@RequestParam(value = "adId", required = true) Long adId,
+			HttpServletRequest request, HttpServletResponse response, HttpSession session, Principal principal) {
 
 		Advertisement ad = adService.getAdvertisement(adId);
 		List<AdApplication> applications = ad.getApplications();
@@ -355,11 +339,9 @@ public class AdController {
 	 * @throws IOException
 	 */
 	@RequestMapping(value = "/getUserImage/{id}")
-	public void getUserImage(HttpServletResponse response,
-			@PathVariable("id") long picId) throws IOException {
+	public void getUserImage(HttpServletResponse response, @PathVariable("id") long picId) throws IOException {
 		PictureManager picmgr = new PictureManager();
-		byte[] picture = picmgr.getByteArrayFromPath(adService
-				.getPicture(picId));
+		byte[] picture = picmgr.getByteArrayFromPath(adService.getPicture(picId));
 
 		response.setContentType("image/jpeg");
 		String path = adService.getPicture(picId);
