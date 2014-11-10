@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.Columns;
+
 @Entity
 @Embeddable
 public class Message {
@@ -23,6 +25,8 @@ public class Message {
 
 	private String title;
 	
+	
+	@Column( length=50000)
 	private String messageText;
 
 		

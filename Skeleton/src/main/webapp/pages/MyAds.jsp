@@ -33,7 +33,7 @@
 							    </a>
 							  
 							    <a href="adprofile?adId=${ad.id}">
-							    <button type="button" class="btn btn-default"><b>Bearbeiten </b></button>
+							    <button type="button" class="btn btn-default"><b>Zeige Ad </b></button>
 							    </a>
 							
 							 

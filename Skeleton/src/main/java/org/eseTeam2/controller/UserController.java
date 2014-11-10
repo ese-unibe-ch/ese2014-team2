@@ -130,11 +130,12 @@ public class UserController {
 				userService.saveFrom(signupForm);
 				model = new ModelAndView("show");
 			} catch (InvalidUserException e) {
-				model = new ModelAndView("index");
+				model = new ModelAndView("register");
 				model.addObject("page_error", e.getMessage());
 			}
 		} else {
-			model = new ModelAndView("index");
+				model = new ModelAndView("register");
+							
 		}
 		return model;
 	}

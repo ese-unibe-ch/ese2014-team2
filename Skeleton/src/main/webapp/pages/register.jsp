@@ -18,7 +18,7 @@
     			<fieldset>
         			
        
-        				<c:set var="emailErrors"><form:errors path="email"/></c:set>
+   <c:set var="emailErrors"><form:errors path="email"/></c:set>
 	<div class="row">        
         <label class="col-md-4" for="field-email">Email:</label>
 		<div class="col-md-4">
