@@ -103,7 +103,7 @@ public class ApplicantsController {
 		User currentUser = userService.getUserByEmail(principal.getName());
 		List<AdApplication> adApplications =  adService.getAdvertisement(applicantForm.getAdId()).getApplications();
 		
-		// check if the user already applied. If he did, jus redirect him to the adpage. 
+		// check if the user already applied. If he did, just redirect him to the adpage. 
 		for (AdApplication adApp: adApplications ) {
 			if ( adApp.getApplicant().getId() ==  currentUser.getId())
 				return "redirect:/adprofile?adId="+applicantForm.getAdId();

@@ -52,6 +52,12 @@
 				</c:choose>
 			</p>
 		</div>
+		<a href="removeInteressent?applicationId=${application.id }">
+								<button type="button" class="btn btn-default">
+									<b> Lehne den Bewerber ab </b>
+								</button>
+								</a>
+								
 	</div>
 </div>
 </div>
