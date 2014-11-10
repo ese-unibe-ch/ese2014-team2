@@ -10,6 +10,7 @@ import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -208,8 +209,14 @@ public class AdController {
 		
 		// the model for this is the adprofile.jsp page
 		ModelAndView model = new ModelAndView("adprofile");
-		Set<Picture> pictures = adService.getPicturesOfAd(adId);
-		Picture mainPic = adService.getAdMainPic(adId);
+		Set<Picture> pictures =null;
+		Picture mainPic  = null;
+		
+		if ( adService.getPicturesOfAd(adId) != null) 
+		     pictures = adService.getPicturesOfAd(adId);
+		if ( adService.getAdMainPic(adId) != null)
+		    mainPic = adService.getAdMainPic(adId);
+		
 		model.addObject("newAdProfile", adService.getAdvertisement(adId));
 		model.addObject("pictures", pictures);
 		model.addObject("mainPic", mainPic);
