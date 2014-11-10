@@ -4,7 +4,7 @@
 *.class
 
 # Eclipse Metadata
-.metadata/
+/.metadata/
 
 # Mac OS X clutter
 *.DS_Store
