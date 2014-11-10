@@ -25,6 +25,10 @@
 	<a href="acceptInvitation?appointmentId=${appointment.id}">
     <button type="button" class="btn btn-default"><b>Nimm die Einladung an.</b></button>
     </a>
+    
+    <a href="deleteNotification?messageId=${message.id}">
+    <button type="button" class="btn btn-default"><b>Lehne die Einladung ab.</b></button>
+    </a>
 	
 	
 				
