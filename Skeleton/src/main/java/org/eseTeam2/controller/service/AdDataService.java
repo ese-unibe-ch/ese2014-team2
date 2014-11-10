@@ -159,7 +159,7 @@ public class AdDataService implements IAdDataService {
 		for (User filterUser : usersWithFilters) {
 			if (filterService.isNewAdMatch(filterUser.getExampleAd(), getters, ad) == true)
 				mailer.sendEmail(filterUser.getEmail(),
-						"A new ad has been put up " + advertisementDao.findOne(ad.getId()),
+						"A new ad has been put up " + "http://localhost8080:Skeleton/adprofile?adId="+ad.getId(),
 						"A new ad which might interest you has been put online.");
 		}
 
