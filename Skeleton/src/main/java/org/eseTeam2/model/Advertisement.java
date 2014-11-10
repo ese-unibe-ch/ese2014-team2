@@ -54,7 +54,7 @@ public class Advertisement  {
 	// private String region;
 
 	// info about the flat
-	@Column(columnDefinition="TEXT")
+	@Column( length=50000)
 	private String description_ad;
 	
 	private boolean hasLaundry;
@@ -66,18 +66,18 @@ public class Advertisement  {
 	// info about the room
 	private boolean hasBuiltInCloset;
 	
-	@Column(columnDefinition="TEXT")
+	@Column( length=50000)
 	private String description_room;
 	private boolean isToBalcony;
 	private boolean hasCables;
 
 	// About us
-	@Column(columnDefinition="TEXT")
+	@Column( length=50000)
 	private String description_us;
 	private String wgGender;
 
 	// who we are looking for
-	@Column(columnDefinition="TEXT")
+	@Column( length=50000)
 	private String whoWeAreLookingFor;
 	private String smoker;
 	private String ageRange;

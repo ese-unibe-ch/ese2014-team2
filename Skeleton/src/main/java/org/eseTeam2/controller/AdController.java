@@ -188,10 +188,15 @@ public class AdController {
 		// gives in the filter, so the user can filter on the ads page.
 		model.addObject("filterForm", new FilterForm());
 		// looks if the ads were already filtered on the index page
-		if ( filteredAds.isEmpty())
+	
+			
+		
+		
+		if ( null == filteredAds )
 			model.addObject("ads", adService.getAds());
-		else 
+		else
 			model.addObject("ads", filteredAds);
+		
 		return model;
 
 	}
