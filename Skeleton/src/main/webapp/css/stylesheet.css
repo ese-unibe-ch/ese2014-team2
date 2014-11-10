@@ -414,6 +414,10 @@ p.caption {
 #image_slider li{
 	position: relative;
 	float: left;
+	margin-top:auto;
+	margin-bottom:auto;
+	margin-left:220px;
+	margin-right:220px;
 }
 .nvgt{
 	position:absolute;

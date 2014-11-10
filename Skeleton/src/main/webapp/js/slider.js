@@ -55,7 +55,7 @@ function slideTo(imageToGo){
 		duration:1000,
 		delta:function(p){return p;},
 		step:function(delta){
-			ul.style.left = parseInt(currentPostion + direction * delta * imageWidth * numOfImageToGo) + 'px';
+			ul.style.left = 1140 + 'px';
 		},
 		callback:function(){currentImage = imageToGo;}	
 	};
