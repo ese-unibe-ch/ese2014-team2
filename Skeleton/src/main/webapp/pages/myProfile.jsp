@@ -40,6 +40,7 @@
 	<legend>The Ads of the User:</legend>
 	<c:forEach items="${user.advertisements }" var="ad">
 		<a href="adprofile?adId=${ad.id }">${ad.title }</a>
+		<br>
 	</c:forEach>
 
 	<legend>Benachrichtigungsfilter:</legend>

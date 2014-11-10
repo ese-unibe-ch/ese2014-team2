@@ -28,10 +28,10 @@ public class Appointment {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@OneToOne 
+	@OneToOne (cascade=CascadeType.REMOVE)
 	private Advertisement ad;
 	
-	@ManyToOne
+	@ManyToOne 
 	private User adOwner;
 	
 	@ManyToMany

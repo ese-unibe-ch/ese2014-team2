@@ -159,7 +159,7 @@ public class AdDataService implements IAdDataService {
 		for (User filterUser : usersWithFilters) {
 			if (filterService.isNewAdMatch(filterUser.getExampleAd(), getters, ad) == true)
 				mailer.sendEmail(filterUser.getEmail(),
-						"A new ad has been put up " + advertisementDao.findOne(ad.getId()),
+						"A new ad has been put up " + "http://localhost8080:Skeleton/adprofile?adId="+ad.getId(),
 						"A new ad which might interest you has been put online.");
 		}
 
@@ -257,7 +257,14 @@ public class AdDataService implements IAdDataService {
 		// clear interessents list to avoid db constraint problems.
 		Advertisement tmp2 = advertisementDao.findOne(adId);
 		tmp2.setApplications(null);
+		tmp2.getAppointment().setInvitations(null);
+		tmp2.setAppointment(null);
+		
+		
 		advertisementDao.save(tmp2);
+		
+		
+	
 		
 		
 		user.setAdvertisements(userAds);

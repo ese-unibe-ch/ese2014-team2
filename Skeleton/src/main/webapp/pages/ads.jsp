@@ -16,7 +16,14 @@
             </div>
             <div class="panel-body">
             <a href="adprofile?adId=${ads.id}">
-            		<img src="getUserImage/ <c:out value="${ads.mainPic.id}"/>" width="200" height="200" >
+            <c:if test="${empty ads.mainPic}">
+		<img src="img/default_image.png"> 
+		</c:if>
+	<c:if test="${not empty ads.mainPic}">
+	<img src="getUserImage/ <c:out value="${ads.mainPic.id}"/>" width="200" height="200" >
+	
+	</c:if>
+            		
               		<table>
               			<tr>
               				<td>Creator:</td>
