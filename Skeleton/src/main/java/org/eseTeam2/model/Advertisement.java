@@ -84,7 +84,8 @@ public class Advertisement  {
 	private String genderWeLookFor;
 	
 	
-	@OneToMany(mappedBy="ad", fetch=FetchType.EAGER)
+	
+	@OneToMany(mappedBy="ad", fetch=FetchType.EAGER, cascade=CascadeType.REMOVE)
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<AdApplication> applications;
 	
@@ -101,9 +102,7 @@ public class Advertisement  {
 	@OneToOne(mappedBy="ad", fetch=FetchType.EAGER, cascade=CascadeType.REMOVE)
 	private Appointment appointment;
 	
-	/*
-	@OneToOne(mappedBy="appointedAd", fetch=FetchType.EAGER)
-	private List<Message> appointmentInvitationMessages; */
+	
 	
 
 
