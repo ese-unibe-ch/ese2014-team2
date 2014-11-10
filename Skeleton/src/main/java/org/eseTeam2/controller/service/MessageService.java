@@ -91,11 +91,11 @@ public class MessageService implements IMessageService {
 		message.setRecipientDeleted(true);
 		
 		if( message.isSenderDeleted() == true && message.isRecipientDeleted() == true)
-			messageDao.delete(messageId);
+			messageDao.delete(message);
 		else 
 			messageDao.save(message);
 		
-		messageDao.save(message);
+	
 	}
 
 	/**
@@ -107,7 +107,7 @@ public class MessageService implements IMessageService {
 		Message message = messageDao.findOne(messageId);
 		message.setSenderDeleted(true);
 		if( message.isSenderDeleted() == true && message.isRecipientDeleted() == true)
-			messageDao.delete(messageId);
+			messageDao.delete(message);
 		else 
 			messageDao.save(message);
 		

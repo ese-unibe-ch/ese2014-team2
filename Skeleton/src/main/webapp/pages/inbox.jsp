@@ -22,9 +22,7 @@
     <button type="button" class="btn btn-default"><b>meine gesendeten Nachrichten</b></button>
     </a>
   </div>
-  <div class="btn-group">
-    <button type="button" class="btn btn-default"><b>öffentliche Fragen zu einem ad</b></button>
-  </div>
+ 
   <div class="btn-group">
   <a href="inboxShow/invitations">
     <button type="button" class="btn btn-default"><b>Zeige Besichtigungseinladungen</b></button>
