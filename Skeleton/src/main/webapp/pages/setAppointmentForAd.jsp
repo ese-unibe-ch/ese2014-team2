@@ -25,13 +25,14 @@
      src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
     </script>
     
-   <form:form method="post" modelAttribute="appointmentForm" action="setAppointmentAndInform"
-		id="appointmentForm" cssClass="form-horizontal" autocomplete="off"
+   <form:form method="post" modelAttribute="appointmentFinderForm" action="setAppointmentAndInform"
+		id="appointmentFinderForm" cssClass="form-horizontal" autocomplete="off"
 		enctype="multipart/form-data">
 		<fieldset>
 			<form:hidden path="adId"  value="${ad.id }" />
 				<legend>Setze einen Termin / mehrere Termine für die Besichtigung</legend>
 				
+				<c:set var="appointmentDateErrors"><form:errors path="appointmentDate"/></c:set>
 				<div class="row">
 					<div class="col-sm-2 col-md-4">
 						<label>Datum:</label>
@@ -39,6 +40,7 @@
 					<div class="col-sm-4 col-md-6">
 						 <div id="datetimepicker" class="input-append date">
       						<form:input type="text" data-format="dd/MM/yyyy" path="appointmentDate"></form:input>
+      						<form:errors path="appointmentDate" cssClass="help-inline" element="span"/>
       							<span class="add-on">
         							<i data-date-icon="icon-calendar"></i>
       							</span>
@@ -46,7 +48,7 @@
 					</div>
 				</div>
    
-   				
+   				<c:set var="startTimesErrors"><form:errors path="startTimes"/></c:set>
    				<div class="row">
 					<div class="col-sm-2 col-md-4">
 						<label>Beginn:</label>
@@ -57,6 +59,7 @@
     						<span class="add-on">
       							<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
     						</span>
+    						<form:errors path="startTimes" cssClass="help-inline" element="span"/>
   						</div>
 					</div>
 				</div>
@@ -82,9 +85,11 @@
 					</div>
 				</div>
 				
+				<c:set var="additionalInfosForTheVisitors"><form:errors path="appointmentDate"/></c:set>
 				<div class="row">
 					<div class="textareabig">
 						<form:textarea rows="10" cols="300" path="additionalInfosForTheVisitors" id="field-Message" />
+						<form:errors path="additionalInfosForTheVisitors" cssClass="help-inline" element="span"/>
 					</div>
 				</div>
 

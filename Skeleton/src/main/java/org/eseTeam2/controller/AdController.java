@@ -324,7 +324,7 @@ public class AdController {
 		ModelAndView model = new ModelAndView("setAppointmentForAd");
 		model.addObject("interessents", interessents);
 		model.addObject("ad", ad);
-		model.addObject("appointmentForm", new AppointmentFinderForm());
+		model.addObject("appointmentFinderForm", new AppointmentFinderForm());
 		return model;
 	}
 
@@ -356,20 +356,28 @@ public class AdController {
 	 * stores it in the database, updates all corresbonding entities and informs
 	 * the people who are invited.
 	 * 
-	 * @param appointmentForm
+	 * @param appointmentFinderForm
 	 * @param result
 	 * @param redirectAttributes
 	 * @param principal
 	 * @return
 	 */
 	@RequestMapping(value = "/setAppointmentAndInform", method = RequestMethod.POST)
-	public String setAppointmentDateAndInform(@Valid AppointmentFinderForm appointmentForm, BindingResult result,
+	public ModelAndView setAppointmentDateAndInform(
+			@Valid AppointmentFinderForm appointmentFinderForm, BindingResult result,
 			RedirectAttributes redirectAttributes, Principal principal) {
-
-		appointmentForm.setAdOwner(userService.getUserByEmail(principal.getName()));
-		appointmentService.sendOutAppointment(appointmentForm);
-		return "redirect:/myads";
-
+		ModelAndView model;
+		if (!result.hasErrors()) {
+			appointmentFinderForm.setAdOwner(userService.getUserByEmail(principal
+					.getName()));
+			appointmentService.sendOutAppointment(appointmentFinderForm);
+			model = new ModelAndView("MyAds");
+			return model;
+			
+		} else {
+			model = new ModelAndView("setAppointmentForAd");
+		}
+		return model;
 	}
 
 }

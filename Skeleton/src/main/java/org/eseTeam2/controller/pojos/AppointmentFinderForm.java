@@ -3,6 +3,10 @@ package org.eseTeam2.controller.pojos;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 import org.eseTeam2.model.User;
 
 
@@ -14,18 +18,21 @@ import org.eseTeam2.model.User;
  */
 public class AppointmentFinderForm {
 	
+	@Size(min=1)
 	private ArrayList<String> appointmentDate;
 	
 	private Long adId;
 	
 	private User adOwner;
 	
+	@Size(min=1, message="fuchs is homo")
 	private ArrayList<String> startTimes;
 	
+	@Size(min=1)
 	private ArrayList<String> endTimes;
 	
 	private String blockLength;
-	
+	@Size(min=3, message="gugushjgjhghkjgljg jhjhglg özgluhguz")
 	private String additionalInfosForTheVisitors;
 
 	
