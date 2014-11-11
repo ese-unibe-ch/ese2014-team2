@@ -118,8 +118,14 @@
     });
   });
 </script>
+ <script>  
+    $('#myForm').one('submit', function() {
+    $(this).find('input[type="submit"]').attr('disabled','disabled');
+});</script>
+
+    <button type="submit" class="btn btn-primary btn-lg" onclick="this.disabled=true;this.form.submit();">Setze die Daten!</button>
     
-    <button type="submit" class="btn btn-primary btn-lg">Setze die Daten!</button>
+    
 		
 		</fieldset>
 		</form:form>

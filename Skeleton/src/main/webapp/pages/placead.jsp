@@ -332,7 +332,7 @@
 
 			<div class="form-actions">
 
-				<button type="submit" class="btn btn-primary" id="btnC">Create</button>
+				<button type="submit" class="btn btn-primary" id="btnC" onclick="this.disabled=true;this.form.submit();">Create</button>
 				<button type="button" class="btn btn-danger">Cancel</button>
 
 			</div>

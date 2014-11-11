@@ -353,7 +353,7 @@ public class AdController {
 	/**
 	 * this mapping method is used when the user clicks on the send out
 	 * appointments on the setAppointmentForAd.jsp page it sets the appointment,
-	 * stores it in the database, updates all corresbonding entities and informs
+	 * stores it in the database, updates all corresponding entities and informs
 	 * the people who are invited.
 	 * 
 	 * @param appointmentFinderForm

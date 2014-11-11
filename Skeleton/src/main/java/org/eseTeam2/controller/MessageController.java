@@ -153,8 +153,6 @@ public class MessageController {
 			return "redirect:/myinbox?showSent=true";
 		if (action.equals("showReceived"))
 			return "redirect:/myinbox?showReceived=true";
-		if (action.equals("publicQuestion"))
-			return "redirect:/myinbox?showQuestion=true";
 		if (action.equals("invitations"))
 			return "redirect:/myinbox?showInvitations=true";
 		if (action.equals("notifications"))
