@@ -19,10 +19,7 @@ public class MailService implements IMailService {
 	 private JavaMailSender mailSender;
 
 	public void sendEmail(String recipientEmail, String message,String title) {
-		
-	 
-         
-         
+	
         // creates a simple e-mail object
         SimpleMailMessage email = new SimpleMailMessage();
         email.setTo(recipientEmail);

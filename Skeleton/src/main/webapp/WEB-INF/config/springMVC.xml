@@ -11,7 +11,7 @@
 
 	<!-- context configuration: how to instantiate beans to bind to DispatcherServlet  -->
 
-	<!-- search for controllers (@Controller)  -->
+	<!-- search for controllers  -->
     <mvc:annotation-driven />
     <context:component-scan base-package="org.eseTeam2"/> 
 

@@ -4,15 +4,20 @@ import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.eseTeam2.PictureManager;
 import org.eseTeam2.controller.pojos.AdForm;
+import org.eseTeam2.controller.pojos.AppointmentFinderForm;
 import org.eseTeam2.controller.pojos.MessageForm;
 import org.eseTeam2.controller.service.IAdDataService;
 import org.eseTeam2.controller.service.IAppointmentService;
 import org.eseTeam2.controller.service.IMessageService;
 import org.eseTeam2.controller.service.IUserDataService;
+import org.eseTeam2.model.AdApplication;
 import org.eseTeam2.model.Advertisement;
 import org.eseTeam2.model.Appointment;
 import org.eseTeam2.model.Message;
@@ -114,5 +119,73 @@ public class AppointmentController {
 
 	
     }
+    
+    /**
+	 * This mapping method is used to create an appointment for flat visiting.
+	 * Redirects the user to the setAppointmentForAd page, where he can set the
+	 * visit date.
+	 * 
+	 * @param adId
+	 * @param request
+	 * @param response
+	 * @param session
+	 * @param principal
+	 * @return
+	 */
+	@RequestMapping(value = "/setzeBesichtigungstermin", method = RequestMethod.GET)
+	public ModelAndView besichtigungsterminSetzen(@RequestParam(value = "adId", required = true) Long adId,
+			HttpServletRequest request, HttpServletResponse response, HttpSession session, Principal principal) {
+
+		Advertisement ad = adService.getAdvertisement(adId);
+		List<AdApplication> applications = ad.getApplications();
+		List<User> interessents = new ArrayList<User>();
+
+		for (AdApplication a : applications) {
+			interessents.add(a.getApplicant());
+		}
+
+		ModelAndView model = new ModelAndView("setAppointmentForAd");
+		model.addObject("interessents", interessents);
+		model.addObject("ad", ad);
+		model.addObject("appointmentFinderForm", new AppointmentFinderForm());
+		return model;
+	}
+	
+	
+	/**
+	 * this mapping method is used when the user clicks on the send out
+	 * appointments on the setAppointmentForAd.jsp page it sets the appointment,
+	 * stores it in the database, updates all corresponding entities and informs
+	 * the people who are invited.
+	 * 
+	 * @param appointmentFinderForm
+	 * @param result
+	 * @param redirectAttributes
+	 * @param principal
+	 * @return
+	 */
+	@RequestMapping(value = "/setAppointmentAndInform", method = RequestMethod.POST)
+	public ModelAndView setAppointmentDateAndInform(@Valid AppointmentFinderForm appointmentFinderForm,
+			BindingResult result, RedirectAttributes redirectAttributes, Principal principal) {
+		ModelAndView model;
+		Appointment appointment = null;
+		if (!result.hasErrors()) {
+		    try {
+			appointment = adService.getAdvertisement(appointmentFinderForm.getAdId()).getAppointment();
+		    } catch (NullPointerException d) {}
+		    
+		    if( appointment == null) {
+			appointmentFinderForm.setAdOwner(userService.getUserByEmail(principal.getName()));
+			appointmentService.sendOutAppointment(appointmentFinderForm);
+			model = new ModelAndView("redirect:/success/createdAppointment");
+			return model; }
+		    else
+			return new ModelAndView("redirect:/success/alreadyHaveAppointment");
+
+		} else {
+			model = new ModelAndView("setAppointmentForAd");
+		}
+		return model;
+	}
 
 }

@@ -76,6 +76,32 @@ public class ApplicantsController {
 	
 	
 	/**
+	 * This mapping method adds the user as an interessent to an advertisement.
+	 * 
+	 * @param adId
+	 *            which the user is interested in.
+	 * @param request
+	 * @param response
+	 * @param session
+	 * @param principal
+	 * @return
+	 */
+	@RequestMapping(value = "/userInterested", method = RequestMethod.GET)
+	public ModelAndView interestedInAd(@RequestParam(value = "adId", required = true) Long adId,
+			HttpServletRequest request, HttpServletResponse response, HttpSession session, Principal principal) {
+		User currentUser = userService.getUserByEmail(principal.getName());
+
+		ModelAndView model = new ModelAndView("interestedInAd");
+		model.addObject("applicantForm", new ApplicantForm());
+		model.addObject("adId", adId);
+
+		return model;
+	}
+	
+	
+	
+	
+	/**
 	 * this mapping method is responsible for removing unwanted interessents from the interessents list of an ad. 
 	 * @param adId
 	 * @param request
@@ -146,6 +172,11 @@ public class ApplicantsController {
 	}
 	
 	
+	/**
+	 * This mapper method is used to print out the details of an applicant.
+	 * @param applicationId
+	 * @return
+	 */
 	@RequestMapping(value ="/interessentDetails", method = RequestMethod.GET) 
 	public ModelAndView showInteressentDetails (  @RequestParam (value ="applicationId", required = true) Long applicationId) {
 		

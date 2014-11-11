@@ -23,6 +23,7 @@ import org.eseTeam2.model.dao.AppointmentDateDao;
 import org.eseTeam2.model.dao.MessageDao;
 import org.eseTeam2.model.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailSendException;
 import org.springframework.stereotype.Service;
 
 /**
@@ -207,8 +208,14 @@ public class AppointmentService implements IAppointmentService {
 					+ "\n"
 					+ " du wurdest eingeladen zu einer Wohnungbesichtigung. Logge dich doch bitte auf deinem Account ein und gehe in deine Inbox \n"
 					+ " Dort erhälst du alle Details.";
-
+			
+			// you seem to have a mailsend limit per day oO
+			try {
 			mailer.sendEmail(interessent.getEmail(), message, "Einladung zur Wohnungsbesichtigung");
+			}
+			catch (MailSendException e) {}
+			
+			
 			userDao.save(interessent);
 
 			messageDao.save(inform);

@@ -274,59 +274,9 @@ public class AdController {
 		return "redirect:/myads";
 	}
 
-	/**
-	 * This mapping method adds the user as an interessent to an advertisement.
-	 * 
-	 * @param adId
-	 *            which the user is interested in.
-	 * @param request
-	 * @param response
-	 * @param session
-	 * @param principal
-	 * @return
-	 */
-	@RequestMapping(value = "/userInterested", method = RequestMethod.GET)
-	public ModelAndView interestedInAd(@RequestParam(value = "adId", required = true) Long adId,
-			HttpServletRequest request, HttpServletResponse response, HttpSession session, Principal principal) {
-		User currentUser = userService.getUserByEmail(principal.getName());
+	
 
-		ModelAndView model = new ModelAndView("interestedInAd");
-		model.addObject("applicantForm", new ApplicantForm());
-		model.addObject("adId", adId);
-
-		return model;
-	}
-
-	/**
-	 * This mapping method is used to create an appointment for flat visiting.
-	 * Redirects the user to the setAppointmentForAd page, where he can set the
-	 * visit date.
-	 * 
-	 * @param adId
-	 * @param request
-	 * @param response
-	 * @param session
-	 * @param principal
-	 * @return
-	 */
-	@RequestMapping(value = "/setzeBesichtigungstermin", method = RequestMethod.GET)
-	public ModelAndView besichtigungsterminSetzen(@RequestParam(value = "adId", required = true) Long adId,
-			HttpServletRequest request, HttpServletResponse response, HttpSession session, Principal principal) {
-
-		Advertisement ad = adService.getAdvertisement(adId);
-		List<AdApplication> applications = ad.getApplications();
-		List<User> interessents = new ArrayList<User>();
-
-		for (AdApplication a : applications) {
-			interessents.add(a.getApplicant());
-		}
-
-		ModelAndView model = new ModelAndView("setAppointmentForAd");
-		model.addObject("interessents", interessents);
-		model.addObject("ad", ad);
-		model.addObject("appointmentFinderForm", new AppointmentFinderForm());
-		return model;
-	}
+	
 
 	/**
 	 * this mapping method is a helper method to print out the images on the ad
@@ -350,32 +300,6 @@ public class AdController {
 
 	}
 
-	/**
-	 * this mapping method is used when the user clicks on the send out
-	 * appointments on the setAppointmentForAd.jsp page it sets the appointment,
-	 * stores it in the database, updates all corresponding entities and informs
-	 * the people who are invited.
-	 * 
-	 * @param appointmentFinderForm
-	 * @param result
-	 * @param redirectAttributes
-	 * @param principal
-	 * @return
-	 */
-	@RequestMapping(value = "/setAppointmentAndInform", method = RequestMethod.POST)
-	public ModelAndView setAppointmentDateAndInform(@Valid AppointmentFinderForm appointmentFinderForm,
-			BindingResult result, RedirectAttributes redirectAttributes, Principal principal) {
-		ModelAndView model;
-		if (!result.hasErrors()) {
-			appointmentFinderForm.setAdOwner(userService.getUserByEmail(principal.getName()));
-			appointmentService.sendOutAppointment(appointmentFinderForm);
-			model = new ModelAndView("redirect:/success/createdAppointment");
-			return model;
-
-		} else {
-			model = new ModelAndView("setAppointmentForAd");
-		}
-		return model;
-	}
+	
 
 }

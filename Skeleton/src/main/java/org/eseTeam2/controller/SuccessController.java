@@ -59,13 +59,15 @@ public class SuccessController {
 	@RequestMapping("/success/{action}")
 	public String message(Model model, @PathVariable String action) {
 		if (action.equals("adPlaceSuccess"))
-			return "redirect:/successPage?adPlaceSuccess=true";
+		    return "redirect:/successPage?adPlaceSuccess=true";
 		if (action.equals("createdAppointment"))
-			return "redirect:/successPage?createdAppointment=true";
+		    return "redirect:/successPage?createdAppointment=true";
 		if (action.equals("messageSent"))
-			return "redirect:/successPage?messageSent=true";
+		    return "redirect:/successPage?messageSent=true";
 		if( action.equals("userRegistered"))
 		    return "redirect:/successPage?userRegistered=true";
+		if( action.equals("alreadyHaveAppointment"))
+		    return "redirect:/successPage?alreadyHaveAppointment=true";
 		
 
 		return "redirect:/index";

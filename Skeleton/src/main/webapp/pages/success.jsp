@@ -56,6 +56,16 @@
 
 </c:if>
 
+<c:if test="${param.alreadyHaveAppointment eq true }">
+	<h1>Du hast bereits einen Termin für das Ad herausgeschickt. Mehrere termine sind noch under construction :) !</h1>
+	<script type="text/javascript">
+    function redirect() {
+        location.href = "/Skeleton/";
+    }
+    window.setTimeout("redirect()", 3000);
+</script>
+
+</c:if>
 
 
 
