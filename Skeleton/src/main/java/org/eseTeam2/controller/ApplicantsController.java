@@ -150,7 +150,11 @@ public class ApplicantsController {
 	public ModelAndView showInteressentDetails (  @RequestParam (value ="applicationId", required = true) Long applicationId) {
 		
 		ModelAndView model = new ModelAndView("interessentDetails");
-		AdApplication application = appointmentService.findOneApplication(applicationId);
+		AdApplication application  = appointmentService.findOneApplication(applicationId);
+		
+		if ( application == null) 
+		    return new ModelAndView("sorryInteressentGone");
+		
 		if(application.getTimeLimitation().equals(""))
 			application.setTimeLimitation("nicht limitiert");
 		

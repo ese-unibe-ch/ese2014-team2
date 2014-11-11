@@ -30,8 +30,8 @@ public class AdForm {
 	@NotNull
 	@Pattern(regexp = "(0?[1-9]|1[012])/(0?[1-9]|[12][0-9]|3[01])/((19|20)\\d\\d)", message="Please enter a date mm/dd/yyyy")
 	private String start;
-	@NotNull
-	@Pattern(regexp = "(0?[1-9]|1[012])/(0?[1-9]|[12][0-9]|3[01])/((19|20)\\d\\d)", message="Please enter a date mm/dd/yyyy")
+	
+	
 	private String until;
 	@NotNull
 	@Digits(fraction = 0, integer = 1, message="Please enter a Value between 1 and 9")
