@@ -271,47 +271,6 @@ public class AdDataService implements IAdDataService {
 		
 		
 		
-		
-		    /*
-		Set<Advertisement> userAds = user.getAdvertisements();
-		// need a tmp variable because you can not remove something during iteration.
-		Advertisement tmp = new Advertisement();
-		for (Advertisement ad : userAds) {
-			if (ad.getId() == adId)
-				tmp = ad;
-			
-		}
-		userAds.remove(tmp);
-
-		// clear  ad applications
-		for ( AdApplication a : tmp.getApplications()) {
-		    a.setApplicant(null);
-		    applicationDao.delete(a);
-		}
-		tmp.setApplications(null);
-		// clear ad appointment
-		Appointment appointment = tmp.getAppointment();
-		appointment.setInvitations(null);
-		appointment = appDao.save(appointment);
-		appDao.delete(appointment);
-		
-		try {
-		    tmp.getAppointment().setInvitations(null);
-		}
-		catch (NullPointerException n) {}
-		
-		tmp.setAppointment(null);
-
-		
-		
-		tmp = advertisementDao.save(tmp);
-		
-		user.setAdvertisements(userAds);
-		userDao.save(user);
-		
-		advertisementDao.delete(tmp);
-		*/
-	
 		}
 		catch (Exception e) {
 			ErrorSaver error = new ErrorSaver();
