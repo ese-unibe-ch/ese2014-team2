@@ -212,7 +212,7 @@ public class MessageController {
 			@RequestParam(value = "messageId", required = true) Long messageId) {
 		User currentUser = userService.getUserByEmail(principal.getName());
 		messageService.deleteSenderMessage(messageId, currentUser);
-		return "redirect:/myinbox";
+		return "redirect:/myinbox?showSent=true";
 	}
 	
 	/**
@@ -227,7 +227,7 @@ public class MessageController {
 			@RequestParam(value = "messageId", required = true) Long messageId) {
 		User currentUser = userService.getUserByEmail(principal.getName());
 		messageService.deleteRecipientMessage(messageId, currentUser);
-		return "redirect:/myinbox";
+		return "redirect:/myinbox?showReceived=true";
 	}
 	
 	/**
@@ -241,7 +241,21 @@ public class MessageController {
 			@RequestParam(value = "messageId", required = true) Long messageId) {
 		User currentUser = userService.getUserByEmail(principal.getName());
 		messageService.deleteNotification(messageId, currentUser);
-		return "redirect:/myinbox";
+		return "redirect:/myinbox?showNotifications=true";
+	}
+	
+	/**
+	 * This mapping method deletes a invitation message from the database completely.
+	 * @param principal
+	 * @param messageId
+	 * @return
+	 */
+	@RequestMapping(value = "/deleteInvitation", method = RequestMethod.GET)
+	public String deleteInvitation(Principal principal,
+			@RequestParam(value = "messageId", required = true) Long messageId) {
+		User currentUser = userService.getUserByEmail(principal.getName());
+		messageService.deleteNotification(messageId, currentUser);
+		return "redirect:/myinbox?showInvitations=true";
 	}
 
 }

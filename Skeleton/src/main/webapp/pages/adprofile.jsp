@@ -17,7 +17,7 @@
 
 <!--  CAROUSEL SLIDER TEST  -->
 
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -80,7 +80,7 @@
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <script>
 	$('#myCarousel').carousel({
-		interval:   4000
+		slideshow: false
 	});
 </script>
 
