@@ -128,7 +128,7 @@ public class UserController {
 		if (!result.hasErrors()) {
 			try {
 				userService.saveFrom(signupForm);
-				model = new ModelAndView("show");
+				model = new ModelAndView("redirect:/success/userRegistered");
 			} catch (InvalidUserException e) {
 				model = new ModelAndView("register");
 				model.addObject("page_error", e.getMessage());

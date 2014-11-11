@@ -33,7 +33,7 @@ public class Advertisement  {
 	private String title;
 	private String description;
 	
-	@ManyToOne 
+	@ManyToOne
 	private User creator;
 	
 	private Date creationDate;
@@ -85,21 +85,21 @@ public class Advertisement  {
 	
 	
 	
-	@OneToMany(mappedBy="ad", fetch=FetchType.EAGER, cascade=CascadeType.REMOVE)
+	@OneToMany(mappedBy="ad", fetch=FetchType.EAGER, orphanRemoval=true)
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<AdApplication> applications;
 	
 	
 	
 
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
+	@OneToMany(fetch = FetchType.EAGER, orphanRemoval=true)
 	private Set<Picture> pictures;
 	
-	@OneToOne
+	@OneToOne (orphanRemoval=true)
 	private Picture mainPic;
 	
 	
-	@OneToOne(mappedBy="ad", fetch=FetchType.EAGER, cascade=CascadeType.REMOVE)
+	@OneToOne(mappedBy="ad", fetch=FetchType.EAGER, orphanRemoval=true)
 	private Appointment appointment;
 	
 	

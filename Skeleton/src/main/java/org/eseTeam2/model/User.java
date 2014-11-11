@@ -45,7 +45,7 @@ public class User {
 	@OneToMany(mappedBy = "user", cascade= CascadeType.ALL)
 	private Set<UserRole> userRole;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+	@OneToMany(fetch = FetchType.EAGER)
 	private Set<Advertisement> advertisements;
 	
 	@OneToOne(fetch = FetchType.EAGER)
@@ -85,11 +85,7 @@ public class User {
 	
 	@ManyToMany(mappedBy="invitations", fetch=FetchType.EAGER)
 	private List<Appointment> usersInvitations;
-	
-	@OneToMany(mappedBy="adOwner", fetch=FetchType.EAGER)
-	@Fetch(value = FetchMode.SUBSELECT)
-	private List<Appointment> adOwnerAppointments;
-	
+		
 
 	
 	@OneToOne 

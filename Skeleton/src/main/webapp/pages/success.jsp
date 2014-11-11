@@ -45,6 +45,18 @@
 </c:if>
 
 
+<c:if test="${param.userRegistered eq true}">
+<h1>Erfolgreich registriert!</h1>
+<script type="text/javascript">
+    function redirect() {
+        location.href = "/Skeleton/";
+    }
+    window.setTimeout("redirect()", 2000);
+</script>
+
+</c:if>
+
+
 
 
 <c:import url="template/footer.jsp" />

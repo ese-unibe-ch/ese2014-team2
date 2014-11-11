@@ -217,7 +217,7 @@ public class AppointmentService implements IAppointmentService {
 
 		appointment.setInvitations(adInvitations);
 		appointment.setAd(ad);
-		appointment.setAdOwner(adOwner);
+		
 
 		ad.setAppointment(appointment);
 
@@ -235,7 +235,7 @@ public class AppointmentService implements IAppointmentService {
 		Appointment appointment = appDao.findOne(appointmentId);
 
 		List<Message> notifications = new ArrayList<Message>();
-		User adOwner = appointment.getAdOwner();
+		User adOwner = appointment.getAd().getCreator();
 
 		try {
 			adOwner.getNotifications();

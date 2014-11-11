@@ -28,13 +28,12 @@ public class Appointment {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@OneToOne (cascade=CascadeType.REMOVE)
+	@OneToOne 
 	private Advertisement ad;
 	
-	@ManyToOne 
-	private User adOwner;
 	
-	@ManyToMany
+	
+	@ManyToMany 
 	private List<User> invitations;
 	
 	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.REMOVE)
@@ -86,13 +85,7 @@ public class Appointment {
 		this.invitations = invitations;
 	}
 
-	public User getAdOwner() {
-		return adOwner;
-	}
-
-	public void setAdOwner(User adOwner) {
-		this.adOwner = adOwner;
-	}
+	
 
 	public Long getId() {
 		return id;

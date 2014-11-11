@@ -10,10 +10,14 @@ import javax.servlet.ServletContext;
 
 import org.eseTeam2.ErrorSaver;
 import org.eseTeam2.controller.pojos.AdForm;
+import org.eseTeam2.model.AdApplication;
 import org.eseTeam2.model.Advertisement;
+import org.eseTeam2.model.Appointment;
 import org.eseTeam2.model.Picture;
 import org.eseTeam2.model.User;
+import org.eseTeam2.model.dao.AdApplicationDao;
 import org.eseTeam2.model.dao.AdvertisementDao;
+import org.eseTeam2.model.dao.AppointmentDao;
 import org.eseTeam2.model.dao.PictureDao;
 import org.eseTeam2.model.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,9 +43,13 @@ public class AdDataService implements IAdDataService {
 	@Autowired
 	PictureDao pictureDao;
 	@Autowired
+	AdApplicationDao applicationDao;
+	@Autowired
 	UserDao userDao;
 	@Autowired
 	IMailService mailer;
+	@Autowired
+	AppointmentDao appDao;
 	@Autowired
 	IFilterLogicService filterService;
 	@Autowired
@@ -244,6 +252,27 @@ public class AdDataService implements IAdDataService {
 	public void deleteOneAd(Long adId, User user) {
 		
 		try {
+		// remove ad from users ads
+		 
+		    Set<Advertisement> userAds = user.getAdvertisements();
+			// need a tmp variable because you can not remove something during iteration.
+				Advertisement tmp = new Advertisement();
+				for (Advertisement ad : userAds) {
+					if (ad.getId() == adId)
+						tmp = ad;
+					
+				}
+				userAds.remove(tmp);
+				user.setAdvertisements(userAds);
+			userDao.save(user);
+			
+			
+		advertisementDao.delete(adId);
+		
+		
+		
+		
+		    /*
 		Set<Advertisement> userAds = user.getAdvertisements();
 		// need a tmp variable because you can not remove something during iteration.
 		Advertisement tmp = new Advertisement();
@@ -254,27 +283,34 @@ public class AdDataService implements IAdDataService {
 		}
 		userAds.remove(tmp);
 
-		// clear interessents list to avoid db constraint problems.
-		//Advertisement tmp2 = advertisementDao.findOne(adId);
+		// clear  ad applications
+		for ( AdApplication a : tmp.getApplications()) {
+		    a.setApplicant(null);
+		    applicationDao.delete(a);
+		}
 		tmp.setApplications(null);
+		// clear ad appointment
+		Appointment appointment = tmp.getAppointment();
+		appointment.setInvitations(null);
+		appointment = appDao.save(appointment);
+		appDao.delete(appointment);
+		
 		try {
-		tmp.getAppointment().setInvitations(null);
+		    tmp.getAppointment().setInvitations(null);
 		}
 		catch (NullPointerException n) {}
 		
 		tmp.setAppointment(null);
+
 		
 		
-		advertisementDao.save(tmp);
-		
-		
-	
-		
+		tmp = advertisementDao.save(tmp);
 		
 		user.setAdvertisements(userAds);
 		userDao.save(user);
-
-		advertisementDao.delete(adId);
+		
+		advertisementDao.delete(tmp);
+		*/
 	
 		}
 		catch (Exception e) {
