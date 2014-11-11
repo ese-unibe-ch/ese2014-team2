@@ -14,6 +14,7 @@
     <context:annotation-config/>
     <context:component-scan base-package="org.eseTeam2.model"/>
     
+    
 
     <bean id="mainDataSource" class="com.jolbox.bonecp.BoneCPDataSource" destroy-method="close">
         <property name="driverClass" value="com.mysql.jdbc.Driver" />
@@ -46,6 +47,7 @@
     <bean id="entityManagerFactory"  class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="mainDataSource" />
         <property name="packagesToScan" value="org.eseTeam2.model"/>
+        
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
                 <property name="generateDdl" value="true"/>

@@ -9,7 +9,12 @@
 
 <h1>Successful!</h1>
 
-
+<script type="text/javascript">
+    function redirect() {
+        location.href = "/Skeleton/";
+    }
+    window.setTimeout("redirect()", 2000);
+</script>
 
 
 <c:import url="template/footer.jsp" />
