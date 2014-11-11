@@ -10,7 +10,7 @@
 	
 	
 	<h1>Sorry die Bewerbung existiert nichtmehr. Entweder hast du sie bereits gelöscht, oder der Bewerber hat sie zurückgezogen!</h1>
-	<img src="img/404.jpg">
+	<img src="img/404.png">
 	<h2><a href="myinbox"> Hier geht es zurück zu deiner Inbox</a></h2>
 
 </body>
