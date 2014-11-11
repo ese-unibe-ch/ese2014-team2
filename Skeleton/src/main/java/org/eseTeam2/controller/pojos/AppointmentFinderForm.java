@@ -18,21 +18,21 @@ import org.eseTeam2.model.User;
  */
 public class AppointmentFinderForm {
 	
-	@Size(min=1)
+	@Size(min=1, message="Datum Feld darf nicht leer sein")
 	private ArrayList<String> appointmentDate;
 	
 	private Long adId;
 	
 	private User adOwner;
 	
-	@Size(min=1, message="fuchs is homo")
+	@Size(min=1, message=" Beginn Feld darf nicht leer sein. ")
 	private ArrayList<String> startTimes;
 	
-	@Size(min=1)
+	@Size(min=1, message=" Ende Feld darf nicht leer sein.")
 	private ArrayList<String> endTimes;
 	
 	private String blockLength;
-	@Size(min=3, message="gugushjgjhghkjgljg jhjhglg özgluhguz")
+	@Size(min=1, message=" Weitere infos sollte nicht ganz leer sein. Gib doch den Bewerbern ein paar infos über den Ablauf :)")
 	private String additionalInfosForTheVisitors;
 
 	

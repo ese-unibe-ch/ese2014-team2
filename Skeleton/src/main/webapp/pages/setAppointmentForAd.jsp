@@ -40,7 +40,7 @@
 					<div class="col-sm-4 col-md-6">
 						 <div id="datetimepicker" class="input-append date">
       						<form:input type="text" data-format="dd/MM/yyyy" path="appointmentDate"></form:input>
-      						<form:errors path="appointmentDate" cssClass="help-inline" element="span"/>
+      				
       							<span class="add-on">
         							<i data-date-icon="icon-calendar"></i>
       							</span>
@@ -59,7 +59,7 @@
     						<span class="add-on">
       							<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
     						</span>
-    						<form:errors path="startTimes" cssClass="help-inline" element="span"/>
+    					
   						</div>
 					</div>
 				</div>
@@ -88,8 +88,11 @@
 				<c:set var="additionalInfosForTheVisitors"><form:errors path="appointmentDate"/></c:set>
 				<div class="row">
 					<div class="textareabig">
-						<form:textarea rows="10" cols="300" path="additionalInfosForTheVisitors" id="field-Message" />
-						<form:errors path="additionalInfosForTheVisitors" cssClass="help-inline" element="span"/>
+						<form:textarea rows="10" cols="300" path="additionalInfosForTheVisitors" id="field-Message" /> 
+						<form:errors path="additionalInfosForTheVisitors" cssClass="help-inline" element="span"/> <br>
+						<form:errors path="appointmentDate" cssClass="help-inline" element="span"/> <br>
+						<form:errors path="startTimes" cssClass="help-inline" element="span"/> <br>
+						<form:errors path="endTimes" cssClass="help-inline" element="span"/>
 					</div>
 				</div>
 
