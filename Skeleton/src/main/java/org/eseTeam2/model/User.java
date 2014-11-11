@@ -45,7 +45,7 @@ public class User {
 	@OneToMany(mappedBy = "user", cascade= CascadeType.ALL)
 	private Set<UserRole> userRole;
 	
-	@OneToMany(fetch = FetchType.EAGER)
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
 	private Set<Advertisement> advertisements;
 	
 	@OneToOne(fetch = FetchType.EAGER)
@@ -56,12 +56,7 @@ public class User {
 	private Set<Roomie> roomies;
 	*/
 	
-	/*
-	@OneToMany(fetch = FetchType.EAGER, mappedBy ="sender", cascade = CascadeType.ALL)
-	private Set<Message> sender;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy ="recipient", cascade = CascadeType.ALL)
-	private Set<Message> recipient; */
 	
 	@OneToMany(mappedBy="sender", fetch=FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
