@@ -94,7 +94,6 @@ public class MessageService implements IMessageService {
 			messageDao.delete(message);
 		else 
 			messageDao.save(message);
-		
 	
 	}
 

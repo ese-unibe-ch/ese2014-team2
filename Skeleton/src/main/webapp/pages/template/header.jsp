@@ -2,8 +2,9 @@
 <html lang="en">
 <http use-expressions="true">
 
-	
-    	<meta charset="utf-8">
+
+
+    	<meta charset="UTF-8">
 
     	<title>About Princesses and Castles</title>
 

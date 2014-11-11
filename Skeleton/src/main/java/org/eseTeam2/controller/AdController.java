@@ -198,7 +198,7 @@ public class AdController {
 			// save ad and pictures to database.
 			adService.saveFrom(adForm, picturesToSave);
 
-			model = new ModelAndView("show");
+			model = new ModelAndView("redirect:/success/adPlaceSuccess");
 		} else {
 			model = new ModelAndView("placead");
 			// model.addObject("newAdForm", new AdForm());
@@ -369,7 +369,7 @@ public class AdController {
 		if (!result.hasErrors()) {
 			appointmentFinderForm.setAdOwner(userService.getUserByEmail(principal.getName()));
 			appointmentService.sendOutAppointment(appointmentFinderForm);
-			model = new ModelAndView("redirect:/myads");
+			model = new ModelAndView("redirect:/success/createdAppointment");
 			return model;
 
 		} else {

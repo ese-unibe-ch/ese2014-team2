@@ -134,7 +134,7 @@ public class MessageController {
 		messageForm.setSender(currentUser);
 		messageService.sendMessage(messageForm);
 
-		ModelAndView model = new ModelAndView("show");
+		ModelAndView model = new ModelAndView("redirect:/success/messageSent");
 
 		return model;
 
