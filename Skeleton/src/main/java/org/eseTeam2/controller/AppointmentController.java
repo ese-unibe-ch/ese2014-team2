@@ -109,7 +109,7 @@ public class AppointmentController {
 	return model;
 	}
 	catch (NullPointerException d) {
-	    return new ModelAndView("sorryInteressentGone");
+	    return new ModelAndView("sorryWhatYouSearchIsGone");
 	}
 
 	

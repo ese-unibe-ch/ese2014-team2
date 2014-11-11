@@ -85,7 +85,7 @@ public class Advertisement  {
 	
 	
 	
-	@OneToMany(mappedBy="ad", fetch=FetchType.EAGER, orphanRemoval=true)
+	@OneToMany(mappedBy="ad", fetch=FetchType.EAGER, cascade = CascadeType.REMOVE)
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<AdApplication> applications;
 	

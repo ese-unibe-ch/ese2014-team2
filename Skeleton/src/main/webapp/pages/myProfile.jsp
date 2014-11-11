@@ -8,13 +8,13 @@
 
 
 
-<h1>${newProfile.firstName }'s Profile</h1>
+<h1>${user.firstName }'s Profil</h1>
 
 <div class="container">
-	<legend>Personal Data:</legend>
+	<legend>Persönliches:</legend>
 	<div class="row">
 		<div class="col-sm-2 col-md-4">
-			<label>First Name:</label>
+			<label>Vorname:</label>
 		</div>
 		<div class="col-sm-2 col-md-4">
 			<p>${user.firstName}</p>
@@ -22,7 +22,7 @@
 	</div>
 	<div class="row">
 		<div class="col-sm-2 col-md-4">
-			<label>Last Name:</label>
+			<label>Nachname:</label>
 		</div>
 		<div class="col-sm-2 col-md-4">
 			<p>${user.lastName}</p>

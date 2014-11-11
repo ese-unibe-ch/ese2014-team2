@@ -153,7 +153,7 @@ public class ApplicantsController {
 		AdApplication application  = appointmentService.findOneApplication(applicationId);
 		
 		if ( application == null) 
-		    return new ModelAndView("sorryInteressentGone");
+		    return new ModelAndView("sorryWhatYouSearchIsGone");
 		
 		if(application.getTimeLimitation().equals(""))
 			application.setTimeLimitation("nicht limitiert");

@@ -9,7 +9,8 @@
 <body>
 	
 	
-	<h1>Sorry die Bewerbung existiert nichtmehr. Entweder hast du sie bereits gelöscht, oder der Bewerber hat sie zurückgezogen!</h1>
+	<h1>Sorry was du suchtst ist nicht mehr da. Höchstwahrscheinlich wurde das Ad  <br> 
+	gelöscht</h1>
 	<img src="img/404.png">
 	<h2><a href="myinbox"> Hier geht es zurück zu deiner Inbox</a></h2>
 
