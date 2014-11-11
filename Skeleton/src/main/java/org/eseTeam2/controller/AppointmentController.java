@@ -38,74 +38,81 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class AppointmentController {
 
-	@Autowired
-	private IAdDataService adService;
+    @Autowired
+    private IAdDataService adService;
 
-	@Autowired
-	private IMessageService messageService;
+    @Autowired
+    private IMessageService messageService;
 
-	@Autowired
-	private IUserDataService userService;
+    @Autowired
+    private IUserDataService userService;
 
-	@Autowired
-	private IAppointmentService appointmentService;
+    @Autowired
+    private IAppointmentService appointmentService;
 
-	/**
-	 * this mapping method is used to accept sent out appointments and inform
-	 * the User which created the ad. Mapping is triggered when the user clicks
-	 * on accept invitation button in the message.
-	 * 
-	 * @param appointmentId
-	 * @param principal
-	 * @return
-	 */
-	@RequestMapping(value = "/acceptInvitation", method = RequestMethod.GET)
-	public String acceptInvitation(
-			@RequestParam(value = "appointmentId", required = true) Long appointmentId,
-			Principal principal) {
-		User currentUser = userService.getUserByEmail(principal.getName());
-		appointmentService.informAdOwner(currentUser, appointmentId);
+    /**
+     * this mapping method is used to accept sent out appointments and inform
+     * the User which created the ad. Mapping is triggered when the user clicks
+     * on accept invitation button in the message.
+     * 
+     * @param appointmentId
+     * @param principal
+     * @return
+     */
+    @RequestMapping(value = "/acceptInvitation", method = RequestMethod.GET)
+    public String acceptInvitation(
+	    @RequestParam(value = "appointmentId", required = true) Long appointmentId,
+	    Principal principal) {
+	User currentUser = userService.getUserByEmail(principal.getName());
+	appointmentService.informAdOwner(currentUser, appointmentId);
 
-		return "redirect:myinbox";
-	}
+	return "redirect:myinbox";
+    }
+
+    @RequestMapping(value = "/rejectInvitation, method = RequestMethod.GET")
+    public String rejectInvitation(
+	    @RequestParam(value = "appointmentId", required = true) Long appointmentId,
+	    Principal principal) {
+
+	User currentUser = userService.getUserByEmail(principal.getName());
+	appointmentService.informAdOwner(currentUser, appointmentId);
+
+	return "redirect:myinbox";
+    }
+
+    /**
+     * This mapping method is triggered when clicked on an invitation message in
+     * the inbox.jsp displays the details of the received message.
+     * 
+     * @param messageId
+     *            the message id of the invitation messag4e
+     * @param principal
+     * @return
+     */
+    @RequestMapping(value = "/showInvitation", method = RequestMethod.GET)
+    public ModelAndView invitation(
+	    @RequestParam(value = "messageId", required = true) Long messageId,
+	    Principal principal) {
+
+	Message invitationMessage = messageService.findOneMessage(messageId);
+	User authorOfReceivedMessage = invitationMessage.getSender();
 	
-	@RequestMapping(value="/rejectInvitation, method = RequestMethod.GET")
-	public String rejectInvitation (@RequestParam(value = "appointmentId", required = true) Long appointmentId,
-			Principal principal) {
-		
-		User currentUser = userService.getUserByEmail(principal.getName());
-		appointmentService.informAdOwner(currentUser, appointmentId);
+	try {
+	Advertisement adUserIsInvitedTo = adService.getAdvertisement(invitationMessage.getAppointedAd());
+	Appointment appointment = adUserIsInvitedTo.getAppointment();
+	ModelAndView model = new ModelAndView("handleInvitation");
+	model.addObject("appointment", appointment);
+	model.addObject("sender", authorOfReceivedMessage);
+	model.addObject("ad", adUserIsInvitedTo);
+	model.addObject("message", invitationMessage);
 
-		return "redirect:myinbox";
+	return model;
 	}
+	catch (NullPointerException d) {
+	    return new ModelAndView("sorryInteressentGone");
+	}
+
 	
-	/**
-	 * This mapping method is triggered when clicked on an invitation message in the inbox.jsp
-	 * displays the details of the received message. 
-	 * @param messageId the message id of the invitation messag4e
-	 * @param principal
-	 * @return
-	 */
-	@RequestMapping(value = "/showInvitation", method = RequestMethod.GET)
-	public ModelAndView invitation(
-			@RequestParam(value = "messageId", required = true) Long messageId,
-			Principal principal) {
-
-
-		Message invitationMessage = messageService.findOneMessage(messageId);
-		User authorOfReceivedMessage = invitationMessage.getSender();
-
-		Advertisement adUserIsInvitedTo = adService
-				.getAdvertisement(invitationMessage.getAppointedAd());
-		Appointment appointment = adUserIsInvitedTo.getAppointment();
-
-		ModelAndView model = new ModelAndView("handleInvitation");
-		model.addObject("appointment", appointment);
-		model.addObject("sender", authorOfReceivedMessage);
-		model.addObject("ad", adUserIsInvitedTo);
-		model.addObject("message", invitationMessage);
-
-		return model;
-	}
+    }
 
 }
