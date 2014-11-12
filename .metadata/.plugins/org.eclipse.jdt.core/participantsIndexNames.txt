@@ -1,5 +1,0 @@
-INDEX VERSION 1.127
-/Users/Raffael/Documents/ese2014-team2/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1740865703.index
-/Skeleton/src/main/java
-/Users/Raffael/Documents/ese2014-team2/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1928939837.index
-/Skeleton/src/main/java
