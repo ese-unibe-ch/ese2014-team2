@@ -193,7 +193,7 @@ public class AdDataService implements IAdDataService {
      * the database.
      */
     public String getPicture(Long picId) {
-	return pictureDao.findOne(picId).getAbsoluteFilePath();
+	return pictureDao.findOne(picId).getRelativeFilePath();
     }
 
     /**

@@ -291,7 +291,9 @@ public class AdController {
 	@RequestMapping(value = "/getUserImage/{id}")
 	public void getUserImage(HttpServletResponse response, @PathVariable("id") long picId) throws IOException {
 		PictureManager picmgr = new PictureManager();
-		byte[] picture = picmgr.getByteArrayFromPath(adService.getPicture(picId));
+		String relativeFilepath = adService.getPicture(picId);
+		String absoluteFilepath = servletContext.getRealPath(relativeFilepath);
+		byte[] picture = picmgr.getByteArrayFromPath(absoluteFilepath);
 
 		response.setContentType("image/jpeg");
 		String path = adService.getPicture(picId);
