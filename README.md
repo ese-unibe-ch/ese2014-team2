@@ -11,7 +11,7 @@ For using this Software you need:
 Installing the Sampledata:
 -------------------------
 The required files are found in /Sampledata.
--Extract the adPictures.zip into Skeleton\src\main\webapp\img\adPictures
+-Extract the adPictures.zip into Skeleton\src\main\webapp\img\
 -Import the ese.sql.zip into your MySql Database:
 --Open the myphpAdmin control panel(when using XAMPP)
 --Create a new Database with the name "ese"
