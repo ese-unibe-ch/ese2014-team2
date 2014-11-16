@@ -55,7 +55,40 @@ I did not find invariants in the code.
 exceptions folder and thus InvalidUserExceptions exists twice. But otherwise reuse and organization fine.
 
 \section{Coding Style}
-[TBA]
+Coding style
+
+\subsection{Consistency}
+The naming is Consistent, except the URLs they sometimes use a capital letter on new words and sometimes not. UserController "/setInformFilter", "/myprofile", ... 
+
+The code formatting is sometimes very inconsistent. It would make the code much more readable if there was a better use of whitespaces. 
+AppointmentController Line 102 to 118, use tabs to create visual and locigal blocks.\\
+ApplicationsController Line 127 if a method header is longer than one line use tabs to indent the second line. \\
+RoomieController Line 89 to 106 use tabs to visually group the for loop.\\
+Try to use always the same amount of line breaks to separate methods. In many classes for example ApplicationForm Line 34 to 38.\\
+Sometimes there are line breaks after the method header and sometimes not. If the method header has more than one line it might be more readable if there is a empty line after it. But it should be always the same count to increase the consistency and that readability.\\
+Also the .jsp files lack a consistent formatting. With every opening tag a tab should be added and with every closing tag a tab should be removed to make the code much more readable. There are also a lot of unused line brakes like in register.jsp 77 to 97. \\
+
+Else the common code conventions are adhered and the code is consistent. Similar problems are solved in a similar way, like its well done in the Controllers. 
+
+\subsection{Intention-revealing names}
+The names are mostly chosen wisely and reveal their intention.  One exception is the variable named getters which occurs in multiple Classes like FilterAdsController and UserController. Out of the context its not clear what this variable contains. 
+\subsection{Do not repeat yourself}
+In the AdForm are four getter and setter methods for pictues. A dynamic method could remove duplicated code and remove the the limitation to four images. 
+\subsection{Exception, testing null values}
+Exception handling is only done on a few places. The catch clause is mostly not used, so that the try clause is abused to inhibit errors. 
+Inform the User when something went wrong, that he can recover and fix the error. If it is not necessary to push an error up to a user, the error message can be printed to a log or the console so that it is visible to the developers. Then if an error always occurs something might be wrong and should be improved. \\
+The code can be improved by the use of more exception handling like its done with the InvalidUserException in the UserController line 129 to 135.
+
+\subsection{Encapsulation}
+The encapsulations is ok and follows the conventions of Spring MVC. 
+
+\subsection{Assertion, contracts, invariant checks}
+Clear and good contracts but no assertions and invariant checks at all. Use assertions and invariant checks to find violations of the contracts and improve the stability of your software.
+
+\subsection{Utility methods}
+There are some huge methods which can be split up in some Utility methods. 
+For example in RoomieController on line 66 to 116 a path to a picture is assembled. We find almost the same code in the AdController on line 153 to 207. The duplicate code in those sections could be put into a Utility method.
+
 
 \section{Documentation}
 \subsection{Understandable}
