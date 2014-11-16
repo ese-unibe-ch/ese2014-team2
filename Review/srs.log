@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.10.10)  16 NOV 2014 18:17
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.10.10)  16 NOV 2014 18:20
 entering extended mode
 **srs.tex
 (C:\Users\User\Documents\ESE\ese2014-team2\Review\srs.tex
@@ -514,7 +514,7 @@ File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 \Gin@req@height=\dimen115
 \Gin@req@width=\dimen116
 )
-No file srs.aux.
+(C:\Users\User\Documents\ESE\ese2014-team2\Review\srs.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
 LaTeX Font Info:    ... okay on input line 33.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
@@ -532,6 +532,7 @@ LaTeX Font Info:    ... okay on input line 33.
 \c@lstlisting=\count123
 \AtBeginShipoutBox=\box32
 Package hyperref Info: Link coloring OFF on input line 33.
+
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -543,6 +544,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 33.
 LaTeX Info: Redefining \pageref on input line 33.
 LaTeX Info: Redefining \nameref on input line 33.
+
+(C:\Users\User\Documents\ESE\ese2014-team2\Review\srs.out)
+(C:\Users\User\Documents\ESE\ese2014-team2\Review\srs.out)
 \@outlinefile=\write3
 
 (C:\Users\User\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
@@ -580,16 +584,39 @@ LaTeX Warning: No \author given.
 
 
 {C:/Users/User/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
+(C:\Users\User\Documents\ESE\ese2014-team2\Review\srs.toc)
 \tf@toc=\write4
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 37.
-
-[3
+ [3
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 37.
+Chapter 1.
+
+Class scrreprt Warning: \float@addtolists detected!
+(scrreprt)              Implementation of \float@addtolist became
+(scrreprt)              deprecated in KOMA-Script v3.01 2008/11/14 and
+(scrreprt)              has been replaced by more several more flexible
+(scrreprt)              features of package `tocbasic`.
+(scrreprt)              Since Version 3.12 support for deprecated
+(scrreprt)              \float@addtolist interface has been
+(scrreprt)              restricted to only some of the KOMA-Script
+(scrreprt)              features and been removed from others.
+(scrreprt)              Loading of package `scrhack' may help to
+(scrreprt)              avoid this warning, if you are using a
+(scrreprt)              a package that still implements the
+(scrreprt)              deprecated \float@addtolist interface .
+
+[4
+
+]
+Chapter 2.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 49.
+[5
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 49.
  (C:\Users\User\Documents\ESE\ese2014-team2\Review\srs.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 37.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 37.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 49.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 49.
 
 
 Package rerunfilecheck Warning: File `srs.out' has changed.
@@ -597,23 +624,23 @@ Package rerunfilecheck Warning: File `srs.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `srs.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 37.
+(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
+(rerunfilecheck)             After:  620D46FC60FBDEE029DE042F8E01652F;337.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 49.
  ) 
 Here is how much of TeX's memory you used:
- 8501 strings out of 493921
- 127529 string characters out of 3144878
- 254873 words of memory out of 3000000
- 11747 multiletter control sequences out of 15000+200000
- 6694 words of font info for 24 fonts, out of 3000000 for 9000
+ 8524 strings out of 493921
+ 128150 string characters out of 3144878
+ 254940 words of memory out of 3000000
+ 11754 multiletter control sequences out of 15000+200000
+ 6988 words of font info for 25 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  36i,6n,38p,238b,369s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><
 C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb>
-Output written on srs.pdf (3 pages, 24908 bytes).
+Output written on srs.pdf (5 pages, 28546 bytes).
 PDF statistics:
- 28 PDF objects out of 1000 (max. 8388607)
- 5 named destinations out of 1000 (max. 500000)
+ 45 PDF objects out of 1000 (max. 8388607)
+ 13 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
