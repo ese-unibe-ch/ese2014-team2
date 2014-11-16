@@ -13,4 +13,4 @@
 \contentsline {subsection}{\numberline {1.3.3}Describe Responsibilities}{5}{subsection.1.3.3}
 \contentsline {subsection}{\numberline {1.3.4}Consistent Domain Vocabulary}{5}{subsection.1.3.4}
 \contentsline {section}{\numberline {1.4}Tests}{5}{section.1.4}
-\contentsline {chapter}{\numberline {2}Code Analysis: xyController}{6}{chapter.2}
+\contentsline {chapter}{\numberline {2}Code Analysis: AdController}{6}{chapter.2}

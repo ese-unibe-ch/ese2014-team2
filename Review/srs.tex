@@ -59,7 +59,7 @@ exceptions folder and thus InvalidUserExceptions exists twice. But otherwise reu
 
 \section{Documentation}
 \subsection{Understandable}
-In general, the documentation is very understandable. It creates a clear idea of what the code does but is still not too long. Still there are some minor issues to be noticed. An example is AdController.showAdId: The comment isn't very understandable. It talks about "needed criteria" but it is not clear what these are. Similarly, the doc comment for FilterAdsController.filterAdsIndex talks about a "smaller filter" but it is not obvious what this is and why it is needed. 
+In general, the documentation is very understandable. It creates a clear idea of what the code does but is still not too long. Still there are some minor issues to be noticed. An example is AdController.showAdId: The comment isn't very understandable. It talks about "needed criteria" but it is not clear what these are. Similarly, the doc comment for FilterAdsController.filterAdsIndex talks about a "smaller filter" but it is not obvious what this is and why it is needed. Another problematic documentation is the one for AdController.placeYourself. It says it redirects to the "place yourself" page. Unfortunately, it is not clear what this page is or does. As far as it goes for the method name and request mapping, it looks like it is responsible for placing a user, room mate or something like that. This wouldn't really make sense in that class, so it remains unclear what the method exactly does.
 
 \subsection{Intention-revealing}
 Throughout the documentation, the intention of each method is clearly shown. The comments give a brief but revealing overview about what the methods are used for, which is going to be a big help for everyone to maintain the code in the future.
@@ -73,6 +73,9 @@ Most of the used vocabulary seems to be consistent throughout the documentation.
 \section{Tests}
 [TBA]
 
-\chapter{Code Analysis: xyController}
+\chapter{Code Analysis: AdController}
+The AdController class has quite a lot of responsibilities. Most of them make sense as a part of that class since there are a lot of different tasks and views related to ads but there could be a way to split the responsibilities more clearly. There could be made a distinction between displaying and managing ads. This would mean to move methods like "showAds", "showUnfiltredAds" and "showAdId" to a class like "AdDisplayController" and methods like "createAd" and "enlistad" to a one like "AdManagementController". Like this, the responsibilities of the AdController would be split up and could be more clearly defined. \\
+
+Another questionable point is the placeYourself method. It's not exactly clear from method name and documentation what the method does, this is, what the "placeyourself" page is. Looking at method name and request mapping, as well as placeyourself.jsp, it seems to be a page where a user or room mate can somehow be added. If this is the case, then that method should be moved to another class, such as UserController or RoomieController, since it doesn't seem to be in direct relation to ads.
 
 \end{document}
