@@ -37,7 +37,8 @@ S. Berger, J. Niklaus, J. Schaerer, A. Sellathurai \\
 \chapter{General Review}
 \section{Design}
 \subsection{Violation of MVC pattern}
-Method enlistad in AdController is huge. Sure more could be extracted that does not belong to the controller. Method getUserImage in AdController deals with images as well as enlistad. Maybe a PictureService is missing. PICTURE_LOCATION and servletContext belong to the PictureService as well. The same applies for enlistroomie in RoomieController. Why does does not the Adservice return directly the interessents, but they are constructed in besichtigungsterminSetzen in AppointmentController?
+Method enlistad in AdController is huge. Sure more could be extracted that does not belong to the controller. Method getUserImage in AdController deals with images as well as enlistad. Maybe a PictureService is missing. PICTURE_LOCATION and servletContext belong to the PictureService as well. The same applies for enlistroomie in RoomieController.\\
+Why does does not the Adservice return directly the interessents, but they are constructed in besichtigungsterminSetzen in AppointmentController?
 
 \subsection{Usage of helper objects between view and model}
 Method enlistad in AdController uses helper object PictureManager.
@@ -46,13 +47,15 @@ Method enlistad in AdController uses helper object PictureManager.
 Pretty good. I cannot think of any missing model object.
 
 \subsection{Clear responsibilities}
-All success messages collected in success.jsp: They don't have anything in common. Why not in individual pages? Redirects necessary but why? (user cannot interact with website during redirect.) Good use of ErrorSaver object.
+All success messages collected in success.jsp: They don't have anything in common. Why not in individual pages? Redirects necessary but why? (user cannot interact with website during redirect.)\\
+Good use of ErrorSaver object.
 
 \subsection{Sound invariants}
-I did not find invariants in the code.
+I did not find any invariants in the code.
 
 \subsection{Overall code organization and reuse, e.g. views}
-exceptions folder and thus InvalidUserExceptions exists twice. But otherwise reuse and organization fine.
+Exceptions folder and thus InvalidUserExceptions exists twice.\\
+But otherwise reuse and organization fine.
 
 \section{Coding Style}
 
