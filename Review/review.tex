@@ -106,7 +106,17 @@ Many parts of the documentation lack a clear description of responsibilities. Of
 Most of the used vocabulary seems to be consistent throughout the documentation. This is, with one exception: the term for a person to look for an apartment. It is referred to as "mate", "yourself", "interessent", "interested user", "applicant", "person" and "roomie". There should be one single, exactly defined word for that. Apart from that, the vocabulary is very accurate and adds to quite understandable documentation.
 
 \section{Tests}
-[TBA]
+\subsection{Clear and distinct test cases}
+We have found the tests clear and distinct. They are easy to read and it is very easy to see what is tested thanks to 
+correct and understandable naming and design of the test class.
+\subsection{Number/coverage of test cases}
+There's only one test for FilterLogicService. The overall coverage and number of test cases has to be improved.
+\subsection{Easy to understand the case that is tested}
+The cases that are tested are easily understandable thanks to the good readability and coding logic.
+\subsection{Well crafted set of test data}
+The test data is very well crafted and can further be improved by quantitative entries, nevertheless the provided sample data is sufficient for the used testing.
+\subsection{Readability}
+The overall and detailed readability of the test is very high. The developer followed all the naming and coding conventions. Is also a master example of test writing.
 
 \chapter{Code Analysis: AdController}
 The AdController class has quite a lot of responsibilities. Most of them make sense as a part of that class since there are a lot of different tasks and views related to ads but there could be a way to split the responsibilities more clearly. There could be made a distinction between displaying and managing ads. This would mean to move methods like "showAds", "showUnfiltredAds" and "showAdId" to a class like "AdDisplayController" and methods like "createAd" and "enlistad" to a one like "AdManagementController". Like this, the responsibilities of the AdController would be split up and could be more clearly defined. \\
