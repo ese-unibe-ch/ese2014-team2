@@ -99,7 +99,8 @@
     <script type="text/javascript">
   $(function() {
     $('#datetimepicker').datetimepicker({
-      pickTime: false
+      pickTime: false,
+      pickSeconds: false
     });
   });
 </script>
@@ -107,7 +108,8 @@
    <script type="text/javascript">
   $(function() {
     $('#timepicker1').datetimepicker({
-      pickDate: false
+      pickDate: false,
+      pickSeconds: false
     });
   });
 </script>
