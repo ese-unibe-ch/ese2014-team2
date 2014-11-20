@@ -82,6 +82,21 @@ public class BookmarkController {
 
 	return "redirect:adprofile?adId="+bookmark.getAd().getId();
     }
+    
+    @RequestMapping(value = "/bookmarks", method = RequestMethod.GET)
+    public ModelAndView bookmarks( Principal principal, RedirectAttributes redirectAttributes) {
+	ModelAndView model = new ModelAndView("bookmarks");
+	User currentUser = userService.getUserByEmail(principal.getName());
+	List<Bookmark> userBookmarks = currentUser.getBookmarks();
+	
+	model.addObject("bookmarks", userBookmarks);
+	model.addObject("user", currentUser);
+	
+	
+	
+
+	return model;
+    }
 
 
     

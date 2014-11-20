@@ -108,9 +108,10 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="myprofile">My Profile</a></li>
-            <li><a href="myinbox">My Inbox <span class="badge"></span></a></li>
-            <li><a href="myads">My Ads</a></li>
+            <li><a href="myprofile">Profil</a></li>
+            <li><a href="myinbox">Inbox <span class="badge"></span></a></li>
+            <li><a href="myads">Ads</a></li>
+            <li><a href="bookmarks">Favoriten</a></li>
             <li><a href="logout">Logout</a></li>
           </ul>
         </div><!--/.nav-collapse -->
