@@ -1,5 +1,6 @@
 package org.eseTeam2.controller.service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -9,6 +10,7 @@ import org.eseTeam2.controller.pojos.LoginForm;
 import org.eseTeam2.controller.pojos.SignupForm;
 import org.eseTeam2.exceptions.InvalidUserException;
 import org.eseTeam2.model.Advertisement;
+import org.eseTeam2.model.Bookmark;
 import org.eseTeam2.model.CustomFilterAd;
 import org.eseTeam2.model.User;
 import org.eseTeam2.model.UserRole;
@@ -75,6 +77,7 @@ public class UserDataService implements IUserDataService {
 		user.setUserRole(userRole);
 		
         
+	user.setBookmarks(new ArrayList<Bookmark>());
         
         user = userDao.save(user);   // save object to DB
         

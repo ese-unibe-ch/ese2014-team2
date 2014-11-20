@@ -82,6 +82,7 @@ public class FilterAdsController {
 
 	/**
 	 * This mapping method is the same as filter ads, but it is triggered with a smaller filter on the index.jsp page
+	 * The small filter has lesser parameters than the big filter, and is only needed when filtering on the index page.
 	 * @param filterForm
 	 * @param result
 	 * @param redirectAttributes

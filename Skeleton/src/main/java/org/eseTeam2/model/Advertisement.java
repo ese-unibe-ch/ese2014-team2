@@ -57,6 +57,8 @@ public class Advertisement  {
 	@Column( length=50000)
 	private String description_ad;
 	
+	
+	
 	private boolean hasLaundry;
 	private boolean hasDishwasher;
 	private boolean hasBalcony;
@@ -418,6 +420,8 @@ public class Advertisement  {
 		this.applications = applications;
 	}
 
+	
+	
 	
 
 
