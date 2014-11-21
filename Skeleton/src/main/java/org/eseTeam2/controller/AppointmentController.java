@@ -70,9 +70,34 @@ public class AppointmentController {
 	    @RequestParam(value = "appointmentId", required = true) Long appointmentId,
 	    Principal principal) {
 	User currentUser = userService.getUserByEmail(principal.getName());
-	appointmentService.informAdOwner(currentUser, appointmentId);
+	appointmentService.acceptInvitation(currentUser, appointmentId);
 
 	return "redirect:myinbox";
+    }
+
+    /**
+     * this mapping method is used to show all appointments scheduled for a
+     * specific ad
+     * 
+     * @param appointmentId
+     * @param principal
+     * @return
+     */
+    @RequestMapping(value = "/zeigeBesichtigungstermine", method = RequestMethod.GET)
+    public ModelAndView zeigeBesichtigungstermine(
+	    @RequestParam(value = "adId", required = true) Long adId,
+	    Principal principal) {
+	User currentUser = userService.getUserByEmail(principal.getName());
+	Advertisement ad = adService.getAdvertisement(adId);
+	ModelAndView model = new ModelAndView("manageScheduledAppointments");
+	/* note for jsp file
+	<c:foreach ad.getAppointments().get(0).getInvitations().get(0).getAppointmentInvitations() 
+	*/
+	model.addObject("appointments", ad.getAppointments());
+	model.addObject("ad", ad);
+	model.addObject("user", currentUser);
+
+	return model;
     }
 
     @RequestMapping(value = "/rejectInvitation, method = RequestMethod.GET")
@@ -81,7 +106,7 @@ public class AppointmentController {
 	    Principal principal) {
 
 	User currentUser = userService.getUserByEmail(principal.getName());
-	appointmentService.informAdOwner(currentUser, appointmentId);
+	appointmentService.acceptInvitation(currentUser, appointmentId);
 
 	return "redirect:myinbox";
     }
@@ -102,128 +127,137 @@ public class AppointmentController {
 
 	Message invitationMessage = messageService.findOneMessage(messageId);
 	User authorOfReceivedMessage = invitationMessage.getSender();
-	
-	try {
-	Advertisement adUserIsInvitedTo = adService.getAdvertisement(invitationMessage.getAppointedAd());
-	Appointment appointment = adUserIsInvitedTo.getAppointment();
-	ModelAndView model = new ModelAndView("handleInvitation");
-	model.addObject("appointment", appointment);
-	model.addObject("sender", authorOfReceivedMessage);
-	model.addObject("ad", adUserIsInvitedTo);
-	model.addObject("message", invitationMessage);
 
-	return model;
-	}
-	catch (NullPointerException d) {
+	try {
+	    
+	    Appointment appointment = appointmentService.findOneAppointment(invitationMessage.getAppointedAppointment());
+	    Advertisement adUserIsInvitedTo = appointment.getAd();
+	    
+	    
+	    ModelAndView model = new ModelAndView("handleInvitation");
+	    model.addObject("appointment", appointment);
+	    model.addObject("sender", authorOfReceivedMessage);
+	    model.addObject("ad", adUserIsInvitedTo);
+	    model.addObject("message", invitationMessage);
+
+	    return model;
+	} catch (NullPointerException d) {
 	    return new ModelAndView("sorryWhatYouSearchIsGone");
 	}
 
-	
     }
-    
+
     /**
-	 * This mapping method is used to create an appointment for flat visiting.
-	 * Redirects the user to the setAppointmentForAd page, where he can set the
-	 * visit date.
-	 * 
-	 * @param adId
-	 * @param request
-	 * @param response
-	 * @param session
-	 * @param principal
-	 * @return
-	 */
-	@RequestMapping(value = "/setzeBesichtigungstermin", method = RequestMethod.GET)
-	public ModelAndView besichtigungsterminSetzen(@RequestParam(value = "adId", required = true) Long adId, 
-		@ModelAttribute("interessentsToSendApp") Long[] interessentsToSendApp, 
-		RedirectAttributes redirectAttributes, HttpServletRequest request, HttpServletResponse response, HttpSession session, Principal principal) {
-	   		    
-		Advertisement ad = adService.getAdvertisement(adId);
-			
-		List<AdApplication> applications = new ArrayList<AdApplication>();
-				
-		if ( interessentsToSendApp.length == 0)
-		   applications = ad.getApplications();
-		else {
-		    for ( int i = 0; i < interessentsToSendApp.length;i++) {
-			applications.add(appointmentService.findOneApplication(interessentsToSendApp[i]));
-		    	}
-		     }
-		
-		
-		List<User> interessents = new ArrayList<User>();
+     * This mapping method is used to create an appointment for flat visiting.
+     * Redirects the user to the setAppointmentForAd page, where he can set the
+     * visit date.
+     * 
+     * @param adId
+     * @param request
+     * @param response
+     * @param session
+     * @param principal
+     * @return
+     */
+    @RequestMapping(value = "/setzeBesichtigungstermin", method = RequestMethod.GET)
+    public ModelAndView besichtigungsterminSetzen(
+	    @RequestParam(value = "adId", required = true) Long adId,
+	    @ModelAttribute("interessentsToSendApp") Long[] interessentsToSendApp,
+	    RedirectAttributes redirectAttributes, HttpServletRequest request,
+	    HttpServletResponse response, HttpSession session,
+	    Principal principal) {
 
-		for (AdApplication a : applications) {
-			interessents.add(a.getApplicant());
-		}
+	Advertisement ad = adService.getAdvertisement(adId);
 
-		ModelAndView model = new ModelAndView("setAppointmentForAd");
-		model.addObject("interessents", interessents);
-		model.addObject("ad", ad);
-		model.addObject("appointmentFinderForm", new AppointmentFinderForm());
-		model.addObject("adAppointments", interessentsToSendApp);
-		return model;
-	}
-	
-	/**
-	 * 
-	 * This mapping method is used to create an appointment for the selected interessents. 
-	 */
-	@RequestMapping(value = "/setzeTeilBesichtigungstermin", method = RequestMethod.POST)
-	public String teilBesichtigunsterminSetzen(@RequestParam("interessentsArr") Long[] interessentsArr,RedirectAttributes redirectAttributes, Principal principal) {
-	    	
-		Advertisement ad = appointmentService.findOneApplication(interessentsArr[0]).getAd();
-		
-		//ArrayList<Long> interessentsList = new ArrayList<Long>();
-	    	
-		/*
-		for ( int i = 0; i < interessentsArr.length;i++) {
-	    	    interessentsList.add(interessentsArr[i]);
-	    	} */
-		redirectAttributes.addFlashAttribute("interessentsToSendApp", interessentsArr);
-		
-		return "redirect:/setzeBesichtigungstermin?adId="+ad.getId();
-	}
-	
-	
-	
-	/**
-	 * this mapping method is used when the user clicks on the send out
-	 * appointments on the setAppointmentForAd.jsp page it sets the appointment,
-	 * stores it in the database, updates all corresponding entities and informs
-	 * the people who are invited.
-	 * 
-	 * @param appointmentFinderForm
-	 * @param result
-	 * @param redirectAttributes
-	 * @param principal
-	 * @return
-	 */
-	@RequestMapping(value = "/setAppointmentAndInform", method = RequestMethod.POST)
-	public ModelAndView setAppointmentDateAndInform(@Valid AppointmentFinderForm appointmentFinderForm, 
-		@RequestParam("adAppointmentIds") Long[] adAppointmentIds,
-		BindingResult result, RedirectAttributes redirectAttributes, Principal principal) {
-		ModelAndView model;
-		ArrayList<Long> interessentsList = new ArrayList<Long>();
-	    	
-		for ( int i = 0; i < adAppointmentIds.length;i++) {
-	    	    interessentsList.add(adAppointmentIds[i]);
-	    	}
-		    
-		appointmentFinderForm.setAdAppointmentIds(interessentsList);
-	
-		
-		if (!result.hasErrors()) {
-		   
-        		appointmentFinderForm.setAdOwner(userService.getUserByEmail(principal.getName()));
-        		appointmentService.sendOutAppointment(appointmentFinderForm);
-        		model = new ModelAndView("redirect:/success/createdAppointment");
-        		return model; //}
+	List<AdApplication> applications = new ArrayList<AdApplication>();
 
-		} else {
-			model = new ModelAndView("setAppointmentForAd");
-		}
-		return model;
+	if (interessentsToSendApp.length == 0)
+	    applications = ad.getApplications();
+	else {
+	    for (int i = 0; i < interessentsToSendApp.length; i++) {
+		applications.add(appointmentService
+			.findOneApplication(interessentsToSendApp[i]));
+	    }
 	}
+
+	List<User> interessents = new ArrayList<User>();
+
+	for (AdApplication a : applications) {
+	    interessents.add(a.getApplicant());
+	}
+
+	ModelAndView model = new ModelAndView("setAppointmentForAd");
+	model.addObject("interessents", interessents);
+	model.addObject("ad", ad);
+	model.addObject("appointmentFinderForm", new AppointmentFinderForm());
+	model.addObject("adAppointments", interessentsToSendApp);
+	return model;
+    }
+
+    /**
+     * 
+     * This mapping method is used to create an appointment for the selected
+     * interessents.
+     */
+    @RequestMapping(value = "/setzeTeilBesichtigungstermin", method = RequestMethod.POST)
+    public String teilBesichtigunsterminSetzen(
+	    @RequestParam("interessentsArr") Long[] interessentsArr,
+	    RedirectAttributes redirectAttributes, Principal principal) {
+
+	Advertisement ad = appointmentService.findOneApplication(
+		interessentsArr[0]).getAd();
+
+	// ArrayList<Long> interessentsList = new ArrayList<Long>();
+
+	/*
+	 * for ( int i = 0; i < interessentsArr.length;i++) {
+	 * interessentsList.add(interessentsArr[i]); }
+	 */
+	redirectAttributes.addFlashAttribute("interessentsToSendApp",
+		interessentsArr);
+
+	return "redirect:/setzeBesichtigungstermin?adId=" + ad.getId();
+    }
+
+    /**
+     * this mapping method is used when the user clicks on the send out
+     * appointments on the setAppointmentForAd.jsp page it sets the appointment,
+     * stores it in the database, updates all corresponding entities and informs
+     * the people who are invited.
+     * 
+     * @param appointmentFinderForm
+     * @param result
+     * @param redirectAttributes
+     * @param principal
+     * @return
+     */
+    @RequestMapping(value = "/setAppointmentAndInform", method = RequestMethod.POST)
+    public ModelAndView setAppointmentDateAndInform(
+	    @Valid AppointmentFinderForm appointmentFinderForm,
+	    @RequestParam("adAppointmentIds") Long[] adAppointmentIds,
+	    BindingResult result, RedirectAttributes redirectAttributes,
+	    Principal principal) {
+	ModelAndView model;
+	ArrayList<Long> interessentsList = new ArrayList<Long>();
+
+	for (int i = 0; i < adAppointmentIds.length; i++) {
+	    interessentsList.add(adAppointmentIds[i]);
+	}
+
+	appointmentFinderForm.setAdAppointmentIds(interessentsList);
+
+	if (!result.hasErrors()) {
+
+	    appointmentFinderForm.setAdOwner(userService
+		    .getUserByEmail(principal.getName()));
+	    appointmentService.sendOutAppointment(appointmentFinderForm);
+	    model = new ModelAndView("redirect:/success/createdAppointment");
+	    return model; // }
+
+	} else {
+	    model = new ModelAndView("setAppointmentForAd");
+	}
+	return model;
+    }
 
 }

@@ -127,7 +127,7 @@
 
 	
 	 <c:forEach items="${adAppointments}" var="app">
-	 ${app }
+	 
 	 		 <input type="hidden" name="adAppointmentIds" value="${app}" />
 		
 	 </c:forEach>

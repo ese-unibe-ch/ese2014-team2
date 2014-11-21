@@ -28,12 +28,12 @@ public class Appointment {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@OneToOne 
+	@ManyToOne 
 	private Advertisement ad;
 	
 	
 	
-	@ManyToMany 
+	@ManyToMany (fetch=FetchType.EAGER)
 	private List<User> invitations;
 	
 	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.REMOVE)

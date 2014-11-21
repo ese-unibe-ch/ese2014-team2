@@ -101,13 +101,12 @@ public class Advertisement  {
 	private Picture mainPic;
 	
 	
-	@OneToOne(mappedBy="ad", fetch=FetchType.EAGER, orphanRemoval=true)
-	private Appointment appointment;
+	@OneToMany(mappedBy="ad", fetch=FetchType.EAGER, orphanRemoval=true)
+	@Fetch(value = FetchMode.SUBSELECT)
+	private List<Appointment> appointments;
 	
 	
 	
-
-
 	public Set<Picture> getPictures() {
 		return pictures;
 	}
@@ -402,13 +401,6 @@ public class Advertisement  {
 		this.mainPic = mainPic;
 	}
 
-	public Appointment getAppointment() {
-		return appointment;
-	}
-
-	public void setAppointment(Appointment appointment) {
-		this.appointment = appointment;
-	}
 
 
 
@@ -418,6 +410,14 @@ public class Advertisement  {
 
 	public void setApplications(List<AdApplication> applications) {
 		this.applications = applications;
+	}
+
+	public List<Appointment> getAppointments() {
+	    return appointments;
+	}
+
+	public void setAppointments(List<Appointment> appointments) {
+	    this.appointments = appointments;
 	}
 
 	

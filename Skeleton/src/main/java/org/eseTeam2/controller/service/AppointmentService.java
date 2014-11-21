@@ -135,6 +135,8 @@ public class AppointmentService implements IAppointmentService {
 
 		Appointment appointment = new Appointment();
 		AppointmentDate date = new AppointmentDate();
+		List<Appointment> adAppointments = new ArrayList<Appointment>();
+		List<Message> allMessagesCreatedHere = new ArrayList<Message>();
 
 		List<AppointmentDate> appointmentDates = new ArrayList<AppointmentDate>();
 
@@ -179,6 +181,7 @@ public class AppointmentService implements IAppointmentService {
 		appointment.setAppointmentDate(appointmentDates);
 
 		List<User> adInvitations = new ArrayList<User>();
+		
 
 		for (User interessent : interessentsOfAd) {
 
@@ -205,7 +208,7 @@ public class AppointmentService implements IAppointmentService {
 
 			inform.setSender(adOwner);
 
-			inform.setAppointedAd(ad.getId());
+			
 
 			String message = "Hallo, " + interessent.getFirstName()	+ " "
 					+ interessent.getLastName()
@@ -221,18 +224,29 @@ public class AppointmentService implements IAppointmentService {
 			
 			
 			userDao.save(interessent);
-
-			messageDao.save(inform);
+			
+			inform = messageDao.save(inform);
+			
+			allMessagesCreatedHere.add(inform);
 
 		}
 
 		appointment.setInvitations(adInvitations);
 		appointment.setAd(ad);
 		
+		adAppointments = ad.getAppointments();
+		
+		adAppointments.add(appointment);
+		ad.setAppointments(adAppointments);
 
-		ad.setAppointment(appointment);
-
-		appDao.save(appointment);
+		appointment = appDao.save(appointment);
+		
+		for ( Message m : allMessagesCreatedHere) {
+		    m.setAppointedAppointment(appointment.getId());
+		    messageDao.save(m);
+		}
+		
+		
 
 		adDao.save(ad);
 
@@ -242,14 +256,14 @@ public class AppointmentService implements IAppointmentService {
 	 * This method is used to inform the adOwner if an invited user accepted his invitation
 	 * Creates a Message object for the adOwner and updates the corresponding Database entities
 	 */
-	public void informAdOwner(User currentUser, Long appointmentId) {
+	public void acceptInvitation(User currentUser, Long appointmentId) {
 		Appointment appointment = appDao.findOne(appointmentId);
 
 		List<Message> notifications = new ArrayList<Message>();
 		User adOwner = appointment.getAd().getCreator();
 
 		try {
-			adOwner.getNotifications();
+			notifications = adOwner.getNotifications();
 		} catch (Exception d) {
 		}
 
@@ -311,5 +325,9 @@ public class AppointmentService implements IAppointmentService {
 
 	public AdApplication findOneApplication(Long applicationId) {
 		return adApplicationDao.findOne(applicationId);
+	}
+
+	public Appointment findOneAppointment(Long appointedAppointment) {
+	   return appDao.findOne(appointedAppointment);
 	}
 }

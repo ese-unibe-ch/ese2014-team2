@@ -42,8 +42,9 @@ public class Message {
 	@ManyToOne 
 	private User appointmentInvitations;
 	
+	private boolean accepted;
 	
-	private Long appointedAd;
+	private Long appointedAppointment;
 	
 	private boolean senderDeleted;
 	private boolean recipientDeleted;
@@ -123,14 +124,23 @@ public class Message {
 		this.appointmentInvitations = appointmentInvitations;
 	}
 
-	public Long getAppointedAd() {
-		return appointedAd;
+	public Long getAppointedAppointment() {
+	    return appointedAppointment;
 	}
 
-	public void setAppointedAd(Long appointedAd) {
-		this.appointedAd = appointedAd;
+	public void setAppointedAppointment(Long appointedAppointment) {
+	    this.appointedAppointment = appointedAppointment;
 	}
 
+	public boolean isAccepted() {
+	    return accepted;
+	}
+
+	public void setAccepted(boolean accepted) {
+	    this.accepted = accepted;
+	}
+
+	
 
 
 	

@@ -28,8 +28,8 @@
 							    <button type="button" class="btn btn-default"><b>Interessenten </b></button>
 							    </a>
 							    
-							    <a href="setzeBesichtigungstermin?adId=${ad.id}">
-							    <button type="button" class="btn btn-default"><b>Besichtigungstermin setzen </b></button>
+							    <a href="zeigeBesichtigungstermine?adId=${ad.id}">
+							    <button type="button" class="btn btn-default"><b>Zeige Besichtigungstermine </b></button>
 							    </a>
 							  
 							    <a href="adprofile?adId=${ad.id}">
