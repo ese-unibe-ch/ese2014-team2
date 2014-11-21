@@ -135,18 +135,18 @@ public class AppointmentController {
 	 */
 	@RequestMapping(value = "/setzeBesichtigungstermin", method = RequestMethod.GET)
 	public ModelAndView besichtigungsterminSetzen(@RequestParam(value = "adId", required = true) Long adId, 
-		@ModelAttribute("interessentsToSendApp") ArrayList<Long> interessentsToSendApp, 
+		@ModelAttribute("interessentsToSendApp") Long[] interessentsToSendApp, 
 		RedirectAttributes redirectAttributes, HttpServletRequest request, HttpServletResponse response, HttpSession session, Principal principal) {
 	   		    
 		Advertisement ad = adService.getAdvertisement(adId);
 			
 		List<AdApplication> applications = new ArrayList<AdApplication>();
 				
-		if ( interessentsToSendApp.isEmpty())
+		if ( interessentsToSendApp.length == 0)
 		   applications = ad.getApplications();
 		else {
-		    for ( int i = 0; i < interessentsToSendApp.size();i++) {
-			applications.add(appointmentService.findOneApplication(interessentsToSendApp.get(i)));
+		    for ( int i = 0; i < interessentsToSendApp.length;i++) {
+			applications.add(appointmentService.findOneApplication(interessentsToSendApp[i]));
 		    	}
 		     }
 		
@@ -174,12 +174,13 @@ public class AppointmentController {
 	    	
 		Advertisement ad = appointmentService.findOneApplication(interessentsArr[0]).getAd();
 		
-		ArrayList<Long> interessentsList = new ArrayList<Long>();
+		//ArrayList<Long> interessentsList = new ArrayList<Long>();
 	    	
+		/*
 		for ( int i = 0; i < interessentsArr.length;i++) {
 	    	    interessentsList.add(interessentsArr[i]);
-	    	}
-		redirectAttributes.addFlashAttribute("interessentsToSendApp", interessentsList);
+	    	} */
+		redirectAttributes.addFlashAttribute("interessentsToSendApp", interessentsArr);
 		
 		return "redirect:/setzeBesichtigungstermin?adId="+ad.getId();
 	}
@@ -210,7 +211,7 @@ public class AppointmentController {
 	    	}
 		    
 		appointmentFinderForm.setAdAppointmentIds(interessentsList);
-		Appointment appointment = null;
+	
 		
 		if (!result.hasErrors()) {
 		   
