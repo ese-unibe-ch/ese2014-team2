@@ -23,4 +23,6 @@ public interface IAppointmentService {
 
 	Appointment findOneAppointment(Long appointedAppointment);
 
+	void rejectInvitation(User currentUser, Long appointmentId);
+
 }

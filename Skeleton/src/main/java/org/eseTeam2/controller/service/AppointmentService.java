@@ -47,6 +47,8 @@ public class AppointmentService implements IAppointmentService {
 
 	@Autowired
 	MessageDao messageDao;
+	
+
 
 	@Autowired
 	AppointmentDateDao dateDao;
@@ -258,9 +260,12 @@ public class AppointmentService implements IAppointmentService {
 	 */
 	public void acceptInvitation(User currentUser, Long appointmentId) {
 		Appointment appointment = appDao.findOne(appointmentId);
+		
 
 		List<Message> notifications = new ArrayList<Message>();
 		User adOwner = appointment.getAd().getCreator();
+		
+		
 
 		try {
 			notifications = adOwner.getNotifications();
@@ -284,8 +289,65 @@ public class AppointmentService implements IAppointmentService {
 
 		messageDao.save(answerToInviter);
 		userDao.save(adOwner);
+		
+		List<Message> appointmentInvs = currentUser.getAppointmentInvitations();
+		
+		for ( Message m : appointmentInvs) {
+		    if (m.getAppointedAppointment() == appointmentId){
+			m.setAccepted(true);
+			messageDao.save(m);
+		    }
+		}
 
 	}
+	
+	
+	/**
+	 * This method is used to inform the adOwner if an invited user rejected his invitation
+	 * Creates a Message object for the adOwner and updates the corresponding Database entities
+	 */
+	public void rejectInvitation(User currentUser, Long appointmentId) {
+		Appointment appointment = appDao.findOne(appointmentId);
+		
+
+		List<Message> notifications = new ArrayList<Message>();
+		User adOwner = appointment.getAd().getCreator();
+		
+		
+
+		try {
+			notifications = adOwner.getNotifications();
+		} catch (Exception d) {
+		}
+
+		Message answerToInviter = new Message();
+
+		answerToInviter.setMessageText("Hey \n" + currentUser.getFirstName() + " " + currentUser.getLastName()
+				+ " hat deine Einladung abgelehnt \n ");
+		answerToInviter.setTitle(currentUser.getFirstName() + " " + currentUser.getLastName()
+				+ " hat die Einladung angenommen");
+
+		notifications.add(answerToInviter);
+		answerToInviter.setNotifications(adOwner);
+
+		adOwner.setNotifications(notifications);
+
+		messageDao.save(answerToInviter);
+		userDao.save(adOwner);
+		
+		List<Message> appointmentInvs = currentUser.getAppointmentInvitations();
+		
+		for ( Message m : appointmentInvs) {
+		    if (m.getAppointedAppointment() == appointmentId){
+			m.setRejected(true);
+			messageDao.save(m);
+			
+		    }
+		}
+
+	}
+	
+	
 
 	public void deleteInteressent(Long applicationId) {
 		AdApplication application = adApplicationDao.findOne(applicationId);

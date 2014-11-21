@@ -44,6 +44,8 @@ public class Message {
 	
 	private boolean accepted;
 	
+	private boolean rejected;
+	
 	private Long appointedAppointment;
 	
 	private boolean senderDeleted;
@@ -138,6 +140,14 @@ public class Message {
 
 	public void setAccepted(boolean accepted) {
 	    this.accepted = accepted;
+	}
+
+	public boolean isRejected() {
+	    return rejected;
+	}
+
+	public void setRejected(boolean rejected) {
+	    this.rejected = rejected;
 	}
 
 	

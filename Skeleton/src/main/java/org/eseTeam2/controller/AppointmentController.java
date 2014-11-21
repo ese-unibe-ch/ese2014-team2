@@ -90,9 +90,7 @@ public class AppointmentController {
 	User currentUser = userService.getUserByEmail(principal.getName());
 	Advertisement ad = adService.getAdvertisement(adId);
 	ModelAndView model = new ModelAndView("manageScheduledAppointments");
-	/* note for jsp file
-	<c:foreach ad.getAppointments().get(0).getInvitations().get(0).getAppointmentInvitations() 
-	*/
+	
 	model.addObject("appointments", ad.getAppointments());
 	model.addObject("ad", ad);
 	model.addObject("user", currentUser);
@@ -100,13 +98,13 @@ public class AppointmentController {
 	return model;
     }
 
-    @RequestMapping(value = "/rejectInvitation, method = RequestMethod.GET")
+    @RequestMapping(value = "/rejectInvitation", method = RequestMethod.GET)
     public String rejectInvitation(
 	    @RequestParam(value = "appointmentId", required = true) Long appointmentId,
 	    Principal principal) {
 
 	User currentUser = userService.getUserByEmail(principal.getName());
-	appointmentService.acceptInvitation(currentUser, appointmentId);
+	appointmentService.rejectInvitation(currentUser, appointmentId);
 
 	return "redirect:myinbox";
     }

@@ -30,9 +30,9 @@
 				</div>
 				<div class="col-md-2">
 					<c:forEach items="${invitation.appointmentInvitations }" var="message">
-						<c:if test="${ message.appointedAppointment eq appointment.id}"> test
+						<c:if test="${ message.appointedAppointment eq appointment.id}"> 
 							<c:if test="${ message.accepted eq true }"> Einladung wurde Angenommen </c:if>
-							<c:if test="${ message.accepted eq false }"> Einladung wurde Abgelehnt </c:if>
+							<c:if test="${ message.rejected eq true }"> Einladung wurde Abgelehnt </c:if>
 							
 						</c:if>
 					</c:forEach>
