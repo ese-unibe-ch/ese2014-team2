@@ -41,11 +41,15 @@
 
 
 				<div class="col-md-4">
-					<a href="showMessage?messageId=${invitation.id}">
+				<c:forEach items="${invitation.appointmentInvitations }" var="message">
+						<c:if test="${ message.appointedAppointment eq appointment.id}"> 
+					<a href="sendMessageFromAppointment?messageId=${message.id}">
 									<button type="button" class="btn btn-default">
 										<b>Nachricht </b>
 									</button>
 								</a>
+								</c:if>
+								</c:forEach>
 				</div>
 			</div>
 		</c:forEach>

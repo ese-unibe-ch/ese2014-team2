@@ -66,6 +66,21 @@ public class MessageController {
 		return model;
 	}
 	
+	
+	@RequestMapping(value = "/sendMessageFromAppointment", method = RequestMethod.GET)
+	public ModelAndView sendMessageFromAppointment(@RequestParam(value = "messageId", required = true) Long messageId, Principal principal) {
+
+		User currentUser = userService.getUserByEmail(principal.getName());
+		
+		User reciever = messageService.findOneMessage(messageId).getAppointmentInvitations();
+		ModelAndView model = new ModelAndView("sendMessage");
+		model.addObject("sender", currentUser);
+		model.addObject("reciever", reciever );
+		model.addObject("messageForm", new MessageForm());
+		return model;
+	}
+	
+	
 	/**
 	 * this mapping method is used to show the details of a message. It redirects to the "showMsg.jsp" page.
 	 * Triggered when user clicks on a message (inbox.jsp)
