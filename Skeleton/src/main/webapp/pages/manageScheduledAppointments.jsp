@@ -41,7 +41,7 @@
 
 
 				<div class="col-md-4">
-					<a href="sendMessageFromAd?userId=${invitation.id}">
+					<a href="showMessage?messageId=${invitation.id}">
 									<button type="button" class="btn btn-default">
 										<b>Nachricht </b>
 									</button>
