@@ -99,8 +99,7 @@
     <script type="text/javascript">
   $(function() {
     $('#datetimepicker').datetimepicker({
-      pickTime: false,
-      pickSeconds: false
+      pickTime: false
     });
   });
 </script>
@@ -116,7 +115,8 @@
  <script type="text/javascript">
   $(function() {
     $('#timepicker2').datetimepicker({
-      pickDate: false
+      pickDate: false,
+      pickSeconds: false
     });
   });
 </script>
@@ -124,6 +124,13 @@
     $('#myForm').one('submit', function() {
     $(this).find('input[type="submit"]').attr('disabled','disabled');
 });</script>
+
+	
+	 <c:forEach items="${adAppointments}" var="app">
+	 		 <input type="hidden" name="adAppointmentIds" value="${app}" />
+		
+	 </c:forEach>
+	
 
     <button type="submit" class="btn btn-primary btn-lg" onclick="this.disabled=true;this.form.submit();">Setze die Daten!</button>
     

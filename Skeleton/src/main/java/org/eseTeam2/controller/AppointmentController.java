@@ -26,6 +26,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -133,11 +134,23 @@ public class AppointmentController {
 	 * @return
 	 */
 	@RequestMapping(value = "/setzeBesichtigungstermin", method = RequestMethod.GET)
-	public ModelAndView besichtigungsterminSetzen(@RequestParam(value = "adId", required = true) Long adId,
-			HttpServletRequest request, HttpServletResponse response, HttpSession session, Principal principal) {
-
+	public ModelAndView besichtigungsterminSetzen(@RequestParam(value = "adId", required = true) Long adId, 
+		@ModelAttribute("interessentsToSendApp") ArrayList<Long> interessentsToSendApp, 
+		RedirectAttributes redirectAttributes, HttpServletRequest request, HttpServletResponse response, HttpSession session, Principal principal) {
+	   		    
 		Advertisement ad = adService.getAdvertisement(adId);
-		List<AdApplication> applications = ad.getApplications();
+			
+		List<AdApplication> applications = new ArrayList<AdApplication>();
+				
+		if ( interessentsToSendApp.isEmpty())
+		   applications = ad.getApplications();
+		else {
+		    for ( int i = 0; i < interessentsToSendApp.size();i++) {
+			applications.add(appointmentService.findOneApplication(interessentsToSendApp.get(i)));
+		    	}
+		     }
+		
+		
 		List<User> interessents = new ArrayList<User>();
 
 		for (AdApplication a : applications) {
@@ -148,8 +161,29 @@ public class AppointmentController {
 		model.addObject("interessents", interessents);
 		model.addObject("ad", ad);
 		model.addObject("appointmentFinderForm", new AppointmentFinderForm());
+		model.addObject("adAppointments", interessentsToSendApp);
 		return model;
 	}
+	
+	/**
+	 * 
+	 * This mapping method is used to create an appointment for the selected interessents. 
+	 */
+	@RequestMapping(value = "/setzeTeilBesichtigungstermin", method = RequestMethod.POST)
+	public String teilBesichtigunsterminSetzen(@RequestParam("interessentsArr") Long[] interessentsArr,RedirectAttributes redirectAttributes, Principal principal) {
+	    	
+		Advertisement ad = appointmentService.findOneApplication(interessentsArr[0]).getAd();
+		
+		ArrayList<Long> interessentsList = new ArrayList<Long>();
+	    	
+		for ( int i = 0; i < interessentsArr.length;i++) {
+	    	    interessentsList.add(interessentsArr[i]);
+	    	}
+		redirectAttributes.addFlashAttribute("interessentsToSendApp", interessentsList);
+		
+		return "redirect:/setzeBesichtigungstermin?adId="+ad.getId();
+	}
+	
 	
 	
 	/**
@@ -165,22 +199,25 @@ public class AppointmentController {
 	 * @return
 	 */
 	@RequestMapping(value = "/setAppointmentAndInform", method = RequestMethod.POST)
-	public ModelAndView setAppointmentDateAndInform(@Valid AppointmentFinderForm appointmentFinderForm,
-			BindingResult result, RedirectAttributes redirectAttributes, Principal principal) {
+	public ModelAndView setAppointmentDateAndInform(@Valid AppointmentFinderForm appointmentFinderForm, 
+		@RequestParam("adAppointmentIds") Long[] adAppointmentIds,
+		BindingResult result, RedirectAttributes redirectAttributes, Principal principal) {
 		ModelAndView model;
-		Appointment appointment = null;
-		if (!result.hasErrors()) {
-		    try {
-			appointment = adService.getAdvertisement(appointmentFinderForm.getAdId()).getAppointment();
-		    } catch (NullPointerException d) {}
+		ArrayList<Long> interessentsList = new ArrayList<Long>();
+	    	
+		for ( int i = 0; i < adAppointmentIds.length;i++) {
+	    	    interessentsList.add(adAppointmentIds[i]);
+	    	}
 		    
-		    if( appointment == null) {
-			appointmentFinderForm.setAdOwner(userService.getUserByEmail(principal.getName()));
-			appointmentService.sendOutAppointment(appointmentFinderForm);
-			model = new ModelAndView("redirect:/success/createdAppointment");
-			return model; }
-		    else
-			return new ModelAndView("redirect:/success/alreadyHaveAppointment");
+		appointmentFinderForm.setAdAppointmentIds(interessentsList);
+		Appointment appointment = null;
+		
+		if (!result.hasErrors()) {
+		   
+        		appointmentFinderForm.setAdOwner(userService.getUserByEmail(principal.getName()));
+        		appointmentService.sendOutAppointment(appointmentFinderForm);
+        		model = new ModelAndView("redirect:/success/createdAppointment");
+        		return model; //}
 
 		} else {
 			model = new ModelAndView("setAppointmentForAd");

@@ -21,34 +21,49 @@
 			<br>
 			<font size="6">Nachrichten Titel:</font>
 			<br>
+			
+			<form action="setzeTeilBesichtigungstermin" method="POST">
 
 			<c:forEach items="${interessents}" var="interessent">
 				
 					<div class="row">
-					<div class="col-md-8">
+					<div class="col-md-7">
 					<a href="interessentDetails?applicationId=${interessent.id}">
 							<font size="5"> ${interessent.applicant.firstName},
 								${interessent.applicant.lastName }</font> </a>
 								</div>
 							
 					
-					<div class="col-md-4">
-								
-
+				
+					
+					<div class="btn-toolbar">
+  							
+  					
+  						<div class="btn-group">
+							<label class="btn btn-default btn-lg">
+								<input type="checkbox" name="interessentsArr"  value="${interessent.id }"/>
+								<b>Einladung schicken</b>
+							</label>
+										</div>		    
+					
+												    
 							
-								<a href="removeInteressent?applicationId=${interessent.id}">
+							<div class="btn-group">
+							  <a href="removeInteressent?applicationId=${interessent.id}">
 								<button type="button" class="btn btn-default">
 									<b> Lehne den Bewerber ab </b>
 								</button>
 								</a>
-
-						
+							</div>
+							  
 							</div>
 							</div>
-				
+							
 			</c:forEach>
-
-
+			
+			<button type="submit" class="btn btn-primary"  onclick="this.disabled=true;this.form.submit();">Setze Besichtigungstermin</button>
+			<button type="button" class="btn btn-danger">Cancel</button>
+		</form>
 
 			
 

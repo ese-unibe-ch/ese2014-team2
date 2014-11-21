@@ -131,7 +131,7 @@ public class AppointmentService implements IAppointmentService {
 	 * for all Interessents. And also notifies them via E-mail.
 	 */
 	// refactor potential
-	public void sendOutAppointment(AppointmentFinderForm appForm) {
+	public void sendOutAppointment(AppointmentFinderForm appForm ) {
 
 		Appointment appointment = new Appointment();
 		AppointmentDate date = new AppointmentDate();
@@ -141,7 +141,11 @@ public class AppointmentService implements IAppointmentService {
 		User adOwner = appForm.getAdOwner();
 
 		Advertisement ad = adDao.findOne(appForm.getAdId());
-		List<AdApplication> applicationsOfAd = ad.getApplications();
+		List<AdApplication> applicationsOfAd = new ArrayList<AdApplication>();
+		
+		for ( int i = 0; i < appForm.getAdAppointmentIds().size(); i++)
+			applicationsOfAd.add(adApplicationDao.findOne(appForm.getAdAppointmentIds().get(i)));
+		    
 		Set<User> interessentsOfAd = new LinkedHashSet<User>();
 		
 		for ( AdApplication application : applicationsOfAd) {

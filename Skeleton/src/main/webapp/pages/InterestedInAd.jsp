@@ -19,13 +19,7 @@
 
 			<form:hidden path="adId" id="field-reciever" value="${adId }" />
 			
-			<div class="row">
-			<label class="col-md-4">Titel: </label>
-				<div class="col-md-4">
-					<form:input path="title" id="field-title" tabindex="1" maxlength="10" />
-				</div>
-			</div>
-			
+						
 			<div class="row">
 			<label class="col-md-4">Bis wann möchtest du das Zimmer? (Falls unbegrenzt, einfach leerlassen): </label>
 				<div class="col-md-4">

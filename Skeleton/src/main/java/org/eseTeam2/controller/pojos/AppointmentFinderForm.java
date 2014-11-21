@@ -2,6 +2,7 @@ package org.eseTeam2.controller.pojos;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -34,6 +35,8 @@ public class AppointmentFinderForm {
 	private String blockLength;
 	@Size(min=1, message=" Weitere infos sollte nicht ganz leer sein. Gib doch den Bewerbern ein paar infos über den Ablauf :)")
 	private String additionalInfosForTheVisitors;
+	
+	private List<Long> adAppointmentIds;
 
 	
 	public ArrayList<String> getStartTimes() {
@@ -91,6 +94,14 @@ public class AppointmentFinderForm {
 
 	public void setAppointmentDate(ArrayList<String> appointmentDate) {
 		this.appointmentDate = appointmentDate;
+	}
+
+	public List<Long> getAdAppointmentIds() {
+	    return adAppointmentIds;
+	}
+
+	public void setAdAppointmentIds(List<Long> adAppointmentIds) {
+	    this.adAppointmentIds = adAppointmentIds;
 	}
 
 	
