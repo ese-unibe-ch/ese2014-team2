@@ -16,10 +16,16 @@
 		
 */
 
+
 #carousel-example-generic {
-	width:700px !important;
-	margin-left:auto;
-	margin-right:auto;	
+	width:600px !important;
+	height:600px !important;
+	float:right;	
+}
+
+#adprofile_keyinfo {
+	widht:600px;
+	float:left;
 }
 
 legend {

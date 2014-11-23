@@ -1,0 +1,341 @@
+2014-11-23 13:05:20,219 [Worker-4] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: Skeleton:Skeleton:1.0 @ /Users/Raffael/Documents/ese2014-team2/Skeleton/pom.xml.
+2014-11-23 13:05:25,542 [Worker-4] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Skeleton/src/main/java
+2014-11-23 13:05:25,543 [Worker-4] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Skeleton/src/test/java
+2014-11-23 13:05:25,940 [Worker-8] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: Skeleton:Skeleton:1.0 @ /Users/Raffael/Documents/ese2014-team2/Skeleton/pom.xml.
+2014-11-23 13:05:26,472 [Worker-4] ERROR o.e.m2e.wtp.WTPProjectConfigurator - Unable to configure Skeleton
+org.eclipse.m2e.wtp.MarkedException: Unable to configure Skeleton
+	at org.eclipse.m2e.wtp.AbstractProjectConfiguratorDelegate.configureProject(AbstractProjectConfiguratorDelegate.java:97) ~[na:na]
+	at org.eclipse.m2e.wtp.WTPProjectConfigurator.configure(WTPProjectConfigurator.java:70) ~[na:na]
+	at org.eclipse.m2e.core.project.configurator.AbstractLifecycleMapping.configure(AbstractLifecycleMapping.java:120) [org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager$3.call(ProjectConfigurationManager.java:477) [org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager$3.call(ProjectConfigurationManager.java:1) [org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:166) [org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:142) [org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.updateProjectConfiguration(ProjectConfigurationManager.java:470) [org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.configureNewMavenProjects(ProjectConfigurationManager.java:250) [org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager$1.call(ProjectConfigurationManager.java:163) [org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager$1.call(ProjectConfigurationManager.java:1) [org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:166) [org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:142) [org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:96) [org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1348) [org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.importProjects(ProjectConfigurationManager.java:133) [org.eclipse.m2e.core_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.ui.internal.wizards.ImportMavenProjectsJob$1.doCreateMavenProjects(ImportMavenProjectsJob.java:73) [org.eclipse.m2e.core.ui_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.ui.internal.wizards.AbstractCreateMavenProjectsOperation.run(AbstractCreateMavenProjectsOperation.java:62) [org.eclipse.m2e.core.ui_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.m2e.core.ui.internal.wizards.ImportMavenProjectsJob.runInWorkspace(ImportMavenProjectsJob.java:82) [org.eclipse.m2e.core.ui_1.5.0.20140606-0033.jar:na]
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38) [org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54) [org.eclipse.core.jobs_3.6.0.v20140424-0053.jar:na]
+Caused by: org.eclipse.core.runtime.CoreException: One or more constraints have not been satisfied.
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.modifyInternal(FacetedProject.java:363) ~[na:na]
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.mergeChangesInternal(FacetedProject.java:1181) ~[na:na]
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.access$2(FacetedProject.java:1117) ~[na:na]
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject$1.run(FacetedProject.java:324) ~[na:na]
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313) ~[org.eclipse.core.resources_3.9.1.v20140825-1431.jar:na]
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.modify(FacetedProject.java:339) ~[na:na]
+	at org.eclipse.m2e.wtp.WebProjectConfiguratorDelegate.configure(WebProjectConfiguratorDelegate.java:150) ~[na:na]
+	at org.eclipse.m2e.wtp.AbstractProjectConfiguratorDelegate.configureProject(AbstractProjectConfiguratorDelegate.java:93) ~[na:na]
+	... 20 common frames omitted
+2014-11-23 13:05:27,367 [Worker-4] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 19 sec
+2014-11-23 13:05:31,739 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:05:31,740 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:05:31,740 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:05:31,742 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:05:31,742 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:20:51,151 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:20:51,163 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:20:51,163 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:20:51,166 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:20:51,166 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:21:46,299 [main] INFO  o.e.m2e.actions.ExecutePomAction - Creating new launch configuration
+2014-11-23 13:21:56,832 [Worker-4] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/Raffael/Documents/ese2014-team2/Skeleton
+2014-11-23 13:21:56,847 [Worker-4] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jetty:stop jetty:run
+2014-11-23 13:24:12,216 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:24:12,217 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:24:12,217 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:24:12,218 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:24:12,218 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:24:37,683 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:24:37,683 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:24:37,683 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:24:37,684 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:24:37,684 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:24:48,869 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:24:48,869 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:24:48,869 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:24:48,870 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:24:48,870 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:24:56,681 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:24:56,681 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:24:56,681 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:24:56,682 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:24:56,682 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:27:16,939 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:27:16,939 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:27:16,939 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:27:16,940 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:27:16,940 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:27:20,433 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:27:20,433 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:27:20,433 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:27:20,434 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:27:20,434 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:27:27,601 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:27:27,601 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:27:27,602 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:27:27,604 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:27:27,604 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:28:19,385 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:28:19,385 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:28:19,385 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:28:19,386 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:28:19,387 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:29:49,215 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:29:49,215 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:29:49,215 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:29:49,216 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:29:49,217 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:30:42,346 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:30:42,347 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:30:42,347 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:30:42,348 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:30:42,348 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:31:12,832 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:31:12,833 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:31:12,833 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:31:12,834 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:31:12,835 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:32:05,585 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:32:05,585 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:32:05,585 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:32:05,586 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:32:05,586 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:32:23,516 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:32:23,517 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:32:23,517 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:32:23,518 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:32:23,518 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:32:25,270 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:32:25,270 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:32:25,270 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:32:25,271 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:32:25,272 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:33:16,435 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:33:16,435 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:33:16,435 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:33:16,437 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:33:16,438 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:33:48,371 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:33:48,371 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:33:48,371 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:33:48,372 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:33:48,372 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:34:33,544 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:34:33,544 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:34:33,545 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:34:33,546 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:34:33,546 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:34:50,287 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:34:50,287 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:34:50,287 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:34:50,288 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:34:50,288 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:35:56,569 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:35:56,569 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:35:56,569 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:35:56,570 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:35:56,570 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:37:56,819 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:37:56,819 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:37:56,819 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:37:56,820 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:37:56,820 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:38:04,304 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:38:04,304 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:38:04,304 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:38:04,305 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:38:04,305 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:39:08,290 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:39:08,290 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:39:08,290 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:39:08,291 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:39:08,291 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:39:37,466 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:39:37,466 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:39:37,466 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:39:37,467 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:39:37,467 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:40:07,889 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:40:07,890 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:40:07,890 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:40:07,890 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:40:07,890 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:40:50,219 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:40:50,220 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:40:50,220 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:40:50,221 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:40:50,221 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:41:44,590 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:41:44,590 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:41:44,590 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:41:44,591 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:41:44,591 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:42:06,509 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:42:06,509 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:42:06,509 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:42:06,510 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:42:06,510 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:42:28,297 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:42:28,297 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:42:28,297 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:42:28,298 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:42:28,298 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:42:35,594 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:42:35,594 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:42:35,594 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:42:35,595 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:42:35,595 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:43:17,638 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:43:17,638 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:43:17,638 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:43:17,639 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:43:17,639 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:47:08,874 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:47:08,874 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:47:08,874 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:47:08,875 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:47:08,875 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:54:35,382 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:54:35,383 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:54:35,383 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:54:35,384 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:54:35,384 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:55:37,131 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:55:37,131 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:55:37,131 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:55:37,132 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:55:37,132 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:56:37,742 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:56:37,743 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:56:37,743 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:56:37,744 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:56:37,744 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:57:47,480 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:57:47,480 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:57:47,480 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:57:47,481 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:57:47,481 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:58:34,608 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:58:34,609 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:58:34,609 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:58:34,609 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:58:34,609 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:59:11,946 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:59:11,946 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:59:11,946 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:59:11,947 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:59:11,947 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 13:59:22,105 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:59:22,106 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:59:22,106 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 13:59:22,106 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 13:59:22,106 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 14:01:00,648 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:01:00,648 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:01:00,648 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:01:00,649 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:01:00,649 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 14:01:26,917 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:01:26,917 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:01:26,917 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:01:26,918 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:01:26,918 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 14:01:36,677 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:01:36,677 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:01:36,677 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:01:36,678 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:01:36,678 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 14:01:40,149 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:01:40,149 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:01:40,149 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:01:40,150 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:01:40,150 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 14:03:02,601 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:03:02,601 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:03:02,601 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:03:02,602 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:03:02,602 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 14:03:06,503 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:03:06,503 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:03:06,503 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:03:06,504 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:03:06,504 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 14:03:42,569 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:03:42,569 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:03:42,569 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:03:42,570 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:03:42,570 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 14:04:15,420 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:04:15,420 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:04:15,421 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:04:15,421 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:04:15,421 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 14:04:24,601 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:04:24,602 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:04:24,602 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:04:24,603 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:04:24,603 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 14:04:33,378 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:04:33,378 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:04:33,378 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:04:33,378 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:04:33,378 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 14:05:37,824 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:05:37,824 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:05:37,824 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:05:37,825 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:05:37,825 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 14:06:19,122 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:06:19,122 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:06:19,122 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:06:19,123 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:06:19,123 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 14:07:19,551 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:07:19,551 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:07:19,551 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:07:19,551 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:07:19,551 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 14:08:28,710 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:08:28,710 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:08:28,710 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:08:28,711 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:08:28,711 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 14:09:21,626 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:09:21,627 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:09:21,627 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:09:21,628 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:09:21,628 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 14:09:48,325 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:09:48,326 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:09:48,326 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:09:48,326 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:09:48,326 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 14:10:01,803 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:10:01,803 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:10:01,803 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:10:01,803 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:10:01,803 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 14:10:06,248 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:10:06,248 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:10:06,248 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:10:06,249 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:10:06,249 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 14:11:11,933 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:11:11,933 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:11:11,933 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:11:11,934 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:11:11,934 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources
+2014-11-23 14:11:55,324 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:11:55,324 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:11:55,324 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/main/resources
+2014-11-23 14:11:55,325 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2014-11-23 14:11:55,325 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Raffael/Documents/ese2014-team2/Skeleton/src/test/resources

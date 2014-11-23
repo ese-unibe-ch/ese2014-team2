@@ -13,7 +13,6 @@
 
 
 
-<legend>Bilder:</legend>
 
 <!--  CAROUSEL SLIDER TEST  -->
 
@@ -44,8 +43,8 @@
 
 		<c:if test="${not empty mainPic}">
 			<div class="item active">
-				<img src="getUserImage/ <c:out value="${mainPic.id}"/>" width="700"
-					height="700">
+				<img src="getUserImage/ <c:out value="${mainPic.id}"/>" width="600"
+					height="600">
 				<div class="carousel-caption"></div>
 
 			</div>
@@ -56,8 +55,8 @@
 
 		<c:forEach items="${pictures}" var="pics">
 			<div class="item">
-				<img src="getUserImage/ <c:out value="${pics.id}"/>" width="700"
-					height="700">
+				<img src="getUserImage/ <c:out value="${pics.id}"/>" width="600"
+					height="600">
 				<div class="carousel-caption"></div>
 			</div>
 		</c:forEach>
@@ -86,75 +85,46 @@
 	});
 </script>
 
+	<div class="col-md-5">
+		<legend>Addresse:</legend>
+		<div class="row">
+			<label class="col-md-6">Kanton:</label>
+			<p>${newAdProfile.kanton}</p>
+		</div>
 
+		<div class="row">
+			<label class="col-md-6">Stadt:</label>
+			<p>${newAdProfile.city}</p>
+		</div>	
 
+		<div class="row">
+			<label class="col-md-6">Postleizahl:</label>
+			<p>${newAdProfile.plz}</p>
+		</div>
 
-<!--  CAROUSEL SLIDER END -->
-
-
-<legend>Addresse: </legend>
-
-<div class="row">
-	<label class="col-md-4">Kanton:</label>
-	<p>${newAdProfile.kanton}</p>
-</div>
-
-<div class="row">
-	<label class="col-md-4">Stadt:</label>
-	<p>${newAdProfile.city}</p>
-</div>
-
-<div class="row">
-	<label class="col-md-4">Postleizahl:</label>
-	<p>${newAdProfile.plz}</p>
-</div>
-
-<div class="row">
-	<label class="col-md-4">Strasse:</label>
-	<p>${newAdProfile.address}</p>
-</div>
-
-
-
-<legend>Grundlegendes:</legend>
-
-
-
-
-<div class="row col-md-6">
-
-
-	<div class="row">
-		<label class="col-md-6">Monatliche Miete:</label>
-		<p>${newAdProfile.roomPrice }</p>
-	</div>
-
-
-	<div class="row">
-		<label class="col-md-6">Von:</label>
-		<p>${newAdProfile.start}</p>
-	</div>
-
-	<div class="row">
-		<label class="col-md-6">Bis:</label>
-		<p>${newAdProfile.until}</p>
-	</div>
-
-	<div class="row">
-		<label class="col-md-6">Zimmergrösse:</label>
-		<p>${newAdProfile.roomSpace}</p>
-	</div>
-
-
-
-</div>
-
-
-
-<div class="row">
-	<div class="col-md-6">
-
-
+		<div class="row">
+			<label class="col-md-6">Strasse:</label>
+			<p>${newAdProfile.address}</p>
+		</div>
+		
+		<legend>Grundlegendes:</legend>
+		<div class="row">
+			<label class="col-md-6">Monatliche Miete:</label>
+			<p>${newAdProfile.roomPrice }</p>
+		</div>
+		<div class="row">
+			<label class="col-md-6">Von:</label>
+			<p>${newAdProfile.start}</p>
+		</div>
+		<div class="row">
+			<label class="col-md-6">Bis:</label>
+			<p>${newAdProfile.until}</p>
+		</div>
+		<div class="row">
+			<label class="col-md-6">Zimmergrösse:</label>
+			<p>${newAdProfile.roomSpace}</p>
+		</div>
+		
 		<div class="row">
 			<label class="col-md-6">Anzahl an Mitbewohnern:</label>
 			<p>${newAdProfile.nmbrOfRoommates}</p>
@@ -183,21 +153,25 @@
 				</c:choose>
 			</p>
 		</div>
-
-
+		
 	</div>
-</div>
 
 
+		<div class="col-md-8">
+			<legend>Über die Wohnung:</legend>
+			<p>${newAdProfile.description_ad}</p>
+		</div>
+		
+		
+	
+			
+			
+<div class="row col-md-4">
 <legend>Gut zu wissende Dinge:</legend>
-
-
-<div class="row col-md-6">
-
 
 	<div class="row">
 
-		<label class="col-md-6">Hat es einen Geschirrspüler?</label>
+		<label class="col-md-8">Hat es einen Geschirrspüler?</label>
 
 		<c:choose>
 			<c:when test="${newAdProfile.hasDishwasher}">
@@ -215,7 +189,7 @@
 
 
 	<div class="row">
-		<label class="col-md-6">Hat es eine Waschmachine?</label>
+		<label class="col-md-8">Hat es eine Waschmachine?</label>
 		<p>
 			<c:choose>
 				<c:when test="${newAdProfile.hasLaundry}">
@@ -229,7 +203,7 @@
 	</div>
 
 	<div class="row">
-		<label class="col-md-6">Hat es einen Balkon?</label>
+		<label class="col-md-8">Hat es einen Balkon?</label>
 		<p>
 			<c:choose>
 				<c:when test="${newAdProfile.hasBalcony}">
@@ -244,7 +218,7 @@
 
 
 	<div class="row">
-		<label class="col-md-6">Wird im Haus geraucht?</label>
+		<label class="col-md-8">Wird im Haus geraucht?</label>
 		<p>
 			<c:choose>
 				<c:when test="${newAdProfile.smokingInside}">
@@ -257,7 +231,7 @@
 		</p>
 	</div>
 	<div class="row">
-		<label class="col-md-6">Sind Haustiere erlaubt?</label>
+		<label class="col-md-8">Sind Haustiere erlaubt?</label>
 		<p>
 			<c:choose>
 				<c:when test="${newAdProfile.hasPets}">
@@ -271,7 +245,7 @@
 	</div>
 
 	<div class="row">
-		<label class="col-md-6">Hat es Wlan?</label>
+		<label class="col-md-8">Hat es Wlan?</label>
 		<p>
 			<c:choose>
 				<c:when test="${newAdProfile.wlan}">
@@ -283,16 +257,15 @@
 			</c:choose>
 		</p>
 	</div>
-
 </div>
+	
+	<div class="col-md-8">
+			<legend>Über das Zimmer:</legend>
+			<p>${newAdProfile.description_room}</p>
+	</div> 
 
-
-
-
-<div class="row">
-	<div class="col-md-6">
-
-
+<div class="row col-md-4">
+<legend>Zum Zimmer:</legend>
 		<div class="row">
 			<label class="col-md-8">Hat es im Zimmer einen Einbauschrank?</label>
 			<p>
@@ -356,23 +329,35 @@
 
 
 	</div>
-</div>
+
+	
+		<div class="col-md-8">
+			<legend>Über Uns:</legend>
+			<p>${newAdProfile.description_us}</p>
+		</div>
+		
+		<div class="col-md-8">
+			<legend>Über Dich:</legend>
+			<p>${newAdProfile.whoWeAreLookingFor}</p>
+		</div>
+<!--  CAROUSEL SLIDER END -->
 
 
 
 
 
-<legend>Über die Wohnung:</legend>
-<p>${newAdProfile.description_ad}</p>
 
-<legend>Über das Zimmer:</legend>
-<p>${newAdProfile.description_room}</p>
 
-<legend>Über Uns:</legend>
-<p>${newAdProfile.description_us}</p>
 
-<legend>Über Dich:</legend>
-<p>${newAdProfile.whoWeAreLookingFor}</p>
+
+
+
+
+
+
+
+
+
 
 <div class="row">
 	<label class="col-md-4">Du bist:</label>
