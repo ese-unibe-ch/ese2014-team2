@@ -9,11 +9,13 @@
 
 <c:import url="template/header.jsp" />
 
-<p>${infoMessage}</p>
 
 
 <div class="col-md-12">
 
+<c:if test="${not empty infoMessage}">
+<div class="alert alert-success" role="alert"><font color="006600" size="3"> ${infoMessage}</font></div>
+</c:if>
 <!--  CAROUSEL SLIDER TEST  -->
 
 <div id="carousel-example-generic" class="carousel slide"

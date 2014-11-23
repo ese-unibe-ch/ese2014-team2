@@ -66,8 +66,7 @@ public class SuccessController {
 		    return "redirect:/successPage?messageSent=true";
 		if( action.equals("userRegistered"))
 		    return "redirect:/successPage?userRegistered=true";
-		if( action.equals("alreadyHaveAppointment"))
-		    return "redirect:/successPage?alreadyHaveAppointment=true";
+		
 		
 
 		return "redirect:/index";

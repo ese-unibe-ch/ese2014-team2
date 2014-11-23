@@ -154,7 +154,7 @@ public class MessageController {
 		return model;
 
 	}
-
+	
 	/**
 	 * this mapping method is used to show/ hide the various message tabs on the inbox.jsp page
 	 * PathVariables are used.

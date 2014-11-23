@@ -122,6 +122,16 @@ public class ApplicantsController {
 	}
 	
 
+	
+	/** 
+	 * This mapping method is triggered when you call /sendResume. 
+	 * It takes a valid applicantForm and submits it to the adOwner.
+	 * @param applicantForm
+	 * @param result
+	 * @param redirectAttributes
+	 * @param principal
+	 * @return
+	 */
 	@RequestMapping(value="/sendResume", method = RequestMethod.POST)
 	public String setAppointmentDateAndInform (@Valid ApplicantForm applicantForm, BindingResult result,
 	RedirectAttributes redirectAttributes,Principal principal) {
@@ -131,13 +141,16 @@ public class ApplicantsController {
 		
 		// check if the user already applied. If he did, just redirect him to the adpage. 
 		for (AdApplication adApp: adApplications ) {
-			if ( adApp.getApplicant().getId() ==  currentUser.getId())
+			if ( adApp.getApplicant().getId() ==  currentUser.getId()) {
+			    	redirectAttributes.addFlashAttribute("infoMessage", "Du hast dich dort bereits Beworben.");
 				return "redirect:/adprofile?adId="+applicantForm.getAdId();
+			}
 		}
 		applicantForm.setInteressent(currentUser);
 		
 		appointmentService.addInteressent(applicantForm);
 		
+		redirectAttributes.addFlashAttribute("infoMessage", "Du hast dich erfolgreich beworben. ");
 		return "redirect:/adprofile?adId="+applicantForm.getAdId();
 		
 	}
