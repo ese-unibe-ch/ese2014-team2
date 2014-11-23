@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.servlet.ServletContext;
@@ -13,11 +14,13 @@ import org.eseTeam2.controller.pojos.AdForm;
 import org.eseTeam2.model.AdApplication;
 import org.eseTeam2.model.Advertisement;
 import org.eseTeam2.model.Appointment;
+import org.eseTeam2.model.Message;
 import org.eseTeam2.model.Picture;
 import org.eseTeam2.model.User;
 import org.eseTeam2.model.dao.AdApplicationDao;
 import org.eseTeam2.model.dao.AdvertisementDao;
 import org.eseTeam2.model.dao.AppointmentDao;
+import org.eseTeam2.model.dao.MessageDao;
 import org.eseTeam2.model.dao.PictureDao;
 import org.eseTeam2.model.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +50,8 @@ public class AdDataService implements IAdDataService {
     AdApplicationDao applicationDao;
     @Autowired
     UserDao userDao;
+    @Autowired
+    MessageDao messageDao;
     @Autowired
     IMailService mailer;
     @Autowired
@@ -169,16 +174,28 @@ public class AdDataService implements IAdDataService {
 	ArrayList<String> getters = filterService.getGettersOfFilterForm();
 	for (User filterUser : usersWithFilters) {
 	    if (filterService.isNewAdMatch(filterUser.getExampleAd(), getters,
-		    ad) == true)
+		    ad) == true){
+		String title = "Ein neues Ad das dich interssieren könnte wurde aufgeschaltet";
+		String message = "A new ad has been put up "
+			    + "http://localhost8080:Skeleton/adprofile?adId="
+			    + ad.getId();
 		try {
 		    mailer.sendEmail(
-			    filterUser.getEmail(),
-			    "A new ad has been put up "
-				    + "http://localhost8080:Skeleton/adprofile?adId="
-				    + ad.getId(),
-			    "A new ad which might interest you has been put online.");
+			    filterUser.getEmail(),message ,
+			    title);
 		} catch (MailSendException d) {
 		}
+	    Message notification = new Message();
+	    notification.setTitle(title); 
+	    notification.setMessageText(message);
+	    notification.setRecipient(filterUser);
+	    notification.setNotifications(filterUser);
+	    List<Message> userNotifications = filterUser.getNotifications();
+	    userNotifications.add(notification);
+	    filterUser.setNotifications(userNotifications);
+	    messageDao.save(notification);
+	    userDao.save(filterUser);}
+	   
 	}
 
 	creator = userDao.save(creator);
