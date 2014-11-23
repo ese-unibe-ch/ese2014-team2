@@ -12,7 +12,7 @@
 	<h1>Post your Ad!</h1>
 
 
-	<form:form method="post" modelAttribute="adForm" action="enlistad" id="adForm" cssClass="form-horizontal" autocomplete="off" enctype="multipart/form-data">
+	<form:form method="post"  modelAttribute="adForm" action="enlistad" id="adForm" cssClass="form-horizontal" autocomplete="off" enctype="multipart/form-data" accept-charset="utf-8">
 		<fieldset>
 			<legend>Grundlegende Infos:</legend>
 			
