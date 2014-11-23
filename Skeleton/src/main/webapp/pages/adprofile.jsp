@@ -12,12 +12,12 @@
 <p>${infoMessage}</p>
 
 
-
+<div class="col-md-12">
 
 <!--  CAROUSEL SLIDER TEST  -->
 
 <div id="carousel-example-generic" class="carousel slide"
-	data-ride="carousel" data-interval="false">
+	data-ride="carousel" data-interval="false" >
 	<!-- Indicators -->
 	<ol class="carousel-indicators">
 		<li data-target="#carousel-example-generic" data-slide-to="0"
@@ -43,8 +43,7 @@
 
 		<c:if test="${not empty mainPic}">
 			<div class="item active">
-				<img src="getUserImage/ <c:out value="${mainPic.id}"/>" width="600"
-					height="600">
+				<img src="getUserImage/ <c:out value="${mainPic.id}"/>" >
 				<div class="carousel-caption"></div>
 
 			</div>
@@ -55,8 +54,7 @@
 
 		<c:forEach items="${pictures}" var="pics">
 			<div class="item">
-				<img src="getUserImage/ <c:out value="${pics.id}"/>" width="600"
-					height="600">
+				<img src="getUserImage/ <c:out value="${pics.id}"/>" style="width:640px;height:600px">
 				<div class="carousel-caption"></div>
 			</div>
 		</c:forEach>
@@ -154,9 +152,35 @@
 			</p>
 		</div>
 		
+		
+<a href="userInterested?adId=${newAdProfile.id}">
+	<button type="button" class="btn btn-default btn-block">
+		<b>Ich hätte interesse an einer Besichtigung</b>
+	</button>
+</a>
+
+<c:choose>
+	<c:when test="${bookmarked}">
+		<a href="unBookmarkAd?adId=${newAdProfile.id}">
+		<button type="button" class="btn btn-default btn-block">
+			<b>Aus Favoriten entfernen</b>
+		</button>
+	</a>
+	</c:when>
+	<c:otherwise>
+		<a href="bookmarkAd?adId=${newAdProfile.id}">
+		<button type="button" class="btn btn-default btn-block">
+			<b>Hinzufügen zu Favoriten</b>
+		</button>
+	</a>
+	</c:otherwise>
+</c:choose>
+		
+		
+	</div>
 	</div>
 
-
+<div class="col-md-12">
 		<div class="col-md-8">
 			<legend>Über die Wohnung:</legend>
 			<p>${newAdProfile.description_ad}</p>
@@ -330,7 +354,7 @@
 
 	</div>
 
-	
+	<div class="col-md-12">
 		<div class="col-md-8">
 			<legend>Über Uns:</legend>
 			<p>${newAdProfile.description_us}</p>
@@ -340,39 +364,31 @@
 			<legend>Über Dich:</legend>
 			<p>${newAdProfile.whoWeAreLookingFor}</p>
 		</div>
-<!--  CAROUSEL SLIDER END -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		
+		<div class="col-md-4">
 <div class="row">
-	<label class="col-md-4">Du bist:</label>
+	<label class="col-md-8">Du bist:</label>
 	<p>${newAdProfile.smoker}</p>
 </div>
 
 <div class="row">
-	<label class="col-md-4">Du bist:</label>
+	<label class="col-md-8">Du bist:</label>
 	<p>${newAdProfile.genderWeLookFor}</p>
 </div>
 
 <div class="row">
-	<label class="col-md-4">Du bist im alter von:</label>
+	<label class="col-md-8">Du bist im alter von:</label>
 	<p>${newAdProfile.ageRange}</p>
 </div>
+
+</div>
+
+
+
+
+
+</div>
+
 
 
 <a href="/Skeleton/ads"><button class="btn btn-danger">Back</button></a>
@@ -382,32 +398,9 @@
 	</button>
 </a>
 
-<a href="userInterested?adId=${newAdProfile.id}">
-	<button type="button" class="btn btn-default">
-		<b>Ich hätte interesse an einer Besichtigung</b>
-	</button>
-</a>
-
-<c:choose>
-	<c:when test="${bookmarked}">
-		<a href="unBookmarkAd?adId=${newAdProfile.id}">
-		<button type="button" class="btn btn-default">
-			<b>Aus Favoriten entfernen</b>
-		</button>
-	</a>
-	</c:when>
-	<c:otherwise>
-		<a href="bookmarkAd?adId=${newAdProfile.id}">
-		<button type="button" class="btn btn-default">
-			<b>Hinzufügen zu Favoriten</b>
-		</button>
-	</a>
-	</c:otherwise>
-</c:choose>
 
 
-
-
+</div>
 
 
 
