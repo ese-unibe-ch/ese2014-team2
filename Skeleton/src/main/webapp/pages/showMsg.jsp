@@ -24,13 +24,13 @@
 			
 					
 							<form:hidden path="recipientId" id="field-Answer"
-								tabindex="23" value="${recipient.id }" />
+								 value="${recipient.id }" />
 					
 			
 			<div class="row">
 			<label class="col-md-4">Titel: </label>
 				<div class="col-md-4">
-					<form:input path="title" id="field-title" tabindex="1" maxlength="10" />
+					<form:input path="title" id="field-title"  maxlength="30" />
 				</div>
 			</div>
 			
@@ -39,7 +39,7 @@
 			</div>
 			<div class="row">
 						<div class="textareabig">
-							<form:textarea rows="10" cols="90" path="message" id="field-Message" tabindex="24" />
+							<form:textarea rows="10" cols="90" path="message" id="field-Message"  />
 						</div>
 			</div>
 	

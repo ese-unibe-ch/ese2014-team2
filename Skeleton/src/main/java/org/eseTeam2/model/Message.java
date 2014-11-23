@@ -22,7 +22,8 @@ public class Message {
 	@Id
 	@GeneratedValue
 	private Long id;
-
+	
+	@Column( length=50000)
 	private String title;
 	
 	

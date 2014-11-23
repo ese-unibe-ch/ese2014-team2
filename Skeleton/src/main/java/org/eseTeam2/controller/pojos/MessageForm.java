@@ -18,7 +18,7 @@ public class MessageForm {
     private String message;
 
     private User sender;
-	private Long recipientId;
+    private Long recipientId;
    // private User recipient;
 
     public Long getId() {
