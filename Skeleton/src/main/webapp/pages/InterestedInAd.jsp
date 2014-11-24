@@ -45,7 +45,7 @@
 
 			<div class="form-actions">
 							<button type="submit" class="btn btn-primary" id="send">Send</button>
-				<button type="button" class="btn btn-danger">Cancel</button>
+				<a href="#" onclick="history.go(-2)">	<button type="button" class="btn btn-danger">Zurück</button></a>
 			</div>
 		
 					</fieldset>

@@ -52,11 +52,17 @@
 				</c:choose>
 			</p>
 		</div>
+		
+		<a href="#" onclick="history.go(-2)">	<button type="button" class="btn btn-danger">Zurück</button></a>
+		
+		
 		<a href="removeInteressent?applicationId=${application.id }">
 								<button type="button" class="btn btn-default">
 									<b> Lehne den Bewerber ab </b>
 								</button>
 								</a>
+								
+								
 								
 	</div>
 </div>
