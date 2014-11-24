@@ -6,6 +6,69 @@
 
 <c:import url="template/header.jsp" />
 
+
+<script>
+
+$(document).ready(function(){
+  $("#showReceived").click(function(){
+    $("#received").toggle();
+    $("#sent").hide();
+    $("#invitations").hide();
+    $("#notifications").hide();
+   
+  });
+});
+
+
+</script>
+
+<script>
+
+$(document).ready(function(){
+  $("#showSent").click(function(){
+    $("#sent").toggle();
+    $("#received").hide();
+    $("#invitations").hide();
+    $("#notifications").hide();
+
+  });
+});
+
+
+</script>
+
+<script>
+
+$(document).ready(function(){
+  $("#showInvitations").click(function(){
+    $("#invitations").toggle();
+    $("#received").hide();
+    $("#sent").hide();
+    $("#notifications").hide();
+
+  });
+});
+
+
+</script>
+
+<script>
+
+$(document).ready(function(){
+  $("#showNotifications").click(function(){
+    $("#notifications").toggle();
+    $("#received").hide();
+    $("#sent").hide();
+    $("#invitations").hide();
+
+  });
+});
+
+
+</script>
+
+			
+
 <h1>${user.firstName } ${user.lastName}'s  Inbox</h1>
 
 <div class="panel panel-default">
@@ -13,31 +76,29 @@
   
 <div class="btn-group btn-group-justified">
   <div class="btn-group">
-    <a href="inboxShow/showReceived">
-    <button type="button" class="btn btn-default"><b>meine Nachrichten</b></button>
-    </a>
+
+    <button id="showReceived" type="button" class="btn btn-default"><b>Empfangene Nachrichten</b></button>
+ 
   </div>
   <div class="btn-group">
-  <a href="inboxShow/showSent">
-    <button type="button" class="btn btn-default"><b>meine gesendeten Nachrichten</b></button>
-    </a>
+    <button id="showSent" type="button" class="btn btn-default"><b>Gesendete Nachrichten</b></button>
   </div>
  
   <div class="btn-group">
-  <a href="inboxShow/invitations">
-    <button type="button" class="btn btn-default"><b>Zeige Besichtigungseinladungen</b></button>
-    </a>
+ 
+    <button id="showInvitations" type="button" class="btn btn-default"><b>Einladungen</b></button>
+
   </div>
   <div class="btn-group">
-  <a href="inboxShow/notifications">
-    <button type="button" class="btn btn-default"><b>Benachrichtigungen</b></button>
-    </a>
+ 
+    <button id="showNotifications" type="button" class="btn btn-default"><b>Benachrichtigungen</b></button>
+
   </div>
 </div>
 
-<c:if test="${param.showReceived eq true}">
+
 			
-	
+<div id="received" style="display:none">
 <br><br>
 <font size="6">Nachrichten Titel:</font>
 <br>
@@ -52,10 +113,10 @@
 </div>
 </c:forEach>
 
-</c:if>
+</div>	
 
 
-<c:if test="${param.showSent eq true}">
+<div id="sent" style="display:none">
 
 <br><br>
 <font size="6">Nachrichten Titel:</font>
@@ -72,11 +133,11 @@
 </c:forEach>
 
 		
-</c:if>
+</div>
 
 
 
-<c:if test="${param.showInvitations eq true}">
+<div id="invitations" style="display:none">
 
 <br><br>
 <font size="6">Nachrichten Titel:</font>
@@ -92,11 +153,10 @@
 </div>
 </c:forEach>
 
+</div>
 
-</c:if>
 
-
-<c:if test="${param.showNotifications eq true}">
+<div id="notifications" style="display:none">
 
 <br><br>
 <font size="6">Nachrichten Titel:</font>
@@ -112,7 +172,7 @@
 </div>
 </c:forEach>
 
-</c:if>
+</div>
 
 
 	<c:if test="${page_error != null }">

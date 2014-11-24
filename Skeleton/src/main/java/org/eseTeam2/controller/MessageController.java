@@ -155,27 +155,7 @@ public class MessageController {
 
 	}
 	
-	/**
-	 * this mapping method is used to show/ hide the various message tabs on the inbox.jsp page
-	 * PathVariables are used.
-	 * @param model
-	 * @param action The action which is performed on the inbox.jsp page.
-	 * @return
-	 */
-	@RequestMapping("/inboxShow/{action}")
-	public String message(Model model, @PathVariable String action) {
-		if (action.equals("showSent"))
-			return "redirect:/myinbox?showSent=true";
-		if (action.equals("showReceived"))
-			return "redirect:/myinbox?showReceived=true";
-		if (action.equals("invitations"))
-			return "redirect:/myinbox?showInvitations=true";
-		if (action.equals("notifications"))
-			return "redirect:/myinbox?showNotifications=true";
-
-		return "redirect:/inbox";
-
-	}
+	
 
 	/**
 	 * This mapping method is used to create the users inbox.jsp page. It is triggered by 
@@ -227,7 +207,7 @@ public class MessageController {
 			@RequestParam(value = "messageId", required = true) Long messageId) {
 		User currentUser = userService.getUserByEmail(principal.getName());
 		messageService.deleteSenderMessage(messageId, currentUser);
-		return "redirect:/myinbox?showSent=true";
+		return "redirect:/myinbox";
 	}
 	
 	/**
@@ -242,7 +222,7 @@ public class MessageController {
 			@RequestParam(value = "messageId", required = true) Long messageId) {
 		User currentUser = userService.getUserByEmail(principal.getName());
 		messageService.deleteRecipientMessage(messageId, currentUser);
-		return "redirect:/myinbox?showReceived=true";
+		return "redirect:/myinbox";
 	}
 	
 	/**
@@ -256,7 +236,7 @@ public class MessageController {
 			@RequestParam(value = "messageId", required = true) Long messageId) {
 		User currentUser = userService.getUserByEmail(principal.getName());
 		messageService.deleteNotification(messageId, currentUser);
-		return "redirect:/myinbox?showNotifications=true";
+		return "redirect:/myinbox";
 	}
 	
 	/**
@@ -270,7 +250,7 @@ public class MessageController {
 			@RequestParam(value = "messageId", required = true) Long messageId) {
 		User currentUser = userService.getUserByEmail(principal.getName());
 		messageService.deleteNotification(messageId, currentUser);
-		return "redirect:/myinbox?showInvitations=true";
+		return "redirect:/myinbox";
 	}
 
 }
