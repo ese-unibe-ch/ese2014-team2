@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -166,7 +167,7 @@ public class MessageController {
 	 * @return
 	 */
 	@RequestMapping(value = "/myinbox", method = RequestMethod.GET)
-	public ModelAndView inbox(Principal principal) {
+	public ModelAndView inbox(Principal principal, @ModelAttribute("infoMessage") String message) {
 
 		User currentUser = userService.getUserByEmail(principal.getName());
 		List<Message> recipientMessagesToDisplay = new ArrayList<Message>();
@@ -192,6 +193,7 @@ public class MessageController {
 		model.addObject("notifications", currentUser.getNotifications());
 		model.addObject("invitations", getInvitations);
 		model.addObject("user", currentUser);
+		model.addObject("infoMessage", message);
 		return model;
 	}
 
@@ -204,9 +206,10 @@ public class MessageController {
 	 */
 	@RequestMapping(value = "/deleteSentMsg", method = RequestMethod.GET)
 	public String deleteSentMessage(Principal principal,
-			@RequestParam(value = "messageId", required = true) Long messageId) {
+			@RequestParam(value = "messageId", required = true) Long messageId, RedirectAttributes redirectAttributes) {
 		User currentUser = userService.getUserByEmail(principal.getName());
 		messageService.deleteSenderMessage(messageId, currentUser);
+		redirectAttributes.addFlashAttribute("infoMessage", "Nachricht erfolgreich gelöscht");
 		return "redirect:/myinbox";
 	}
 	
@@ -219,9 +222,10 @@ public class MessageController {
 	 */
 	@RequestMapping(value = "/deleteReceivedMsg", method = RequestMethod.GET)
 	public String deleteReceivedMessage(Principal principal,
-			@RequestParam(value = "messageId", required = true) Long messageId) {
+			@RequestParam(value = "messageId", required = true) Long messageId, RedirectAttributes redirectAttributes) {
 		User currentUser = userService.getUserByEmail(principal.getName());
 		messageService.deleteRecipientMessage(messageId, currentUser);
+		redirectAttributes.addFlashAttribute("infoMessage", "Nachricht erfolgreich gelöscht");
 		return "redirect:/myinbox";
 	}
 	
@@ -233,9 +237,10 @@ public class MessageController {
 	 */
 	@RequestMapping(value = "/deleteNotification", method = RequestMethod.GET)
 	public String deleteNotification(Principal principal,
-			@RequestParam(value = "messageId", required = true) Long messageId) {
+			@RequestParam(value = "messageId", required = true) Long messageId, RedirectAttributes redirectAttributes) {
 		User currentUser = userService.getUserByEmail(principal.getName());
 		messageService.deleteNotification(messageId, currentUser);
+		redirectAttributes.addFlashAttribute("infoMessage", "Nachricht erfolgreich gelöscht");
 		return "redirect:/myinbox";
 	}
 	
@@ -247,9 +252,10 @@ public class MessageController {
 	 */
 	@RequestMapping(value = "/deleteInvitation", method = RequestMethod.GET)
 	public String deleteInvitation(Principal principal,
-			@RequestParam(value = "messageId", required = true) Long messageId) {
+			@RequestParam(value = "messageId", required = true) Long messageId, RedirectAttributes redirectAttributes) {
 		User currentUser = userService.getUserByEmail(principal.getName());
 		messageService.deleteNotification(messageId, currentUser);
+		redirectAttributes.addFlashAttribute("infoMessage", "Nachricht erfolgreich gelöscht");
 		return "redirect:/myinbox";
 	}
 

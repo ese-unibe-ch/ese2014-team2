@@ -15,6 +15,8 @@ $(document).ready(function(){
     $("#sent").hide();
     $("#invitations").hide();
     $("#notifications").hide();
+    $("#successMessage").hide();
+   
    
   });
 });
@@ -30,6 +32,7 @@ $(document).ready(function(){
     $("#received").hide();
     $("#invitations").hide();
     $("#notifications").hide();
+    $("#successMessage").hide();
 
   });
 });
@@ -45,6 +48,7 @@ $(document).ready(function(){
     $("#received").hide();
     $("#sent").hide();
     $("#notifications").hide();
+    $("#successMessage").hide();
 
   });
 });
@@ -60,6 +64,7 @@ $(document).ready(function(){
     $("#received").hide();
     $("#sent").hide();
     $("#invitations").hide();
+    $("#successMessage").hide();
 
   });
 });
@@ -67,7 +72,7 @@ $(document).ready(function(){
 
 </script>
 
-			
+
 
 <h1>${user.firstName } ${user.lastName}'s  Inbox</h1>
 
@@ -94,7 +99,14 @@ $(document).ready(function(){
     <button id="showNotifications" type="button" class="btn btn-default"><b>Benachrichtigungen</b></button>
 
   </div>
+  
+  
+  
 </div>
+
+<c:if test="${not empty infoMessage}">
+	<div id="successMessage" class="alert alert-success" role="alert"><font color="006600" size="3"> ${infoMessage}</font></div>
+</c:if>
 
 
 			
