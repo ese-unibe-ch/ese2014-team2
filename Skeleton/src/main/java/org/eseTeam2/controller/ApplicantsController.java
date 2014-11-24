@@ -110,15 +110,18 @@ public class ApplicantsController {
 	 * @param principal
 	 * @return
 	 */
-	@RequestMapping(value = "/removeInteressent", method = RequestMethod.GET)
-	public String deleteAd( @RequestParam("applicationId") Long applicationId, 
+	@RequestMapping(value = "/removeInteressent/applicationId{applicationId}/adId{adId}", method = RequestMethod.GET)
+	public String deleteAd(@PathVariable("applicationId") Long applicationId, @PathVariable("adId") Long adId,
 			HttpServletRequest request, HttpServletResponse response,
-			HttpSession session,  Principal principal) {
+			HttpSession session,  Principal principal,
+			RedirectAttributes redirectAttributes) {
+	
 		
 		appointmentService.deleteInteressent(applicationId);
+		redirectAttributes.addFlashAttribute("infoMessage", "Du hast den Interessenten abgewiesen");
 	
 
-		return "redirect:/myads";
+		return "redirect:/showInteressents?adId="+adId;
 	}
 	
 
@@ -170,7 +173,8 @@ public class ApplicantsController {
 	public ModelAndView showInteressentsOfAd(
 			@RequestParam(value = "adId", required = true) Long adId,
 			HttpServletRequest request, HttpServletResponse response,
-			HttpSession session,  Principal principal) {
+			HttpSession session,  Principal principal,
+			@ModelAttribute("infoMessage") String message) {
 		
 		Advertisement ad = adService.getAdvertisement(adId);
 		List<AdApplication>interessents = ad.getApplications();
@@ -181,6 +185,7 @@ public class ApplicantsController {
 		ModelAndView model = new ModelAndView("interessents");
 		model.addObject("interessents", interessents);
 		model.addObject("ad", ad);
+		model.addObject("infoMessage", message);
 		return model;
 	}
 	

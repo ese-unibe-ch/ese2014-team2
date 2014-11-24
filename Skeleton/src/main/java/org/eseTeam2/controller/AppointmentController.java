@@ -198,19 +198,21 @@ public class AppointmentController {
      * interessents.
      */
     @RequestMapping(value = "/setzeTeilBesichtigungstermin", method = RequestMethod.POST)
-    public String teilBesichtigunsterminSetzen(
-	    @RequestParam("interessentsArr") Long[] interessentsArr,
+    public String teilBesichtigunsterminSetzen( @RequestParam ("adId") Long adId,
+	    @RequestParam(value="interessentsArr", required=false) Long[] interessentsArr,
 	    RedirectAttributes redirectAttributes, Principal principal) {
 
-	Advertisement ad = appointmentService.findOneApplication(
-		interessentsArr[0]).getAd();
+	
+	
+	
+	
+	if ( interessentsArr == null) {
+	    redirectAttributes.addFlashAttribute("infoMessage", "Du hast keinen Bewerber ausgewählt");
+	    return "redirect:/showInteressents?adId="+adId; }
+	
+	Advertisement ad = adService.getAdvertisement(
+		adId);
 
-	// ArrayList<Long> interessentsList = new ArrayList<Long>();
-
-	/*
-	 * for ( int i = 0; i < interessentsArr.length;i++) {
-	 * interessentsList.add(interessentsArr[i]); }
-	 */
 	redirectAttributes.addFlashAttribute("interessentsToSendApp",
 		interessentsArr);
 

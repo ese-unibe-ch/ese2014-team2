@@ -8,6 +8,8 @@
 <c:import url="template/header.jsp" />
 
 
+
+
 <div class="panel panel-default">
 	<!-- Default panel contents -->
 	<div class="panel-heading">
@@ -15,14 +17,16 @@
 	</div>
 	<div class="panel-body">
 
-
+	<c:if test="${not empty infoMessage}">
+<div class="alert alert-success" role="alert"><font color="006600" size="3"> ${infoMessage}</font></div>
+</c:if>	
 
 <br>
 			<br>
 			<font size="6">Nachrichten Titel:</font>
 			<br>
 			
-			<form action="setzeTeilBesichtigungstermin" method="POST">
+			<form action="setzeTeilBesichtigungstermin?adId=${ad.id }" method="POST">
 
 			<c:forEach items="${interessents}" var="interessent">
 				
@@ -49,7 +53,7 @@
 												    
 							
 							<div class="btn-group">
-							  <a href="removeInteressent?applicationId=${interessent.id}">
+							  <a href="removeInteressent/applicationId${interessent.id}/adId${ad.id}">
 								<button type="button" class="btn btn-default">
 									<b> Lehne den Bewerber ab </b>
 								</button>
