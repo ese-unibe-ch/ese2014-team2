@@ -293,10 +293,11 @@ public class AdController {
     public String deleteAd(
 	    @RequestParam(value = "adId", required = true) Long adId,
 	    HttpServletRequest request, HttpServletResponse response,
-	    HttpSession session, Principal principal) {
+	    HttpSession session, Principal principal, RedirectAttributes redirectAttributes) {
 
 	User currentUser = userService.getUserByEmail(principal.getName());
 	adService.deleteOneAd(adId, currentUser);
+	redirectAttributes.addFlashAttribute("infoMessage", "Dein ad wurde erfolgreich gelöscht");
 
 	return "redirect:/myads";
     }

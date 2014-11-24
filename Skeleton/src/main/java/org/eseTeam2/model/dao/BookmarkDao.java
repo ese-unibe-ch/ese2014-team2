@@ -7,5 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface BookmarkDao extends CrudRepository<Bookmark, Long>{
     public Bookmark findOneByBookmarkerAndAd(User bookmarker, Advertisement ad);
+    
+    public Iterable<Bookmark> findByAd(Advertisement ad);
 
 }

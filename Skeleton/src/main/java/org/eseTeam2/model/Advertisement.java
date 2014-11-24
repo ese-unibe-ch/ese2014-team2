@@ -45,6 +45,7 @@ public class Advertisement  {
 	private int nmbrOfRoommates;
 	private String wgType;
 	private boolean furnished;
+	
 
 	// address
 	private String kanton;

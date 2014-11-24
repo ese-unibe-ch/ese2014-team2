@@ -14,12 +14,14 @@ import org.eseTeam2.controller.pojos.AdForm;
 import org.eseTeam2.model.AdApplication;
 import org.eseTeam2.model.Advertisement;
 import org.eseTeam2.model.Appointment;
+import org.eseTeam2.model.Bookmark;
 import org.eseTeam2.model.Message;
 import org.eseTeam2.model.Picture;
 import org.eseTeam2.model.User;
 import org.eseTeam2.model.dao.AdApplicationDao;
 import org.eseTeam2.model.dao.AdvertisementDao;
 import org.eseTeam2.model.dao.AppointmentDao;
+import org.eseTeam2.model.dao.BookmarkDao;
 import org.eseTeam2.model.dao.MessageDao;
 import org.eseTeam2.model.dao.PictureDao;
 import org.eseTeam2.model.dao.UserDao;
@@ -56,6 +58,8 @@ public class AdDataService implements IAdDataService {
     IMailService mailer;
     @Autowired
     AppointmentDao appDao;
+    @Autowired
+    IBookmarkService bookmarkService;
     @Autowired
     IFilterLogicService filterService;
     @Autowired
@@ -295,7 +299,16 @@ public class AdDataService implements IAdDataService {
 	    }
 	    userAds.remove(tmp);
 	    user.setAdvertisements(userAds);
+	    
+	   
+	    
+	    
 	    userDao.save(user);
+	    Iterable<Bookmark> bookmarksOfAd = bookmarkService.findByAd(advertisementDao.findOne(adId));
+	    for ( Bookmark b: bookmarksOfAd) {
+		bookmarkService.deleteBookmark(b.getId());;
+	    }
+	    
 
 	    advertisementDao.delete(adId);
 
