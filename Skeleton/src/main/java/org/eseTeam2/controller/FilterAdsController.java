@@ -76,7 +76,7 @@ public class FilterAdsController {
 		// used to redirect the filtered ads arraylist onto the /ads mapping ( AdController)
 		redirectAttributes.addFlashAttribute("adsParam", filteredAds);
 
-		return "redirect:/ads?showFilter=false";
+		return "redirect:/ads";
 
 	}
 
@@ -100,7 +100,7 @@ public class FilterAdsController {
 		if (!result.hasErrors()) {
 			ArrayList<Advertisement> filteredAds = filterService.getAdsThatMatchTheSmallFilter(filterForm.getCity(),filterForm.getRoomPrice());
 			redirectAttributes.addFlashAttribute("adsParam", filteredAds);
-			return "redirect:/ads?showFilter=false";
+			return "redirect:/ads";
 		}
 		else{
 			return "redirect:/";
@@ -108,21 +108,6 @@ public class FilterAdsController {
 
 	}
 
-	/**
-	 * This helper mapping method is used to show/ hide the filter on the ads overview (ads.jsp) page.
-	 * Therefore it uses a pathvariable
-	 * @param model
-	 * @param action
-	 * @return
-	 */
-	@RequestMapping("/ads/{action}")
-	public String message(Model model, @PathVariable String action) {
-		if (action.equals("showFilter"))
-			return "redirect:/ads?showFilter=true";
-		if (action.equals("closeFilter"))
-			return "redirect:/ads?showFilter=false";
-		return "redirect:/ads?showFilter=false";
-
-	}
+	
 
 }

@@ -3,28 +3,31 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-<div class="panel panel-default">
+
+<script>
+
+$(document).ready(function(){
+  $("#showHide").click(function(){
+    $("#filter").toggle();
+    var $el = $(this);
+    $el.text($el.text() == "Zeige den Filter" ? "Verstecke den Filter": "Zeige den Filter");
+  });
+});
+
+
+</script>
+
+				<button id="showHide" class="btn btn-success btn-lg btn-block" type="button" id="show">Zeige den Filter</button>	
+
+<div id="filter" class="panel panel-default" style="display:none">
 	<div class="panel-heading">Filter Ads</div>
 	<div class="panel-body">
 
 
-
-		<c:if test="${param.showFilter eq false}">
-			<a href="ads/showFilter">
-				<button class="btn btn-success btn-lg btn-block" type="button">Zeige
-					den Filter</button>
-			</a>
-		</c:if>
-		<c:if test="${param.showFilter eq true}">
-			<a href="ads/closeFilter">
-				<button class="btn btn-warning btn-lg btn-block" type="button">Verstecke
-					den Filter</button>
-			</a>
-		</c:if>
-
-		<c:if test="${param.showFilter eq true}">
-
+		
+​
 			
 	<form:form method="post" modelAttribute="filterForm" action="filterAds" id="newAdForm" cssClass="form-horizontal" autocomplete="off" enctype="multipart/form-data">
 		
@@ -117,7 +120,7 @@
 
 	
 			</form:form>
-		</c:if>
+		
 	</div>
 </div>
 
