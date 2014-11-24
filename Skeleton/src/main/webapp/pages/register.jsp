@@ -63,7 +63,7 @@
 <div class="form-actions">
            <button type="submit" id="submitB" class="btn btn-primary">Sign up!</button>
 
-            <button type="button" class="btn btn-danger">Cancel</button>
+            <a href="#" onclick="history.go(-2)">	<button type="button" class="btn btn-danger">Cancel</button></a>
         </div>
     </fieldset>
 </form:form>

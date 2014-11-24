@@ -334,7 +334,8 @@
 			<div class="form-actions">
 
 				<button type="submit" class="btn btn-primary" id="btnC" onclick="this.disabled=true;this.form.submit();">Create</button>
-				<button type="button" class="btn btn-danger">Cancel</button>
+				<a href="#" onclick="history.go(-2)">	<button type="button" class="btn btn-danger">Cancel</button></a>
+				
 
 			</div>
 		</fieldset>
