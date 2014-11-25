@@ -143,7 +143,7 @@ public class AdController {
      * @return
      */
     @RequestMapping(value = "/editAd", method = RequestMethod.GET)
-    public ModelAndView editAd(@RequestParam(value = "adId", required = true) Long adId) {
+    public ModelAndView editAd(@RequestParam(value = "adId", required = true) Long adId, @ModelAttribute("infoMessage") String message) {
 	ModelAndView model = new ModelAndView("editAd");
 	AdForm adForm = new AdForm();
 	Advertisement ad = adService.getAdvertisement(adId);
@@ -153,6 +153,7 @@ public class AdController {
 	adForm.setDescription_us(ad.getDescription_us());
 	adForm.setWhoWeAreLookingFor(ad.getWhoWeAreLookingFor());
 	model.addObject("ad", ad);
+	model.addObject("infoMessage", message);
 	
 	model.addObject("adForm", adForm);
 	return model;
@@ -250,9 +251,13 @@ public class AdController {
 	  
 	    adService.editAd(adForm, adId);
 
-	    model = new ModelAndView("redirect:/success/adPlaceSuccess");
+	    
+
+	    model= new ModelAndView("redirect:/myads");
+	    redirectAttributes.addFlashAttribute("infoMessage", "Dein ad wurde erfolgreich bearbeitet");
 	} else {
-	    model = new ModelAndView("placead");
+	    model = new ModelAndView("redirect:/editAd?adId="+adId);
+	    redirectAttributes.addFlashAttribute("infoMessage", "Bitte  fülle alle Felder korrekt aus");
 	    // model.addObject("newAdForm", new AdForm());
 	}
 	return model;

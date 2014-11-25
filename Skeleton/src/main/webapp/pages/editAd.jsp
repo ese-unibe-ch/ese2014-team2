@@ -12,6 +12,10 @@
 <h1>Bearbeite dein AD!</h1>
 
 
+<c:if test="${not empty infoMessage}">
+<div class="alert alert-success" role="alert"><font color="006600" size="3"> ${infoMessage}</font></div>
+</c:if>
+
 <form:form method="post" modelAttribute="adForm"
 	action="submitEditAd?adId=${ad.id }" id="adForm"
 	cssClass="form-horizontal" autocomplete="off"
