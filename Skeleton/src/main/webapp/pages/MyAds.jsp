@@ -37,9 +37,9 @@
 								<button type="button" class="btn btn-default">
 									<b>Zeige Besichtigungstermine </b>
 								</button>
-							</a> <a href="adprofile?adId=${ad.id}">
+							</a> <a href="editAd?adId=${ad.id}">
 								<button type="button" class="btn btn-default">
-									<b>Zeige Ad </b>
+									<b>Bearbeiten </b>
 								</button>
 							</a> <a href="deleteAd?adId=${ad.id}">
 								<button type="button" class="btn btn-default">

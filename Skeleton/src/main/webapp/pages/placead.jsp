@@ -66,6 +66,7 @@
 				<label class="col-md-4" for="field-adNmbrOfRoommates">Wie viele Mitbewohner (Exkl. der gesuchten Person)</label>
 				<div class="col-md-4">
 					<form:select path="nmbrOfRoommates" id="field-adNmbrOfRoommates" tabindex="6">
+						<option value="">---</option>
 						<option value="1">1</option>
 						<option value="2">2</option>
 						<option value="3">3</option>
@@ -284,6 +285,7 @@
 			<label class="col-md-4" for="field-wgGender">Wir sind eine: </label>
 				<div class="col-md-4">
 					<form:select path="wgGender" id="field-wgGender" tabindex="24">
+						<option value="">---</option>
 						<option value="male">reine Männer WG</option>
 						<option value="female">reine Frauen WG</option>
 						<option value="mixed">gemischt WG</option>
@@ -311,6 +313,7 @@
 			<label class="col-md-4" for="field-Smoker">Raucher/Nichtraucher: </label>
 				<div class="col-md-4">
 					<form:select path="smoker" id="field-Smoker" tabindex="27">
+						<option value="">---</option>
 						<option value="smoker">Raucher</option>
 						<option value="nonsmoker">Nichtraucher</option>
 						<option value="dontcare">Ist uns egal</option>
@@ -322,9 +325,9 @@
 			<label class="col-md-4" for="field-gender">Du bist:</label>
 				<div class="col-md-4">
 					<form:select path="genderWeLookFor" id="field-gender" tabindex="28">
+						<option value="dontcare">Ist uns egal</option>
 						<option value="male">Mann</option>
 						<option value="female">Frau</option>
-						<option value="dontcare">Ist uns egal</option>
 					</form:select>
 				</div>
 		</div>
