@@ -15,7 +15,7 @@
 		<fieldset>
 
 			<legend> Nachricht von ${recipient.firstName }  ${recipient.lastName }: </legend>
-			<h3>${message.title }</h3>
+			<h2>${message.title }</h2>
 			<p>${message.messageText}</p>
 			
 					
