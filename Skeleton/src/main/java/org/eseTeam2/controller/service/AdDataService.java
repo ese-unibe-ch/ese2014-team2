@@ -284,7 +284,7 @@ public class AdDataService implements IAdDataService {
      * 
      */
     public void deleteOneAd(Long adId, User user) {
-
+/*
 	try {
 	    // remove ad from users ads
 
@@ -309,9 +309,9 @@ public class AdDataService implements IAdDataService {
 		bookmarkService.deleteBookmark(b.getId());;
 	    }
 	    
-
+   */
 	    advertisementDao.delete(adId);
-
+/*
 	} catch (Exception e) {
 	    ErrorSaver error = new ErrorSaver();
 	    String absolutePath = servletContext.getRealPath("/error");
@@ -319,7 +319,7 @@ public class AdDataService implements IAdDataService {
 	    error.saveErrorMessage(e, e.getClass().toString(),
 		    servletContext.getRealPath("/error"));
 	    e.printStackTrace();
-	}
-    }
+	} */
+    } 
 
 }

@@ -21,10 +21,6 @@ public class AppointmentDate {
 	
 	private String endHour;
 	
-	/*
-	@ManyToOne
-	private Appointment appointment;*/
-
 
 
 	public String getStartHour() {
@@ -43,14 +39,6 @@ public class AppointmentDate {
 		this.endHour = endHour;
 	}
 
-	/*
-	public Appointment getAppointment() {
-		return appointment;
-	}
-
-	public void setAppointment(Appointment appointment) {
-		this.appointment = appointment;
-	} */
 
 	public Date getDay() {
 		return day;

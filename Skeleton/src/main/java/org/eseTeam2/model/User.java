@@ -40,7 +40,7 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<UserRole> userRole;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(mappedBy="creator" , fetch = FetchType.EAGER)
     private Set<Advertisement> advertisements;
 
     @OneToOne(fetch = FetchType.EAGER)
