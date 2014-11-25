@@ -13,7 +13,7 @@
 
 			<legend> Benachrichtigung von ${recipient.firstName }  ${recipient.lastName }: </legend>
 			<h3>${message.title }</h3>
-			<p>${message.messageText}</p>
+					${message.messageText}
 			
 			
 										

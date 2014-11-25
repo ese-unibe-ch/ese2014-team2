@@ -8,13 +8,16 @@
 <c:import url="template/header.jsp" />
 
 
+	<legend>Antwort an: ${recipient.firstName }  ${recipient.lastName } auf die Nachricht: ${message.title}:&nbsp;&nbsp;</legend>
 
 
 
-			<legend> Benachrichtigung von ${recipient.firstName }  ${recipient.lastName }: </legend>
-			<h3>${message.title }</h3>
-			<p>${message.messageText}</p>
-			
+			<h3> Nachricht von ${recipient.firstName }  ${recipient.lastName }: </h3>
+			<div class="controls">
+				<font size="5">
+					${message.messageText}
+				</font>
+			</div>
 			
 										
 			
