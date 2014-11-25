@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.eseTeam2.controller.pojos.MessageForm;
+import org.eseTeam2.model.Advertisement;
 import org.eseTeam2.model.Message;
 import org.eseTeam2.model.User;
 import org.eseTeam2.model.dao.MessageDao;
@@ -25,6 +26,9 @@ public class MessageService implements IMessageService {
 	MessageDao messageDao;
 	
 	@Autowired
+	IAdDataService adService;
+	
+	@Autowired
 	UserDao userDao;
 
 	/**
@@ -32,8 +36,9 @@ public class MessageService implements IMessageService {
 	 * database objects.
 	 */
 	public void sendMessage(MessageForm messageForm) {
-		
-		
+	    Advertisement ad = new Advertisement();
+	    if ( messageForm.getAdId() != null)
+		ad = adService.getAdvertisement(messageForm.getAdId());
 		Message message = new Message();
 		User recipient = userDao.findOne(messageForm.getRecipientId());
 		User sender = messageForm.getSender();
@@ -54,7 +59,10 @@ public class MessageService implements IMessageService {
 		
 		
 		
-		message.setMessageText(messageForm.getMessage());
+		if ( messageForm.getAdId() != null)
+		    message.setMessageText("Ich habe eine Frage bezüglich des Ads <a href=\"adprofile?adId="+messageForm.getAdId()+"\">"
+			    +ad.getTitle()+"</a> :  " + "<br>"+messageForm.getMessage());
+		
 		message.setTitle(messageForm.getTitle());
 		message.setSender(messageForm.getSender());
 		message.setRecipient(recipient);

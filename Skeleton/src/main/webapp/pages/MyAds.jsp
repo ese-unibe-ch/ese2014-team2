@@ -25,7 +25,12 @@
 
 			<c:forEach items="${user.advertisements}" var="ad">
 				<tr>
-					<td><font size="5"> ${ad.title}</font></td>
+					<td>
+					<a href="adprofile?adId=${ad.id}">
+					<font size="5"> ${ad.title}</font>
+					</a>
+					</td>
+					
 					<td>
 						<div class="btn-group btn-group-lg">
 

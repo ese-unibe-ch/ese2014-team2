@@ -20,6 +20,7 @@
 			
 
 			<form:hidden path="recipientId" id="field-reciever"tabindex="23" value="${reciever.id }" />
+			<form:hidden path="adId" id="field-adId" value="${ad.id }" />
 			
 			<div class="row">
 			<label class="col-md-4">Titel: </label>

@@ -230,8 +230,9 @@ public class AdController {
 
 	    // save ad and pictures to database.
 	    adService.saveFrom(adForm, picturesToSave);
-
-	    model = new ModelAndView("redirect:/success/adPlaceSuccess");
+	    
+	    redirectAttributes.addFlashAttribute("infoMessage", "dein ad wurde erfolgreich erstellt.");
+	    model = new ModelAndView("redirect:/myads");
 	} else {
 	    model = new ModelAndView("placead");
 	    // model.addObject("newAdForm", new AdForm());

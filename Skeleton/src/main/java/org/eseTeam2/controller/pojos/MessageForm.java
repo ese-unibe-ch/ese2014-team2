@@ -19,6 +19,8 @@ public class MessageForm {
 
     private User sender;
     private Long recipientId;
+    
+    private Long adId;
    // private User recipient;
 
     public Long getId() {
@@ -28,6 +30,8 @@ public class MessageForm {
     public void setId(Long id) {
         this.id = id;
     }
+    
+    
     
 
 
@@ -61,6 +65,14 @@ public class MessageForm {
 
 	public void setRecipientId(Long recipientId) {
 		this.recipientId = recipientId;
+	}
+
+	public Long getAdId() {
+	    return adId;
+	}
+
+	public void setAdId(Long adId) {
+	    this.adId = adId;
 	}
 
 	
