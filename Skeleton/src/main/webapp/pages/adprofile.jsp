@@ -9,21 +9,6 @@
 
 <c:import url="template/header.jsp" />
 
-<div class="row">
-	<label class="col-md-4" for="field-adNmbrOfRoommates">Wie viele Mitbewohner (Exkl. der gesuchten Person)</label>
-	<div class="col-md-4">
-		<select id="field-adNmbrOfRoommates" tabindex="6" >
-			<option value="${newAdProfile.nmbrOfRoommates} }"> ${newAdProfile.nmbrOfRoommates} }</option>
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="4">4</option>
-			<option value="5">5</option>
-			<option value="6">6</option>
-		</select>
-	</div>
-</div>
-			
 
 <div class="col-md-12">
 
