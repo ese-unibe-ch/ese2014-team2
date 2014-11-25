@@ -9,7 +9,11 @@
 <c:import url="template/headerindex.jsp" />
 
 <!-- TEST WITH BOOTSTRAP PANELS -->
+
+
       <div class="row">
+      <div class="col-sm-3">
+      </div>
         <div class="col-sm-6">
           <div class="panel panel-warning">
             <div class="panel-heading">
@@ -32,30 +36,7 @@
             </div>
           </div>
         </div><!-- /.col-sm-4 -->
-        <div class="col-sm-6">
-          <div class="panel panel-warning">
-            <div class="panel-heading">
-              <h2 class="panel-title"><a href="underConstr">I'm looking for Roomies!</font></a></h2>
-            </div>
-            <div class="panel-body">
-            	<a href="roomies">
-              		<div class="filler_big">
-              		</div>
-              	</a>
-            </div>
-          </div>
-          <div class="panel panel-info">
-            <div class="panel-heading">
-              <h2 class="panel-title"><a href="underConstr">I'd like to get roomed!</font></a></h2>
-            </div>
-            <div class="panel-body">
-            	<a href="placeyourself">
-              		<div class="filler_small"></div>
-            		</div>
-            		
-            	</a>
-          </div>
-        </div><!-- /.col-sm-4 -->
+      
       </div>
       
       
