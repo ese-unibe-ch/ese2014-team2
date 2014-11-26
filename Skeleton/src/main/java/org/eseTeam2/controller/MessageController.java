@@ -211,7 +211,7 @@ public class MessageController {
 		User currentUser = userService.getUserByEmail(principal.getName());
 		messageService.deleteSenderMessage(messageId, currentUser);
 		redirectAttributes.addFlashAttribute("infoMessage", "Nachricht erfolgreich gelöscht");
-		return "redirect:/myinbox";
+		return "redirect:/myinbox#showSent";
 	}
 	
 	/**
@@ -227,7 +227,7 @@ public class MessageController {
 		User currentUser = userService.getUserByEmail(principal.getName());
 		messageService.deleteRecipientMessage(messageId, currentUser);
 		redirectAttributes.addFlashAttribute("infoMessage", "Nachricht erfolgreich gelöscht");
-		return "redirect:/myinbox";
+		return "redirect:/myinbox#showReceived";
 	}
 	
 	/**
@@ -242,7 +242,7 @@ public class MessageController {
 		User currentUser = userService.getUserByEmail(principal.getName());
 		messageService.deleteNotification(messageId, currentUser);
 		redirectAttributes.addFlashAttribute("infoMessage", "Nachricht erfolgreich gelöscht");
-		return "redirect:/myinbox";
+		return "redirect:/myinbox#showNotifications";
 	}
 	
 	/**
@@ -257,7 +257,7 @@ public class MessageController {
 		User currentUser = userService.getUserByEmail(principal.getName());
 		messageService.deleteNotification(messageId, currentUser);
 		redirectAttributes.addFlashAttribute("infoMessage", "Nachricht erfolgreich gelöscht");
-		return "redirect:/myinbox";
+		return "redirect:/myinbox#showInvitations";
 	}
 
 }
