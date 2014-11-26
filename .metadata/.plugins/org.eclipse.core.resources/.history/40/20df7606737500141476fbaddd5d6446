@@ -77,7 +77,10 @@ $(document).ready(function(){
 				<option value="male">Reine Männerwg</option>
 			</form:select>
 		</div>
-
+<<<<<<< HEAD
+=======
+	
+>>>>>>> c7df7430ee358c59219f047e3ffded9f66bdcf0e
 	
 	<div class="col-md-10">
 		<br>
