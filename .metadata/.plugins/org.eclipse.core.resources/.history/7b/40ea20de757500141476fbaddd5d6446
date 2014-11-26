@@ -111,11 +111,13 @@ $(document).ready(function(){
 
 			
 <div id="received" style="display:none">
+<br><br>
 <legend>Nachrichten Titel:</legend>
+<br>
 
 <c:forEach items="${receivedMessages}" var="message">
 <div class="row">
-  <div class="col-md-8"><a href="showMessage?messageId=${message.id}"><h4>${message.title}</h4></a></div>
+  <div class="col-md-8"><a href="showMessage?messageId=${message.id}"><h3>${message.title}</h3></a></div>
   
 	
   <div class="col-md-4"> <a href="deleteReceivedMsg?messageId=${message.id}">
@@ -128,11 +130,13 @@ $(document).ready(function(){
 
 <div id="sent" style="display:none">
 
+<br><br>
 <legend>Nachrichten Titel:</legend>
+<br>
 
 <c:forEach items="${sentMessages}" var="message">
 <div class="row">
-  <div class="col-md-8"><a href="showMessage?messageId=${message.id}"><h4>${message.title}</h4></a></div>
+  <div class="col-md-8"><a href="showMessage?messageId=${message.id}"><h3>${message.title}</h3></a></div>
   
 	
   <div class="col-md-4"> <a href="deleteSentMsg?messageId=${message.id}">
@@ -147,12 +151,13 @@ $(document).ready(function(){
 
 <div id="invitations" style="display:none">
 
+<br><br>
 <legend>Nachrichten Titel:</legend>
-
+<br>
 
 <c:forEach items="${invitations}" var="message">
 <div class="row">
-  <div class="col-md-8"><a href="showInvitation?messageId=${message.id}"><h4>${message.title}</h4></a></div>
+  <div class="col-md-8"><a href="showInvitation?messageId=${message.id}"><h3>${message.title}</h3></a></div>
   
 	
   <div class="col-md-4"> <a href="deleteInvitation?messageId=${message.id}">
@@ -165,13 +170,13 @@ $(document).ready(function(){
 
 <div id="notifications" style="display:none">
 
-
-<legend>Nachrichten Titel:</legend>
-
+<br><br>
+<font size="6">Nachrichten Titel:</font>
+<br>
 
 <c:forEach items="${notifications}" var="message">
 <div class="row">
-  <div class="col-md-8"><a href="showNotification?messageId=${message.id}"><h4>${message.title}</h4></a></div>
+  <div class="col-md-8"><a href="showNotification?messageId=${message.id}"><h3>${message.title}</h3></a></div>
   
 	
   <div class="col-md-4"> <a href="deleteNotification?messageId=${message.id}">

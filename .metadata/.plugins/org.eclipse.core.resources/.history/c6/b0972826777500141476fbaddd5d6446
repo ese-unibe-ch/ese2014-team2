@@ -425,14 +425,14 @@ p.caption {
 
 .filler_big {
 	width:40%;
-	height:200px;
+	height:300px;
 	padding-left:auto !important;
 	padding-right:auto !important;
 }
 
 .filler_small {
 	width:40%;
-	height:100px;
+	height:150px;
 	padding-left:auto;
 	padding-right:auto;
 }

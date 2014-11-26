@@ -15,6 +15,7 @@
       <div class="col-sm-3">
       </div>
         <div class="col-sm-6">
+        	<blink>
           <div class="panel panel-warning">
             <div class="panel-heading">
               <h2 class="panel-title"><a href="unfilteredAds">Ich suche ein Zimmer!</font></a></h2>
@@ -25,6 +26,7 @@
             	</div>
             </div>
           </div>
+          </blink>
           <div class="panel panel-info">
             <div class="panel-heading">
               <h2 class="panel-title"><a href="placead">Ich möchte ein Zimmer vermieten!</font></a></h2>

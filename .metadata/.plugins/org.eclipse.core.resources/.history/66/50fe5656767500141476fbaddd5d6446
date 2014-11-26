@@ -171,7 +171,7 @@ $(document).ready(function(){
 
 <c:forEach items="${notifications}" var="message">
 <div class="row">
-  <div class="col-md-8"><a href="showNotification?messageId=${message.id}"><h4>${message.title}</h4></a></div>
+  <div class="col-md-8"><a href="showNotification?messageId=${message.id}"><h3>${message.title}</h3></a></div>
   
 	
   <div class="col-md-4"> <a href="deleteNotification?messageId=${message.id}">

@@ -17,7 +17,7 @@
         <div class="col-sm-6">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h2 class="panel-title"><a href="adprofile?adId=${ads.id}">${ads.title}</a></h2>
+              <h2 class="panel-title"><a href="adprofile?adId=${ads.id}">${ads.title}</a></h3>
             </div>
             <div class="panel-body">
         <div class="col-md-6">

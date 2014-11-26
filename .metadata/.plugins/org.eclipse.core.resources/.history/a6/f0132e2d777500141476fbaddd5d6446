@@ -432,7 +432,7 @@ p.caption {
 
 .filler_small {
 	width:40%;
-	height:100px;
+	height:150px;
 	padding-left:auto;
 	padding-right:auto;
 }
