@@ -7,7 +7,6 @@ import org.eseTeam2.controller.pojos.AdForm;
 import org.eseTeam2.model.Advertisement;
 import org.eseTeam2.model.Picture;
 import org.eseTeam2.model.User;
-import org.springframework.web.multipart.MultipartFile;
 
 public interface IAdDataService {
 	
