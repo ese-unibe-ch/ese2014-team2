@@ -32,7 +32,8 @@ $(document).ready(function(){
 		
 ​<div class="line-height">
 			
-	<form:form method="post" modelAttribute="filterForm" action="filterAds" id="newAdForm" cssClass="form-horizontal" autocomplete="off" enctype="multipart/form-data">
+<form:form method="post" modelAttribute="filterForm" action="filterAds" id="newAdForm" cssClass="form-horizontal" autocomplete="off" enctype="multipart/form-data">
+		
 		<div class="col-md-3">
 			<label>Möbliert:</label><br>
 			<label>Waschmaschine:</label><br>
@@ -80,7 +81,7 @@ $(document).ready(function(){
 				<option value="male">Reine Männerwg</option>
 			</form:select>
 		</div>
-	</div>
+	
 	
 	<div class="col-md-10">
 		<br>
@@ -88,9 +89,11 @@ $(document).ready(function(){
 		<button type="submit" class="btn btn-primary">Filter</button>
 	</div>
 	
+
     		
 	</form:form>
 		
+	</div>
 	</div>
 </div>
 
