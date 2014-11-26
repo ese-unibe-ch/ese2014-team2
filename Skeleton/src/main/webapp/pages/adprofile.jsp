@@ -18,7 +18,7 @@
 <!--  CAROUSEL SLIDER TEST  -->
 
 <div id="carousel-example-generic" class="carousel slide"
-	data-ride="carousel" data-interval="false" >
+	data-ride="carousel" data-interval="false"  style="max-width: 900px; margin: 0 auto" >
 	<!-- Indicators -->
 	<ol class="carousel-indicators">
 		<li data-target="#carousel-example-generic" data-slide-to="0"
@@ -34,9 +34,8 @@
 		<!--  MAIN PIC EMPTY -->
 		<c:if test="${empty mainPic}">
 			<div class="item active">
-
 				<img src="img/default_image.png">
-				<div class="carousel-caption"></div>
+			<div class="carousel-caption"></div>
 			</div>
 		</c:if>
 
@@ -44,7 +43,7 @@
 
 		<c:if test="${not empty mainPic}">
 			<div class="item active">
-				<img src="getUserImage/ <c:out value="${mainPic.id}"/>" >
+				<img class="img-responsive center-block" src="getUserImage/ <c:out value="${mainPic.id}"/>" >
 				<div class="carousel-caption"></div>
 
 			</div>
@@ -55,9 +54,11 @@
 
 		<c:forEach items="${pictures}" var="pics">
 			<div class="item">
-				<img src="getUserImage/ <c:out value="${pics.id}"/>" style="width:640px;height:600px">
+			<!-- <div class="inner-item"> -->
+				<img  class="img-responsive center-block" src="getUserImage/ <c:out value="${pics.id}"/>" style="width:640px;height:600px">
 				<div class="carousel-caption"></div>
-			</div>
+				</div>
+			<!-- </div> -->
 		</c:forEach>
 
 	</div>
