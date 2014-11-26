@@ -82,13 +82,10 @@ $(document).ready(function(){
 		</div>
 	</div>
 	
-	<div class="col-md-10">
-		<br>
-		<br>
-		<button type="submit" class="btn btn-primary">Filter</button>
-	</div>
-	
-    		
+	<div class="form-actions">		
+    			<button type="submit" class="btn btn-primary">Filter</button>
+    		</div>
+				
 	</form:form>
 		
 	</div>

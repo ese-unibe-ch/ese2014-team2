@@ -81,14 +81,7 @@ $(document).ready(function(){
 			</form:select>
 		</div>
 	</div>
-	
-	<div class="col-md-10">
-		<br>
-		<br>
-		<button type="submit" class="btn btn-primary">Filter</button>
-	</div>
-	
-    		
+				
 	</form:form>
 		
 	</div>

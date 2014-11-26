@@ -6,7 +6,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <style>
 	.line-height {
-					line-height:300% !important;
+					line-height:200% !important;
 					}
 </style>
 
@@ -64,16 +64,16 @@ $(document).ready(function(){
 		</div>
 		
 		<div class="col-md-1">
-			<form:checkbox path="hasBuiltInCloset" id="field-hasBuiltInCloset" cssClass="checkboxbig" /><br>
-			<form:checkbox	path="toBalcony" id="field-isToBalcony" cssClass="checkboxbig"/><br>
-			<form:checkbox	path="hasCables" id="field-hasCables" cssClass="checkboxbig"/><br>
+			<form:checkbox path="hasBuiltInCloset" id="field-hasBuiltInCloset" cssClass="checkboxbig" />
+			<form:checkbox	path="toBalcony" id="field-isToBalcony" cssClass="checkboxbig"/>
+			<form:checkbox	path="hasCables" id="field-hasCables" cssClass="checkboxbig"/>
 			<form:select path="wgType" id="field-wgType">
 				<option value="undef">egal</option>
 				<option value="wild">eher wild</option>
 				<option value="calm">eher ruhig</option>
 			</form:select>
-			<form:input path="roomPrice" id="field-roomPrice" maxlength="6" /><br>
-			<form:input path="city" id="field-city" maxlength="15" /><br>
+			<form:input path="roomPrice" id="field-roomPrice" maxlength="6" />
+			<form:input path="city" id="field-city" maxlength="15" />
 			<form:select path="wgGender" id="field-wgGender">
 				<option value="dontcare"> Egal</option>
 				<option value="female">Reine Frauenwg</option>
@@ -81,14 +81,7 @@ $(document).ready(function(){
 			</form:select>
 		</div>
 	</div>
-	
-	<div class="col-md-10">
-		<br>
-		<br>
-		<button type="submit" class="btn btn-primary">Filter</button>
-	</div>
-	
-    		
+				
 	</form:form>
 		
 	</div>
