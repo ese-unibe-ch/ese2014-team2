@@ -4,13 +4,11 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <c:import url="template/header.jsp" />
-
- <head>
+ 
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen"
      href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
-  </head>
-  <body>
+
   
     <script type="text/javascript"
      src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js">
@@ -25,10 +23,9 @@
      src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
     </script>
     
-   <form:form method="post" modelAttribute="appointmentFinderForm" action="setAppointmentAndInform"
-		id="appointmentFinderForm" cssClass="form-horizontal" autocomplete="off"
-		enctype="multipart/form-data">
-		<fieldset>
+   <form:form method="post" modelAttribute="appointmentFinderForm" action="setAppointmentAndInform" id="appointmentFinderForm" cssClass="form-horizontal" autocomplete="off" enctype="multipart/form-data">
+			
+			
 			<form:hidden path="adId"  value="${ad.id }" />
 				<legend>Setze einen Termin / mehrere Termine für die Besichtigung</legend>
 				
@@ -96,7 +93,24 @@
 					</div>
 				</div>
 
-    <script type="text/javascript">
+
+
+	
+	 <c:forEach items="${adAppointments}" var="app">
+	 
+	 		 <input type="hidden" name="adAppointmentIds" value="${app}" />
+		
+	 </c:forEach>
+	
+	
+	
+		<a href="#" onclick="history.go(-2)"><button class="btn btn-danger">Zurück</button></a>
+    	<button type="submit" class="btn btn-primary btn-lg" onclick="this.disabled=true;this.form.submit();">Setze die Daten!</button>
+
+    
+	
+		</form:form>
+  <script type="text/javascript">
   $(function() {
     $('#datetimepicker').datetimepicker({
       pickTime: false
@@ -124,28 +138,9 @@
     $('#myForm').one('submit', function() {
     $(this).find('input[type="submit"]').attr('disabled','disabled');
 });</script>
-
-	
-	 <c:forEach items="${adAppointments}" var="app">
-	 
-	 		 <input type="hidden" name="adAppointmentIds" value="${app}" />
-		
-	 </c:forEach>
-	
-	<div class="form-actions">
-    	<button type="submit" class="btn btn-primary btn-lg" onclick="this.disabled=true;this.form.submit();">Setze die Daten!</button>
-    </div>
-    
-		
-		</fieldset>
-		</form:form>
-  </div>
-</div>
   
-  
-  </body>
-
-
+ 
+ 
 		
 	
 		

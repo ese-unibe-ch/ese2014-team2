@@ -65,8 +65,11 @@
 							
 			</c:forEach>
 			
+			<div class="form-actions">
+
 			<button type="submit" class="btn btn-primary"  onclick="this.disabled=true;this.form.submit();">Setze Besichtigungstermin</button>
-			<a href="/Skeleton/ads"><button class="btn btn-danger">Zurück</button></a>
+			
+			</div>
 		</form>
 
 			
