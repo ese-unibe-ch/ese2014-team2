@@ -112,16 +112,16 @@ $(document).ready(function(){
 			
 <div id="received" style="display:none">
 <br><br>
-<font size="6">Nachrichten Titel:</font>
+<legend>Nachrichten Titel:</legend>
 <br>
 
 <c:forEach items="${receivedMessages}" var="message">
 <div class="row">
-  <div class="col-md-8"> <font size="6"><a href="showMessage?messageId=${message.id}">${message.title}</a></font></div>
+  <div class="col-md-8"><a href="showMessage?messageId=${message.id}"><h3>${message.title}</h3></a></div>
   
 	
   <div class="col-md-4"> <a href="deleteReceivedMsg?messageId=${message.id}">
-	<button type="button" class="btn btn-default btn btn-block"><b>Lösche die Nachricht</b></button></a></div>
+	<button type="button" class="btn btn-danger"><b>Lösche die Nachricht</b></button></a></div>
 </div>
 </c:forEach>
 
@@ -131,16 +131,16 @@ $(document).ready(function(){
 <div id="sent" style="display:none">
 
 <br><br>
-<font size="6">Nachrichten Titel:</font>
+<legend>Nachrichten Titel:</legend>
 <br>
 
 <c:forEach items="${sentMessages}" var="message">
 <div class="row">
-  <div class="col-md-8"> <font size="6"><a href="showMessage?messageId=${message.id}">${message.title}</a></font></div>
+  <div class="col-md-8"><a href="showMessage?messageId=${message.id}"><h3>${message.title}</h3></a></div>
   
 	
   <div class="col-md-4"> <a href="deleteSentMsg?messageId=${message.id}">
-	<button type="button" class="btn btn-default btn btn-block"><b>Lösche die Nachricht</b></button></a></div>
+	<button type="button" class="btn btn-danger"><b>Lösche die Nachricht</b></button></a></div>
 </div>
 </c:forEach>
 
@@ -152,16 +152,16 @@ $(document).ready(function(){
 <div id="invitations" style="display:none">
 
 <br><br>
-<font size="6">Nachrichten Titel:</font>
+<legend>Nachrichten Titel:</legend>
 <br>
 
 <c:forEach items="${invitations}" var="message">
 <div class="row">
-  <div class="col-md-8"> <font size="6"><a href="showInvitation?messageId=${message.id}">${message.title}</a></font></div>
+  <div class="col-md-8"><a href="showInvitation?messageId=${message.id}"><h3>${message.title}</h3></a></div>
   
 	
   <div class="col-md-4"> <a href="deleteInvitation?messageId=${message.id}">
-	<button type="button" class="btn btn-default btn btn-block"><b>Lösche die Einladung</b></button></a></div>
+	<button type="button" class="btn btn-danger"><b>Lösche die Einladung</b></button></a></div>
 </div>
 </c:forEach>
 
@@ -176,11 +176,11 @@ $(document).ready(function(){
 
 <c:forEach items="${notifications}" var="message">
 <div class="row">
-  <div class="col-md-8"> <font size="6"><a href="showNotification?messageId=${message.id}">${message.title}</a></font></div>
+  <div class="col-md-8"><a href="showNotification?messageId=${message.id}"><h3>${message.title}</h3></a></div>
   
 	
   <div class="col-md-4"> <a href="deleteNotification?messageId=${message.id}">
-	<button type="button" class="btn btn-default btn btn-block"><b>Lösche die Nachricht</b></button></a></div>
+	<button type="button" class="btn btn-danger"><b>Lösche die Nachricht</b></button></a></div>
 </div>
 </c:forEach>
 

@@ -150,7 +150,7 @@
           <img src="img/slider_lightmarine.gif" alt="Slide3">
           <div class="container">
             <div class="carousel-caption">
-            	<h1><font color="#D9CEB2">Flattie v1.0</font></h1>
+            	<h1><font color="#D9CEB2">"Öppis sinnvolles!" - Mathias Fuchs 26.11.14 11:50</font></h1>
             	<p><font color="black">HAIL TO THE KING!</font></p>
             </div>
           </div>
