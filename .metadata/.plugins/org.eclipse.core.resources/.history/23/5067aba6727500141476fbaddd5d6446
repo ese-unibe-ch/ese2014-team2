@@ -4,7 +4,11 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
+<style>
+	.line-height {
+					line-height:300% !important;
+					}
+</style>
 
 <script>
 
@@ -26,7 +30,7 @@ $(document).ready(function(){
 
 
 		
-​<div class="randomname">
+​<div class="line-height">
 			
 	<form:form method="post" modelAttribute="filterForm" action="filterAds" id="newAdForm" cssClass="form-horizontal" autocomplete="off" enctype="multipart/form-data">
 		<div class="col-md-3">

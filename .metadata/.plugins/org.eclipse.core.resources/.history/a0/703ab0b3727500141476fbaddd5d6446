@@ -15,9 +15,6 @@
 		- Footer black: 		#636265
 		
 */
-.randomname {
-	line-height: 300%
-}
 
 .push {
 	height:50px;

@@ -2,16 +2,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-
-
-<c:import url="template/header.jsp" />
-<c:import url="template/filter.jsp"/>
-<div class="push"></div>
 <style>
 	.col-md-2 p {
 			margin-bottom:5;
 		}
 </style>
+
+<c:import url="template/header.jsp" />
+<c:import url="template/filter.jsp"/>
+<div class="push"></div>
+
 
 <c:forEach items="${ads}" var="ads">
         <div class="col-sm-6">
