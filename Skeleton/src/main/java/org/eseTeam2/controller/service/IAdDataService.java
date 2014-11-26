@@ -20,6 +20,7 @@ public interface IAdDataService {
 	public ArrayList<Picture> getAdPictures(Long adId);
 	public Set<Picture> getPicturesOfAd(Long adId);
 	public void deleteOneAd(Long adId, User user);
+	public void editAd(AdForm adForm, Long adId);
 	
 
 		

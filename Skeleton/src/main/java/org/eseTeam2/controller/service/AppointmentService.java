@@ -350,7 +350,8 @@ public class AppointmentService implements IAppointmentService {
 	
 
 	public void deleteInteressent(Long applicationId) {
-		AdApplication application = adApplicationDao.findOne(applicationId);
+		
+	    /*AdApplication application = adApplicationDao.findOne(applicationId);
 		Advertisement ad = adDao.findOne(application.getAd().getId());
 		User interessent = userDao.findOne(application.getApplicant().getId());
 		List<AdApplication> applications = ad.getApplications();
@@ -378,8 +379,8 @@ public class AppointmentService implements IAppointmentService {
 		interessent.setApplications(usersApplications);
 		
 		adDao.save(ad);
-		userDao.save(interessent);
-		adApplicationDao.delete(application);
+		userDao.save(interessent); */
+		adApplicationDao.delete(applicationId);
 		
 		
 		

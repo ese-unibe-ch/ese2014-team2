@@ -109,7 +109,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="myprofile">Profil</a></li>
-            <li><a href="myinbox">Inbox <span class="badge"></span></a></li>
+            <li><a href="myinbox">Inbox <span class="badge"> 4 </span></a></li>
             <li><a href="myads">Ads</a></li>
             <li><a href="bookmarks">Favoriten</a></li>
             <li><a href="logout">Logout</a></li>
@@ -150,7 +150,7 @@
           <img src="img/slider_lightmarine.gif" alt="Slide3">
           <div class="container">
             <div class="carousel-caption">
-            	<h1><font color="#D9CEB2">Flattie v1.0</font></h1>
+            	<h1><font color="#D9CEB2">"Öppis sinnvolles!" - Mathias Fuchs 26.11.14 11:50</font></h1>
             	<p><font color="black">HAIL TO THE KING!</font></p>
             </div>
           </div>

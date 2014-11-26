@@ -22,6 +22,7 @@ import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.eseTeam2.model.*;
 
 @Entity
 public class Advertisement  {
@@ -33,8 +34,12 @@ public class Advertisement  {
 	private String title;
 	private String description;
 	
-	@ManyToOne
+	@ManyToOne 
 	private User creator;
+	
+	@OneToMany (mappedBy="ad" , fetch = FetchType.EAGER, orphanRemoval=true)
+	@Fetch(value = FetchMode.SUBSELECT)
+	private List<Bookmark> bookmarks;
 	
 	private Date creationDate;
 	private String start;
@@ -45,6 +50,7 @@ public class Advertisement  {
 	private int nmbrOfRoommates;
 	private String wgType;
 	private boolean furnished;
+	
 
 	// address
 	private String kanton;
@@ -87,7 +93,7 @@ public class Advertisement  {
 	
 	
 	
-	@OneToMany(mappedBy="ad", fetch=FetchType.EAGER, cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy="ad", fetch=FetchType.EAGER, orphanRemoval=true)
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<AdApplication> applications;
 	
@@ -418,6 +424,14 @@ public class Advertisement  {
 
 	public void setAppointments(List<Appointment> appointments) {
 	    this.appointments = appointments;
+	}
+
+	public List<Bookmark> getBookmarks() {
+	    return bookmarks;
+	}
+
+	public void setBookmarks(List<Bookmark> bookmarks) {
+	    this.bookmarks = bookmarks;
 	}
 
 	

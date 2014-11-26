@@ -28,6 +28,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -83,14 +84,30 @@ public class BookmarkController {
 	return "redirect:adprofile?adId="+bookmark.getAd().getId();
     }
     
+    @RequestMapping(value = "/unBookmarkAdFromBookmarks", method = RequestMethod.GET)
+    public String unBookmarkAdFromBookmarks(
+	    @RequestParam(value = "adId", required = true) Long adId,
+	Principal principal, RedirectAttributes redirectAttributes) {
+	
+	User currentUser = userService.getUserByEmail(principal.getName());
+	Bookmark bookmark = bookmarkService.findOneByAdAndUser(adService.getAdvertisement(adId), currentUser);
+	
+	bookmarkService.deleteBookmark(bookmark.getId());
+	
+	redirectAttributes.addFlashAttribute("infoMessage", "Du hast das Ad erfolgreich aus deinen Favoriten entfernt");
+
+	return "redirect:/bookmarks";
+    }
+    
     @RequestMapping(value = "/bookmarks", method = RequestMethod.GET)
-    public ModelAndView bookmarks( Principal principal, RedirectAttributes redirectAttributes) {
+    public ModelAndView bookmarks( Principal principal, RedirectAttributes redirectAttributes, @ModelAttribute("infoMessage") String message) {
 	ModelAndView model = new ModelAndView("bookmarks");
 	User currentUser = userService.getUserByEmail(principal.getName());
 	List<Bookmark> userBookmarks = currentUser.getBookmarks();
 	
 	model.addObject("bookmarks", userBookmarks);
 	model.addObject("user", currentUser);
+	model.addObject("infoMessage", message);
 	
 	
 	

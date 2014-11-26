@@ -35,6 +35,7 @@ import org.eseTeam2.controller.service.UserDataService;
 import org.eseTeam2.exceptions.InvalidUserException;
 import org.eseTeam2.model.AdApplication;
 import org.eseTeam2.model.Advertisement;
+import org.eseTeam2.model.Appointment;
 import org.eseTeam2.model.Picture;
 import org.eseTeam2.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -116,9 +117,22 @@ public class ApplicantsController {
 			HttpSession session,  Principal principal,
 			RedirectAttributes redirectAttributes) {
 	
+	    	List<Appointment> appointments = adService.getAdvertisement(adId).getAppointments();
+	    	Boolean bereitsInvited = false;
+	    	for ( Appointment a : appointments ) {
+	    	    for ( User u: a.getInvitations()) {
+	    		for ( AdApplication ap : u.getApplications()) {
+	    		    if (ap.getId() == applicationId) {
+	    			redirectAttributes.addFlashAttribute("infoMessage", "Du kannst den Interessenten nicht mehr abweisen wenn du ihn bereits eingeladen hast.");
+	    			bereitsInvited = true;
+	    			break; }
+	    		}
+	    	    }
+	    	}
+		if  (bereitsInvited == false) {
+		    appointmentService.deleteInteressent(applicationId);
+		    redirectAttributes.addFlashAttribute("infoMessage", "Du hast den Interessenten abgewiesen"); }
 		
-		appointmentService.deleteInteressent(applicationId);
-		redirectAttributes.addFlashAttribute("infoMessage", "Du hast den Interessenten abgewiesen");
 	
 
 		return "redirect:/showInteressents?adId="+adId;

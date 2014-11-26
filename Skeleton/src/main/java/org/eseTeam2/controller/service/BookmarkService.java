@@ -66,6 +66,10 @@ public class BookmarkService implements IBookmarkService{
     public Bookmark findOne(Long bookmarkId) {
 	return bookmarkDao.findOne(bookmarkId);
     }
+
+    public Iterable<Bookmark> findByAd(Advertisement ad) {
+	return bookmarkDao.findByAd(ad);
+    }
     
 
 

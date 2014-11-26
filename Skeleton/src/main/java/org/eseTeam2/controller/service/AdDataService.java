@@ -14,12 +14,14 @@ import org.eseTeam2.controller.pojos.AdForm;
 import org.eseTeam2.model.AdApplication;
 import org.eseTeam2.model.Advertisement;
 import org.eseTeam2.model.Appointment;
+import org.eseTeam2.model.Bookmark;
 import org.eseTeam2.model.Message;
 import org.eseTeam2.model.Picture;
 import org.eseTeam2.model.User;
 import org.eseTeam2.model.dao.AdApplicationDao;
 import org.eseTeam2.model.dao.AdvertisementDao;
 import org.eseTeam2.model.dao.AppointmentDao;
+import org.eseTeam2.model.dao.BookmarkDao;
 import org.eseTeam2.model.dao.MessageDao;
 import org.eseTeam2.model.dao.PictureDao;
 import org.eseTeam2.model.dao.UserDao;
@@ -56,6 +58,8 @@ public class AdDataService implements IAdDataService {
     IMailService mailer;
     @Autowired
     AppointmentDao appDao;
+    @Autowired
+    IBookmarkService bookmarkService;
     @Autowired
     IFilterLogicService filterService;
     @Autowired
@@ -174,28 +178,27 @@ public class AdDataService implements IAdDataService {
 	ArrayList<String> getters = filterService.getGettersOfFilterForm();
 	for (User filterUser : usersWithFilters) {
 	    if (filterService.isNewAdMatch(filterUser.getExampleAd(), getters,
-		    ad) == true){
+		    ad) == true) {
 		String title = "Ein neues Ad das dich interssieren könnte wurde aufgeschaltet";
 		String message = "A new ad has been put up "
-			    + "http://localhost8080:Skeleton/adprofile?adId="
-			    + ad.getId();
+			+ "http://localhost8080:Skeleton/adprofile?adId="
+			+ ad.getId();
 		try {
-		    mailer.sendEmail(
-			    filterUser.getEmail(),message ,
-			    title);
+		    mailer.sendEmail(filterUser.getEmail(), message, title);
 		} catch (MailSendException d) {
 		}
-	    Message notification = new Message();
-	    notification.setTitle(title); 
-	    notification.setMessageText(message);
-	    notification.setRecipient(filterUser);
-	    notification.setNotifications(filterUser);
-	    List<Message> userNotifications = filterUser.getNotifications();
-	    userNotifications.add(notification);
-	    filterUser.setNotifications(userNotifications);
-	    messageDao.save(notification);
-	    userDao.save(filterUser);}
-	   
+		Message notification = new Message();
+		notification.setTitle(title);
+		notification.setMessageText(message);
+		notification.setRecipient(filterUser);
+		notification.setNotifications(filterUser);
+		List<Message> userNotifications = filterUser.getNotifications();
+		userNotifications.add(notification);
+		filterUser.setNotifications(userNotifications);
+		messageDao.save(notification);
+		userDao.save(filterUser);
+	    }
+
 	}
 
 	creator = userDao.save(creator);
@@ -280,33 +283,88 @@ public class AdDataService implements IAdDataService {
      * 
      */
     public void deleteOneAd(Long adId, User user) {
+	/*
+	 * try { // remove ad from users ads
+	 * 
+	 * Set<Advertisement> userAds = user.getAdvertisements(); // need a tmp
+	 * variable because you can not remove something during // iteration.
+	 * Advertisement tmp = new Advertisement(); for (Advertisement ad :
+	 * userAds) { if (ad.getId() == adId) tmp = ad;
+	 * 
+	 * } userAds.remove(tmp); user.setAdvertisements(userAds);
+	 * 
+	 * 
+	 * 
+	 * 
+	 * userDao.save(user); Iterable<Bookmark> bookmarksOfAd =
+	 * bookmarkService.findByAd(advertisementDao.findOne(adId)); for (
+	 * Bookmark b: bookmarksOfAd) {
+	 * bookmarkService.deleteBookmark(b.getId());; }
+	 */
+	advertisementDao.delete(adId);
+	/*
+	 * } catch (Exception e) { ErrorSaver error = new ErrorSaver(); String
+	 * absolutePath = servletContext.getRealPath("/error");
+	 * 
+	 * error.saveErrorMessage(e, e.getClass().toString(),
+	 * servletContext.getRealPath("/error")); e.printStackTrace(); }
+	 */
+    }
 
-	try {
-	    // remove ad from users ads
+    public void editAd(AdForm adForm, Long adId) {
+	Advertisement ad = advertisementDao.findOne(adId);
 
-	    Set<Advertisement> userAds = user.getAdvertisements();
-	    // need a tmp variable because you can not remove something during
-	    // iteration.
-	    Advertisement tmp = new Advertisement();
-	    for (Advertisement ad : userAds) {
-		if (ad.getId() == adId)
-		    tmp = ad;
+	// set basics for ad
 
-	    }
-	    userAds.remove(tmp);
-	    user.setAdvertisements(userAds);
-	    userDao.save(user);
+	ad.setStart(adForm.getStart());
+	ad.setUntil(adForm.getUntil());
 
-	    advertisementDao.delete(adId);
+	ad.setRooms(adForm.getRooms());
+	ad.setRoomPrice(adForm.getRoomPrice());
+	ad.setRoomSpace(adForm.getRoomSpace());
+	ad.setWgType(adForm.getWgType());
+	ad.setFurnished(adForm.isFurnished());
+	ad.setNmbrOfRoommates(adForm.getNmbrOfRoommates());
 
-	} catch (Exception e) {
-	    ErrorSaver error = new ErrorSaver();
-	    String absolutePath = servletContext.getRealPath("/error");
+	// address stuff
 
-	    error.saveErrorMessage(e, e.getClass().toString(),
-		    servletContext.getRealPath("/error"));
-	    e.printStackTrace();
-	}
+	ad.setKanton(adForm.getKanton());
+	ad.setPlz(adForm.getPlz());
+	ad.setCity(adForm.getCity());
+	ad.setAddress(adForm.getAddress());
+
+	// info about flat
+	ad.setDescription_ad(adForm.getDescription_ad());
+	ad.setHasLaundry(adForm.getHasLaundry());
+	ad.setHasBalcony(adForm.getHasBalcony());
+	ad.setHasDishwasher(adForm.getHasDishwasher());
+	ad.setSmokingInside(adForm.isSmokingInside());
+	ad.setHasPets(adForm.isHasPets());
+	ad.setWlan(adForm.isWlan());
+
+	// room info
+	ad.setDescription_room(adForm.getDescription_room());
+	ad.setToBalcony(adForm.getIsToBalcony());
+	ad.setHasCables(adForm.getHasCables());
+	ad.setHasBuiltInCloset(adForm.isHasBuiltInCloset());
+
+	// info about us
+	ad.setDescription_us(adForm.getDescription_us());
+	ad.setWgGender(adForm.getWgGender());
+
+	// info about who we are looking for
+	ad.setWhoWeAreLookingFor(adForm.getWhoWeAreLookingFor());
+	ad.setSmoker(adForm.getSmoker());
+	ad.setAgeRange(adForm.getAgeRange());
+	ad.setGenderWeLookFor(adForm.getGenderWeLookFor());
+
+	// other
+	ad.setTitle(adForm.getRoomSpace() + "m&sup2 Zimmer in einer "
+		+ (adForm.getNmbrOfRoommates() + 1) + "er-WG in "
+		+ adForm.getCity() + " für " + adForm.getRoomPrice() + " CHF");
+
+	ad = advertisementDao.save(ad); // save object to DB
+
     }
 
 }

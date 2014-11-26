@@ -64,6 +64,7 @@ public class MessageController {
 		model.addObject("sender", currentUser);
 		model.addObject("reciever", adService.getAdvertisement(adId).getCreator());
 		model.addObject("messageForm", new MessageForm());
+		model.addObject("ad", adService.getAdvertisement(adId));
 		return model;
 	}
 	

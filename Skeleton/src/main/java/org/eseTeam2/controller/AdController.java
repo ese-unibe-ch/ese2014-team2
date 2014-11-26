@@ -134,6 +134,30 @@ public class AdController {
 	model.addObject("adForm", new AdForm());
 	return model;
     }
+    
+    
+    /**
+     * This Mapping method executes when a User wants to place an ad. it
+     * redirects him to the place a new ad page.
+     * 
+     * @return
+     */
+    @RequestMapping(value = "/editAd", method = RequestMethod.GET)
+    public ModelAndView editAd(@RequestParam(value = "adId", required = true) Long adId, @ModelAttribute("infoMessage") String message) {
+	ModelAndView model = new ModelAndView("editAd");
+	AdForm adForm = new AdForm();
+	Advertisement ad = adService.getAdvertisement(adId);
+	//preset textarea values
+	adForm.setDescription_ad(ad.getDescription_ad());
+	adForm.setDescription_room(ad.getDescription_room());
+	adForm.setDescription_us(ad.getDescription_us());
+	adForm.setWhoWeAreLookingFor(ad.getWhoWeAreLookingFor());
+	model.addObject("ad", ad);
+	model.addObject("infoMessage", message);
+	
+	model.addObject("adForm", adForm);
+	return model;
+    }
 
     /**
      * This mapping method executes after the user submitted the ad he wants to
@@ -206,10 +230,35 @@ public class AdController {
 
 	    // save ad and pictures to database.
 	    adService.saveFrom(adForm, picturesToSave);
-
-	    model = new ModelAndView("redirect:/success/adPlaceSuccess");
+	    
+	    redirectAttributes.addFlashAttribute("infoMessage", "dein ad wurde erfolgreich erstellt.");
+	    model = new ModelAndView("redirect:/myads");
 	} else {
 	    model = new ModelAndView("placead");
+	    // model.addObject("newAdForm", new AdForm());
+	}
+	return model;
+    }
+    
+    /**
+     * This mapping method is used to edit an ad. Takes a valid adForm and updates the existing ad with the given parameters.
+     */
+    @RequestMapping(value = "/submitEditAd", method = RequestMethod.POST)
+    public ModelAndView submitEditAd(@Valid AdForm adForm, BindingResult result,
+	    RedirectAttributes redirectAttributes, Principal principal, @RequestParam(value = "adId", required = true) Long adId) {
+	ModelAndView model;
+
+	if (!result.hasErrors()) {
+	  
+	    adService.editAd(adForm, adId);
+
+	    
+
+	    model= new ModelAndView("redirect:/myads");
+	    redirectAttributes.addFlashAttribute("infoMessage", "Dein ad wurde erfolgreich bearbeitet");
+	} else {
+	    model = new ModelAndView("redirect:/editAd?adId="+adId);
+	    redirectAttributes.addFlashAttribute("infoMessage", "Bitte  fülle alle Felder korrekt aus");
 	    // model.addObject("newAdForm", new AdForm());
 	}
 	return model;
@@ -293,10 +342,11 @@ public class AdController {
     public String deleteAd(
 	    @RequestParam(value = "adId", required = true) Long adId,
 	    HttpServletRequest request, HttpServletResponse response,
-	    HttpSession session, Principal principal) {
+	    HttpSession session, Principal principal, RedirectAttributes redirectAttributes) {
 
 	User currentUser = userService.getUserByEmail(principal.getName());
 	adService.deleteOneAd(adId, currentUser);
+	redirectAttributes.addFlashAttribute("infoMessage", "Dein ad wurde erfolgreich gelöscht");
 
 	return "redirect:/myads";
     }

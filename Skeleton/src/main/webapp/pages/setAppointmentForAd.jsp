@@ -132,9 +132,9 @@
 		
 	 </c:forEach>
 	
-
-    <button type="submit" class="btn btn-primary btn-lg" onclick="this.disabled=true;this.form.submit();">Setze die Daten!</button>
-    
+	<div class="form-actions">
+    	<button type="submit" class="btn btn-primary btn-lg" onclick="this.disabled=true;this.form.submit();">Setze die Daten!</button>
+    </div>
     
 		
 		</fieldset>

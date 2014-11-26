@@ -10,7 +10,6 @@
 <c:import url="template/header.jsp" />
 
 
-
 <div class="col-md-12">
 
 <c:if test="${not empty infoMessage}">
@@ -156,7 +155,7 @@
 		
 		
 <a href="userInterested?adId=${newAdProfile.id}">
-	<button type="button" class="btn btn-default btn-block">
+	<button type="button" class="btn btn-primary">
 		<b>Ich hätte interesse an einer Besichtigung</b>
 	</button>
 </a>
@@ -164,14 +163,14 @@
 <c:choose>
 	<c:when test="${bookmarked}">
 		<a href="unBookmarkAd?adId=${newAdProfile.id}">
-		<button type="button" class="btn btn-default btn-block">
+		<button type="button" class="btn btn-warning">
 			<b>Aus Favoriten entfernen</b>
 		</button>
 	</a>
 	</c:when>
 	<c:otherwise>
 		<a href="bookmarkAd?adId=${newAdProfile.id}">
-		<button type="button" class="btn btn-default btn-block">
+		<button type="button" class="btn btn-success">
 			<b>Hinzufügen zu Favoriten</b>
 		</button>
 	</a>
@@ -182,7 +181,6 @@
 	</div>
 	</div>
 
-<div class="col-md-12">
 		<div class="col-md-8">
 			<legend>Über die Wohnung:</legend>
 			<p>${newAdProfile.description_ad}</p>
@@ -356,7 +354,6 @@
 
 	</div>
 
-	<div class="col-md-12">
 		<div class="col-md-8">
 			<legend>Über Uns:</legend>
 			<p>${newAdProfile.description_us}</p>
@@ -384,25 +381,25 @@
 </div>
 
 </div>
+</div>
 
-
-
-
+<div class="container">
+	<div class="form-actions">
+		<a href="/Skeleton/ads"><button class="btn btn-danger">Zurück</button></a>
+		<a href="sendMessageFromAd?adId=${newAdProfile.id}">
+			<button type="button" class="btn btn-default" id="messageSend">
+				<b>Stelle eine private Frage an den Inseratsteller</b>
+			</button>
+		</a>
+	</div>
 
 </div>
 
 
 
-<a href="/Skeleton/ads"><button class="btn btn-danger">Zurück</button></a>
-<a href="sendMessageFromAd?adId=${newAdProfile.id}">
-	<button type="button" class="btn btn-default" id="messageSend">
-		<b>Stelle eine private Frage an den Inseratsteller</b>
-	</button>
-</a>
 
 
 
-</div>
 
 
 

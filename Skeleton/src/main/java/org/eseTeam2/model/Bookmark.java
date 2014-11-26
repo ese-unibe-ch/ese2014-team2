@@ -27,7 +27,7 @@ public class Bookmark {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@ManyToOne
+	@ManyToOne 
 	private Advertisement ad;
 
 	@ManyToOne

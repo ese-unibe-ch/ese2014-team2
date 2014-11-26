@@ -19,108 +19,77 @@ $(document).ready(function(){
 
 </script>
 
-				<button id="showHide" class="btn btn-success btn-lg btn-block" type="button" id="show">Zeige den Filter</button>	
+				<button id="showHide" class="btn btn-info btn-lg btn-block" type="button" id="show">Zeige den Filter</button>	
 
 <div id="filter" class="panel panel-default" style="display:none">
-	<div class="panel-heading">Filter Ads</div>
 	<div class="panel-body">
 
 
 		
-​
+​<div class="randomname">
 			
-	<form:form method="post" modelAttribute="filterForm" action="filterAds" id="newAdForm" cssClass="form-horizontal" autocomplete="off" enctype="multipart/form-data">
+<form:form method="post" modelAttribute="filterForm" action="filterAds" id="newAdForm" cssClass="form-horizontal" autocomplete="off" enctype="multipart/form-data">
 		
-
-				<div class="col-md-6">
-					<h3>
-						<label class="btn btn-default btn-lg btn-block"><form:checkbox
-								path="furnished" id="field-furnished" />Möbliert</label>
-					</h3>
-					<h3>
-						<label class="btn btn-default btn-lg btn-block"><form:checkbox
-								path="hasLaundry" id="field-Laundry" />Waschmachine</label>
-					</h3>
-					<h3>
-						<label class="btn btn-default btn-lg btn-block"><form:checkbox
-								path="hasDishwasher" id="field-Dishwasher" />Geschirrspüler</label>
-					</h3>
-					<h3>
-						<label class="btn btn-default btn-lg btn-block"><form:checkbox
-								path="hasBalcony" id="field-Balcony" />Balkon</label>
-					</h3>
-					<h3>
-						<label class="btn btn-default btn-lg btn-block"><form:checkbox
-								path="smokingInside" id="field-smokingInside" /> Rauchen im Haus</label>
-					</h3>
-					<h3>
-						<label class="btn btn-default btn-lg btn-block"><form:checkbox
-								path="hasPets" id="field-pets" />Haustiere erlaubt</label>
-					</h3>
-					<h3>
-						<label class="btn btn-default btn-lg btn-block"><form:checkbox
-								path="wlan" id="field-wlan" />Wlan</label>
-					</h3>
-
-				</div>
-				<div class="col-md-6">
-
-					<h3>
-						<label class="btn btn-default btn-lg btn-block"><form:checkbox
-								path="hasBuiltInCloset" id="field-closet" />Einbauschrank im
-							Zimmer</label>
-					</h3>
-					<h3>
-						<label class="btn btn-default btn-lg btn-block"><form:checkbox
-								path="toBalcony" id="field-isToBalcony" />Balkonzugang vom
-							Zimmer</label>
-					</h3>
-					<h3>
-						<label class="btn btn-default btn-lg btn-block"><form:checkbox
-								path="hasCables" id="field-Cables" />Kabelanschluss im Zimmer</label>
-					</h3>
-					<h3>
-						<label class="btn btn-default btn-lg btn-block"> <font
-							color="000000"> <form:select path="wgType"
-									id="field-wgType">
-									<option value="undef">egal</option>
-									<option value="wild">eher wild</option>
-									<option value="calm">eher ruhig</option>
-
-
-								</form:select>
-						</font> Grober Wg Typ
-						</label>
-					</h3>
-
-					<h3>
-						<label class="btn btn-default btn-lg btn-block"><font
-							color="000000"><form:input path="roomPrice"
-									id="field-roomPrice" maxlength="6" /></font> Maximaler Zimmerpreis</label>
-					</h3>
-					<h3>
-						<label class="btn btn-default btn-lg btn-block"><font
-							color="000000"><form:input path="city" id="field-city"
-									maxlength="15" /></font>Stadt</label>
-					</h3>
-					<h3>
-						<label class="btn btn-default btn-lg btn-block"><font
-							color="000000"><form:select path="wgGender"
-									id="field-wgGender" tabindex="13">
-									<option value="dontcare">Egal</option>
-									<option value="female">Reine Frauenwg</option>
-									<option value="male">Reine Männerwg</option>
-
-
-								</form:select></font>Geschlechteraufteilung in der WG</label>
-					</h3>
-
-					<button type="submit" class="btn btn-success btn-lg btn-block">Filter</button>
-				</div>
+		<div class="col-md-3">
+			<label>Möbliert:</label><br>
+			<label>Waschmaschine:</label><br>
+			<label>Geschirrspüler:</label><br>
+			<label>Balkon:</label><br>
+			<label>Rauchen im Haus:</label><br>
+			<label>Haustiere erlaubt:</label><br>
+			<label>Wlan:</label><br>
+		</div>
+		
+		<div class="col-md-1">
+			<form:checkbox path="furnished" id="field-furnished" cssClass="checkboxbig"/><br>
+			<form:checkbox	path="hasLaundry" id="field-Laundry" cssClass="checkboxbig"/> <br>
+			<form:checkbox	path="hasDishwasher" id="field-Dishwasher" cssClass="checkboxbig"/><br>
+			<form:checkbox path="hasBalcony" id="field-hasBalcony" cssClass="checkboxbig"/><br>
+			<form:checkbox	path="smokingInside" id="field-smokingInside" cssClass="checkboxbig"/><br>
+			<form:checkbox	path="hasPets" id="field-pets" cssClass="checkboxbig" /><br>
+			<form:checkbox	path="wlan" id="field-wlan" cssClass="checkboxbig" /><br>    
+		</div>
+		
+		<div class="col-md-3">
+			<label>Einbauschrank:</label><br>
+			<label>Balkonzugang:</label><br>
+			<label>Kabelanschluss:</label><br>
+			<label>Grober WG-Typ:</label><br>
+			<label>Max. Zimmerpreis:</label><br>
+			<label>Stadt:</label><br>
+			<label>Geschlechteraufteilung:</label><br>
+		</div>
+		
+		<div class="col-md-1">
+			<form:checkbox path="hasBuiltInCloset" id="field-hasBuiltInCloset" cssClass="checkboxbig" /><br>
+			<form:checkbox	path="toBalcony" id="field-isToBalcony" cssClass="checkboxbig"/><br>
+			<form:checkbox	path="hasCables" id="field-hasCables" cssClass="checkboxbig"/><br>
+			<form:select path="wgType" id="field-wgType">
+				<option value="undef">egal</option>
+				<option value="wild">eher wild</option>
+				<option value="calm">eher ruhig</option>
+			</form:select>
+			<form:input path="roomPrice" id="field-roomPrice" maxlength="6" /><br>
+			<form:input path="city" id="field-city" maxlength="15" /><br>
+			<form:select path="wgGender" id="field-wgGender">
+				<option value="dontcare"> Egal</option>
+				<option value="female">Reine Frauenwg</option>
+				<option value="male">Reine Männerwg</option>
+			</form:select>
+		</div>
 
 	
-			</form:form>
-		
+	<div class="col-md-10">
+		<br>
+		<br>
+		<button type="submit" class="btn btn-primary">Filter</button>
+	</div>
+	
+
+    		
+	</form:form>
+		</div>
+	</div>
 	</div>
 </div>
 

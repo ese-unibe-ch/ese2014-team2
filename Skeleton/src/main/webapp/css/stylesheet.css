@@ -15,7 +15,47 @@
 		- Footer black: 		#636265
 		
 */
+.randomname {
+	line-height: 300%
+}
 
+.push {
+	height:50px;
+	width:100%;
+	margin:10px;
+	padding-bottom:10px;
+}
+
+.checkboxbig {
+	width:20px !important;
+	height:20px !important;
+}
+
+.panel-info {
+	border-color:black !important;
+}
+
+.panel-info > .panel-heading {
+	background-color:#06c !important;
+	border-color:black !important;
+}
+
+.panel-info > .panel-heading > .panel-title {
+	color:white !important;
+}
+
+.panel-warning {
+	border-color:black !important;
+}
+.panel-warning > .panel-heading {
+	background-color:#ff7500 !important;
+	color:white !important;
+	border-color:black !important;
+}
+
+.panel-warning > .panel-heading > .panel-title {
+	color:white !important;
+}
 
 #carousel-example-generic {
 	width:600px !important;
@@ -89,7 +129,7 @@ legend {
 
 body {
 	
-	background-color:#f2f0ea !important;
+	background-color:#eaeaea !important;
    	/*background: -webkit-linear-gradient(left, #428bca , #f0ad50, #f0ad50, #f0ad50, #428bca); /* For Safari 5.1 to 6.0 */
   	/*background: -o-linear-gradient(right, #428bca , #f0ad50, #f0ad50, #f0ad50, #428bca); /* For Opera 11.1 to 12.0 */
   	/*background: -moz-linear-gradient(right, #428bca , #f0ad50, #f0ad50, #f0ad50, #428bca); /* For Firefox 3.6 to 15 */

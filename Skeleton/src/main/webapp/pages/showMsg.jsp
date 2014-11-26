@@ -8,25 +8,21 @@
 <c:import url="template/header.jsp" />
 
 
-<div class="main">
-	<p>Antwort an: ${recipient.firstName }  ${recipient.lastName } auf die Nachricht: ${message.title}:&nbsp;&nbsp;</p>
+	
 
 
 	<form:form method="post" modelAttribute="messageForm" action="send" id="messageForm" cssClass="form-horizontal" autocomplete="off" enctype="multipart/form-data">
 		<fieldset>
 
-			<p> Nachricht von ${recipient.firstName }  ${recipient.lastName }: </p>
-			<div class="controls">
-				<font size="5">
-					${message.messageText}
-				</font>
-			</div>
+			<legend> Nachricht von ${recipient.firstName }  ${recipient.lastName }: </legend>
+			<h3>${message.title }</h3>
+			<p>${message.messageText}</p>
 			
 					
 							<form:hidden path="recipientId" id="field-Answer"
 								 value="${recipient.id }" />
 					
-			
+			<legend>Antwort an: ${recipient.firstName }  ${recipient.lastName } auf die Nachricht: ${message.title}:&nbsp;&nbsp;</legend>
 			<div class="row">
 			<label class="col-md-4">Titel: </label>
 				<div class="col-md-4">
@@ -54,7 +50,6 @@
 
 	</form:form>
 
-</div>
 
 
 

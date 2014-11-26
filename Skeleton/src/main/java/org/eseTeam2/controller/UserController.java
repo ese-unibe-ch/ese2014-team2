@@ -26,6 +26,7 @@ import org.eseTeam2.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -105,12 +106,13 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/myads", method = RequestMethod.GET)
 	@ResponseBody
-	public ModelAndView myAds(Principal principal) {
+	public ModelAndView myAds(Principal principal, @ModelAttribute("infoMessage") String message) {
 
 		User currentUser = userService.getUserByEmail(principal.getName());
 
 		ModelAndView model = new ModelAndView("myAds");
 		model.addObject("user", currentUser);
+		model.addObject("infoMessage", message);
 		return model;
 	}
 

@@ -10,6 +10,7 @@ public interface IBookmarkService {
     public void deleteBookmark(Long bookmarkId);
     public Bookmark findOneByAdAndUser(Advertisement advertisement, User user);
     public Bookmark findOne(Long bookmarkId);
+    public Iterable<Bookmark> findByAd(Advertisement findOne);
    
 
 }
