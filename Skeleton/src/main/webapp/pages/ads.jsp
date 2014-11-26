@@ -47,6 +47,7 @@
     </div><!-- /.col-sm-4 -->
 </c:forEach>
 
+<a href="unfilteredAds"><button type="button" class="btn btn-danger">Zurücksetzen</button></a>
 
 	<c:if test="${page_error != null }">
         <div class="alert alert-error">
