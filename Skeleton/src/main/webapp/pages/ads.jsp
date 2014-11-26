@@ -2,10 +2,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-
+<style>
+	.col-md-2 p {
+			margin-bottom:5;
+		}
+</style>
 
 <c:import url="template/header.jsp" />
 <c:import url="template/filter.jsp"/>
+<div class="push"></div>
 
 
 <c:forEach items="${ads}" var="ads">
@@ -15,38 +20,28 @@
               <h2 class="panel-title"><a href="adprofile?adId=${ads.id}">${ads.title}</a></h3>
             </div>
             <div class="panel-body">
-            <a href="adprofile?adId=${ads.id}">
+        <div class="col-md-6">
             <c:if test="${empty ads.mainPic}">
-		<img src="img/default_image.png"> 
-		</c:if>
-	<c:if test="${not empty ads.mainPic}">
-	<img src="getUserImage/ <c:out value="${ads.mainPic.id}"/>" width="200" height="200" >
-	
-	</c:if>
-            		
-              		<table>
-              			<tr>
-              				<td>Creator:</td>
-              				<td>${ads.creator.firstName }</td>
-              			</tr>
-              			<tr>
-              				<td>Rooms:</td>
-              				<td>${ads.rooms}</td>
-              			</tr>
-              			<tr>
-              				<td>Roomspace:</td>
-              				<td>${ads.roomSpace}</td>
-              			</tr>
-              			<tr>
-              				<td>City:</td>
-              				<td>${ads.city}</td>
-              			</tr>
-              			<tr>
-              				<td>Price:</td>
-              				<td>${ads.roomPrice}</td>
-              			</tr>
-              		</table>
-              		</a>
+				<img src="img/default_image.png"> 
+			</c:if>
+			<c:if test="${not empty ads.mainPic}">
+				<img src="getUserImage/ <c:out value="${ads.mainPic.id}"/>" width="200" height="200" >
+			</c:if>
+		</div>
+		<div class="col-md-2">
+			<label>Ersteller:</label>
+			<label>Zimmer:</label>
+			<label>Grösse:</label>
+			<label>Stadt:</label>
+			<label>Preis:</label>
+		</div>
+		<div class="col-md-2">
+			<p>${ads.creator.firstName }</p>
+			<p>${ads.rooms}</p>
+			<p>${ads.roomSpace}</p>
+			<p>${ads.city}</p>
+			<p>${ads.roomPrice}</p>
+		</div>
             </div>
           </div>
     </div><!-- /.col-sm-4 -->
