@@ -11,6 +11,7 @@
 $(document).ready(function(){
   $("#showHide").click(function(){
     $("#filter").toggle();
+    $("#smallFilter").toggle();
     var $el = $(this);
     $el.text($el.text() == "Zeige den Filter" ? "Verstecke den Filter": "Zeige den Filter");
   });
@@ -20,6 +21,29 @@ $(document).ready(function(){
 </script>
 
 				<button id="showHide" class="btn btn-info btn-lg btn-block" type="button" id="show">Zeige den Filter</button>	
+
+<div id="smallFilter" class="panel panel-default">
+	<div class="panel-body">
+	​<div class="randomname">
+	<form:form method="post" modelAttribute="filterForm" action="filterAdsIndex" id="newAdForm" cssClass="form-horizontal" autocomplete="off" enctype="multipart/form-data">
+		<div class="col-md-3">
+			<label>Max. Zimmerpreis:</label><br>
+			<label>Stadt:</label><br>
+		</div>
+		<div class="col-md-1">
+			<form:input path="roomPrice" id="field-roomPrice" maxlength="6" /><br>
+			<form:input path="city" id="field-city" maxlength="15" /><br>
+		</div>
+			<div class="col-md-10">
+		
+		<button type="submit" class="btn btn-primary">Filter</button>
+	</div>
+	
+		</form:form>
+		</div>
+
+</div>
+</div>
 
 <div id="filter" class="panel panel-default" style="display:none">
 	<div class="panel-body">
