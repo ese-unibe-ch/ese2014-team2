@@ -18,7 +18,7 @@
 <!--  CAROUSEL SLIDER TEST  -->
 
 <div id="carousel-example-generic" class="carousel slide"
-	data-ride="carousel" data-interval="false"  style="max-width: 900px; margin: 0 auto" >
+	data-ride="carousel" data-interval="false"  >
 	<!-- Indicators -->
 	<ol class="carousel-indicators">
 		<li data-target="#carousel-example-generic" data-slide-to="0"

@@ -21,25 +21,25 @@
 			
 						
 			<div class="row">
-			<label class="col-md-4">Bis wann möchtest du das Zimmer? (Falls unbegrenzt, einfach leerlassen): </label>
+				<label class="col-md-4" for="field-von">Ab wann ist das Zimmer frei: </label>
 				<div class="col-md-4">
-					<form:input path="bisWann" id="field-title" tabindex="1" maxlength="10" />
+					<form:input path="bisWann" type="field-bisWann" id="datepicker" tabindex="2" />
+					
 				</div>
 			</div>
+			
+			
 			
 			<div class="row">
 				<label class="col-md-4">Erzähle etwas über dich:  </label>
 			</div>
 			<div class="row">
 						<div class="textareabig">
-							<form:textarea rows="10" cols="90" path="message" id="field-Message" tabindex="24" />
+							<form:textarea rows="10" cols="90" path="message" id="field-Message" placeholder="Wer bist du... Was machst du... Warum willst du das Zimmer" />
 						</div>
 			</div>
 			
-			<div class="row">
-						<label class="btn btn-default btn-lg btn-block"><form:checkbox
-								path="smoker" id="field-furnished" />Bist du Raucher?</label>
-					</div>
+			
 	
 
 
