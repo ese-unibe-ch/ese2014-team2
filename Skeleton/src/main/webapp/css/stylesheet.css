@@ -89,6 +89,15 @@
 	float:left;
 }
 
+
+
+.inner-item {
+    text-align: center;
+    img {
+        margin: 0 auto;
+    }
+}
+
 legend {
 	font-size:28px !important;	
 }

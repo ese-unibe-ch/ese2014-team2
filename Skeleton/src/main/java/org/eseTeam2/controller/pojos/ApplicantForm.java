@@ -19,8 +19,7 @@ public class ApplicantForm {
 
     private User interessent;
 	private Long adId;
-	
-	private boolean smoker;
+
 	private String bisWann;
    // private User recipient;
 
@@ -70,13 +69,7 @@ public class ApplicantForm {
 		this.adId = adId;
 	}
 
-	public boolean isSmoker() {
-		return smoker;
-	}
-
-	public void setSmoker(boolean smoker) {
-		this.smoker = smoker;
-	}
+	
 
 	public String getBisWann() {
 		return bisWann;

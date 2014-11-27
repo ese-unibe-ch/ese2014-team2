@@ -168,7 +168,7 @@ public class MessageController {
 	 * @return
 	 */
 	@RequestMapping(value = "/myinbox", method = RequestMethod.GET)
-	public ModelAndView inbox(Principal principal, @ModelAttribute("infoMessage") String message) {
+	public ModelAndView inbox(Principal principal, @ModelAttribute("infoMessage") String message, @ModelAttribute("tabToShow") String tabToShow) {
 
 		User currentUser = userService.getUserByEmail(principal.getName());
 		List<Message> recipientMessagesToDisplay = new ArrayList<Message>();
@@ -195,6 +195,10 @@ public class MessageController {
 		model.addObject("invitations", getInvitations);
 		model.addObject("user", currentUser);
 		model.addObject("infoMessage", message);
+		if ( !tabToShow.equals(""))
+		    model.addObject("show", tabToShow);
+		else
+		    model.addObject("show", "showReceived");
 		return model;
 	}
 
@@ -211,6 +215,7 @@ public class MessageController {
 		User currentUser = userService.getUserByEmail(principal.getName());
 		messageService.deleteSenderMessage(messageId, currentUser);
 		redirectAttributes.addFlashAttribute("infoMessage", "Nachricht erfolgreich gelöscht");
+		redirectAttributes.addFlashAttribute("tabToShow", "showSent");
 		return "redirect:/myinbox";
 	}
 	
@@ -227,6 +232,7 @@ public class MessageController {
 		User currentUser = userService.getUserByEmail(principal.getName());
 		messageService.deleteRecipientMessage(messageId, currentUser);
 		redirectAttributes.addFlashAttribute("infoMessage", "Nachricht erfolgreich gelöscht");
+		redirectAttributes.addFlashAttribute("tabToShow", "showReceived");
 		return "redirect:/myinbox";
 	}
 	
@@ -242,6 +248,7 @@ public class MessageController {
 		User currentUser = userService.getUserByEmail(principal.getName());
 		messageService.deleteNotification(messageId, currentUser);
 		redirectAttributes.addFlashAttribute("infoMessage", "Nachricht erfolgreich gelöscht");
+		redirectAttributes.addFlashAttribute("tabToShow", "showNotifications");
 		return "redirect:/myinbox";
 	}
 	
@@ -257,6 +264,7 @@ public class MessageController {
 		User currentUser = userService.getUserByEmail(principal.getName());
 		messageService.deleteNotification(messageId, currentUser);
 		redirectAttributes.addFlashAttribute("infoMessage", "Nachricht erfolgreich gelöscht");
+		redirectAttributes.addFlashAttribute("tabToShow", "showInvitations");
 		return "redirect:/myinbox";
 	}
 

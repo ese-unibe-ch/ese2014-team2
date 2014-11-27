@@ -22,10 +22,10 @@
             <div class="panel-body">
         <div class="col-md-6">
             <c:if test="${empty ads.mainPic}">
-				<img src="img/default_image.png"> 
+				<img src="img/default_image.png" style="width:250px;height:250px"> 
 			</c:if>
 			<c:if test="${not empty ads.mainPic}">
-				<img src="getUserImage/ <c:out value="${ads.mainPic.id}"/>" width="200" height="200" >
+				<img src="getUserImage/ <c:out value="${ads.mainPic.id}"/>" style="width:250px;height: 250px" >
 			</c:if>
 		</div>
 		<div class="col-md-2">
@@ -47,6 +47,7 @@
     </div><!-- /.col-sm-4 -->
 </c:forEach>
 
+<a href="unfilteredAds"><button type="button" class="btn btn-danger">Zurücksetzen</button></a>
 
 	<c:if test="${page_error != null }">
         <div class="alert alert-error">

@@ -36,22 +36,7 @@
 			<p>${application.message }</p>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-sm-2 col-md-4">
-			<label>Raucht der Bewerber:</label>
-		</div>
-		<div class="col-sm-2 col-md-4">
-			<p>
-				<c:choose>
-					<c:when test="${application.smoker}">
-						<c:out value="Ja"/>
-					</c:when>
-					<c:otherwise>
-						<c:out value="Nein"/>
-					</c:otherwise>
-				</c:choose>
-			</p>
-		</div>
+
 		
 		<a href="#" onclick="history.go(-2)">	<button type="button" class="btn btn-danger">Zurück</button></a>
 		
@@ -66,7 +51,7 @@
 								
 	</div>
 </div>
-</div>
+
 
 
 <c:if test="${page_error != null }">

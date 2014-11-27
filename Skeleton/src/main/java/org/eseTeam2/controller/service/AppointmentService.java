@@ -78,7 +78,7 @@ public class AppointmentService implements IAppointmentService {
 		application.setMessage(applicantForm.getMessage());
 		application.setTitle(applicantForm.getTitle());
 		application.setTimeLimitation(applicantForm.getBisWann());
-		application.setSmoker(applicantForm.isSmoker());
+
 		
 		User adCreator = ad.getCreator();
 		List<AdApplication> ads = new ArrayList<AdApplication>();

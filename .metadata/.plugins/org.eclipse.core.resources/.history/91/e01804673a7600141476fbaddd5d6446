@@ -34,10 +34,14 @@
 		<!--  MAIN PIC EMPTY -->
 		<c:if test="${empty mainPic}">
 			<div class="item active">
+<<<<<<< HEAD
 
 				<img class="img-responsive center-block" src="img/default_image.png">
 				<div class="carousel-caption"></div>
-
+=======
+				<img src="img/default_image.png">
+			<div class="carousel-caption"></div>
+>>>>>>> d510792ba4e2b8c273f07b383ae0616fb73bb1e6
 			</div>
 		</c:if>
 
@@ -56,9 +60,12 @@
 
 		<c:forEach items="${pictures}" var="pics">
 			<div class="item">
-
+<<<<<<< HEAD
+				<img class="img-responsive center-block" src="getUserImage/ <c:out value="${pics.id}"/>" style="width:640px;height:600px">
+=======
 			<!-- <div class="inner-item"> -->
 				<img  class="img-responsive center-block" src="getUserImage/ <c:out value="${pics.id}"/>" style="width:640px;height:600px">
+>>>>>>> d510792ba4e2b8c273f07b383ae0616fb73bb1e6
 				<div class="carousel-caption"></div>
 				</div>
 			<!-- </div> -->
