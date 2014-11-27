@@ -47,7 +47,7 @@
 									<b>Bearbeiten </b>
 								</button>
 							</a> <a href="deleteAd?adId=${ad.id}">
-								<button type="button" class="btn btn-danger">
+								<button type="button" class="btn btn-default">
 									<b> Löschen </b>
 								</button>
 							</a>
