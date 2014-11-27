@@ -70,11 +70,11 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/Skeleton">Home</a></li>
+           <li class="active"><a href="/Skeleton">Home</a></li>
+            <li><a href="unfilteredAds" id="navads"><span>Suche Zimmer</span><em></em></a>
+            <li><a href="placead" id="navpads"><span>Vermiete Zimmer</span><em></em></a>
             <li><a href="register">Register</a></li>
             <li><a href="#" id="loginButton"><span>Login</span><em></em></a>
-            <li><a href="unfilteredAds" id="navads"><span>LFA</span><em></em></a>
-            <li><a href="placead" id="navpads"><span>PADS</span><em></em></a>
                 <div style="clear:both"></div>
                 <div id="loginBox">                
                     <form id="loginForm" name="loginForm" action="<c:url value='j_spring_security_check' />" method="POST">
@@ -114,13 +114,14 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
+            <li class="active"><a href="/Skeleton">Home</a></li>
+            <li><a href="unfilteredAds" id="navads"><span>Suche Zimmer</span><em></em></a>
+            <li><a href="placead" id="navpads"><span>Vermiete Zimmer</span><em></em></a>
             <li><a href="myprofile">Profil</a></li>
-            <li><a href="myinbox">Inbox <span class="badge">4</span></a></li>
+            <li><a href="myinbox">Inbox <span class="badge"> 4 </span></a></li>
             <li><a href="myads">Ads</a></li>
             <li><a href="bookmarks">Favoriten</a></li>
             <li><a href="logout">Logout</a></li>
-            <li><a href="unfilteredAds" id="navads"><span>LFA</span><em></em></a>
-            <li><a href="placead" id="navpads"><span>PADS</span><em></em></a>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

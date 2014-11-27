@@ -67,8 +67,8 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="/Skeleton">Home</a></li>
-            <li><a href="unfilteredAds" id="navads"><span>Suche Zimmer</span><em></em></a>
-            <li><a href="placead" id="navpads"><span>Vermiete Zimmer</span><em></em></a>
+            <li><a href="unfilteredAds" id="navads"><span>Suche Wohnung</span><em></em></a>
+            <li><a href="placead" id="navpads"><span>Erstelle Ad</span><em></em></a>
             <li><a href="register">Register</a></li>
             <li><a href="#" id="loginButton"><span>Login</span><em></em></a>
             
