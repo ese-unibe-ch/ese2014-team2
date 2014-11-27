@@ -46,7 +46,7 @@ function activaTab(tab){
 </c:if>
 
 <ul class="nav nav-tabs" id="myTab">
-	<li class="active"><a href="#showReceived" data-toggle="tab">Empfangene Nachrichten</a></li>
+	<li><a href="#showReceived" data-toggle="tab">Empfangene Nachrichten</a></li>
 	<li><a href="#showSent"data-toggle="tab">Gesendete Nachrichten</a></li>
 	<li><a href="#showInvitations" data-toggle="tab">Einladungen</a></li>
 	<li><a href="#showNotifications" data-toggle="tab">Benachrichtigungen</a></li>
