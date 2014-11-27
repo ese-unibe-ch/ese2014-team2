@@ -14,11 +14,21 @@
 		login name and password.</p><br />
 </c:if>
 
-<form name ='loginForm' action="<c:url value='j_spring_security_check' />" method='POST'>
-	<label for="field-username">E-mail:</label> <input name="j_username"
-		id="field-username" /> <label for="field-password">Password:</label>
-	<input name="j_password" id="field-password" type="password"/>
-	<button type="submit" id="loginB">Login</button>
+<form class="col-md-6" name='loginForm' action="<c:url value='j_spring_security_check' />" method='POST'>
+
+
+	<div class="col-md-2 lineheight-textfields">
+		<label for="field-username">E-mail:</label>
+		<label for="field-password">Password:</label> 
+	</div>
+	<div class="col-md-4">
+		<input name="j_username" id="field-username" type="email"/>
+		<input name="j_password" id="field-password" type="password"/>
+	</div>
+	
+	<br>
+		
+	<button class="btn btn-primary" type="submit" id="loginB">Login</button>
 </form>
 <br />
 

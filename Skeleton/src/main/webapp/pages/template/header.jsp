@@ -73,6 +73,8 @@
             <li class="active"><a href="/Skeleton">Home</a></li>
             <li><a href="register">Register</a></li>
             <li><a href="#" id="loginButton"><span>Login</span><em></em></a>
+            <li><a href="unfilteredAds" id="navads"><span>LFA</span><em></em></a>
+            <li><a href="placead" id="navpads"><span>PADS</span><em></em></a>
                 <div style="clear:both"></div>
                 <div id="loginBox">                
                     <form id="loginForm" name="loginForm" action="<c:url value='j_spring_security_check' />" method="POST">
@@ -117,6 +119,8 @@
             <li><a href="myads">Ads</a></li>
             <li><a href="bookmarks">Favoriten</a></li>
             <li><a href="logout">Logout</a></li>
+            <li><a href="unfilteredAds" id="navads"><span>LFA</span><em></em></a>
+            <li><a href="placead" id="navpads"><span>PADS</span><em></em></a>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -124,7 +128,7 @@
 </security:authorize>	
 
 <div id="push_header"></div>
-
+<div id="push_content"></div>
 
 
 <div id="container_background">
