@@ -44,7 +44,7 @@
 
 
 			<div class="form-actions">
-							<button type="submit" class="btn btn-primary" id="send">Absenden</button>
+							<button type="submit" class="btn btn-primary" id="send">Send</button>
 				<a href="#" onclick="history.go(-2)">	<button type="button" class="btn btn-danger">Zurück</button></a>
 			</div>
 		

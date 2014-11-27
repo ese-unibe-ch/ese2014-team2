@@ -54,7 +54,7 @@
 							
 							<div class="btn-group">
 							  <a href="removeInteressent/applicationId${interessent.id}/adId${ad.id}">
-								<button type="button" class="btn btn-danger">
+								<button type="button" class="btn btn-default">
 									<b> Lehne den Bewerber ab </b>
 								</button>
 								</a>

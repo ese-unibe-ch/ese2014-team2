@@ -12,39 +12,36 @@
 	<h1 class="h1_inline">Send a Message to ${reciever.firstName }</h1>
 
 
-	<form:form method="post" modelAttribute="applicantForm" action="sendResume" id="applicantForm" cssClass="form-horizontal" autocomplete="off" enctype="multipart/form-data">
+	<form:form method="post" modelAttribute="messageForm" action="send" id="messageForm" cssClass="form-horizontal" autocomplete="off">
 		<fieldset>
 
-		
-
-			<form:hidden path="adId" id="field-reciever" value="${adId }" />
+			<p>Empfänger:&nbsp;&nbsp; ${reciever.firstName}</p>
+			<p>Absender:&nbsp;&nbsp; ${sender.firstName}</p>
 			
-						
+
+			<form:hidden path="recipientId" id="field-reciever"tabindex="23" value="${reciever.id }" />
+			<form:hidden path="adId" id="field-adId" value="${ad.id }" />
+			
 			<div class="row">
-				<label class="col-md-4" for="field-von">Ab wann ist das Zimmer frei: </label>
+			<label class="col-md-4">Titel: </label>
 				<div class="col-md-4">
-					<form:input path="bisWann" type="field-bisWann" id="datepicker" tabindex="2" />
-					
+					<form:input path="title" id="field-title" tabindex="1" maxlength="30" />
 				</div>
 			</div>
 			
-			
-			
 			<div class="row">
-				<label class="col-md-4">Erzähle etwas über dich:  </label>
+				<label class="col-md-4">Nachricht: </label>
 			</div>
 			<div class="row">
 						<div class="textareabig">
-							<form:textarea rows="10" cols="90" path="message" id="field-Message" placeholder="Wer bist du... Was machst du... Warum willst du das Zimmer" />
+							<form:textarea rows="10" cols="90" path="message" id="field-Message" tabindex="24" />
 						</div>
 			</div>
-			
-			
 	
 
 
 			<div class="form-actions">
-							<button type="submit" class="btn btn-primary" id="send">Absenden</button>
+							<button type="submit" class="btn btn-primary" id="send">Send</button>
 				<a href="#" onclick="history.go(-2)">	<button type="button" class="btn btn-danger">Zurück</button></a>
 			</div>
 		

@@ -61,9 +61,9 @@
 </div>
 
 <div class="form-actions">
-           <button type="submit" id="submitB" class="btn btn-primary">Registrieren</button>
+           <button type="submit" id="submitB" class="btn btn-primary">Sign up!</button>
 
-            <a href="#" onclick="history.go(-2)">	<button type="button" class="btn btn-danger">Abbrechen</button></a>
+            <a href="#" onclick="history.go(-2)">	<button type="button" class="btn btn-danger">Cancel</button></a>
         </div>
     </fieldset>
 </form:form>
