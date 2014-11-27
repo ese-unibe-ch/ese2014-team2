@@ -20,13 +20,16 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-	$(document).ready(function() {
-		$("#myTab a").click(function(e) {
-			e.preventDefault();
-			$(this).tab('show');
-		});
-	});
+
+$(document).ready(function(){
+
+    activaTab("${show}");});
+
+function activaTab(tab){
+    $('.nav-tabs a[href="#' + tab + '"]').tab('show');
+};
 </script>
+
 <style type="text/css">
 .bs-example {
 	margin: 20px;
@@ -43,10 +46,10 @@
 </c:if>
 
 <ul class="nav nav-tabs" id="myTab">
-	<li class="active"><a href="#showReceived">Empfangene	Nachrichten</a></li>
-	<li><a href="#showSent">Gesendete nachrichten</a></li>
-	<li><a href="#showInvitations">Einladungen</a></li>
-	<li><a href="#showNotifications">Benachrichtigungen</a></li>
+	<li><a href="#showReceived" data-toggle="tab">Empfangene	Nachrichten</a></li>
+	<li><a href="#showSent"data-toggle="tab">Gesendete nachrichten</a></li>
+	<li><a href="#showInvitations" data-toggle="tab">Einladungen</a></li>
+	<li><a href="#showNotifications" data-toggle="tab">Benachrichtigungen</a></li>
 
 </ul>
 <div class="tab-content">
