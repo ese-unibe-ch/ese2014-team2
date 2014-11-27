@@ -10,7 +10,7 @@
 <div class="panel panel-default">
 	<!-- Default panel contents -->
 	<div class="panel-heading">
-		<h1>Abgemachte Termine für Dein Ad ${ad.title }</h1>
+		<h1>Abgemachte termine für dein ad ${ad.title }</h1>
 	</div>
 	<div class="panel-body">
 
@@ -31,8 +31,8 @@
 				<div class="col-md-2">
 					<c:forEach items="${invitation.appointmentInvitations }" var="message">
 						<c:if test="${ message.appointedAppointment eq appointment.id}"> 
-							<c:if test="${ message.accepted eq true }"> Einladung wurde angenommen </c:if>
-							<c:if test="${ message.rejected eq true }"> Einladung wurde abgelehnt </c:if>
+							<c:if test="${ message.accepted eq true }"> Einladung wurde Angenommen </c:if>
+							<c:if test="${ message.rejected eq true }"> Einladung wurde Abgelehnt </c:if>
 							
 						</c:if>
 					</c:forEach>
