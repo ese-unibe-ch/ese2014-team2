@@ -36,10 +36,10 @@
 			<label>Preis:</label>
 		</div>
 		<div class="col-md-2">
-			<label>${ads.creator.firstName }</label><br>
-			<label>${ads.rooms}</label><br>
-			<label>${ads.roomSpace}</label><br>
-			<label>${ads.city}</label><br>
+			<label>${ads.creator.firstName }</label>
+			<label>${ads.rooms}</label>
+			<label>${ads.roomSpace}</label>
+			<label>${ads.city}</label>
 			<label>${ads.roomPrice}</label>
 		</div>
             </div>

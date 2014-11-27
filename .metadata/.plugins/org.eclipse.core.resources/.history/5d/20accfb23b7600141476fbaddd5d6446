@@ -35,12 +35,12 @@
 			<label>Stadt:</label>
 			<label>Preis:</label>
 		</div>
-		<div class="col-md-2">
-			<label>${ads.creator.firstName }</label><br>
-			<label>${ads.rooms}</label><br>
-			<label>${ads.roomSpace}</label><br>
-			<label>${ads.city}</label><br>
-			<label>${ads.roomPrice}</label>
+		<div class="col-md-2 lh20">
+			<p>${ads.creator.firstName }</p>
+			<p>${ads.rooms}</p>
+			<p>${ads.roomSpace}</p>
+			<p>${ads.city}</p>
+			<p>${ads.roomPrice}</p>
 		</div>
             </div>
           </div>
