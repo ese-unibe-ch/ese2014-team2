@@ -325,7 +325,7 @@ public class AppointmentService implements IAppointmentService {
 		+ " " + currentUser.getLastName()
 		+ " hat deine Einladung abgelehnt \n ");
 	answerToInviter.setTitle(currentUser.getFirstName() + " "
-		+ currentUser.getLastName() + " hat die Einladung angenommen");
+		+ currentUser.getLastName() + " hat die Einladung abgelehnt");
 
 	notifications.add(answerToInviter);
 	answerToInviter.setNotifications(adOwner);

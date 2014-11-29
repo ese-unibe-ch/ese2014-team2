@@ -97,24 +97,31 @@ public class MessageController {
 	 * @return
 	 */
 	@RequestMapping(value = "/showMessage", method = RequestMethod.GET)
-	public ModelAndView showMessage(@RequestParam(value = "messageId", required = true) Long messageId, Principal principal, HttpServletRequest request) {
+	public ModelAndView showMessage(@RequestParam(value = "messageId", required = true) Long messageId, Principal principal, HttpServletRequest request, RedirectAttributes redirectAttributes) {
 	    	
 	    	HttpSession session = request.getSession();
 		User currentUser = userService.getUserByEmail(principal.getName());
-		Message messageToReplyTo = messageService.findOneMessage(messageId);
-		User authorOfReceivedMessage = messageToReplyTo.getSender();
+		
+		if ( messageService.findTheMessageOnTheUser(currentUser, messageId) == true ) {
+        		Message messageToReplyTo = messageService.findOneMessage(messageId);
+        		User authorOfReceivedMessage = messageToReplyTo.getSender();
+        
+        		ModelAndView model = new ModelAndView("showMsg");
+        		model.addObject("messageForm", new MessageForm());
+        		model.addObject("sender", currentUser);
+        		model.addObject("recipient", authorOfReceivedMessage);
+        		model.addObject("message", messageToReplyTo);
+        		messageToReplyTo.setReadMessage(true);
+        		messageService.saveMessage(messageToReplyTo);
+        		int messageNmbr = (Integer) session.getAttribute("messageNmbr");
+        		session.setAttribute("messageNmbr", messageNmbr-1);
 
-		ModelAndView model = new ModelAndView("showMsg");
-		model.addObject("messageForm", new MessageForm());
-		model.addObject("sender", currentUser);
-		model.addObject("recipient", authorOfReceivedMessage);
-		model.addObject("message", messageToReplyTo);
-		messageToReplyTo.setReadMessage(true);
-		messageService.saveMessage(messageToReplyTo);
-		int messageNmbr = (Integer) session.getAttribute("messageNmbr");
-		session.setAttribute("messageNmbr", messageNmbr-1);
-
-		return model;
+		return model; 
+		}
+		else {
+		    redirectAttributes.addFlashAttribute("infoMessage", "Du versuchst die Nachricht eines anderen zu lesen!!");
+		    return new ModelAndView("redirect:/forbidden");
+		}
 	}
 	
 	
@@ -129,25 +136,31 @@ public class MessageController {
 	 * @return
 	 */
 	@RequestMapping(value = "/showNotification", method = RequestMethod.GET)
-	public ModelAndView showNotification(@RequestParam(value = "messageId", required = true) Long messageId, Principal principal, HttpServletRequest request) {
+	public ModelAndView showNotification(@RequestParam(value = "messageId", required = true) Long messageId, Principal principal, HttpServletRequest request, RedirectAttributes redirectAttributes) {
 	    	HttpSession session = request.getSession();
 	    	
 		User currentUser = userService.getUserByEmail(principal.getName());
-		Message messageToReplyTo = messageService.findOneMessage(messageId);
-		User authorOfReceivedMessage = messageToReplyTo.getSender();
-
-		ModelAndView model = new ModelAndView("showNotification");
-		model.addObject("messageForm", new MessageForm());
-		model.addObject("sender", currentUser);
-		model.addObject("recipient", authorOfReceivedMessage);
-		model.addObject("message", messageToReplyTo);
-		messageToReplyTo.setReadMessage(true);
-		messageService.saveMessage(messageToReplyTo);
-		int messageNmbr = (Integer) session.getAttribute("messageNmbr");
-		session.setAttribute("messageNmbr", messageNmbr-1);
+		if ( messageService.findTheMessageOnTheUser(currentUser, messageId) == true ) {
+        		Message messageToReplyTo = messageService.findOneMessage(messageId);
+        		User authorOfReceivedMessage = messageToReplyTo.getSender();
+        
+        		ModelAndView model = new ModelAndView("showNotification");
+        		model.addObject("messageForm", new MessageForm());
+        		model.addObject("sender", currentUser);
+        		model.addObject("recipient", authorOfReceivedMessage);
+        		model.addObject("message", messageToReplyTo);
+        		messageToReplyTo.setReadMessage(true);
+        		messageService.saveMessage(messageToReplyTo);
+        		int messageNmbr = (Integer) session.getAttribute("messageNmbr");
+        		session.setAttribute("messageNmbr", messageNmbr-1);
 		
 
-		return model;
+        		return model; 
+        		}
+		else {
+		    redirectAttributes.addFlashAttribute("infoMessage", "Du versuchst die Nachricht eines anderen zu lesen!!");
+		    return new ModelAndView("redirect:/forbidden");
+		}
 	}
 
 
@@ -253,10 +266,15 @@ public class MessageController {
 	public String deleteSentMessage(Principal principal,
 			@RequestParam(value = "messageId", required = true) Long messageId, RedirectAttributes redirectAttributes) {
 		User currentUser = userService.getUserByEmail(principal.getName());
-		messageService.deleteSenderMessage(messageId, currentUser);
-		redirectAttributes.addFlashAttribute("infoMessage", "Nachricht erfolgreich gelöscht");
-		redirectAttributes.addFlashAttribute("tabToShow", "showSent");
-		return "redirect:/myinbox";
+		if ( messageService.findBySenderAndId(currentUser, messageId)!= null) {
+        		messageService.deleteSenderMessage(messageId, currentUser);
+        		redirectAttributes.addFlashAttribute("infoMessage", "Nachricht erfolgreich gelöscht");
+        		redirectAttributes.addFlashAttribute("tabToShow", "showSent");
+        		return "redirect:/myinbox"; }
+		else {
+		    redirectAttributes.addFlashAttribute("infoMessage", "Du versuchst die Nachricht eines anderen zu löschen!!");
+		    return "redirect:/forbidden";
+		}
 	}
 	
 	/**
@@ -270,10 +288,17 @@ public class MessageController {
 	public String deleteReceivedMessage(Principal principal,
 			@RequestParam(value = "messageId", required = true) Long messageId, RedirectAttributes redirectAttributes) {
 		User currentUser = userService.getUserByEmail(principal.getName());
-		messageService.deleteRecipientMessage(messageId, currentUser);
-		redirectAttributes.addFlashAttribute("infoMessage", "Nachricht erfolgreich gelöscht");
-		redirectAttributes.addFlashAttribute("tabToShow", "showReceived");
-		return "redirect:/myinbox";
+		if ( messageService.findByRecipientAndId(currentUser, messageId)!= null) {
+        		messageService.deleteRecipientMessage(messageId, currentUser);
+        		redirectAttributes.addFlashAttribute("infoMessage", "Nachricht erfolgreich gelöscht");
+        		redirectAttributes.addFlashAttribute("tabToShow", "showReceived");
+        		return "redirect:/myinbox"; 
+        		}
+		else {
+		    redirectAttributes.addFlashAttribute("infoMessage", "Du versuchst die Nachricht eines anderen zu löschen!!");
+		    return "redirect:/forbidden";
+		}
+		
 	}
 	
 	/**
@@ -286,10 +311,17 @@ public class MessageController {
 	public String deleteNotification(Principal principal,
 			@RequestParam(value = "messageId", required = true) Long messageId, RedirectAttributes redirectAttributes) {
 		User currentUser = userService.getUserByEmail(principal.getName());
-		messageService.deleteNotification(messageId, currentUser);
-		redirectAttributes.addFlashAttribute("infoMessage", "Nachricht erfolgreich gelöscht");
-		redirectAttributes.addFlashAttribute("tabToShow", "showNotifications");
-		return "redirect:/myinbox";
+		if ( messageService.findByNotificationsAndId(currentUser, messageId)!= null) {
+        		messageService.deleteNotification(messageId, currentUser);
+        		redirectAttributes.addFlashAttribute("infoMessage", "Nachricht erfolgreich gelöscht");
+        		redirectAttributes.addFlashAttribute("tabToShow", "showNotifications");
+        		return "redirect:/myinbox"; 
+		}
+		else {
+		    redirectAttributes.addFlashAttribute("infoMessage", "Du versuchst die Nachricht eines anderen zu löschen!!");
+		    return "redirect:/forbidden";
+		}
+		
 	}
 	
 	/**
@@ -302,10 +334,18 @@ public class MessageController {
 	public String deleteInvitation(Principal principal,
 			@RequestParam(value = "messageId", required = true) Long messageId, RedirectAttributes redirectAttributes) {
 		User currentUser = userService.getUserByEmail(principal.getName());
-		messageService.deleteNotification(messageId, currentUser);
-		redirectAttributes.addFlashAttribute("infoMessage", "Nachricht erfolgreich gelöscht");
-		redirectAttributes.addFlashAttribute("tabToShow", "showInvitations");
-		return "redirect:/myinbox";
+		
+		if ( messageService.findByAppointmentInvitationsAndId(currentUser, messageId)!= null) {
+        		messageService.deleteNotification(messageId, currentUser);
+        		redirectAttributes.addFlashAttribute("infoMessage", "Nachricht erfolgreich gelöscht");
+        		redirectAttributes.addFlashAttribute("tabToShow", "showInvitations");
+        		return "redirect:/myinbox";
+		}
+		else {
+		    redirectAttributes.addFlashAttribute("infoMessage", "Du versuchst die Nachricht eines anderen zu löschen!!");
+		    return "redirect:/forbidden";
+		
+		}
 	}
 
 }

@@ -21,4 +21,15 @@ public interface IMessageService {
 	
 	public void saveMessage(Message message);
 	
+	public boolean findTheMessageOnTheUser(User user, Long messageId);
+	
+	public Message findBySenderAndId(User sender, Long id);
+	
+	public Message findByRecipientAndId(User recipient, Long id);
+
+	public Message findByNotificationsAndId(User currentUser, Long messageId);
+
+	public Message findByAppointmentInvitationsAndId(User currentUser,
+		Long messageId);
+	
 }

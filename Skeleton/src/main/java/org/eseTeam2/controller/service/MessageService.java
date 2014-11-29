@@ -130,4 +130,28 @@ public class MessageService implements IMessageService {
 	    
 	}
 
+	public boolean findTheMessageOnTheUser(User user, Long messageId) {
+	    if ( messageDao.findByAppointmentInvitationsAndId(user, messageId) != null || messageDao.findByNotificationsAndId(user, messageId) != null|| messageDao.findByRecipientAndId(user, messageId) != null || messageDao.findBySenderAndId(user, messageId)!= null)
+		return true;
+	    return false;
+	    
+	}
+
+	public Message findBySenderAndId(User sender, Long id) {
+	    return messageDao.findBySenderAndId(sender, id);
+	}
+
+	public Message findByRecipientAndId(User recipient, Long id) {
+	   return messageDao.findByRecipientAndId(recipient, id);
+	}
+
+	public Message findByNotificationsAndId(User currentUser, Long messageId) {
+	    return messageDao.findByNotificationsAndId(currentUser, messageId);
+	}
+
+	public Message findByAppointmentInvitationsAndId(User currentUser,
+		Long messageId) {
+	   return messageDao.findByAppointmentInvitationsAndId(currentUser, messageId);
+	}
+
 }
