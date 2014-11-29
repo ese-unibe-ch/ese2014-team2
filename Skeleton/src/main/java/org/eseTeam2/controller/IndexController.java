@@ -3,6 +3,7 @@ package org.eseTeam2.controller;
 import java.lang.reflect.InvocationTargetException;
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +19,7 @@ import org.eseTeam2.controller.service.IUserDataService;
 import org.eseTeam2.controller.service.UserDataService;
 import org.eseTeam2.exceptions.InvalidUserException;
 import org.eseTeam2.model.Advertisement;
+import org.eseTeam2.model.Message;
 import org.eseTeam2.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -48,9 +50,32 @@ public class IndexController {
 	 * @return
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView index() {
+	public ModelAndView index(HttpServletRequest request, Principal principal, @ModelAttribute("infoMessage") String message) {
+	    User currentUser = new User();
+	    List<Message> messages = new ArrayList<Message>();
+	    try {
+		currentUser = userService.getUserByEmail(principal.getName());
+		for ( Message m: currentUser.getAppointmentInvitations()) {
+		    if ( m.isReadMessage() == false)
+			messages.add(m);
+		}
+		for ( Message m: currentUser.getNotifications()) {
+		    if ( m.isReadMessage() == false)
+			messages.add(m);
+		}
+		for ( Message m: currentUser.getRecipient()) {
+		    if ( m.isReadMessage() == false)
+			messages.add(m);
+		}
+	    }
+	    catch (Exception d) {};
+	    
 		ModelAndView model = new ModelAndView("index");
+		HttpSession session = request.getSession();
 		model.addObject("filterForm", new FilterForm());
+		session.setAttribute("messageNmbr", messages.size());
+		model.addObject("infoMessage", message);
+		
 		return model;
 	}
 
@@ -76,6 +101,20 @@ public class IndexController {
 		return model;
 	}
 	
+	
+	@RequestMapping(value = "/forbidden", method = RequestMethod.GET)
+	public ModelAndView forbidden(@ModelAttribute("infoMessage") String message) {
+		ModelAndView model = new ModelAndView("forbidden");
+		model.addObject("infoMessage", message);
+	
+		return model;
+	}
+	
+	@RequestMapping(value="/404", method= RequestMethod.GET)
+	public ModelAndView error404() {
+	    ModelAndView model = new ModelAndView("404");
+	    return model;
+	}
 	
 	
 

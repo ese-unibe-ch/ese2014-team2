@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public interface IAdDataService {
 	
+	public Advertisement findByCreatorAndId(User user, Long adId);
 	public Iterable<Advertisement> getAds();
 	public Advertisement getAdvertisement(Long id);
 	public AdForm saveFrom(AdForm adForm, ArrayList<Picture> pictures);

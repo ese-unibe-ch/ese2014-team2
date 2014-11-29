@@ -130,7 +130,8 @@ public class UserController {
 		if (!result.hasErrors()) {
 			try {
 				userService.saveFrom(signupForm);
-				model = new ModelAndView("redirect:/success/userRegistered");
+				redirectAttributes.addFlashAttribute("infoMessage", "Du hast dich erfolgreich registriert. Du kannst dich nun einloggen");
+				model = new ModelAndView("redirect:/");
 			} catch (InvalidUserException e) {
 				model = new ModelAndView("register");
 				model.addObject("page_error", e.getMessage());

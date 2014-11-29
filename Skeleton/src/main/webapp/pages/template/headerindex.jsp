@@ -115,7 +115,7 @@
             <li><a href="unfilteredAds" id="navads"><span>Suche Zimmer</span><em></em></a>
             <li><a href="placead" id="navpads"><span>Vermiete Zimmer</span><em></em></a>
             <li><a href="myprofile">Profil</a></li>
-            <li><a href="myinbox">Inbox <span class="badge"> 4 </span></a></li>
+            <li><a href="myinbox">Inbox <span class="badge">  ${messageNmbr}</span></a></li>
             <li><a href="myads">Ads</a></li>
             <li><a href="appointments">Besichtigungen</a></li>
             <li><a href="bookmarks">Favoriten</a></li>

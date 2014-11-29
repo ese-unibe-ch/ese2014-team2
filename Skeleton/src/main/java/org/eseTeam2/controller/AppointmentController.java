@@ -156,8 +156,8 @@ public class AppointmentController {
     @RequestMapping(value = "/showInvitation", method = RequestMethod.GET)
     public ModelAndView invitation(
 	    @RequestParam(value = "messageId", required = true) Long messageId,
-	    Principal principal) {
-
+	    Principal principal, HttpServletRequest request) {
+	HttpSession session = request.getSession();
 	Message invitationMessage = messageService.findOneMessage(messageId);
 	User authorOfReceivedMessage = invitationMessage.getSender();
 
@@ -172,10 +172,14 @@ public class AppointmentController {
 	    model.addObject("sender", authorOfReceivedMessage);
 	    model.addObject("ad", adUserIsInvitedTo);
 	    model.addObject("message", invitationMessage);
+	    invitationMessage.setReadMessage(true);
+	    messageService.saveMessage(invitationMessage);
+	    int messageNmbr = (Integer) session.getAttribute("messageNmbr");
+	session.setAttribute("messageNmbr", messageNmbr-1);
 
 	    return model;
 	} catch (NullPointerException d) {
-	    return new ModelAndView("sorryWhatYouSearchIsGone");
+	    return new ModelAndView("404");
 	}
 
     }

@@ -9,10 +9,10 @@
 <body>
 	
 	
-	<h1>Sorry was du suchtst ist nicht mehr da. Höchstwahrscheinlich wurde das Ad  <br> 
-	gelöscht</h1>
+	<h1>Sorry was du suchtst ist nicht mehr da. Höchstwahrscheinlich wurde es <br> 
+	gelöscht, oder hat nie existiert</h1>
 	<img src="img/404.png">
-	<h2><a href="myinbox"> Hier geht es zurück zu deiner Inbox</a></h2>
+	<h2><a href="/Skeleton"> Hier geht es zurück zur hauptseite</a></h2>
 
 </body>
 </html>

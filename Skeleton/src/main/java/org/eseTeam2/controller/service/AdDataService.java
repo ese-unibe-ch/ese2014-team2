@@ -367,4 +367,8 @@ public class AdDataService implements IAdDataService {
 
     }
 
+    public Advertisement findByCreatorAndId(User user, Long adId) {
+	return advertisementDao.findByCreatorAndId(user, adId);
+    }
+
 }

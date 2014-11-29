@@ -54,7 +54,7 @@
 			
 			<c:set var="roomSpaceErrors"><form:errors path="roomSpace"/></c:set>
 			<div class="row">
-				<label class="col-md-4" for="field-roomSpace">Grösse des Zimmers:</label>
+				<label class="col-md-4" for="field-roomSpace">Grösse des Zimmers (in m²):</label>
 				<div class="col-md-4">
 					<form:input path="roomSpace" id="field-roomSpace" tabindex="5" maxlength="10" />
 					<form:errors path="roomSpace" cssClass="help-inline" element="span"/>
@@ -66,7 +66,7 @@
 				<label class="col-md-4" for="field-adNmbrOfRoommates">Wie viele Mitbewohner (Exkl. der gesuchten Person)</label>
 				<div class="col-md-4">
 					<form:select path="nmbrOfRoommates" id="field-adNmbrOfRoommates" tabindex="6">
-						<option value="">---</option>
+						<option value="0">---</option>
 						<option value="1">1</option>
 						<option value="2">2</option>
 						<option value="3">3</option>
@@ -149,28 +149,28 @@
 			<legend>Bilder:</legend>
 					
 					<div class="row">
-						<label for="image">: TitleImage (in JPEG format only, and max 700kb)</label>
+						<label for="image">: TitleImage </label>
 						<div class="col-md-4">
 							<input name="image" type="file" />
 						</div>
 					</div>
 					
 					<div class="row">
-						<label for="image">: Ad Image 1 (in JPEG format only, and max 700kb)</label>
+						<label for="image">: Ad Image 1 </label>
 						<div class="col-md-4">
 							<input name="image" type="file" />
 						</div>
 					</div>
 					
 					<div class="row">
-						<label for="image">: Ad Image 2 (in JPEG format only, and max 700kb)</label>
+						<label for="image">: Ad Image 2 </label>
 						<div class="col-md-4">
 							<input name="image" type="file" />
 						</div>
 					</div>
 					
 					<div class="row">
-						<label for="image">: Ad Image 3 (in JPEG format only, and max 700kb)</label>
+						<label for="image">: Ad Image 3 </label>
 						<div class="col-md-4">
 							<input name="image" type="file" />
 						</div>

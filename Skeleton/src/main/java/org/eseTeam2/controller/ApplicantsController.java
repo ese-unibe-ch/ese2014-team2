@@ -270,7 +270,7 @@ public class ApplicantsController {
 		AdApplication application  = appointmentService.findOneApplication(applicationId);
 		
 		if ( application == null) 
-		    return new ModelAndView("sorryWhatYouSearchIsGone");
+		    return new ModelAndView("404");
 		
 		if(application.getTimeLimitation().equals(""))
 			application.setTimeLimitation("nicht limitiert");

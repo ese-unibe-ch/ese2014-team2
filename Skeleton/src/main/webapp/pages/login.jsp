@@ -10,8 +10,7 @@
 <h1>Login</h1>
 
 <c:if test="${!empty param.error}">
-	<p>Incorrect login name or password. Please retry using correct
-		login name and password.</p><br />
+	<p>Falscher Benutzername oder Password. Bitte versuche es erneut.</p><br />
 </c:if>
 
 <form class="col-md-6" name='loginForm' action="<c:url value='j_spring_security_check' />" method='POST'>
@@ -29,6 +28,7 @@
 	<br>
 		
 	<button class="btn btn-primary" type="submit" id="loginB">Login</button>
+	<a href="register"><button class="btn btn-primary" type="button" id="registerB">Registrieren</button></a>
 </form>
 <br />
 

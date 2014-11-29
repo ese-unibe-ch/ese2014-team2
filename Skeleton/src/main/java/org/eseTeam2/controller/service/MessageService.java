@@ -125,4 +125,9 @@ public class MessageService implements IMessageService {
 		
 	}
 
+	public void saveMessage(Message message) {
+	   messageDao.save(message);
+	    
+	}
+
 }

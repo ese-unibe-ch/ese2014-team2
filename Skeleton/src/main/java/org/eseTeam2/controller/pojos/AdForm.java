@@ -28,24 +28,26 @@ public class AdForm {
 	private User creator;
 	private Date creationDate;
 	@NotNull
-	@Pattern(regexp = "(0?[1-9]|1[012])/(0?[1-9]|[12][0-9]|3[01])/((19|20)\\d\\d)", message="Please enter a date mm/dd/yyyy")
+	@Pattern(regexp = "(0?[1-9]|1[012])/(0?[1-9]|[12][0-9]|3[01])/((19|20)\\d\\d)", message="Bitte wähle ein Datum im Format mm/dd/yyyy")
 	private String start;
 	
 	
 	private String until;
 	@NotNull
-	@Digits(fraction = 0, integer = 1, message="Please enter a Value between 1 and 9")
-	@Min(value=1, message="Please enter a Value between 1 and 9")
+	@Digits(fraction = 0, integer = 2, message="Bitte gib einen Vert zwischen 1 und 20 ein")
+	@Min(value=1, message="Bitte gib einen Wert zwischen  1 und 20 ein")
 	private int rooms;
 	@NotNull
-	@Digits(fraction = 0, integer = 4, message="Please enter a Value between 10 and 9999")
-	@Min(value=10, message="Please enter a Value between 10 and 9999")
+	@Digits(fraction = 0, integer = 4, message="Bitte gib einen Wert zwischen 10 und 9999 an")
+	@Min(value=10, message="Bitte gib einen Wert zwischen 10 und 9999 an")
 	private int roomPrice;
 	@NotNull
-	@Digits(fraction = 0, integer = 2, message="Please enter a Value between 1 and 99")
-	@Min(value=1, message="Please enter a Value between 1 and 99")
+	@Digits(fraction = 0, integer = 2, message="Bitte gib einen Wert zwischen 1 und 99 an")
+	@Min(value=1, message="Bitte gib einen Wert zwischen 1 und 99 an")
 	private int roomSpace;
 	@NotNull
+	@Digits(fraction = 0, integer = 2, message="Bitte gib einen Wert zwischen 1 und 99 an")
+	@Min(value=1, message="Bitte wähle etwas aus der Liste aus.")
 	private int nmbrOfRoommates;
 	private String wgType;
 	private boolean furnished;
@@ -53,17 +55,17 @@ public class AdForm {
 	
 	// address
 	@NotNull
-	@Size(min=3, message="Please enter the name of the Canton.")
+	@Size(min=3, message="Bitte gib den Namen des Kantons ein.")
 	private String kanton;
 	@NotNull
-	@Min(value = 1000, message = "Please enter your ZIP code")
-	@Max(value = 9999, message = "Please enter your ZIP code")
+	@Min(value = 1000, message = "Bitte gib eine gültige Postleizahl ein")
+	@Max(value = 9999, message = "Bitte gib eine gültige Postleizahl ein")
 	private int plz;
 	@NotNull
-	@Size(min=3, message="Please enter the name of your city.")
+	@Size(min=3, message="Bitte gib den Namen deiner Stadt ein")
 	private String city;
 	@NotNull
-	@Size(min=3, message="Please enter your address.")
+	@Size(min=3, message="Bitte gib die Addresse an")
 	private String address;
 	//private String region;
 	

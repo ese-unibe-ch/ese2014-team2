@@ -4,10 +4,13 @@ import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.eseTeam2.PictureManager;
 import org.eseTeam2.controller.pojos.AdForm;
+import org.eseTeam2.controller.pojos.FilterForm;
 import org.eseTeam2.controller.pojos.MessageForm;
 import org.eseTeam2.controller.service.IAdDataService;
 import org.eseTeam2.controller.service.IMessageService;
@@ -94,8 +97,9 @@ public class MessageController {
 	 * @return
 	 */
 	@RequestMapping(value = "/showMessage", method = RequestMethod.GET)
-	public ModelAndView showMessage(@RequestParam(value = "messageId", required = true) Long messageId, Principal principal) {
-
+	public ModelAndView showMessage(@RequestParam(value = "messageId", required = true) Long messageId, Principal principal, HttpServletRequest request) {
+	    	
+	    	HttpSession session = request.getSession();
 		User currentUser = userService.getUserByEmail(principal.getName());
 		Message messageToReplyTo = messageService.findOneMessage(messageId);
 		User authorOfReceivedMessage = messageToReplyTo.getSender();
@@ -105,6 +109,10 @@ public class MessageController {
 		model.addObject("sender", currentUser);
 		model.addObject("recipient", authorOfReceivedMessage);
 		model.addObject("message", messageToReplyTo);
+		messageToReplyTo.setReadMessage(true);
+		messageService.saveMessage(messageToReplyTo);
+		int messageNmbr = (Integer) session.getAttribute("messageNmbr");
+		session.setAttribute("messageNmbr", messageNmbr-1);
 
 		return model;
 	}
@@ -121,8 +129,9 @@ public class MessageController {
 	 * @return
 	 */
 	@RequestMapping(value = "/showNotification", method = RequestMethod.GET)
-	public ModelAndView showNotification(@RequestParam(value = "messageId", required = true) Long messageId, Principal principal) {
-
+	public ModelAndView showNotification(@RequestParam(value = "messageId", required = true) Long messageId, Principal principal, HttpServletRequest request) {
+	    	HttpSession session = request.getSession();
+	    	
 		User currentUser = userService.getUserByEmail(principal.getName());
 		Message messageToReplyTo = messageService.findOneMessage(messageId);
 		User authorOfReceivedMessage = messageToReplyTo.getSender();
@@ -132,6 +141,11 @@ public class MessageController {
 		model.addObject("sender", currentUser);
 		model.addObject("recipient", authorOfReceivedMessage);
 		model.addObject("message", messageToReplyTo);
+		messageToReplyTo.setReadMessage(true);
+		messageService.saveMessage(messageToReplyTo);
+		int messageNmbr = (Integer) session.getAttribute("messageNmbr");
+		session.setAttribute("messageNmbr", messageNmbr-1);
+		
 
 		return model;
 	}
@@ -168,7 +182,7 @@ public class MessageController {
 	 * @return
 	 */
 	@RequestMapping(value = "/myinbox", method = RequestMethod.GET)
-	public ModelAndView inbox(Principal principal, @ModelAttribute("infoMessage") String message, @ModelAttribute("tabToShow") String tabToShow) {
+	public ModelAndView inbox(HttpServletRequest request, Principal principal, @ModelAttribute("infoMessage") String message, @ModelAttribute("tabToShow") String tabToShow) {
 
 		User currentUser = userService.getUserByEmail(principal.getName());
 		List<Message> recipientMessagesToDisplay = new ArrayList<Message>();
@@ -195,6 +209,32 @@ public class MessageController {
 		model.addObject("invitations", getInvitations);
 		model.addObject("user", currentUser);
 		model.addObject("infoMessage", message);
+		
+		  List<Message> messages = new ArrayList<Message>();
+		    try {
+			currentUser = userService.getUserByEmail(principal.getName());
+			for ( Message m: currentUser.getAppointmentInvitations()) {
+			    if ( m.isReadMessage() == false)
+				messages.add(m);
+			}
+			for ( Message m: currentUser.getNotifications()) {
+			    if ( m.isReadMessage() == false)
+				messages.add(m);
+			}
+			for ( Message m: currentUser.getRecipient()) {
+			    if ( m.isReadMessage() == false)
+				messages.add(m);
+			}
+		    }
+		    catch (Exception d) {};
+		    
+		
+		HttpSession session = request.getSession();
+			model.addObject("filterForm", new FilterForm());
+			session.setAttribute("messageNmbr", messages.size());
+		
+			
+			
 		if ( !tabToShow.equals(""))
 		    model.addObject("show", tabToShow);
 		else

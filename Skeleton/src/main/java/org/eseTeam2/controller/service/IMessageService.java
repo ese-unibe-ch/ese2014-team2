@@ -19,4 +19,6 @@ public interface IMessageService {
 
 	public void deleteNotification(Long messageId, User currentUser);
 	
+	public void saveMessage(Message message);
+	
 }

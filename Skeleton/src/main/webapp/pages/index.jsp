@@ -10,6 +10,9 @@
 
 <!-- TEST WITH BOOTSTRAP PANELS -->
 
+<c:if test="${not empty infoMessage}">
+<div class="alert alert-success" role="alert"><font color="006600" size="3"> ${infoMessage}</font></div>
+</c:if>
 
       <div class="row">
       <div class="col-sm-3">
