@@ -33,6 +33,10 @@ public class Appointment {
 	private Advertisement ad;
 	
 	
+	@OneToMany(mappedBy= "appointment", fetch=FetchType.EAGER, cascade=CascadeType.REMOVE)
+	@Fetch(value = FetchMode.SUBSELECT)
+	private List<Note> userNotes;
+	
 	
 	@ManyToMany (fetch=FetchType.EAGER)
 	private List<User> invitations;
@@ -94,6 +98,14 @@ public class Appointment {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public List<Note> getUserNotes() {
+	    return userNotes;
+	}
+
+	public void setUserNotes(List<Note> userNotes) {
+	    this.userNotes = userNotes;
 	}
 
 

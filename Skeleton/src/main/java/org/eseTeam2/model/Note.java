@@ -32,6 +32,8 @@ public class Note {
 	@ManyToOne 
 	private User applicant;
 	
+	
+	@ManyToOne
 	private Appointment appointment; 
 
 
@@ -62,6 +64,16 @@ public class Note {
 
 	public void setApplicant(User applicant) {
 	    this.applicant = applicant;
+	}
+
+
+	public Appointment getAppointment() {
+	    return appointment;
+	}
+
+
+	public void setAppointment(Appointment appointment) {
+	    this.appointment = appointment;
 	}
 	
 	

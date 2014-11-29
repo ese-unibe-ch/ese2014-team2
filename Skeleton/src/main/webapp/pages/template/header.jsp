@@ -120,6 +120,7 @@
             <li><a href="myprofile">Profil</a></li>
             <li><a href="myinbox">Inbox <span class="badge"> 4 </span></a></li>
             <li><a href="myads">Ads</a></li>
+            <li><a href="appointments">Besichtigungstermine</a></li>
             <li><a href="bookmarks">Favoriten</a></li>
             <li><a href="logout">Logout</a></li>
           </ul>

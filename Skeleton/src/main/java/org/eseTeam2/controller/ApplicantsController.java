@@ -26,6 +26,7 @@ import org.eseTeam2.controller.pojos.ApplicantForm;
 import org.eseTeam2.controller.pojos.AppointmentFinderForm;
 import org.eseTeam2.controller.pojos.FilterForm;
 import org.eseTeam2.controller.pojos.LoginForm;
+import org.eseTeam2.controller.pojos.NoteForm;
 import org.eseTeam2.controller.pojos.SignupForm;
 import org.eseTeam2.controller.service.AdDataService;
 import org.eseTeam2.controller.service.IAdDataService;
@@ -138,13 +139,24 @@ public class ApplicantsController {
 		return "redirect:/showInteressents?adId="+adId;
 	}
 	
-	
-	@RequestMapping(value = "/setNote/appointmentId{appointmentId}/userId{userId}", method = RequestMethod.GET)
-	public String setNote(@PathVariable("appointmentId") Long appointmentId, @PathVariable("userId") Long userId,
-			HttpServletRequest request, HttpServletResponse response,
+	///appointmentId{appointmentId}/userId{userId}
+	/*
+	 * @PathVariable("appointmentId") Long appointmentId, @PathVariable("userId") Long userId,
+		@RequestParam("noteText") String note
+	 */
+	@RequestMapping(value = "/setNote", method = RequestMethod.POST)
+	public String setNote( /*@Valid NoteForm noteForm,*/ HttpServletRequest request, HttpServletResponse response,
 			HttpSession session,  Principal principal,
-			RedirectAttributes redirectAttributes) {
-	
+			RedirectAttributes redirectAttributes, 	@RequestParam("noteText")String note, @RequestParam("userId") Long userId, @RequestParam("appointmentId") Long appointmentId) {
+	    
+	  
+	Advertisement ad = appointmentService.findOneAppointment(appointmentId).getAd();
+	    
+	 appointmentService.setNote(appointmentId, userId, note);
+	 redirectAttributes.addFlashAttribute("infoMessage", "Notiz hinzugefügt");
+	    
+	  return "redirect:/zeigeBesichtigungstermine?adId="+ad.getId();
+
 	}
 
 	

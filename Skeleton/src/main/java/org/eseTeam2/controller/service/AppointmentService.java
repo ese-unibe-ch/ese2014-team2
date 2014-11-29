@@ -10,17 +10,20 @@ import java.util.Set;
 
 import org.eseTeam2.controller.pojos.ApplicantForm;
 import org.eseTeam2.controller.pojos.AppointmentFinderForm;
+import org.eseTeam2.controller.pojos.NoteForm;
 import org.eseTeam2.model.AdApplication;
 import org.eseTeam2.model.Advertisement;
 import org.eseTeam2.model.Appointment;
 import org.eseTeam2.model.AppointmentDate;
 import org.eseTeam2.model.Message;
+import org.eseTeam2.model.Note;
 import org.eseTeam2.model.User;
 import org.eseTeam2.model.dao.AdApplicationDao;
 import org.eseTeam2.model.dao.AdvertisementDao;
 import org.eseTeam2.model.dao.AppointmentDao;
 import org.eseTeam2.model.dao.AppointmentDateDao;
 import org.eseTeam2.model.dao.MessageDao;
+import org.eseTeam2.model.dao.NoteDao;
 import org.eseTeam2.model.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSendException;
@@ -47,6 +50,9 @@ public class AppointmentService implements IAppointmentService {
 
 	@Autowired
 	MessageDao messageDao;
+	
+	@Autowired
+	NoteDao  noteDao;
 	
 
 
@@ -392,5 +398,37 @@ public class AppointmentService implements IAppointmentService {
 
 	public Appointment findOneAppointment(Long appointedAppointment) {
 	   return appDao.findOne(appointedAppointment);
+	}
+
+	public void setNote(Long appointmentId, Long userId, String noteText) {
+	    
+	   Note note =  new Note();
+	   try { 
+	       note = noteDao.findOneByApplicantAndAppointment(userDao.findOne(userId), appDao.findOne(appointmentId));
+	   }
+	   catch (Exception d) {
+	       System.out.println("no note yet");
+	   }
+	   Appointment appointment = appDao.findOne(appointmentId);
+	  List<Note> userNotes =  new ArrayList<Note>();
+	  
+	  try {
+	      userNotes = appointment.getUserNotes();
+	  }
+	  catch (Exception d){}
+	  
+	
+	  
+	   note.setText(noteText);
+	   note.setApplicant(userDao.findOne(userId));
+	   note.setAppointment(appointment);
+	   
+	   note = noteDao.save(note);
+	   userNotes.add(note);
+	   appointment.setUserNotes(userNotes);
+	   appDao.save(appointment);
+	   
+	   
+	    
 	}
 }

@@ -3,6 +3,7 @@ package org.eseTeam2.controller;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,6 +14,7 @@ import org.eseTeam2.PictureManager;
 import org.eseTeam2.controller.pojos.AdForm;
 import org.eseTeam2.controller.pojos.AppointmentFinderForm;
 import org.eseTeam2.controller.pojos.MessageForm;
+import org.eseTeam2.controller.pojos.NoteForm;
 import org.eseTeam2.controller.service.IAdDataService;
 import org.eseTeam2.controller.service.IAppointmentService;
 import org.eseTeam2.controller.service.IMessageService;
@@ -86,14 +88,47 @@ public class AppointmentController {
     @RequestMapping(value = "/zeigeBesichtigungstermine", method = RequestMethod.GET)
     public ModelAndView zeigeBesichtigungstermine(
 	    @RequestParam(value = "adId", required = true) Long adId,
-	    Principal principal) {
+	    Principal principal, @ModelAttribute("infoMessage") String message) {
 	User currentUser = userService.getUserByEmail(principal.getName());
 	Advertisement ad = adService.getAdvertisement(adId);
 	ModelAndView model = new ModelAndView("manageScheduledAppointments");
 	
+	
+	
 	model.addObject("appointments", ad.getAppointments());
 	model.addObject("ad", ad);
 	model.addObject("user", currentUser);
+	model.addObject("noteForm", new NoteForm());
+	model.addObject("infoMessage", message);
+
+	return model;
+    }
+    
+    /**
+     * this mapping method is responsible for displaying all appointments of all the users ads.
+     * @param adId
+     * @param principal
+     * @return
+     */
+    @RequestMapping(value = "/appointments", method = RequestMethod.GET)
+    public ModelAndView zeigeAlleBesichtigungstermine(
+	    Principal principal) {
+	ModelAndView model = new ModelAndView("appointmentOverview");
+	User currentUser = userService.getUserByEmail(principal.getName());
+	Set<Advertisement> usersAds = currentUser.getAdvertisements();
+	List<Appointment> usersAppointments = new ArrayList<Appointment>();
+	
+	for( Advertisement a: usersAds) {
+	    for( Appointment app : a.getAppointments()) {
+		usersAppointments.add(app);
+	    }
+	}
+	
+	model.addObject(usersAppointments);
+	model.addObject(currentUser);
+	
+	
+	
 
 	return model;
     }
