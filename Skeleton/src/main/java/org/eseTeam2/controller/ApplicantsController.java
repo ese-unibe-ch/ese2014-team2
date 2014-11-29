@@ -139,11 +139,19 @@ public class ApplicantsController {
 		return "redirect:/showInteressents?adId="+adId;
 	}
 	
-	///appointmentId{appointmentId}/userId{userId}
-	/*
-	 * @PathVariable("appointmentId") Long appointmentId, @PathVariable("userId") Long userId,
-		@RequestParam("noteText") String note
+	/**
+	 * this mapping method is used to set a note about someone.From the appointment o an ad site.
+	 * @param request
+	 * @param response
+	 * @param session
+	 * @param principal
+	 * @param redirectAttributes
+	 * @param note
+	 * @param userId
+	 * @param appointmentId
+	 * @return
 	 */
+
 	@RequestMapping(value = "/setNote", method = RequestMethod.POST)
 	public String setNote( /*@Valid NoteForm noteForm,*/ HttpServletRequest request, HttpServletResponse response,
 			HttpSession session,  Principal principal,
@@ -156,6 +164,32 @@ public class ApplicantsController {
 	 redirectAttributes.addFlashAttribute("infoMessage", "Notiz hinzugefügt");
 	    
 	  return "redirect:/zeigeBesichtigungstermine?adId="+ad.getId();
+
+	}
+	/**
+	 * This mapping method is used to set a note from the appointment Overview site. 
+	 * @param request
+	 * @param response
+	 * @param session
+	 * @param principal
+	 * @param redirectAttributes
+	 * @param note
+	 * @param userId
+	 * @param appointmentId
+	 * @return
+	 */
+	@RequestMapping(value = "/setNoteOverview", method = RequestMethod.POST)
+	public String setNoteOverview( /*@Valid NoteForm noteForm,*/ HttpServletRequest request, HttpServletResponse response,
+			HttpSession session,  Principal principal,
+			RedirectAttributes redirectAttributes, 	@RequestParam("noteText")String note, @RequestParam("userId") Long userId, @RequestParam("appointmentId") Long appointmentId) {
+	    
+	  
+	Advertisement ad = appointmentService.findOneAppointment(appointmentId).getAd();
+	    
+	 appointmentService.setNote(appointmentId, userId, note);
+	 redirectAttributes.addFlashAttribute("infoMessage", "Notiz hinzugefügt");
+	    
+	  return "redirect:/appointments";
 
 	}
 

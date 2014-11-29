@@ -18,15 +18,16 @@
 			
 										
 			
-	
-				<a href="deleteNotification?messageId=${message.id}">
-	<button type="button" class="btn btn-default btn btn-block"><b>Lösche die Nachricht</b></button></a>
-			
 			
 			<a href="myinbox">
-				<button type="button" class="btn btn-danger">Zurück</button>
+				<button type="button" class="btn btn-primary">Zurück</button>
 				</a>
-			</div>
+	
+				<a href="deleteNotification?messageId=${message.id}">
+	<button type="button" class="btn btn-danger"><b>Lösche die Nachricht</b></button></a>
+			
+			
+		
 		
 	
 

@@ -167,16 +167,16 @@ public class AppointmentService implements IAppointmentService {
 		appointment.setAdditionalInfosForTheVisitors(appForm.getAdditionalInfosForTheVisitors());
 
 		for (int i = 0; i < appForm.getAppointmentDate().size(); i++) {
-			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-			Date d = null;
+			//SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+			/*Date d = null;
 			try {
 				d = sdf.parse(appForm.getAppointmentDate().get(i));
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+			}*/
 
-			date.setDay(d);
+			date.setDay(appForm.getAppointmentDate().get(i));
 			date.setStartHour(appForm.getStartTimes().get(i));
 			date.setEndHour(appForm.getEndTimes().get(i));
 
@@ -203,9 +203,9 @@ public class AppointmentService implements IAppointmentService {
 			Message inform = new Message();
 			inform.setTitle("Einladung zu einer Wohnungbesichtigung");
 			inform.setMessageText("Hallo, du wurdest von " + adOwner.getFirstName() + " " + adOwner.getLastName()
-					+ " zur besichtigung eingeladen\n" + " der Termin wäre am" + appointmentDates.get(0).getDay()
-					+ " um" + appointmentDates.get(0).getStartHour()
-					+ "clicke auf den Knopf am ende dieser Nachricht um auszuwählen ob es dir passt oder nicht");
+					+ " zur besichtigung des Ads: <a href=\"adprofile?adId="+ad.getId()+">"+ad.getTitle() +"</a> eingeladen\n" + " der Termin wäre am " + appointmentDates.get(0).getDay()
+					+ " um " + appointmentDates.get(0).getStartHour()
+					+ "Einladungsnachricht des Zimmerbesitzers: " +appointment.getAdditionalInfosForTheVisitors());
 			appointmentInvitationMessages.add(inform);
 
 			interessent.setAppointmentInvitations(appointmentInvitationMessages);
@@ -218,7 +218,7 @@ public class AppointmentService implements IAppointmentService {
 
 			
 
-			String message = "Hallo, " + interessent.getFirstName()	+ " "
+			/*String message = "Hallo, " + interessent.getFirstName()	+ " "
 					+ interessent.getLastName()
 					+ "\n"
 					+ " du wurdest eingeladen zu einer Wohnungbesichtigung. Logge dich doch bitte auf deinem Account ein und gehe in deine Inbox \n"
@@ -228,7 +228,7 @@ public class AppointmentService implements IAppointmentService {
 			try {
 			mailer.sendEmail(interessent.getEmail(), message, "Einladung zur Wohnungsbesichtigung");
 			}
-			catch (MailSendException e) {}
+			catch (MailSendException e) {} */
 			
 			
 			userDao.save(interessent);
@@ -402,13 +402,18 @@ public class AppointmentService implements IAppointmentService {
 
 	public void setNote(Long appointmentId, Long userId, String noteText) {
 	    
-	   Note note =  new Note();
+	   Note note =  null;
+	   
 	   try { 
 	       note = noteDao.findOneByApplicantAndAppointment(userDao.findOne(userId), appDao.findOne(appointmentId));
 	   }
 	   catch (Exception d) {
-	       System.out.println("no note yet");
+	       note = new Note();
 	   }
+	   
+	   if (note == null)
+	       note = new Note();
+	   
 	   Appointment appointment = appDao.findOne(appointmentId);
 	  List<Note> userNotes =  new ArrayList<Note>();
 	  
@@ -418,7 +423,6 @@ public class AppointmentService implements IAppointmentService {
 	  catch (Exception d){}
 	  
 	
-	  
 	   note.setText(noteText);
 	   note.setApplicant(userDao.findOne(userId));
 	   note.setAppointment(appointment);

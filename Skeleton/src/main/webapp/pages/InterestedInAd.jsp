@@ -21,7 +21,7 @@
 			
 						
 			<div class="row">
-				<label class="col-md-4" for="field-von">Ab wann ist das Zimmer frei: </label>
+				<label class="col-md-4" for="field-von">Ab wann möchtest du Einziehen? </label>
 				<div class="col-md-4">
 					<form:input path="bisWann" type="field-bisWann" id="datepicker" tabindex="2" />
 					

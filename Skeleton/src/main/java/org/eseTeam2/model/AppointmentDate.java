@@ -15,7 +15,7 @@ public class AppointmentDate {
 	@GeneratedValue
 	private Long id;
 	
-	private Date day;
+	private String day;
 	
 	private String startHour;
 	
@@ -39,14 +39,18 @@ public class AppointmentDate {
 		this.endHour = endHour;
 	}
 
-
-	public Date getDay() {
-		return day;
+	public String getDay() {
+	    return day;
 	}
 
-	public void setDay(Date day) {
-		this.day = day;
+	public void setDay(String day) {
+	    this.day = day;
 	}
+
+	
+
+	
+
 
 	
 

@@ -77,16 +77,14 @@
 						<div id="note" title="Notiz" style="display:none">
 							
 							<form method="post" action="setNote" id="noteForm"  autocomplete="off" >
+																															
 								<c:forEach items="${appointment.userNotes }" var="note"> 
-									<c:if test="${note.applicant.id eq invitation.id }"> 
 										<textarea rows="4" cols="20"  name ="noteText" id="noteText">"${note.text }"</textarea>
-								<input type="hidden" id="userId" name="userId" value="${invitation.id }" />
-								<input type="hidden" id="appointmentId" name="appointmentId" value="${appointment.id }" />
-									</c:if>
 								
 								</c:forEach>
-																							
-								
+								<input type="hidden" id="userId" name="userId" value="${invitation.id }" />
+								<input type="hidden" id="appointmentId" name="appointmentId" value="${appointment.id }" />
+
 
 									
 								<button type="submit"  value="send" class="btn btn-default">

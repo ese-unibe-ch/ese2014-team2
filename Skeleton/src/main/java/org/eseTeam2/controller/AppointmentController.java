@@ -95,6 +95,7 @@ public class AppointmentController {
 	
 	
 	
+	
 	model.addObject("appointments", ad.getAppointments());
 	model.addObject("ad", ad);
 	model.addObject("user", currentUser);
@@ -124,10 +125,9 @@ public class AppointmentController {
 	    }
 	}
 	
-	model.addObject(usersAppointments);
-	model.addObject(currentUser);
-	
-	
+	model.addObject("usersInvitations", currentUser.getUsersInvitations());
+	model.addObject("usersAppointments", usersAppointments);
+	model.addObject("user", currentUser);
 	
 
 	return model;

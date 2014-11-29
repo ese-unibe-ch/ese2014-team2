@@ -9,13 +9,13 @@
 
 
 <div class="main">
-	<h1 class="h1_inline">Einladung zur Wohnungbesichtigung von ${sender.firstName }  ${sender.lastName } </h1>
+	<legend class="h1_inline">Einladung zur Wohnungbesichtigung von ${sender.firstName }  ${sender.lastName } </legend>
 
-	<label class="control-label" for="field-title"><font size="10"> Nachricht: </font></label>
+	<h3> Nachricht: </h3>
 			<div class="controls">
-				<font size="5">
+				<p>
 					${message.messageText}
-				</font>
+				</p>
 			</div>	
 			
 			
@@ -23,11 +23,11 @@
 			
 			
 	<a href="acceptInvitation?appointmentId=${appointment.id}">
-    <button type="button" class="btn btn-default"><b>Nimm die Einladung an.</b></button>
+    <button type="button" class="btn btn-success"><b>Nimm die Einladung an.</b></button>
     </a>
     
     <a href="rejectInvitation?appointmentId=${appointment.id}">
-    <button type="button" class="btn btn-default"><b>Lehne die Einladung ab.</b></button>
+    <button type="button" class="btn btn-danger"><b>Lehne die Einladung ab.</b></button>
     </a>
 	
 	
