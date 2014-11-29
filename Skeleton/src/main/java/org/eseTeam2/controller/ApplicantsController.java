@@ -138,6 +138,14 @@ public class ApplicantsController {
 		return "redirect:/showInteressents?adId="+adId;
 	}
 	
+	
+	@RequestMapping(value = "/setNote/appointmentId{appointmentId}/userId{userId}", method = RequestMethod.GET)
+	public String setNote(@PathVariable("appointmentId") Long appointmentId, @PathVariable("userId") Long userId,
+			HttpServletRequest request, HttpServletResponse response,
+			HttpSession session,  Principal principal,
+			RedirectAttributes redirectAttributes) {
+	
+	}
 
 	
 	/** 

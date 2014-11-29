@@ -15,7 +15,7 @@
 	<div class="panel-body">
 
 <c:forEach items="${appointments}" var="appointment">
-<c:forEach items="${appointment.appointmentDate }"
+	<c:forEach items="${appointment.appointmentDate }"
 						var="appDate">
 						<font size="6">Termin am ${appDate.day} von
 							${appDate.startHour} bis ${appDate.endHour}</font>
@@ -33,6 +33,7 @@
 						<c:if test="${ message.appointedAppointment eq appointment.id}"> 
 							<c:if test="${ message.accepted eq true }"> Einladung wurde angenommen </c:if>
 							<c:if test="${ message.rejected eq true }"> Einladung wurde abgelehnt </c:if>
+							<c:if test="${message.rejected eq false and message.accepted eq false }"> Einladung wurde abgelehnt </c:if>
 							
 						</c:if>
 					</c:forEach>
@@ -41,6 +42,13 @@
 
 
 				<div class="col-md-4">
+				
+				<a href="setNote/appointmentId${appointment.id}/userId${invitation.id}">
+									<button type="button" class="btn btn-default">
+										<b>Nachricht </b>
+									</button>
+								</a>
+								
 				<c:forEach items="${invitation.appointmentInvitations }" var="message">
 						<c:if test="${ message.appointedAppointment eq appointment.id}"> 
 					<a href="sendMessageFromAppointment?messageId=${message.id}">
