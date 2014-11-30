@@ -25,6 +25,7 @@ import org.eseTeam2.model.dao.AppointmentDateDao;
 import org.eseTeam2.model.dao.MessageDao;
 import org.eseTeam2.model.dao.NoteDao;
 import org.eseTeam2.model.dao.UserDao;
+import org.jsoup.Jsoup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSendException;
 import org.springframework.stereotype.Service;
@@ -80,7 +81,7 @@ public class AppointmentService implements IAppointmentService {
 
 	application.setAd(ad);
 	application.setApplicant(applicantForm.getInteressent());
-	application.setMessage(applicantForm.getMessage());
+	application.setMessage(Jsoup.parse(applicantForm.getMessage()).text());
 	application.setTitle(applicantForm.getTitle());
 	application.setTimeLimitation(applicantForm.getBisWann());
 
@@ -166,8 +167,8 @@ public class AppointmentService implements IAppointmentService {
 	}
 
 	appointment.setBlockLength(appForm.getBlockLength());
-	appointment.setAdditionalInfosForTheVisitors(appForm
-		.getAdditionalInfosForTheVisitors());
+	appointment.setAdditionalInfosForTheVisitors(Jsoup.parse(appForm
+		.getAdditionalInfosForTheVisitors()).text());
 
 	for (int i = 0; i < appForm.getAppointmentDate().size(); i++) {
 
