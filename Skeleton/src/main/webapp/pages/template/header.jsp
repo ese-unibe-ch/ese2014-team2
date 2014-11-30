@@ -120,7 +120,7 @@
             <li><a href="myprofile">Profil</a></li>
             <li><a href="myinbox">Inbox <span class="badge"> ${messageNmbr} </span></a></li>
             <li><a href="myads">Ads</a></li>
-            <li><a href="appointments/showInvitations">Besichtigungstermine</a></li>
+            <li><a href="appointments?showTab=1">Besichtigungstermine</a></li>
             <li><a href="bookmarks">Favoriten</a></li>
             <li><a href="logout">Logout</a></li>
           </ul>

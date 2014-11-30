@@ -9,10 +9,9 @@
 
 <c:import url="template/header.jsp" />
 
-	
-	<c:if test="${showInvitations eq true }">
-	
-		 
+
+
+	 
 <script>
 	function showDetails() {
 		$('#invitationDetails').show();
@@ -35,9 +34,11 @@
 
 
 	
-	<ul class="nav nav-tabs" id="myTab">
-	<li class="active"><a href="/Skeleton/appointments/showInvitations" >Verschickte Einladungen</a></li>
-	<li><a href="/Skeleton/appointments/showInvited">Erhaltene Einladungen</a></li>
+	<c:if test="${showTab eq 1 }">
+	
+		<ul class="nav nav-tabs" id="myTab">
+	<li class="active"><a href="appointments?showTab=1" >Verschickte Einladungen</a></li>
+	<li><a href="appointments?showTab=2">Erhaltene Einladungen</a></li>
 
 </ul>
 
@@ -150,42 +151,16 @@ $(function()
 			
 		</c:forEach>
 		</div>
-		</div>
-
-
-
-		
-	</div>
-
-		
+			
 	
 	</c:if>	
 	
-	<c:if test="${showInvited eq true }">
+	<c:if test="${showTab eq 2 }">
 	
-	<script>
-	function showDetails() {
-		$('#invitationDetails').show();
-	}
-	
-</script>
-
-  
-
-<div class="panel panel-default">
-	<!-- Default panel contents -->
-	<div class="panel-heading">
-		<h1>Übersicht über alle  abgemachten Termine </h1>
-	</div>
-	<div class="panel-body">
-	
-	<c:if test="${not empty infoMessage}">
-<div class="alert alert-success" role="alert"><font color="006600" size="3"> ${infoMessage}</font></div>
-</c:if>
-	
-		<ul class="nav nav-tabs" id="myTab">
-	<li><a href="/Skeleton/appointments/showInvitations" >Verschickte Einladungen</a></li>
-	<li class="active"><a href="/Skeleton/appointments/showInvited">Erhaltene Einladungen</a></li>
+	<br>
+	<ul class="nav nav-tabs" id="myTab">
+	<li><a href="appointments?showTab=1" >Verschickte Einladungen</a></li>
+	<li class="active"><a href="appointments?showTab=2">Erhaltene Einladungen</a></li>
 
 </ul>
 
@@ -217,9 +192,14 @@ $(function()
 				</div>	
 			</c:forEach>
 		</div>
-		</div>
-		</div>
 		</c:if>
+	</div>
+
+
+
+		
+	</div>
+
 
 
 
