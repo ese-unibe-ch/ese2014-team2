@@ -35,7 +35,7 @@ function activaTab(tab){
 	<script type="text/javascript">
 
 	function noteFunct() {
-        $('#note').dialog();
+        $('#setNote').dialog();
  
 
 	}
@@ -110,25 +110,31 @@ function activaTab(tab){
 								</button>
 								
 								
-							<div id="note" title="Notiz" style="display:none">
+							<div id="setNote" title="Notiz" style="display:none">
+							
+							<form method="post" action="setNote" id="noteForm"  autocomplete="off" >
 								
-								<form method="post" action="setNoteOverview" id="noteForm"  autocomplete="off" >
-									<c:forEach items="${appointment.userNotes }" var="note"> 
-											<textarea rows="4" cols="20"  name ="noteText" id="noteText">"${note.text }"</textarea>
+								<c:if test="${ not empty appointment.userNotes }">																				
+								<c:forEach items="${appointment.userNotes }" var="note"> 
+										<textarea rows="4" cols="20"  name ="noteText" id="noteText">"${note.text }"</textarea>
+								
+								</c:forEach>
+								</c:if>
+								<c:if test="${ empty appointment.userNotes }">	
+								<textarea rows="4" cols="20"  name ="noteText" id="noteText"></textarea>
+								</c:if>
+								
+								<input type="hidden" id="userId" name="userId" value="${invitation.id }" />
+								<input type="hidden" id="appointmentId" name="appointmentId" value="${appointment.id }" />
+
+
 									
-									</c:forEach>
-																								
-								
-									<input type="hidden" id="userId" name="userId" value="${invitation.id }" />
-									<input type="hidden" id="appointmentId" name="appointmentId" value="${appointment.id }" />
-	
+								<button type="submit"  value="send" class="btn btn-default">
+									<b>OK </b>
+								</button>
 										
-									<button type="submit"  value="send" class="btn btn-default">
-										<b>OK </b>
-									</button>
-											
-								</form>
-							</div>  
+							</form>
+						</div>  
 						
 							
 	

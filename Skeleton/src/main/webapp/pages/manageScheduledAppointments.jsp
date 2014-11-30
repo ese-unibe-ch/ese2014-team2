@@ -33,9 +33,9 @@
 </c:if>
 
 		<c:forEach items="${appointments}" var="appointment">
-			<c:forEach items="${appointment.appointmentDate }" var="appDate">
-				<font size="6">Termin am ${appDate.day} von
-					${appDate.startHour} bis ${appDate.endHour}</font>
+			
+				<font size="6">Termin am ${appointment.appointmentDate.day} von
+					${appointment.appointmentDate.startHour} bis ${appointment.appointmentDate.endHour}</font>
 				<br>
 				<br>
 				<font size="4">Name des Interessenten:</font>
@@ -77,11 +77,17 @@
 						<div id="note" title="Notiz" style="display:none">
 							
 							<form method="post" action="setNote" id="noteForm"  autocomplete="off" >
-																															
+								
+								<c:if test="${ not empty appointment.userNotes }">																				
 								<c:forEach items="${appointment.userNotes }" var="note"> 
 										<textarea rows="4" cols="20"  name ="noteText" id="noteText">"${note.text }"</textarea>
 								
 								</c:forEach>
+								</c:if>
+								<c:if test="${ empty appointment.userNotes }">	
+								<textarea rows="4" cols="20"  name ="noteText" id="noteText"></textarea>
+								</c:if>
+								
 								<input type="hidden" id="userId" name="userId" value="${invitation.id }" />
 								<input type="hidden" id="appointmentId" name="appointmentId" value="${appointment.id }" />
 
@@ -109,7 +115,7 @@
 						</div>
 					</div>
 				</c:forEach>
-			</c:forEach>
+			
 		</c:forEach>
 
 
