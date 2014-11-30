@@ -251,9 +251,11 @@ public class AppointmentController {
 	
 	Advertisement ad = adService.getAdvertisement(
 		adId);
+	
+	for (int i = 0; i < interessentsArr.length; i++)
+	    System.out.println(interessentsArr[i]);
 
-	redirectAttributes.addFlashAttribute("interessentsToSendApp",
-		interessentsArr);
+	redirectAttributes.addFlashAttribute("interessentsToSendApp",interessentsArr);
 
 	return "redirect:/setzeBesichtigungstermin?adId=" + ad.getId();
     }
@@ -273,29 +275,29 @@ public class AppointmentController {
     @RequestMapping(value = "/setAppointmentAndInform", method = RequestMethod.POST)
     public ModelAndView setAppointmentDateAndInform(
 	    @Valid AppointmentFinderForm appointmentFinderForm,
-	    @RequestParam(value= "adAppointmentIds", required = false) Long[] adAppointmentIds,
+	   // @RequestParam(value= "adAppointmentIds", required = false) Long[] adAppointmentIds,
 	    BindingResult result, RedirectAttributes redirectAttributes,
 	    Principal principal) {
 	
 	ModelAndView model;
-	ArrayList<Long> interessentsList = new ArrayList<Long>();
-	
+	//ArrayList<Long> interessentsList = new ArrayList<Long>();
+	/*
 	for (int i = 0; i < adAppointmentIds.length; i++) {
 	    interessentsList.add(adAppointmentIds[i]);
-	}
+	} */
 
-	appointmentFinderForm.setAdAppointmentIds(interessentsList);
+	//appointmentFinderForm.setAdAppointmentIds(interessentsList);
 
 	if (!result.hasErrors()) {
 
-	    appointmentFinderForm.setAdOwner(userService
-		    .getUserByEmail(principal.getName()));
+	    appointmentFinderForm.setAdOwner(userService.getUserByEmail(principal.getName()));
 	    appointmentService.sendOutAppointment(appointmentFinderForm);
 	    redirectAttributes.addFlashAttribute("infoMessage", "Deine Eeinladung wurde verschickt!");
 	    model = new ModelAndView("redirect:/showInteressents?adId="+appointmentFinderForm.getAdId());
 	    return model; 
 	} else {
-	    model = new ModelAndView("setAppointmentForAd");
+	    redirectAttributes.addFlashAttribute("infoMessage", "Sorry, du hast nicht alle felder ausgefüllt. Bitte beginne neu und fülle alle Felder aus");
+	    model = new ModelAndView("redirect:/showInteressents?adId="+appointmentFinderForm.getAdId());
 	}
 	return model;
     }

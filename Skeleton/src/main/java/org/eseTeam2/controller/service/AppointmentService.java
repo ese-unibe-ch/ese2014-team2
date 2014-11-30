@@ -167,22 +167,18 @@ public class AppointmentService implements IAppointmentService {
 	}
 
 	appointment.setBlockLength(appForm.getBlockLength());
-	appointment.setAdditionalInfosForTheVisitors(Jsoup.parse(appForm
-		.getAdditionalInfosForTheVisitors()).text());
+	appointment.setAdditionalInfosForTheVisitors(Jsoup.parse(appForm.getAdditionalInfosForTheVisitors()).text());
 
-	for (int i = 0; i < appForm.getAppointmentDate().size(); i++) {
 
-	    date.setDay(appForm.getAppointmentDate().get(i));
-	    date.setStartHour(appForm.getStartTimes().get(i));
-	    date.setEndHour(appForm.getEndTimes().get(i));
+	date.setDay(appForm.getAppointmentDate());
+	date.setStartHour(appForm.getStartTime());
+	date.setEndHour(appForm.getEndTime());
 
-	    appointmentDates.add(date);
 
-	    dateDao.save(date);
+	dateDao.save(date);
 
-	}
 
-	appointment.setAppointmentDate(appointmentDates);
+	appointment.setAppointmentDate(date);
 
 	List<User> adInvitations = new ArrayList<User>();
 
@@ -202,8 +198,8 @@ public class AppointmentService implements IAppointmentService {
 		    + adOwner.getFirstName() + " " + adOwner.getLastName()
 		    + " zur besichtigung des Ads: <a href=\"adprofile?adId="
 		    + ad.getId() + "\">" + ad.getTitle() + "</a> eingeladen<br>"
-		    + " der Termin wäre am " + appointmentDates.get(0).getDay()
-		    + " um " + appointmentDates.get(0).getStartHour()
+		    + " der Termin wäre am " + date.getDay()
+		    + " um " + date.getStartHour()
 		    + " Einladungsnachricht des Zimmerbesitzers: <br> "
 		    + appointment.getAdditionalInfosForTheVisitors());
 	    appointmentInvitationMessages.add(inform);
@@ -276,10 +272,10 @@ public class AppointmentService implements IAppointmentService {
 		+ " " + currentUser.getLastName()
 		+ " hat deine Einladung angenommen\n"
 		+ "er wird zum gegebenen Termin am"
-		+ appointment.getAppointmentDate().get(0).getDay()
+		+ appointment.getAppointmentDate().getDay()
 		+ " zwischen "
-		+ appointment.getAppointmentDate().get(0).getStartHour()
-		+ " und" + appointment.getAppointmentDate().get(0).getEndHour()
+		+ appointment.getAppointmentDate().getStartHour()
+		+ " und" + appointment.getAppointmentDate().getEndHour()
 		+ "erscheinen");
 	answerToInviter.setTitle(currentUser.getFirstName() + " "
 		+ currentUser.getLastName() + " hat die Einladung angenommen");

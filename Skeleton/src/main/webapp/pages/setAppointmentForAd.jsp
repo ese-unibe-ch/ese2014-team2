@@ -33,7 +33,7 @@
 				</div>
 			</div>
    
-   		<c:set var="startTimesErrors"><form:errors path="startTimes"/></c:set>
+   		<c:set var="startTimeErrors"><form:errors path="startTime"/></c:set>
    				<div class="row">
 					<div class="col-sm-2 col-md-2">
 						<label>Beginn:</label>
@@ -41,12 +41,12 @@
 					
 					<div class="col-sm-4 col-md-6">
 						 <div id="timepicker1" class="input-append">
-    						<form:input class="add-on" data-format="hh:mm" type="text" path="startTimes"></form:input>
+    						<form:input class="add-on" data-format="hh:mm" type="text" path="startTime"></form:input>
   						</div>
 					</div>
 				</div>
     
-    			
+    	<c:set var="endTimeErrors"><form:errors path="endTime"/></c:set>
     			<div class="row">
 					<div class="col-sm-2 col-md-2">
 						<label>Ende:</label>
@@ -54,7 +54,7 @@
 					
 					<div class="col-sm-4 col-md-6">
 						<div id="timepicker2" class="input-append">
-							<form:input class="add-on" data-format="hh:mm" type="text" path="endTimes"></form:input>
+							<form:input class="add-on" data-format="hh:mm" type="text" path="endTime"></form:input>
   						</div>
   					</div>
 				</div>
@@ -72,8 +72,8 @@
 						<form:textarea rows="10" cols="300" path="additionalInfosForTheVisitors" id="field-Message" /> 
 						<form:errors path="additionalInfosForTheVisitors" cssClass="help-inline" element="span"/> <br>
 						<form:errors path="appointmentDate" cssClass="help-inline" element="span"/> <br>
-						<form:errors path="startTimes" cssClass="help-inline" element="span"/> <br>
-						<form:errors path="endTimes" cssClass="help-inline" element="span"/>
+						<form:errors path="startTime" cssClass="help-inline" element="span"/> <br>
+						<form:errors path="endTime" cssClass="help-inline" element="span"/>
 					</div>
 				</div>
 				<div class="row">

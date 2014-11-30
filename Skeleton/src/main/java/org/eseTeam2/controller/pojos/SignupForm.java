@@ -4,6 +4,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.jsoup.Jsoup;
+
 /**
  * Signup form, used to register. COntains all information to create a new User object.
  * @author Icewater
@@ -30,7 +32,7 @@ public class SignupForm {
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.firstName = Jsoup.parse(firstName).text();
     }
 
     public String getLastName() {
@@ -38,7 +40,7 @@ public class SignupForm {
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        this.lastName = Jsoup.parse(lastName).text();
     }
 
     public String getEmail() {

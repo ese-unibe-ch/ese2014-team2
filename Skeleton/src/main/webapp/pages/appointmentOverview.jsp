@@ -70,9 +70,8 @@ function activaTab(tab){
 		<div id="showInvitations" class="tab-pane fade in active">
 		<br>
 			<c:forEach items="${usersAppointments}" var="appointment">
-				<c:forEach items="${appointment.appointmentDate }" var="appDate">
-					<font size="4">Termin am ${appDate.day} von
-						${appDate.startHour} bis ${appDate.endHour} für dein Ad : <a href="adprofile?adId=${appointment.ad.id}">${appointment.ad.title}</a> </font>
+				<font size="4">Termin am ${appDate.day} von
+						${appointment.appointmentDate.startHour} bis ${appointment.appointmentDate.endHour} für dein Ad : <a href="adprofile?adId=${appointment.ad.id}">${appointment.ad.title}</a> </font>
 					<br>
 					<br>
 					<font size="4">Name des Interessenten:</font>
@@ -147,7 +146,7 @@ function activaTab(tab){
 						</div>
 					</c:forEach>
 				</c:forEach>
-			</c:forEach>
+			
 		</div>
 		
 		<div id="showInvited" class="tab-pane fade">
@@ -156,14 +155,14 @@ function activaTab(tab){
 			<c:forEach items="${usersInvitations}" var="appointment">
 			<div class="row">
 				<div class="col-md-11">
-				<c:forEach items="${appointment.appointmentDate }" var="appDate">
-					<font size="4">Termin am ${appDate.day} von
-						${appDate.startHour} bis ${appDate.endHour} für das Ad : <a href="adprofile?adId=${appointment.ad.id}">${appointment.ad.title}</a> </font>
+				
+					<font size="4">Termin am ${appointment.appointmentDate.day} von
+						${appointment.appointmentDate.startHour} bis ${appointment.appointmentDate.endHour} für das Ad : <a href="adprofile?adId=${appointment.ad.id}">${appointment.ad.title}</a> </font>
 					<br>
 					<div id="invitationDetails" style="display:none">
 						${appointment.additionalInfosForTheVisitors}
 					</div>
-				</c:forEach>
+		
 				
 				</div>
 				

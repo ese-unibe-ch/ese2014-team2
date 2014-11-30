@@ -1,5 +1,7 @@
 package org.eseTeam2.controller.pojos;
 
+import org.jsoup.Jsoup;
+
 public class NoteForm {
     
     private String note;
@@ -29,7 +31,7 @@ public class NoteForm {
     }
 
     public void setNote(String note) {
-	this.note = note;
+	this.note = Jsoup.parse(note).text();
     }
 
 }

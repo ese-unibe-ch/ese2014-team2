@@ -41,9 +41,8 @@ public class Appointment {
 	@ManyToMany (fetch=FetchType.EAGER)
 	private List<User> invitations;
 	
-	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.REMOVE)
-	@Fetch(value = FetchMode.SUBSELECT)
-	private List<AppointmentDate> appointmentDate;
+	@OneToOne(fetch=FetchType.EAGER, cascade=CascadeType.REMOVE)
+	private AppointmentDate appointmentDate;
 	
 	private String blockLength;
 	
@@ -66,13 +65,7 @@ public class Appointment {
 		this.additionalInfosForTheVisitors = additionalInfosForTheVisitors;
 	}
 
-	public List<AppointmentDate> getAppointmentDate() {
-		return appointmentDate;
-	}
-
-	public void setAppointmentDate(List<AppointmentDate> appointmentDate) {
-		this.appointmentDate = appointmentDate;
-	}
+	
 
 	public Advertisement getAd() {
 		return ad;
@@ -106,6 +99,14 @@ public class Appointment {
 
 	public void setUserNotes(List<Note> userNotes) {
 	    this.userNotes = userNotes;
+	}
+
+	public AppointmentDate getAppointmentDate() {
+	    return appointmentDate;
+	}
+
+	public void setAppointmentDate(AppointmentDate appointmentDate) {
+	    this.appointmentDate = appointmentDate;
 	}
 
 

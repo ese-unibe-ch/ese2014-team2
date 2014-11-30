@@ -11,6 +11,7 @@ import javax.validation.constraints.Size;
 
 import org.eseTeam2.model.Picture;
 import org.eseTeam2.model.User;
+import org.jsoup.Jsoup;
 
 /**
  * This is the Form class which is user to place a new Room Advertisement.
@@ -116,13 +117,13 @@ public class AdForm {
 		return title;
 	}
 	public void setTitle(String title) {
-		this.title = title;
+		this.title = Jsoup.parse(title).text();
 	}
 	public String getDescription() {
 		return description;
 	}
 	public void setDescription(String description) {
-		this.description = description;
+		this.description = Jsoup.parse(description).text();
 	}
 	
 	public Date getCreationDate() {
@@ -137,7 +138,7 @@ public class AdForm {
 		return address;
 	}
 	public void setAddress(String address) {
-		this.address = address;
+		this.address = Jsoup.parse(address).text();
 	}
 	public String getStart() {
 		return start;
@@ -156,7 +157,7 @@ public class AdForm {
 		return kanton;
 	}
 	public void setKanton(String kanton) {
-		this.kanton = kanton;
+		this.kanton = Jsoup.parse(kanton).text();
 	}
 	public int getPlz() {
 		return plz;
@@ -170,7 +171,7 @@ public class AdForm {
 		return description_ad;
 	}
 	public void setDescription_ad(String description_ad) {
-		this.description_ad = description_ad;
+		this.description_ad = Jsoup.parse(description_ad).text();
 	}
 	public boolean getHasLaundry() {
 		return hasLaundry;
@@ -194,7 +195,7 @@ public class AdForm {
 		return description_room;
 	}
 	public void setDescription_room(String description_room) {
-		this.description_room = description_room;
+		this.description_room = Jsoup.parse(description_room).text();
 	}
 	public boolean getIsToBalcony() {
 		return isToBalcony;
@@ -212,13 +213,13 @@ public class AdForm {
 		return description_us;
 	}
 	public void setDescription_us(String description_us) {
-		this.description_us = description_us;
+		this.description_us = Jsoup.parse(description_us).text();
 	}
 	public String getWhoWeAreLookingFor() {
 		return whoWeAreLookingFor;
 	}
 	public void setWhoWeAreLookingFor(String whoWeAreLookingFor) {
-		this.whoWeAreLookingFor = whoWeAreLookingFor;
+		this.whoWeAreLookingFor = Jsoup.parse(whoWeAreLookingFor).text();
 	}
 
 

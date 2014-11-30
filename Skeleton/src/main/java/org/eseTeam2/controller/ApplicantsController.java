@@ -159,7 +159,7 @@ public class ApplicantsController {
 	    
 	  
 	Advertisement ad = appointmentService.findOneAppointment(appointmentId).getAd();
-	    
+	 note = note.replace("\"", "");
 	 appointmentService.setNote(appointmentId, userId, note);
 	 redirectAttributes.addFlashAttribute("infoMessage", "Notiz hinzugefügt");
 	    
