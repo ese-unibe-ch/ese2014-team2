@@ -58,8 +58,16 @@ function activaTab(tab){
 
 		<c:forEach items="${receivedMessages}" var="message">
 			<div class="row">
-				<div class="col-md-8">
-					<a href="showMessage?messageId=${message.id}"><h4>${message.title}</h4></a>
+				<div class="col-md-1">
+				<c:if test="${message.readMessage eq true }">
+					<img src="img/read.png" style="width:40px;height:40px">  
+				</c:if>
+				<c:if test="${message.readMessage eq false }">
+					<img src="img/unread.png" style="width:40px;height:40px"> 
+				</c:if>
+				</div>
+				<div class="col-md-7">
+				<a href="showMessage?messageId=${message.id}"><h4>${message.title}</h4></a>
 				</div>
 
 
@@ -104,7 +112,15 @@ function activaTab(tab){
 
 		<c:forEach items="${invitations}" var="message">
 			<div class="row">
-				<div class="col-md-8">
+			<div class="col-md-1">
+				<c:if test="${message.readMessage eq true }">
+					<img src="img/read.png" style="width:40px;height:40px">  
+				</c:if>
+				<c:if test="${message.readMessage eq false }">
+					<img src="img/unread.png" style="width:40px;height:40px"> 
+				</c:if>
+				</div>
+				<div class="col-md-7">
 					<a href="showInvitation?messageId=${message.id}"><h4>${message.title}</h4></a>
 				</div>
 
@@ -130,7 +146,15 @@ function activaTab(tab){
 
 		<c:forEach items="${notifications}" var="message">
 			<div class="row">
-				<div class="col-md-8">
+			<div class="col-md-1">
+				<c:if test="${message.readMessage eq true }">
+					<img src="img/read.png" style="width:40px;height:40px">  
+				</c:if>
+				<c:if test="${message.readMessage eq false }">
+					<img src="img/unread.png" style="width:40px;height:40px"> 
+				</c:if>
+				</div>
+				<div class="col-md-7">
 					<a href="showNotification?messageId=${message.id}"><h4>${message.title}</h4></a>
 				</div>
 

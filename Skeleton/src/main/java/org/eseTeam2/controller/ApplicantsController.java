@@ -158,10 +158,10 @@ public class ApplicantsController {
 			RedirectAttributes redirectAttributes, 	@RequestParam("noteText")String note, @RequestParam("userId") Long userId, @RequestParam("appointmentId") Long appointmentId) {
 	    
 	  
-	Advertisement ad = appointmentService.findOneAppointment(appointmentId).getAd();
-	 note = note.replace("\"", "");
-	 appointmentService.setNote(appointmentId, userId, note);
-	 redirectAttributes.addFlashAttribute("infoMessage", "Notiz hinzugefügt");
+	    Advertisement ad = appointmentService.findOneAppointment(appointmentId).getAd();
+	    note = note.replace("\"", "");
+	    appointmentService.setNote(appointmentId, userId, note);
+	    redirectAttributes.addFlashAttribute("infoMessage", "Notiz hinzugefügt");
 	    
 	  return "redirect:/zeigeBesichtigungstermine?adId="+ad.getId();
 

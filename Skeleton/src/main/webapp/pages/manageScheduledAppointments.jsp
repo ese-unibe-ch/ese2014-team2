@@ -11,17 +11,6 @@
 
 
 
-<c:forEach items="${appointments}" var="app">
-	<c:forEach items="${app.invitations}" var="user">
-	
-	
-		
-	
-
-	
-	</c:forEach>
-	
-</c:forEach>
   
   
 
