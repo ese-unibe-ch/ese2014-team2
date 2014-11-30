@@ -11,6 +11,7 @@ import org.eseTeam2.model.Message;
 import org.eseTeam2.model.User;
 import org.eseTeam2.model.dao.MessageDao;
 import org.eseTeam2.model.dao.UserDao;
+import org.jsoup.Jsoup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -59,11 +60,14 @@ public class MessageService implements IMessageService {
 		
 		
 		
-		if ( messageForm.getAdId() != null)
+		if ( messageForm.getAdId() != null) {
 		    message.setMessageText("Ich habe eine Frage bezüglich des Ads <a href=\"adprofile?adId="+messageForm.getAdId()+"\">"
-			    +ad.getTitle()+"</a> :  " + "<br>"+messageForm.getMessage());
+			    +ad.getTitle()+"</a> :  " + "<br>"+Jsoup.parse(messageForm.getMessage()).text()); }
+		else {
+		    message.setMessageText(Jsoup.parse(messageForm.getMessage()).text());
+		}
 		
-		message.setTitle(messageForm.getTitle());
+		message.setTitle(Jsoup.parse(messageForm.getTitle()).text());
 		message.setSender(messageForm.getSender());
 		message.setRecipient(recipient);
 		

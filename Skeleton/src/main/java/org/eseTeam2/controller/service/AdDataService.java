@@ -25,6 +25,7 @@ import org.eseTeam2.model.dao.BookmarkDao;
 import org.eseTeam2.model.dao.MessageDao;
 import org.eseTeam2.model.dao.PictureDao;
 import org.eseTeam2.model.dao.UserDao;
+import org.jsoup.Jsoup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.ComponentScan;
@@ -147,17 +148,17 @@ public class AdDataService implements IAdDataService {
 	ad.setWlan(adForm.isWlan());
 
 	// room info
-	ad.setDescription_room(adForm.getDescription_room());
+	ad.setDescription_room(Jsoup.parse(adForm.getDescription_room()).text());
 	ad.setToBalcony(adForm.getIsToBalcony());
 	ad.setHasCables(adForm.getHasCables());
 	ad.setHasBuiltInCloset(adForm.isHasBuiltInCloset());
 
 	// info about us
-	ad.setDescription_us(adForm.getDescription_us());
+	ad.setDescription_us(Jsoup.parse(adForm.getDescription_us()).text());
 	ad.setWgGender(adForm.getWgGender());
 
 	// info about who we are looking for
-	ad.setWhoWeAreLookingFor(adForm.getWhoWeAreLookingFor());
+	ad.setWhoWeAreLookingFor(Jsoup.parse(adForm.getWhoWeAreLookingFor()).text());
 	ad.setSmoker(adForm.getSmoker());
 	ad.setAgeRange(adForm.getAgeRange());
 	ad.setGenderWeLookFor(adForm.getGenderWeLookFor());

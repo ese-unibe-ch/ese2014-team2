@@ -172,13 +172,13 @@ public class MessageController {
 	 * @return
 	 */
 	@RequestMapping(value = "/send", method = RequestMethod.POST)
-	public ModelAndView send(@Valid MessageForm messageForm, Principal principal) {
+	public ModelAndView send(@Valid MessageForm messageForm, Principal principal, RedirectAttributes redirectAttributes) {
 
 		User currentUser = userService.getUserByEmail(principal.getName());
 		messageForm.setSender(currentUser);
 		messageService.sendMessage(messageForm);
-
-		ModelAndView model = new ModelAndView("redirect:/success/messageSent");
+		 redirectAttributes.addFlashAttribute("infoMessage", "Deine Nachricht wurde verschickt!");
+		ModelAndView model = new ModelAndView("redirect:/myinbox");
 
 		return model;
 
