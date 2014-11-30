@@ -273,12 +273,13 @@ public class AppointmentController {
     @RequestMapping(value = "/setAppointmentAndInform", method = RequestMethod.POST)
     public ModelAndView setAppointmentDateAndInform(
 	    @Valid AppointmentFinderForm appointmentFinderForm,
-	    @RequestParam("adAppointmentIds") Long[] adAppointmentIds,
+	    @RequestParam(value= "adAppointmentIds", required = false) Long[] adAppointmentIds,
 	    BindingResult result, RedirectAttributes redirectAttributes,
 	    Principal principal) {
+	
 	ModelAndView model;
 	ArrayList<Long> interessentsList = new ArrayList<Long>();
-
+	
 	for (int i = 0; i < adAppointmentIds.length; i++) {
 	    interessentsList.add(adAppointmentIds[i]);
 	}
@@ -290,9 +291,9 @@ public class AppointmentController {
 	    appointmentFinderForm.setAdOwner(userService
 		    .getUserByEmail(principal.getName()));
 	    appointmentService.sendOutAppointment(appointmentFinderForm);
-	    model = new ModelAndView("redirect:/success/createdAppointment");
-	    return model; // }
-
+	    redirectAttributes.addFlashAttribute("infoMessage", "Deine Eeinladung wurde verschickt!");
+	    model = new ModelAndView("redirect:/showInteressents?adId="+appointmentFinderForm.getAdId());
+	    return model; 
 	} else {
 	    model = new ModelAndView("setAppointmentForAd");
 	}

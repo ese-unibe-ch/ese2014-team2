@@ -18,7 +18,7 @@
 			
 		<form:hidden path="adId"  value="${ad.id }" />
 		
-		<legend>Setze einen Termin / mehrere Termine für die Besichtigung</legend>
+		<legend>Setze einen Termin</legend>
 				
 		<c:set var="appointmentDateErrors"><form:errors path="appointmentDate"/></c:set>
 			<div class="row">
@@ -121,4 +121,3 @@
 		
 		
 <c:import url="template/footer.jsp" />
-

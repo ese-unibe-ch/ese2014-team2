@@ -156,8 +156,7 @@ public class AppointmentService implements IAppointmentService {
 	List<AdApplication> applicationsOfAd = new ArrayList<AdApplication>();
 
 	for (int i = 0; i < appForm.getAdAppointmentIds().size(); i++)
-	    applicationsOfAd.add(adApplicationDao.findOne(appForm
-		    .getAdAppointmentIds().get(i)));
+	    applicationsOfAd.add(adApplicationDao.findOne(appForm.getAdAppointmentIds().get(i)));
 
 	Set<User> interessentsOfAd = new LinkedHashSet<User>();
 
