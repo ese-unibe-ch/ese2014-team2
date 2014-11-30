@@ -69,7 +69,7 @@
             <li class="active"><a href="/Skeleton">Home</a></li>
             <li><a href="unfilteredAds" id="navads"><span>Suche Zimmer</span><em></em></a>
             <li><a href="placead" id="navpads"><span>Vermiete Zimmer</span><em></em></a>
-            <li><a href="register">Register</a></li>
+            <li><a href="register">Registrieren</a></li>
             <li><a href="#" id="loginButton"><span>Login</span><em></em></a>
             
                 <div style="clear:both"></div>
@@ -139,8 +139,8 @@
           <img src="img/slider_orange.gif" alt="Slide1">
           <div class="container">
             <div class="carousel-caption">
-            	<h1><font color="#D5DED9">Flattie v1.0</font></h1>
-            	<p><font color="black">Searching for Flats and Ads has never been that easy!</font></p>
+            	<h1><font color="#D5DED9">Flattie</font></h1>
+            	<p><font color="black">Ein WG Zimmer vermieten war noch nie so einfach!</font></p>
             </div>
           </div>
         </div>
@@ -148,12 +148,12 @@
           <img src="img/slider_fancyblue.gif" alt="Slide2">
           <div class="container">
             <div class="carousel-caption">
-            	<h1><font color="#948C75">Flattie v1.0</font></h1>
-            	<p><font color="black">With thousands of satisfied customers!</font><p>
+            	<h1><font color="#948C75">Flattie </font></h1>
+            	<p><font color="black"> Finde dein Traumzimmer mit wenigen Klicks!</font><p>
             </div>
           </div>
         </div>
-        <div class="item">
+       <!--   <div class="item">
           <img src="img/slider_lightmarine.gif" alt="Slide3">
           <div class="container">
             <div class="carousel-caption">
@@ -161,7 +161,7 @@
             	<p><font color="black">HAIL TO THE KING!</font></p>
             </div>
           </div>
-        </div>
+        </div>-->
       </div>
       <!-- Controls -->
       <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="fa fa-chevron-left fa-2x"></span></a>

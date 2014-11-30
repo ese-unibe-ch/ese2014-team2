@@ -10,7 +10,7 @@
 <div class="panel panel-default">
 	<!-- Default panel contents -->
 	<div class="panel-heading">
-		<h1>Übersicht über dine Favoriten Ads</h1>
+		<h3>Übersicht über dine Favoriten Ads</h3>
 	</div>
 	<div class="panel-body">
 
@@ -26,8 +26,8 @@
 
 			<c:forEach items="${bookmarks}" var="bookmark">
 				<tr>
-					<td><a href="adprofile?adId=${bookmark.ad.id}"> <font
-							size="5"> ${bookmark.ad.title}</font>
+					<td><a href="adprofile?adId=${bookmark.ad.id}"> <h4>
+							 ${bookmark.ad.title}</h4>
 					</a></td>
 					<td>
 						<div class="btn-group btn-group-lg">

@@ -27,13 +27,18 @@
 				<tr>
 					<td>
 					<a href="adprofile?adId=${ad.id}">
-					<font size="5"> ${ad.title}</font>
+					<h4> ${ad.title}</h4>
 					</a>
 					</td>
 					
 					<td>
 						<div class="btn-group btn-group-lg">
 
+							<a href="deleteAd?adId=${ad.id}">
+								<button type="button" class="btn btn-danger">
+									<b> Löschen </b>
+								</button>
+							</a>
 							<a href="showInteressents?adId=${ad.id}">
 								<button type="button" class="btn btn-default">
 									<b>Interessenten </b>
@@ -46,11 +51,7 @@
 								<button type="button" class="btn btn-default">
 									<b>Bearbeiten </b>
 								</button>
-							</a> <a href="deleteAd?adId=${ad.id}">
-								<button type="button" class="btn btn-danger">
-									<b> Löschen </b>
-								</button>
-							</a>
+							</a> 
 
 
 						</div>

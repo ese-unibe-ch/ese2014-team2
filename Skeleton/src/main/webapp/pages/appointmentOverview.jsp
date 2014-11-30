@@ -24,7 +24,7 @@
 <div class="panel panel-default">
 	<!-- Default panel contents -->
 	<div class="panel-heading">
-		<h1>Übersicht über alle  abgemachten Termine </h1>
+		<h3>Übersicht über alle  abgemachten Termine </h3>
 	</div>
 	<div class="panel-body">
 	
@@ -37,8 +37,8 @@
 	<c:if test="${showTab eq 1 }">
 	
 		<ul class="nav nav-tabs" id="myTab">
-	<li class="active"><a href="appointments?showTab=1" >Verschickte Einladungen</a></li>
-	<li><a href="appointments?showTab=2">Erhaltene Einladungen</a></li>
+	<li class="active"><a href="appointments?showTab=1" ><label>Verschickte Einladungen</label></a></li>
+	<li><a href="appointments?showTab=2"><label>Erhaltene Einladungen</label></a></li>
 
 </ul>
 
@@ -48,10 +48,10 @@
 			<c:forEach items="${usersAppointments}" var="app">
 	
 			
-				<font size="6">Termin am ${app.appointmentDate.day} von
-					${app.appointmentDate.startHour} bis ${app.appointmentDate.endHour}</font>
-				<br>
-				<br>
+				<legend>Termin am ${app.appointmentDate.day} von
+					${app.appointmentDate.startHour} bis ${app.appointmentDate.endHour}</legend>
+				
+				
 				<font size="4">Name des Interessenten:</font>
 				<br>
 
@@ -62,17 +62,17 @@
 
 					<div class="row">
 						<div class="col-md-6">
-							<font size="4">${user.firstName}
-								${user.lastName }</font>
+							<p><b>${user.firstName}
+								${user.lastName }</b></p>
 						</div>
 						<div class="col-md-2">
 							<c:forEach items="${user.appointmentInvitations }"
 								var="message">
 								<c:if test="${ message.appointedAppointment eq appointment.id}">
-									<c:if test="${ message.accepted eq true }"> Einladung wurde angenommen </c:if>
-									<c:if test="${ message.rejected eq true }"> Einladung wurde abgelehnt </c:if>
+									<c:if test="${ message.accepted eq true }"> <p>Einladung wurde angenommen</p> </c:if>
+									<c:if test="${ message.rejected eq true }"><p> Einladung wurde abgelehnt </p></c:if>
 									<c:if
-										test="${message.rejected eq false and message.accepted eq false }"> Der Benutzer hat die Einladung noch nicht abgelehnt/angenommen </c:if>
+										test="${message.rejected eq false and message.accepted eq false }"><p>Der Benutzer hat die Einladung noch nicht abgelehnt/angenommen </p></c:if>
 
 								</c:if>
 							</c:forEach>
@@ -108,7 +108,7 @@ $(function()
 
 		
 		
-		<a href="#${user.id}" name="${user.id}" ><button type="button" class="btn btn-default" id="opener${user.id}"> Notiz</button></a>
+		<a href="#${user.id}" name="${user.id}" ><button type="button" class="btn btn-default" id="opener${user.id}"> <b>Notiz</b></button></a>
 		
     	
     	
@@ -159,8 +159,8 @@ $(function()
 	
 	<br>
 	<ul class="nav nav-tabs" id="myTab">
-	<li><a href="appointments?showTab=1" >Verschickte Einladungen</a></li>
-	<li class="active"><a href="appointments?showTab=2">Erhaltene Einladungen</a></li>
+	<li><a href="appointments?showTab=1" ><label>Verschickte Einladungen</label></a></li>
+	<li class="active"><a href="appointments?showTab=2"><label>Erhaltene Einladungen</label></a></li>
 
 </ul>
 
@@ -174,7 +174,7 @@ $(function()
 				
 					<font size="4">Termin am ${appointment.appointmentDate.day} von
 						${appointment.appointmentDate.startHour} bis ${appointment.appointmentDate.endHour} für das Ad : <a href="adprofile?adId=${appointment.ad.id}">${appointment.ad.title}</a> </font>
-					<br>
+					
 					<div id="invitationDetails" style="display:none">
 						${appointment.additionalInfosForTheVisitors}
 					</div>

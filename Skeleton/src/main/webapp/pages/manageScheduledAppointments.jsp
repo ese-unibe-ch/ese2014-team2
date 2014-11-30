@@ -17,7 +17,7 @@
 <div class="panel panel-default">
 	<!-- Default panel contents -->
 	<div class="panel-heading">
-		<h1>Abgemachte Termine für Dein Ad ${ad.title }</h1>
+		<h3>Abgemachte Termine für Dein Ad ${ad.title }</h3>
 	</div>
 	<div class="panel-body">
 	
@@ -28,10 +28,9 @@
 		<c:forEach items="${appointments}" var="app">
 	
 			
-				<font size="6">Termin am ${app.appointmentDate.day} von
-					${app.appointmentDate.startHour} bis ${app.appointmentDate.endHour}</font>
-				<br>
-				<br>
+				<legend>Termin am ${app.appointmentDate.day} von
+					${app.appointmentDate.startHour} bis ${app.appointmentDate.endHour}</legend>
+				
 				<font size="4">Name des Interessenten:</font>
 				<br>
 
@@ -49,8 +48,8 @@
 							<c:forEach items="${user.appointmentInvitations }"
 								var="message">
 								<c:if test="${ message.appointedAppointment eq appointment.id}">
-									<c:if test="${ message.accepted eq true }"> Einladung wurde angenommen </c:if>
-									<c:if test="${ message.rejected eq true }"> Einladung wurde abgelehnt </c:if>
+									<c:if test="${ message.accepted eq true }"><p> Einladung wurde angenommen </p></c:if>
+									<c:if test="${ message.rejected eq true }"><p> Einladung wurde abgelehnt </p></c:if>
 									<c:if
 										test="${message.rejected eq false and message.accepted eq false }"> Der Benutzer hat die Einladung noch nicht abgelehnt/angenommen </c:if>
 
@@ -88,7 +87,7 @@ $(function()
 
 		
 		
-		<a href="#${user.id}" name="${user.id}" ><button type="button" class="btn btn-default" id="opener${user.id}"> Notiz</button></a>
+		<a href="#${user.id}" name="${user.id}" ><button type="button" class="btn btn-default" id="opener${user.id}"><b> Notiz</b></button></a>
 		
     	
     	

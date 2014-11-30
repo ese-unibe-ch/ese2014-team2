@@ -31,7 +31,7 @@
 			<c:forEach items="${interessents}" var="interessent">
 				
 					<div class="row">
-					<div class="col-md-7">
+					<div class="col-md-8">
 					<a href="interessentDetails?applicationId=${interessent.id}">
 							<font size="5"> ${interessent.applicant.firstName},
 								${interessent.applicant.lastName }</font> </a>
