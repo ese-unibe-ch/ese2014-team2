@@ -124,9 +124,9 @@ public class AdDataService implements IAdDataService {
 	ad.setStart(adForm.getStart());
 	ad.setUntil(adForm.getUntil());
 
-	ad.setRooms(Integer.parseInt(adForm.getRooms()));
+	ad.setRooms(Float.parseFloat(adForm.getRooms()));
 	ad.setRoomPrice(Integer.parseInt(adForm.getRoomPrice()));
-	ad.setRoomSpace(Integer.parseInt(adForm.getRoomSpace()));
+	ad.setRoomSpace(Float.parseFloat(adForm.getRoomSpace()));
 	ad.setWgType(adForm.getWgType());
 	ad.setFurnished(adForm.isFurnished());
 	ad.setNmbrOfRoommates(Integer.parseInt(adForm.getNmbrOfRoommates()));
@@ -320,9 +320,9 @@ public class AdDataService implements IAdDataService {
 	ad.setStart(adForm.getStart());
 	ad.setUntil(adForm.getUntil());
 
-	ad.setRooms(Integer.parseInt(adForm.getRooms()));
+	ad.setRooms(Float.parseFloat(adForm.getRooms()));
 	ad.setRoomPrice(Integer.parseInt(adForm.getRoomPrice()));
-	ad.setRoomSpace(Integer.parseInt(adForm.getRoomSpace()));
+	ad.setRoomSpace(Float.parseFloat(adForm.getRoomSpace()));
 	ad.setWgType(adForm.getWgType());
 	ad.setFurnished(adForm.isFurnished());
 	ad.setNmbrOfRoommates(Integer.parseInt(adForm.getNmbrOfRoommates()));

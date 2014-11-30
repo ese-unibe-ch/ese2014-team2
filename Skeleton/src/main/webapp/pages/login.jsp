@@ -13,10 +13,15 @@
 	<p>Falscher Benutzername oder Password. Bitte versuche es erneut.</p><br />
 </c:if>
 
-<form class="col-md-6" name='loginForm' action="<c:url value='j_spring_security_check' />" method='POST'>
+<p> hey, dafür musst du eingeloggt sein!</p>
 
 
-	<div class="col-md-2 lineheight-textfields">
+
+<form name='loginForm' action="<c:url value='j_spring_security_check' />" method='POST'>
+	
+	<div class="row">
+	<div class="col-md-12">
+	<div class="col-md-1 lineheight-textfields">
 		<label for="field-username">E-mail:</label>
 		<label for="field-password">Password:</label> 
 	</div>
@@ -26,10 +31,25 @@
 	</div>
 	
 	<br>
-		
-	<button class="btn btn-primary" type="submit" id="loginB">Login</button>
+	</div>
+	</div>
+	<div class="row">
+	<div class ="col-md-3">
+		<label> Bist du bereits Registriert? </label>
+		<br><br>
+		<label> Hast du noch keinen Account? </label>
+		</div>
+	<div class="col-md-1">
+		<button class="btn btn-primary" type="submit" id="loginB">Login</button>
+		<br>
+		<br>
 	<a href="register"><button class="btn btn-primary" type="button" id="registerB">Registrieren</button></a>
+	</div>
+	</div>
 </form>
 <br />
+
+
+
 
 <c:import url="template/footer.jsp" />

@@ -44,9 +44,9 @@ public class Advertisement  {
 	private Date creationDate;
 	private String start;
 	private String until;
-	private int rooms;
+	private float rooms;
 	private int roomPrice;
-	private int roomSpace;
+	private float roomSpace;
 	private int nmbrOfRoommates;
 	private String wgType;
 	private boolean furnished;
@@ -163,11 +163,11 @@ public class Advertisement  {
 		this.until = until;
 	}
 
-	public int getRooms() {
+	public float getRooms() {
 		return rooms;
 	}
 
-	public void setRooms(int rooms) {
+	public void setRooms(float rooms) {
 		this.rooms = rooms;
 	}
 
@@ -179,11 +179,11 @@ public class Advertisement  {
 		this.roomPrice = roomPrice;
 	}
 
-	public int getRoomSpace() {
+	public float getRoomSpace() {
 		return roomSpace;
 	}
 
-	public void setRoomSpace(int roomSpace) {
+	public void setRoomSpace(float roomSpace) {
 		this.roomSpace = roomSpace;
 	}
 

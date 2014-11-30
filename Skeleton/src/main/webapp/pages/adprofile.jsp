@@ -90,27 +90,36 @@
 
 	<div class="col-md-5">
 		<legend>Addresse:</legend>
+		
+		<div class="row">
+			<label class="col-md-6">Strasse und Hausnummer:</label>
+			<p>${newAdProfile.address}</p>
+		</div>
+		
+		
+		<div class="row">
+			<label class="col-md-6">Stadt:</label>
+			<p>${newAdProfile.city}</p>
+		</div>	
+		
+		
+		<div class="row">
+			<label class="col-md-6">Postleizahl:</label>
+			<p>${newAdProfile.plz}</p>
+		</div>
+		
 		<div class="row">
 			<label class="col-md-6">Kanton:</label>
 			<p>${newAdProfile.kanton}</p>
 		</div>
 
-		<div class="row">
-			<label class="col-md-6">Stadt:</label>
-			<p>${newAdProfile.city}</p>
-		</div>	
-
-		<div class="row">
-			<label class="col-md-6">Postleizahl:</label>
-			<p>${newAdProfile.plz}</p>
-		</div>
-
-		<div class="row">
-			<label class="col-md-6">Strasse:</label>
-			<p>${newAdProfile.address}</p>
-		</div>
 		
-		<legend>Grundlegendes:</legend>
+
+		
+
+		
+		
+		<legend>Alllgemeines:</legend>
 		<div class="row">
 			<label class="col-md-6">Monatliche Miete:</label>
 			<p>${newAdProfile.roomPrice }</p>
@@ -130,21 +139,44 @@
 		
 		<div class="row">
 			<label class="col-md-6">Anzahl an Mitbewohnern:</label>
-			<p>${newAdProfile.nmbrOfRoommates}</p>
+			<c:choose>
+			<c:when test="${newAdProfile.wgGender eq 'male'}">
+				<p>${newAdProfile.nmbrOfRoommates}, alle Männlich</p>
+			</c:when>
+			<c:when test="${newAdProfile.wgGender eq 'female' }">
+				<p>${newAdProfile.nmbrOfRoommates}, alle Weiblich</p>
+			</c:when>
+			<c:otherwise>
+				<p>${newAdProfile.nmbrOfRoommates}, Männer/ Frauen gemischt</p>
+			</c:otherwise>
+		</c:choose>
+		
+		
+		
 		</div>
 
 		<div class="row">
-			<label class="col-md-6">Anzahl an Zimmern:</label>
+			<label class="col-md-6">Anzahl an Zimmern in der Wohnung/Haus:</label>
 			<p>${newAdProfile.rooms}</p>
 		</div>
 
 		<div class="row">
-			<label class="col-md-6">Grundlegender WG-Typ:</label>
-			<p>${newAdProfile.wgType}</p>
+			<label class="col-md-6">Wir sind eine </label>
+			<c:choose>
+			<c:when test="${newAdProfile.wgType eq 'calm'}">
+				<c:out value="ruhige WG" />
+			</c:when>
+			<c:when test="${newAdProfile.wgType eq 'wild' }">
+				<c:out value="lebhafte WG"/>
+			</c:when>
+			<c:otherwise>
+				<c:out value="weder ruhige noch wilde WG" />
+			</c:otherwise>
+		</c:choose>
 		</div>
 
 		<div class="row">
-			<label class="col-md-6">Ist es möbliert?</label>
+			<label class="col-md-6">Möbliert?</label>
 			<p>
 				<c:choose>
 					<c:when test="${newAdProfile.furnished}">
@@ -195,11 +227,11 @@
 			
 			
 <div class="row col-md-4">
-<legend>Gut zu wissende Dinge:</legend>
+<legend>Weitere Infos zur Wohnung:</legend>
 
 	<div class="row">
 
-		<label class="col-md-8">Hat es einen Geschirrspüler?</label>
+		<label class="col-md-8">Geschirrspüler?</label>
 
 		<c:choose>
 			<c:when test="${newAdProfile.hasDishwasher}">
@@ -217,7 +249,7 @@
 
 
 	<div class="row">
-		<label class="col-md-8">Hat es eine Waschmachine?</label>
+		<label class="col-md-8">Waschmachine?</label>
 		<p>
 			<c:choose>
 				<c:when test="${newAdProfile.hasLaundry}">
@@ -231,7 +263,7 @@
 	</div>
 
 	<div class="row">
-		<label class="col-md-8">Hat es einen Balkon?</label>
+		<label class="col-md-8">Balkon?</label>
 		<p>
 			<c:choose>
 				<c:when test="${newAdProfile.hasBalcony}">
@@ -246,7 +278,7 @@
 
 
 	<div class="row">
-		<label class="col-md-8">Wird im Haus geraucht?</label>
+		<label class="col-md-8">Raucherwohnung?</label>
 		<p>
 			<c:choose>
 				<c:when test="${newAdProfile.smokingInside}">
@@ -259,7 +291,7 @@
 		</p>
 	</div>
 	<div class="row">
-		<label class="col-md-8">Sind Haustiere erlaubt?</label>
+		<label class="col-md-8">Haustiere möglich?</label>
 		<p>
 			<c:choose>
 				<c:when test="${newAdProfile.hasPets}">
@@ -273,7 +305,7 @@
 	</div>
 
 	<div class="row">
-		<label class="col-md-8">Hat es Wlan?</label>
+		<label class="col-md-8">Wlan?</label>
 		<p>
 			<c:choose>
 				<c:when test="${newAdProfile.wlan}">
@@ -295,7 +327,7 @@
 <div class="row col-md-4">
 <legend>Zum Zimmer:</legend>
 		<div class="row">
-			<label class="col-md-8">Hat es im Zimmer einen Einbauschrank?</label>
+			<label class="col-md-8">Einbauschrank?</label>
 			<p>
 				<c:choose>
 					<c:when test="${newAdProfile.hasBuiltInCloset}">
@@ -308,22 +340,9 @@
 			</p>
 		</div>
 
+		
 		<div class="row">
-			<label class="col-md-8">Ist es möbliert?</label>
-			<p>
-				<c:choose>
-					<c:when test="${newAdProfile.furnished}">
-						<c:out value="Ja" />
-					</c:when>
-					<c:otherwise>
-						<c:out value="Nein" />
-					</c:otherwise>
-				</c:choose>
-			</p>
-		</div>
-
-		<div class="row">
-			<label class="col-md-8">Hat das Zimmer Balkonzugang?</label>
+			<label class="col-md-8">Balkonzugang vom Zimmer?</label>
 			<p>
 				<c:choose>
 					<c:when test="${newAdProfile.hasBalcony}">
@@ -337,7 +356,7 @@
 		</div>
 
 		<div class="row">
-			<label class="col-md-8">Hat es Kabelanschlüsse im Zimmer?</label>
+			<label class="col-md-8">Kabelanschlüsse im Zimmer? (Tv, Internet etc.)</label>
 			<p>
 				<c:choose>
 					<c:when test="${newAdProfile.hasCables}">
@@ -349,17 +368,13 @@
 				</c:choose>
 			</p>
 		</div>
-		<div class="row">
-			<label class="col-md-8">Geschlechterverteilung in der WG</label>
-
-			<p>${newAdProfile.wgGender}</p>
-		</div>
+		
 
 
 	</div>
 
 		<div class="col-md-8">
-			<legend>Über Uns:</legend>
+			<legend>Über deine zukünftigen Mitbewohner:</legend>
 			<p>${newAdProfile.description_us}</p>
 		</div>
 		
@@ -370,13 +385,36 @@
 		
 		<div class="col-md-4">
 <div class="row">
-	<label class="col-md-8">Du bist:</label>
-	<p>${newAdProfile.smoker}</p>
+	<label class="col-md-8">Raucher?:</label>
+				<c:choose>
+					<c:when test="${newAdProfile.smoker eq 'smoker'}">
+						<c:out value="Raucher" />
+					</c:when>
+					<c:when test="${newAdProfile.smoker eq 'nonsmoker' }">
+						<c:out value="Nichtraucher"/>
+					</c:when>
+					<c:otherwise>
+						<c:out value="Egal" />
+					</c:otherwise>
+				</c:choose>
+
 </div>
 
 <div class="row">
-	<label class="col-md-8">Du bist:</label>
-	<p>${newAdProfile.genderWeLookFor}</p>
+	<label class="col-md-8">Wir bevorzugen:</label>
+	<c:choose>
+					<c:when test="${newAdProfile.genderWeLookFor eq 'male'}">
+						<c:out value="Einen Mann" />
+					</c:when>
+					<c:when test="${newAdProfile.genderWeLookFor eq 'female' }">
+						<c:out value="Eine Frau"/>
+					</c:when>
+					<c:otherwise>
+						<c:out value="Egal welches Geschlecht" />
+					</c:otherwise>
+				</c:choose>
+	
+
 </div>
 
 <div class="row">
