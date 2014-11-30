@@ -134,7 +134,7 @@
 		</div>
 		<div class="row">
 			<label class="col-md-6">Zimmergrösse:</label>
-			<p>${newAdProfile.roomSpace}</p>
+			<p>${newAdProfile.roomSpace} m²</p>
 		</div>
 		
 		<div class="row">

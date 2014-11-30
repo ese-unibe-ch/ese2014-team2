@@ -37,8 +37,9 @@ public class AdForm {
 	
 	@NotNull
 	@Size(min = 1, max = 50)
-	@Pattern(regexp="[0-9]*", message =" Bitte gib eine gültige Nummer ein")
+	@Pattern(regexp="[0-9]*\\.?[0-9]*", message =" Bitte gib eine gültige Nummer ein")
 	private String rooms;
+	
 	@NotNull
 	@Size(min = 1, max = 9000)
 	@Pattern(regexp="[0-9]*", message =" Bitte gib eine gültige Nummer ein")
