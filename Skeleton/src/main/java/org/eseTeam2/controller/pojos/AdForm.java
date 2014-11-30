@@ -33,22 +33,26 @@ public class AdForm {
 	
 	
 	private String until;
+	
 	@NotNull
-	@Digits(fraction = 0, integer = 2, message="Bitte gib einen Vert zwischen 1 und 20 ein")
-	@Min(value=1, message="Bitte gib einen Wert zwischen  1 und 20 ein")
-	private int rooms;
+	@Size(min = 1, max = 50)
+	@Pattern(regexp="[0-9]*", message =" Bitte gib eine gültige Nummer ein")
+	private String rooms;
 	@NotNull
-	@Digits(fraction = 0, integer = 4, message="Bitte gib einen Wert zwischen 10 und 9999 an")
-	@Min(value=10, message="Bitte gib einen Wert zwischen 10 und 9999 an")
-	private int roomPrice;
+	@Size(min = 1, max = 9000)
+	@Pattern(regexp="[0-9]*", message =" Bitte gib eine gültige Nummer ein")
+	private String roomPrice;
+	
 	@NotNull
-	@Digits(fraction = 0, integer = 2, message="Bitte gib einen Wert zwischen 1 und 99 an")
-	@Min(value=1, message="Bitte gib einen Wert zwischen 1 und 99 an")
-	private int roomSpace;
+	@Size(min = 1, max = 50)
+	@Pattern(regexp="[0-9]*", message =" Bitte gib eine gültige Nummer ein")
+	private String roomSpace;
+	
 	@NotNull
-	@Digits(fraction = 0, integer = 2, message="Bitte gib einen Wert zwischen 1 und 99 an")
-	@Min(value=1, message="Bitte wähle etwas aus der Liste aus.")
-	private int nmbrOfRoommates;
+	@Size(min = 1, max = 9)
+	@Pattern(regexp="[0-9]*", message =" Bitte wähle eine Nummer aus der Liste aus")
+	private String nmbrOfRoommates;
+	
 	private String wgType;
 	private boolean furnished;
 	
@@ -128,24 +132,7 @@ public class AdForm {
 		this.creationDate = creationDate;
 	}
 
-	public int getRooms() {
-		return rooms;
-	}
-	public void setRooms(int rooms) {
-		this.rooms = rooms;
-	}
-	public int getRoomPrice() {
-		return roomPrice;
-	}
-	public void setRoomPrice(int price) {
-		this.roomPrice = price;
-	}
-	public int getRoomSpace() {
-		return roomSpace;
-	}
-	public void setRoomSpace(int space) {
-		this.roomSpace = space;
-	}
+	
 	public String getAddress() {
 		return address;
 	}
@@ -164,12 +151,7 @@ public class AdForm {
 	public void setUntil(String until) {
 		this.until = until;
 	}
-	public int getNmbrOfRoommates() {
-		return nmbrOfRoommates;
-	}
-	public void setNmbrOfRoommates(int roomies) {
-		this.nmbrOfRoommates = roomies;
-	}
+	
 	public String getKanton() {
 		return kanton;
 	}
@@ -336,6 +318,30 @@ public class AdForm {
 	}
 	public void setImg_four(Picture img_four) {
 		this.img_four = img_four;
+	}
+	public String getRooms() {
+	    return rooms;
+	}
+	public void setRooms(String rooms) {
+	    this.rooms = rooms;
+	}
+	public String getRoomPrice() {
+	    return roomPrice;
+	}
+	public void setRoomPrice(String roomPrice) {
+	    this.roomPrice = roomPrice;
+	}
+	public String getRoomSpace() {
+	    return roomSpace;
+	}
+	public void setRoomSpace(String roomSpace) {
+	    this.roomSpace = roomSpace;
+	}
+	public String getNmbrOfRoommates() {
+	    return nmbrOfRoommates;
+	}
+	public void setNmbrOfRoommates(String nmbrOfRoommates) {
+	    this.nmbrOfRoommates = nmbrOfRoommates;
 	}
 
 	
