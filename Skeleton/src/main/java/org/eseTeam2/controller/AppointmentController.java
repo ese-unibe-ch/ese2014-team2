@@ -111,9 +111,8 @@ public class AppointmentController {
      * @param principal
      * @return
      */
-    @RequestMapping(value = "/appointments", method = RequestMethod.GET)
-    public ModelAndView zeigeAlleBesichtigungstermine(
-	    Principal principal) {
+    @RequestMapping(value = "/appointments/{show}", method = RequestMethod.GET)
+    public ModelAndView zeigeAlleBesichtigungstermine( Principal principal, @PathVariable("show") String show) {
 	ModelAndView model = new ModelAndView("appointmentOverview");
 	User currentUser = userService.getUserByEmail(principal.getName());
 	Set<Advertisement> usersAds = currentUser.getAdvertisements();
@@ -128,7 +127,13 @@ public class AppointmentController {
 	model.addObject("usersInvitations", currentUser.getUsersInvitations());
 	model.addObject("usersAppointments", usersAppointments);
 	model.addObject("user", currentUser);
-	
+	if ( show.equals("showInvitations")) {
+	    model.addObject("showInvitations", true);
+	    model.addObject("showInvited", false);}
+	if ( show.equals("showInvited")){
+	    model.addObject("showInvitations", false);
+	    model.addObject("showInvited", true);
+	}
 
 	return model;
     }

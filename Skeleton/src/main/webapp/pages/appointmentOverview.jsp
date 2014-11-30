@@ -9,29 +9,10 @@
 
 <c:import url="template/header.jsp" />
 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-
-$(document).ready(function(){
-
-    activaTab("${show}");});
-
-function activaTab(tab){
-    $('.nav-tabs a[href="#' + tab + '"]').tab('show');
-};
-</script>
-
-<style type="text/css">
-.bs-example {
-	margin: 20px;
-}
-</style>
-
-
-	 
+	
+	<c:if test="${showInvitations eq true }">
+	
+		 
 <script>
 	function showDetails() {
 		$('#invitationDetails').show();
@@ -52,14 +33,16 @@ function activaTab(tab){
 <div class="alert alert-success" role="alert"><font color="006600" size="3"> ${infoMessage}</font></div>
 </c:if>
 
-<ul class="nav nav-tabs" id="myTab">
-	<li class="active"><a href="#showInvitations" data-toggle="tab">Verschickte Einladungen</a></li>
-	<li><a href="#showInvited"data-toggle="tab">Erhaltene Einladungen</a></li>
+
+	
+	<ul class="nav nav-tabs" id="myTab">
+	<li class="active"><a href="/Skeleton/appointments/showInvitations" >Verschickte Einladungen</a></li>
+	<li><a href="/Skeleton/appointments/showInvited">Erhaltene Einladungen</a></li>
 
 </ul>
 
 	<div class="tab-content">
-		<div id="showInvitations" class="tab-pane fade in active">
+	
 		<br>
 			<c:forEach items="${usersAppointments}" var="app">
 	
@@ -166,10 +149,48 @@ $(function()
 				</c:forEach>
 			
 		</c:forEach>
-			
 		</div>
+		</div>
+
+
+
 		
-		<div id="showInvited" class="tab-pane fade">
+	</div>
+
+		
+	
+	</c:if>	
+	
+	<c:if test="${showInvited eq true }">
+	
+	<script>
+	function showDetails() {
+		$('#invitationDetails').show();
+	}
+	
+</script>
+
+  
+
+<div class="panel panel-default">
+	<!-- Default panel contents -->
+	<div class="panel-heading">
+		<h1>Übersicht über alle  abgemachten Termine </h1>
+	</div>
+	<div class="panel-body">
+	
+	<c:if test="${not empty infoMessage}">
+<div class="alert alert-success" role="alert"><font color="006600" size="3"> ${infoMessage}</font></div>
+</c:if>
+	
+		<ul class="nav nav-tabs" id="myTab">
+	<li><a href="/Skeleton/appointments/showInvitations" >Verschickte Einladungen</a></li>
+	<li class="active"><a href="/Skeleton/appointments/showInvited">Erhaltene Einladungen</a></li>
+
+</ul>
+
+	<div class="tab-content">
+	
 		<br>
 		
 			<c:forEach items="${usersInvitations}" var="appointment">
@@ -196,14 +217,9 @@ $(function()
 				</div>	
 			</c:forEach>
 		</div>
-	</div>
-
-
-
-		
-	</div>
-</div>
-
+		</div>
+		</div>
+		</c:if>
 
 
 
