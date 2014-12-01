@@ -213,14 +213,12 @@ function winOpen()
 		<!-- <div id='map-canvas' ></div><br/> -->
 	
 	
+	
+	
 		<button onclick="winOpen()">Zeige auf google Maps</button>
 		
 			
 		</div>
-		
-
-		
-
 		
 
 		
