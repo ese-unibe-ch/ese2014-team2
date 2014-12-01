@@ -21,6 +21,10 @@
 <div class="alert alert-success" role="alert"><font color="006600" size="3"> ${infoMessage}</font></div>
 </c:if>	
 
+	<c:if test="${not empty dangerMessage}">
+<div class="alert alert-danger" role="alert"><font color="CC0000" size="3"> ${dangerMessage}</font></div>
+</c:if>	
+
 <br>
 			<br>
 			<font size="6">Nachrichten Titel:</font>

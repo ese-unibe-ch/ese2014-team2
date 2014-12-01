@@ -34,7 +34,7 @@ public class AppointmentFinderForm {
 	private String endTime;
 	
 	private String blockLength;
-	@Size(min=1, message=" Weitere infos sollte nicht ganz leer sein. Gib doch den Bewerbern ein paar infos über den Ablauf :)")
+	//@Size(min=1, message=" Weitere infos sollte nicht ganz leer sein. Gib doch den Bewerbern ein paar infos über den Ablauf :)")
 	private String additionalInfosForTheVisitors;
 	
 	private List<Long> adAppointmentIds;

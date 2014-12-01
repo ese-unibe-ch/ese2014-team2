@@ -302,7 +302,7 @@ public class AppointmentController {
 	    model = new ModelAndView("redirect:/showInteressents?adId="+appointmentFinderForm.getAdId());
 	    return model; 
 	} else {
-	    redirectAttributes.addFlashAttribute("infoMessage", "Sorry, du hast nicht alle felder ausgefüllt. Bitte beginne neu und fülle alle Felder aus");
+	    redirectAttributes.addFlashAttribute("infoMessage", "Warnung: Du hast nicht alle felder ausgefüllt. Bitte beginne neu und fülle alle Felder aus");
 	    model = new ModelAndView("redirect:/showInteressents?adId="+appointmentFinderForm.getAdId());
 	}
 	return model;

@@ -38,8 +38,8 @@
 									<b>Zeige Ad </b>
 								</button>
 							</a> <a href="unBookmarkAdFromBookmarks?adId=${bookmark.ad.id}">
-								<button type="button" class="btn btn-default">
-									<b> Enterne Favorit </b>
+								<button type="button" class="btn btn-danger">
+									<b> Entferne Favorit </b>
 								</button>
 							</a>
 

@@ -240,7 +240,7 @@ public class AdController {
 	    // save ad and pictures to database.
 	    adService.saveFrom(adForm, picturesToSave);
 	    
-	    redirectAttributes.addFlashAttribute("infoMessage", "dein ad wurde erfolgreich erstellt.");
+	    redirectAttributes.addFlashAttribute("infoMessage", "Dein Inserat wurde erfolgreich erstellt.");
 	    model = new ModelAndView("redirect:/myads");
 	} else {
 	    model = new ModelAndView("placead");
@@ -299,7 +299,7 @@ public class AdController {
 	
 	Boolean isBookmarked = null;
 	List<Bookmark> bookmarks = null;
-	
+	Advertisement ad = adService.getAdvertisement(adId);
 	try {
 	    User currentUser = userService.getUserByEmail(principal.getName());
 	    bookmarks = currentUser.getBookmarks();
@@ -330,10 +330,11 @@ public class AdController {
 	if (adService.getAdMainPic(adId) != null)
 	    mainPic = adService.getAdMainPic(adId);
 
-	model.addObject("newAdProfile", adService.getAdvertisement(adId));
+	model.addObject("newAdProfile", ad);
 	model.addObject("pictures", pictures);
 	model.addObject("bookmarked", isBookmarked);
 	model.addObject("mainPic", mainPic);
+	model.addObject("mapsStreet", ad.getAddress().replace(" ","+"));
 	
 	model.addObject("infoMessage", message);
 

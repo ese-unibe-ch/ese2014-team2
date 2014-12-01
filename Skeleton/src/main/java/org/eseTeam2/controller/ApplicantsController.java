@@ -253,7 +253,17 @@ public class ApplicantsController {
 		ModelAndView model = new ModelAndView("interessents");
 		model.addObject("interessents", interessents);
 		model.addObject("ad", ad);
-		model.addObject("infoMessage", message);
+		
+		
+		
+		if ( message.contains("Warnung"))  {
+		    model.addObject("dangerMessage", message); 
+		    model.addObject("infoMessage", null);
+		    }
+		else {
+		    model.addObject("infoMessage", message); 
+		    model.addObject("dangerMessage", null);}
+		
 		return model;
 	}
 	
