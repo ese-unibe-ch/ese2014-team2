@@ -13,6 +13,7 @@ import org.eseTeam2.controller.pojos.AdForm;
 import org.eseTeam2.controller.pojos.FilterForm;
 import org.eseTeam2.controller.pojos.MessageForm;
 import org.eseTeam2.controller.service.IAdDataService;
+import org.eseTeam2.controller.service.IAppointmentService;
 import org.eseTeam2.controller.service.IMessageService;
 import org.eseTeam2.controller.service.IUserDataService;
 import org.eseTeam2.model.Advertisement;
@@ -50,6 +51,9 @@ public class MessageController {
 	@Autowired
 	private IUserDataService userService;
 	
+	@Autowired
+	private IAppointmentService applicationService;
+	
 	/**
 	 * this mapping method triggers when a user clicks on send message to ad owner button in adProfile.jsp
 	 * Redirects to the senderMessage.jsp page and displays various information about the Message, like sender, receiver, 
@@ -71,7 +75,30 @@ public class MessageController {
 		return model;
 	}
 	
+	/**
+	 * this mapping method is usedto send a message to a user,context free. 
+	 */
+	@RequestMapping(value = "/sendMessageFromApplicant", method = RequestMethod.GET)
+	public ModelAndView sentMessageFromApplicant(@RequestParam(value = "applicationId", required = true) Long applicationId, Principal principal) {
+
+		User currentUser = userService.getUserByEmail(principal.getName());
+
+		ModelAndView model = new ModelAndView("sendMessage");
+		model.addObject("sender", currentUser);
+		model.addObject("reciever", applicationService.findOneApplication(applicationId).getApplicant());
+		model.addObject("messageForm", new MessageForm());
+		return model;
+	}
 	
+	
+	
+	
+	/**
+	 * this  mapping method is used to send a message to an user from an ad appointment.
+	 * @param messageId
+	 * @param principal
+	 * @return
+	 */
 	@RequestMapping(value = "/sendMessageFromAppointment", method = RequestMethod.GET)
 	public ModelAndView sendMessageFromAppointment(@RequestParam(value = "messageId", required = true) Long messageId, Principal principal) {
 
@@ -185,6 +212,7 @@ public class MessageController {
 	}
 	
 	
+	
 
 	/**
 	 * This mapping method is used to create the users inbox.jsp page. It is triggered by 
@@ -203,22 +231,38 @@ public class MessageController {
 		List<Message> senderMessages = currentUser.getSender();
 		List<Message> recipientMessages = currentUser.getRecipient();
 		List<Message> getInvitations = currentUser.getAppointmentInvitations();
+		List<Message> allMessages = new ArrayList<Message>();
+		List<Message> notifications = currentUser.getNotifications();
+		
+
 
 		// the following 2 for loops check if the user deleted the message locally, and only display if he didnt delete them yet. (Message stays in db till both users deleted it)
 		for (int i = 0; i < senderMessages.size(); i++) {
-			if (senderMessages.get(i).isSenderDeleted() == false)
+			if (senderMessages.get(i).isSenderDeleted() == false) 
 				senderMessagesToDisplay.add(senderMessages.get(i));
+				
+			
 		}
 
 		for (int i = 0; i < recipientMessages.size(); i++) {
-			if (recipientMessages.get(i).isRecipientDeleted() == false)
+			if (recipientMessages.get(i).isRecipientDeleted() == false) {
 				recipientMessagesToDisplay.add(recipientMessages.get(i));
+				allMessages.add(recipientMessages.get(i));
+			}
+		}
+		
+		for ( Message m: getInvitations) {
+		    allMessages.add(m);
+		}
+		for ( Message m: notifications) {
+		    allMessages.add(m);
 		}
 
 		ModelAndView model = new ModelAndView("inbox");
+		model.addObject("allMessages", allMessages);
 		model.addObject("receivedMessages", recipientMessagesToDisplay);
 		model.addObject("sentMessages", senderMessagesToDisplay);
-		model.addObject("notifications", currentUser.getNotifications());
+		model.addObject("notifications", notifications);
 		model.addObject("invitations", getInvitations);
 		model.addObject("user", currentUser);
 		model.addObject("infoMessage", message);
@@ -251,7 +295,7 @@ public class MessageController {
 		if ( !tabToShow.equals(""))
 		    model.addObject("show", tabToShow);
 		else
-		    model.addObject("show", "showReceived");
+		    model.addObject("show", "showAll");
 		return model;
 	}
 

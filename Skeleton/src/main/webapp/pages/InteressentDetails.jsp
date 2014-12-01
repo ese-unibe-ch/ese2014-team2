@@ -47,6 +47,13 @@
 								</button>
 								</a>
 								
+		 <a href="sendMessageFromApplicant?applicationId=${application.id}">
+								<button type="button" class="btn btn-default">
+									<b> Nachricht </b>
+								</button>
+								</a>						
+								
+								
 								
 								
 	</div>

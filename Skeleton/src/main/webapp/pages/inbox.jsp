@@ -46,14 +46,44 @@ function activaTab(tab){
 </c:if>
 
 <ul class="nav nav-tabs" id="myTab">
-	<li class="active"><a href="#showReceived" data-toggle="tab">Empfangene Nachrichten</a></li>
+	<li class="active"><a href="#showAll" data-toggle="tab">Alle Empfangenen Nachrichten</a></li>
+	<li><a href="#showReceived"data-toggle="tab">Fragen von Interessenten</a></li>
 	<li><a href="#showSent"data-toggle="tab">Gesendete Nachrichten</a></li>
 	<li><a href="#showInvitations" data-toggle="tab">Einladungen</a></li>
 	<li><a href="#showNotifications" data-toggle="tab">Benachrichtigungen</a></li>
 
 </ul>
 <div class="tab-content">
-	<div id="showReceived" class="tab-pane fade in active">
+	<div id="showAll" class="tab-pane fade in active">
+			<legend>Nachrichten Titel:</legend>
+	
+			<c:forEach items="${allMessages}" var="message">
+				<div class="row">
+					<div class="col-md-1">
+					<c:if test="${message.readMessage eq true }">
+						<img src="img/read.png" style="width:40px;height:40px">  
+					</c:if>
+					<c:if test="${message.readMessage eq false }">
+						<img src="img/unread.png" style="width:40px;height:40px"> 
+					</c:if>
+					</div>
+					<div class="col-md-7">
+					<a href="showMessage?messageId=${message.id}"><h4>${message.title}</h4></a>
+					</div>
+	
+	
+					<div class="col-md-4">
+						<a href="deleteReceivedMsg?messageId=${message.id}">
+							<button type="button" class="btn btn-danger">
+								<b>Lösche die Nachricht</b>
+							</button>
+						</a>
+					</div>
+				</div>
+			</c:forEach>
+	
+		</div>
+	<div id="showReceived" class="tab-pane fade">
 		<legend>Nachrichten Titel:</legend>
 
 		<c:forEach items="${receivedMessages}" var="message">
