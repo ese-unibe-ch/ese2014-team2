@@ -41,6 +41,8 @@ public class Advertisement  {
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Bookmark> bookmarks;
 	
+	private String publicVisit;
+	
 	private Date creationDate;
 	private String start;
 	private String until;
@@ -432,6 +434,14 @@ public class Advertisement  {
 
 	public void setBookmarks(List<Bookmark> bookmarks) {
 	    this.bookmarks = bookmarks;
+	}
+
+	public String getPublicVisit() {
+	    return publicVisit;
+	}
+
+	public void setPublicVisit(String publicVisit) {
+	    this.publicVisit = publicVisit;
 	}
 
 	

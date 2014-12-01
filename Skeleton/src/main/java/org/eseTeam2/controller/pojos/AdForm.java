@@ -28,8 +28,10 @@ public class AdForm {
 	private String description;
 	private User creator;
 	private Date creationDate;
-	@NotNull
-	@Pattern(regexp = "(0?[1-9]|1[012])/(0?[1-9]|[12][0-9]|3[01])/((19|20)\\d\\d)", message="Bitte wähle ein Datum im Format mm/dd/yyyy")
+	
+	private String publicVisit;
+	
+	
 	private String start;
 	
 	
@@ -344,6 +346,12 @@ public class AdForm {
 	}
 	public void setNmbrOfRoommates(String nmbrOfRoommates) {
 	    this.nmbrOfRoommates = nmbrOfRoommates;
+	}
+	public String getPublicVisit() {
+	    return publicVisit;
+	}
+	public void setPublicVisit(String publicVisit) {
+	    this.publicVisit = publicVisit;
 	}
 
 	

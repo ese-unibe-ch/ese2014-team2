@@ -16,5 +16,7 @@ public interface IUserDataService {
 
 
 	public void saveExampleAd(CustomFilterAd adToCompare, User currentUser);
+	
+	public boolean validatePassword(String password, String repeatedPassword);
 
 }

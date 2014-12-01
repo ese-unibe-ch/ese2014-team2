@@ -121,7 +121,22 @@ public class AdDataService implements IAdDataService {
 	ad.setCreator(adForm.getCreator());
 	ad.setCreationDate(new Date());
 
-	ad.setStart(adForm.getStart());
+	if ( !adForm.getStart().equals(""))
+	    ad.setStart(adForm.getStart());
+	else 
+	    ad.setStart("Per sofort");
+	if (!adForm.getUntil().equals(""))
+	    ad.setUntil(adForm.getUntil());
+	else
+	    ad.setUntil("Unbefristet");
+	
+	if(!adForm.getPublicVisit().equals(""))
+	    ad.setPublicVisit(adForm.getPublicVisit());
+	else
+	    ad.setPublicVisit("Keiner");
+	
+
+	
 	ad.setUntil(adForm.getUntil());
 
 	ad.setRooms(Float.parseFloat(adForm.getRooms()));
@@ -165,7 +180,7 @@ public class AdDataService implements IAdDataService {
 
 	// other
 	ad.setTitle(adForm.getRoomSpace() + "m&sup2 Zimmer in einer "
-		+ (adForm.getNmbrOfRoommates() + 1) + "er-WG in "
+		+ (Integer.parseInt(adForm.getNmbrOfRoommates()) + 1) + "er-WG in "
 		+ adForm.getCity() + " für " + adForm.getRoomPrice() + " CHF");
 	adsOfUser.add(ad);
 	creator.setAdvertisements(adsOfUser);

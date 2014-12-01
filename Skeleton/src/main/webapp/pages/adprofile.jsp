@@ -13,7 +13,7 @@
 <div class="col-md-12">
 
 <c:if test="${not empty infoMessage}">
-<div class="alert alert-success" role="alert"><font color="006600" size="3"> ${infoMessage}</font></div>
+	<div class="alert alert-success" role="alert"><font color="006600" size="3"> ${infoMessage}</font></div>
 </c:if>
 <!--  CAROUSEL SLIDER TEST  -->
 
@@ -125,11 +125,11 @@
 			<p>${newAdProfile.roomPrice }</p>
 		</div>
 		<div class="row">
-			<label class="col-md-6">Von:</label>
+			<label class="col-md-6">Zimmer frei Von:</label>
 			<p>${newAdProfile.start}</p>
 		</div>
 		<div class="row">
-			<label class="col-md-6">Bis:</label>
+			<label class="col-md-6">Zimmer frei Bis:</label>
 			<p>${newAdProfile.until}</p>
 		</div>
 		<div class="row">
@@ -150,6 +150,7 @@
 				<p>${newAdProfile.nmbrOfRoommates}, Männer/ Frauen gemischt</p>
 			</c:otherwise>
 		</c:choose>
+		
 		
 		
 		
@@ -176,7 +177,7 @@
 		</div>
 
 		<div class="row">
-			<label class="col-md-6">Möbliert?</label>
+			<label class="col-md-6">Möbliert:</label>
 			<p>
 				<c:choose>
 					<c:when test="${newAdProfile.furnished}">
@@ -188,6 +189,11 @@
 				</c:choose>
 			</p>
 		</div>
+		
+		<div class="row">
+			<label class="col-md-6">Öffentlicher Besichtigungstermin, ohne Anmeldung: </label>
+			<p>${newAdProfile.publicVisit}</p>
+		</div>	
 		
 		
 <a href="userInterested?adId=${newAdProfile.id}">
@@ -231,7 +237,7 @@
 
 	<div class="row">
 
-		<label class="col-md-8">Geschirrspüler?</label>
+		<label class="col-md-8">Geschirrspüler:</label>
 
 		<c:choose>
 			<c:when test="${newAdProfile.hasDishwasher}">
@@ -249,7 +255,7 @@
 
 
 	<div class="row">
-		<label class="col-md-8">Waschmachine?</label>
+		<label class="col-md-8">Waschmachine:</label>
 		<p>
 			<c:choose>
 				<c:when test="${newAdProfile.hasLaundry}">
@@ -263,7 +269,7 @@
 	</div>
 
 	<div class="row">
-		<label class="col-md-8">Balkon?</label>
+		<label class="col-md-8">Balkon:</label>
 		<p>
 			<c:choose>
 				<c:when test="${newAdProfile.hasBalcony}">
@@ -278,7 +284,7 @@
 
 
 	<div class="row">
-		<label class="col-md-8">Raucherwohnung?</label>
+		<label class="col-md-8">Raucherwohnung:</label>
 		<p>
 			<c:choose>
 				<c:when test="${newAdProfile.smokingInside}">
@@ -291,7 +297,7 @@
 		</p>
 	</div>
 	<div class="row">
-		<label class="col-md-8">Haustiere möglich?</label>
+		<label class="col-md-8">Haustiere möglich:</label>
 		<p>
 			<c:choose>
 				<c:when test="${newAdProfile.hasPets}">
@@ -305,7 +311,7 @@
 	</div>
 
 	<div class="row">
-		<label class="col-md-8">Wlan?</label>
+		<label class="col-md-8">Wlan:</label>
 		<p>
 			<c:choose>
 				<c:when test="${newAdProfile.wlan}">
@@ -327,7 +333,7 @@
 <div class="row col-md-4">
 <legend>Zum Zimmer:</legend>
 		<div class="row">
-			<label class="col-md-8">Einbauschrank?</label>
+			<label class="col-md-8">Einbauschrank:</label>
 			<p>
 				<c:choose>
 					<c:when test="${newAdProfile.hasBuiltInCloset}">
@@ -342,7 +348,7 @@
 
 		
 		<div class="row">
-			<label class="col-md-8">Balkonzugang vom Zimmer?</label>
+			<label class="col-md-8">Balkonzugang vom Zimmer:</label>
 			<p>
 				<c:choose>
 					<c:when test="${newAdProfile.hasBalcony}">
@@ -356,7 +362,7 @@
 		</div>
 
 		<div class="row">
-			<label class="col-md-8">Kabelanschlüsse im Zimmer? (Tv, Internet etc.)</label>
+			<label class="col-md-8">Kabelanschlüsse im Zimmer: (Tv, Internet etc.)</label>
 			<p>
 				<c:choose>
 					<c:when test="${newAdProfile.hasCables}">
@@ -385,7 +391,7 @@
 		
 		<div class="col-md-4">
 <div class="row">
-	<label class="col-md-8">Raucher?:</label>
+	<label class="col-md-8">Raucher:</label>
 				<c:choose>
 					<c:when test="${newAdProfile.smoker eq 'smoker'}">
 						<c:out value="Raucher" />

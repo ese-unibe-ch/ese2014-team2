@@ -9,10 +9,12 @@
 
 <div class="main">
 	
-		<h1>Sign Up Here!</h1>
-			<legend>Enter your information here!</legend>
+		<h1>Registriere dich hier!</h1>
+			<legend>Gib deine Informationen ein!</legend>
 		
-	
+	<c:if test="${not empty infoMessage}">
+	<div class="alert alert-success" role="alert"><font color="006600" size="3"> ${infoMessage}</font></div>
+</c:if>
 	
 		<form:form method="post" modelAttribute="signupForm" action="create" id="signupForm" cssClass="form-horizontal"  autocomplete="off">
     			<fieldset>
@@ -32,9 +34,9 @@
             		
             		
     <div class="row">
-   		<label class="col-md-4" for="field-firstName">First Name:</label>
+   		<label class="col-md-4" for="field-firstName">Vorname:</label>
 		<div class="col-md-4">
-                <form:input path="firstName" id="field-firstName" tabindex="2" maxlength="35" placeholder="First Name"/>
+                <form:input path="firstName" id="field-firstName" tabindex="2" maxlength="35" placeholder="Vorname"/>
                 <form:errors path="firstName" cssClass="help-inline" element="span"/>
             </div>
     </div>
@@ -43,9 +45,9 @@
 		<c:set var="lastNameErrors"><form:errors path="lastName"/></c:set>
 
 	<div class="row">
-        <label class="col-md-4" for="field-lastName">Last Name:</label>
+        <label class="col-md-4" for="field-lastName">Nachname:</label>
 		<div class="col-md-4">
-                <form:input path="lastName" id="field-lastName" tabindex="3" maxlength="35" placeholder="Last Name"/>
+                <form:input path="lastName" id="field-lastName" tabindex="3" maxlength="35" placeholder="Nachname"/>
                 <form:errors path="lastName" cssClass="help-inline" element="span"/>
             </div>
         </div>
@@ -53,12 +55,21 @@
 		<c:set var="passwordErrors"><form:errors path="password"/></c:set>	
 
 	<div class="row">
-		<label class="col-md-4" for="field-password">Password:</label>
+		<label class="col-md-4" for="field-password">Passwort:</label>
 		<div class="col-md-4">
-			<form:password path="password" id="field-password" tabindex="4" maxlength="35" placeholder="Password"/>
+			<form:password path="password" id="field-password" tabindex="4" maxlength="35" placeholder="Passwort"/>
 			<form:errors path="password" cssClass="help-inline" element="span"/>
    		</div>
 </div>
+
+<div class="row">
+		<label class="col-md-4" for="field-password">Wiederhole das Passwort:</label>
+		<div class="col-md-4">
+			<form:password path="passwordVerify" id="field-password" tabindex="5" maxlength="35" placeholder="Passwort"/>
+		</div>
+</div>
+
+
 
 <div class="form-actions">
            <button type="submit" id="submitB" class="btn btn-primary">Registrieren</button>

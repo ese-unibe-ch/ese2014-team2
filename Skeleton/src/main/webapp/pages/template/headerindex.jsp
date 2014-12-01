@@ -139,7 +139,8 @@
           <div class="container">
             <div class="carousel-caption">
             	<h1><font color="#D5DED9">Flattie</font></h1>
-            	<p><font color="black">Ein WG Zimmer vermieten war noch nie so einfach!</font></p>
+            	<p><font color="black" size="4">Ein WG Zimmer vermieten war noch nie so einfach!</font></p>
+            	<p><font color="black" size="4">Probiere es jetzt aus und melde dich <a href="/register"><b>HIER</b></a> an!</font></p>
             </div>
           </div>
         </div>
@@ -148,7 +149,7 @@
           <div class="container">
             <div class="carousel-caption">
             	<h1><font color="#948C75">Flattie </font></h1>
-            	<p><font color="black"> Finde dein Traumzimmer mit wenigen Klicks!</font><p>
+            	<p><font color="black" size="4"> Finde dein Traumzimmer mit wenigen Klicks!</font><p>
             </div>
           </div>
         </div>
@@ -172,7 +173,7 @@
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <script>
 	$('#myCarousel').carousel({
-		interval:   4000
+		interval:   6000
 	});
 </script>
 

@@ -15,12 +15,14 @@ public class SignupForm {
 
 	
     private Long id;
-    @Size(min=1, message = "Please enter your first name.")
+    @Size(min=1, message = "Bitte gib deinen Vornamen ein")
     private String firstName;
-    @Size(min=1, message = "Please enter your last name.")
+    @Size(min=1, message = "Bitte gib deinen Nachnamen ein")
     private String lastName;
-    @Size(min=6, max=20, message="Please enter a password with a character count between 6 and 20.")
+    @Size(min=6, max=20, message="Bitte wähle ein passwort mit mindestens 6 Zeichen. Zu empfehlen wäre aber 9+")
     private String password;
+    
+    private String passwordVerify;
 
     @NotNull
     @Pattern(regexp = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", 
@@ -68,5 +70,15 @@ public class SignupForm {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public String getPasswordVerify() {
+	    return passwordVerify;
+	}
+
+	public void setPasswordVerify(String passwordVerify) {
+	    this.passwordVerify = passwordVerify;
+	}
+	
+	
     
 }

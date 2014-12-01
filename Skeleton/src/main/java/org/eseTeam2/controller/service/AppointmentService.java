@@ -83,7 +83,10 @@ public class AppointmentService implements IAppointmentService {
 	application.setApplicant(applicantForm.getInteressent());
 	application.setMessage(Jsoup.parse(applicantForm.getMessage()).text());
 	application.setTitle(applicantForm.getTitle());
-	application.setTimeLimitation(applicantForm.getBisWann());
+	if ( !applicantForm.getBisWann().equals(""))
+	    application.setTimeLimitation(applicantForm.getBisWann());
+	else 
+	    application.setTimeLimitation("sobald wie möglich");
 
 	User adCreator = ad.getCreator();
 	List<AdApplication> ads = new ArrayList<AdApplication>();
@@ -344,7 +347,26 @@ public class AppointmentService implements IAppointmentService {
     }
 
     public void deleteInteressent(Long applicationId) {
-
+	
+	
+	List<Message> notifications = new ArrayList<Message>();
+	try {
+	   notifications = adApplicationDao.findOne(applicationId).getApplicant().getNotifications();
+	} 
+	catch (Exception d) {
+	    notifications = new ArrayList<Message>();
+	}
+	User user = userDao.findOne(adApplicationDao.findOne(applicationId).getApplicant().getId());
+	Message notification = new Message();
+	notification.setTitle("Zimmer leider vergeben");
+	notification.setMessageText("Hey, das Zimmer " + adApplicationDao.findOne(applicationId).getAd().getTitle() + " ist leider bereits vergeben. Viel glück noch bei deiner Suche!");
+	notification.setNotifications(user);
+	
+	notification = messageDao.save(notification);
+	notifications.add(notification);
+	user.setNotifications(notifications);
+	userDao.save(user);
+	
 	/*
 	 * AdApplication application = adApplicationDao.findOne(applicationId);
 	 * Advertisement ad = adDao.findOne(application.getAd().getId()); User
@@ -373,6 +395,8 @@ public class AppointmentService implements IAppointmentService {
 	 * adDao.save(ad); userDao.save(interessent);
 	 */
 	adApplicationDao.delete(applicationId);
+	
+	
 
     }
 
