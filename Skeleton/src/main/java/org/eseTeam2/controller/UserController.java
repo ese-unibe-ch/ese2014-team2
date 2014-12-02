@@ -66,22 +66,7 @@ public class UserController {
 		return model;
 	}
 
-	
-	public void login ( String username,  HttpServletRequest request) {
-	    try
-	    {
-	        // generate session if one doesn't exist
-	        request.getSession();
 
-	        // Authenticate the user
-	        User user = userService.getUserByEmail(username);
-	        Authentication auth = new UsernamePasswordAuthenticationToken(user, null);
-	        SecurityContextHolder.getContext().setAuthentication(auth);
-	    }
-	    catch (Exception e)
-	    {
-	    }
-	}
 	/**
 	 * Depreciated method
 	 * 
