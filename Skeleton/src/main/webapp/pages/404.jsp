@@ -9,10 +9,10 @@
 <body>
 	
 	
-	<h1>Sorry was du suchtst ist nicht mehr da. Höchstwahrscheinlich wurde es <br> 
-	gelöscht, oder hat nie existiert</h1>
-	<img src="img/404.png">
+	<h1>Sorry was du suchtst ist nicht mehr da, oder gerade nicht erreichbar.</h1>
 	<h2><a href="/Skeleton"> Hier geht es zurück zur hauptseite</a></h2>
+	<img src="img/404.png">
+	
 
 </body>
 </html>

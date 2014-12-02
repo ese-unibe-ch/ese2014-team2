@@ -24,6 +24,9 @@ import org.eseTeam2.model.Advertisement;
 import org.eseTeam2.model.CustomFilterAd;
 import org.eseTeam2.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -63,6 +66,22 @@ public class UserController {
 		return model;
 	}
 
+	
+	public void login ( String username,  HttpServletRequest request) {
+	    try
+	    {
+	        // generate session if one doesn't exist
+	        request.getSession();
+
+	        // Authenticate the user
+	        User user = userService.getUserByEmail(username);
+	        Authentication auth = new UsernamePasswordAuthenticationToken(user, null);
+	        SecurityContextHolder.getContext().setAuthentication(auth);
+	    }
+	    catch (Exception e)
+	    {
+	    }
+	}
 	/**
 	 * Depreciated method
 	 * 
@@ -126,7 +145,7 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public ModelAndView create(@Valid SignupForm signupForm, BindingResult result, RedirectAttributes redirectAttributes) {
+	public ModelAndView create(@Valid SignupForm signupForm, Principal principal, BindingResult result, HttpServletRequest request, RedirectAttributes redirectAttributes) {
 		ModelAndView model;
 		if (!result.hasErrors()) {
 			try {	
@@ -136,6 +155,7 @@ public class UserController {
 				}
 				userService.saveFrom(signupForm);
 				redirectAttributes.addFlashAttribute("infoMessage", "Du hast dich erfolgreich registriert. Du kannst dich nun einloggen");
+				
 				model = new ModelAndView("redirect:/");
 			} catch (InvalidUserException e) {
 				model = new ModelAndView("register");
