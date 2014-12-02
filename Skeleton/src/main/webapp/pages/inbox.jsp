@@ -68,16 +68,40 @@ function activaTab(tab){
 					</c:if>
 					</div>
 					<div class="col-md-7">
+					<c:if test="${ empty message.appointedAppointment and empty message.notifications}">
 					<a href="showMessage?messageId=${message.id}"><h4>${message.title}</h4></a>
+					</c:if>
+					<c:if test="${ not empty message.appointedAppointment}">
+					<a href="showInvitation?messageId=${message.id}"><h4>${message.title}</h4></a>
+					</c:if>
+					<c:if test="${not empty message.notifications}">
+					<a href="showNotification?messageId=${message.id}"><h4>${message.title}</h4></a>
+					</c:if>
 					</div>
 	
 	
 					<div class="col-md-4">
+						<c:if test="${ empty message.appointedAppointment and empty message.notifications}">
 						<a href="deleteReceivedMsg?messageId=${message.id}">
 							<button type="button" class="btn btn-danger">
 								<b>Lösche die Nachricht</b>
 							</button>
 						</a>
+						</c:if>
+						<c:if test="${not empty message.appointedAppointment}">
+						<a href="deleteInvitation?messageId=${message.id}">
+							<button type="button" class="btn btn-danger">
+								<b>Lösche die Nachricht</b>
+							</button>
+						</a>
+						</c:if>
+						<c:if test="${not empty message.notifications}">
+						<a href="deleteNotification?messageId=${message.id}">
+							<button type="button" class="btn btn-danger">
+								<b>Lösche die Nachricht</b>
+							</button>
+						</a>
+						</c:if>
 					</div>
 				</div>
 			</c:forEach>

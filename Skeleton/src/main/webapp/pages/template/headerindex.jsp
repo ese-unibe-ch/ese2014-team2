@@ -140,7 +140,7 @@
             <div class="carousel-caption">
             	<h1><font color="#D5DED9">Flattie</font></h1>
             	<p><font color="black" size="4">Ein WG Zimmer vermieten war noch nie so einfach!</font></p>
-            	<p><font color="black" size="4">Probiere es jetzt aus und melde dich <a href="/register"><b>HIER</b></a> an!</font></p>
+            	<p><font color="black" size="4">Probiere es jetzt aus und melde dich <a href="register"><b>HIER</b></a> an!</font></p>
             </div>
           </div>
         </div>
