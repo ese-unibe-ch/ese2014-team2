@@ -94,7 +94,7 @@ public class AppointmentController {
 	ModelAndView model = new ModelAndView("manageScheduledAppointments");
 	
 	
-	
+
 	
 	model.addObject("appointments", ad.getAppointments());
 	model.addObject("ad", ad);
@@ -258,8 +258,7 @@ public class AppointmentController {
 	Advertisement ad = adService.getAdvertisement(
 		adId);
 	
-	for (int i = 0; i < interessentsArr.length; i++)
-	    System.out.println(interessentsArr[i]);
+	
 
 	redirectAttributes.addFlashAttribute("interessentsToSendApp",interessentsArr);
 
