@@ -118,10 +118,22 @@
             <li><a href="unfilteredAds" id="navads"><span>Suche Zimmer</span><em></em></a>
             <li><a href="placead" id="navpads"><span>Vermiete Zimmer</span><em></em></a>
             <li><a href="myprofile">Profil</a></li>
-            <li><a href="myinbox">Briefkasten<span class="badge"> ${messageNmbr} </span></a></li>
-            <li><a href="myads">Inserate</a></li>
-            <li><a href="appointments?showTab=1">Besichtigungstermine</a></li>
-            <li><a href="bookmarks">Favoriten</a></li>
+            <li><a href="myinbox">Briefkasten <span class="badge"> ${messageNmbr}</span></a></li>
+            <li class="dropdown">
+          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Inserate <span class="caret"></span></a>
+          			<ul class="dropdown-menu" role="menu">
+            			<li><a href="myads">Inserate</a></li>
+            			<li class="divider"></li>
+            			<li><a href="appointments?showTab=1">Besichtigungen</a></li>
+            			<li class="divider"></li>
+            			<li><a href="bookmarks">Favoriten</a></li>
+            			<li class="divider"></li>
+            			<li><a href="">Interessenten</a></li>
+          			</ul>
+        	</li>
+            
+            
+            
             <li><a href="logout">Logout</a></li>
           </ul>
         </div><!--/.nav-collapse -->
