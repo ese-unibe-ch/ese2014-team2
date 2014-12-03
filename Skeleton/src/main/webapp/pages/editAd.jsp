@@ -80,7 +80,7 @@
 			<label class="col-md-4" for="field-roomSpace">Grösse des
 				Zimmers:</label>
 			<div class="col-md-4">
-				<form:input path="roomSpace" id="field-roomSpace" tabindex="5"
+				<form:input path="roomSpace" id="field-roomSpace" tabindex="5"	
 					maxlength="10" value="${ad.roomSpace}" />
 				<form:errors path="roomSpace" cssClass="help-inline" element="span" />
 			</div>
