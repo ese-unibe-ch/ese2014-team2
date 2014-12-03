@@ -138,7 +138,7 @@ function winOpen()
 
 		<c:if test="${not empty mainPic}">
 			<div class="item active">
-				<img class="img-responsive center-block" src="getUserImage/ <c:out value="${mainPic.id}"/>" >
+				<img class="img-responsive center-block" src="getUserImage/ <c:out value="${mainPic.id}"/>" style="width:640px;height:600px" >
 				<div class="carousel-caption"></div>
 
 			</div>
