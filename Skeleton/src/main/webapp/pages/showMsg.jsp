@@ -24,9 +24,10 @@
 					
 			<legend>Antwort an: ${recipient.firstName }  ${recipient.lastName } auf die Nachricht: ${message.title}:&nbsp;&nbsp;</legend>
 			<div class="row">
-			<label class="col-md-4">Titel: </label>
+			<label class="col-md-4">Titel: AW: ${message.title} </label>
 				<div class="col-md-4">
-					<form:input path="title" id="field-title"  maxlength="30" />
+				<form:hidden path="title" id="field-title"  value="AW: ${message.title}" />
+					
 				</div>
 			</div>
 			
