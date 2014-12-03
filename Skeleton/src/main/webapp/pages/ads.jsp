@@ -17,15 +17,15 @@
         <div class="col-sm-6">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h2 class="panel-title"><a href="adprofile?adId=${ads.id}">${ads.title}</a></h3>
+              <h2 class="panel-title"><a href="adprofile?adId=${ads.id}">${ads.title}</a></h2>
             </div>
             <div class="panel-body">
         <div class="col-md-6">
             <c:if test="${empty ads.mainPic}">
-				<img src="img/default_image.png"> 
+				<img src="img/default_image.png" style="width:250px;height:250px"> 
 			</c:if>
 			<c:if test="${not empty ads.mainPic}">
-				<img src="getUserImage/ <c:out value="${ads.mainPic.id}"/>" width="200" height="200" >
+				<img src="getUserImage/ <c:out value="${ads.mainPic.id}"/>" style="width:250px;height: 250px" >
 			</c:if>
 		</div>
 		<div class="col-md-2">
@@ -36,17 +36,18 @@
 			<label>Preis:</label>
 		</div>
 		<div class="col-md-2">
-			<p>${ads.creator.firstName }</p>
-			<p>${ads.rooms}</p>
-			<p>${ads.roomSpace}</p>
-			<p>${ads.city}</p>
-			<p>${ads.roomPrice}</p>
+			<label>${ads.creator.firstName }</label><br>
+			<label>${ads.rooms}</label><br>
+			<label>${ads.roomSpace}</label><br>
+			<label>${ads.city}</label><br>
+			<label>${ads.roomPrice}</label>
 		</div>
             </div>
           </div>
     </div><!-- /.col-sm-4 -->
 </c:forEach>
 
+<a href="unfilteredAds"><button type="button" class="btn btn-danger">Zurücksetzen</button></a>
 
 	<c:if test="${page_error != null }">
         <div class="alert alert-error">

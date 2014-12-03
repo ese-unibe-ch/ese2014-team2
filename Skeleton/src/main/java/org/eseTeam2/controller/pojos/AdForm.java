@@ -11,6 +11,7 @@ import javax.validation.constraints.Size;
 
 import org.eseTeam2.model.Picture;
 import org.eseTeam2.model.User;
+import org.jsoup.Jsoup;
 
 /**
  * This is the Form class which is user to place a new Room Advertisement.
@@ -27,43 +28,52 @@ public class AdForm {
 	private String description;
 	private User creator;
 	private Date creationDate;
-	@NotNull
-	@Pattern(regexp = "(0?[1-9]|1[012])/(0?[1-9]|[12][0-9]|3[01])/((19|20)\\d\\d)", message="Please enter a date mm/dd/yyyy")
+	
+	private String publicVisit;
+	
+	
 	private String start;
 	
 	
 	private String until;
+	
 	@NotNull
-	@Digits(fraction = 0, integer = 1, message="Please enter a Value between 1 and 9")
-	@Min(value=1, message="Please enter a Value between 1 and 9")
-	private int rooms;
+	@Size(min = 1, max = 50)
+	@Pattern(regexp="[0-9]*\\.?[0-9]*", message =" Bitte gib eine gültige Nummer ein")
+	private String rooms;
+	
 	@NotNull
-	@Digits(fraction = 0, integer = 4, message="Please enter a Value between 10 and 9999")
-	@Min(value=10, message="Please enter a Value between 10 and 9999")
-	private int roomPrice;
+	@Size(min = 1, max = 9000)
+	@Pattern(regexp="[0-9]*", message =" Bitte gib eine gültige Nummer ein")
+	private String roomPrice;
+	
 	@NotNull
-	@Digits(fraction = 0, integer = 2, message="Please enter a Value between 1 and 99")
-	@Min(value=1, message="Please enter a Value between 1 and 99")
-	private int roomSpace;
+	@Size(min = 1, max = 50)
+	@Pattern(regexp="[0-9]*", message =" Bitte gib eine gültige Nummer ein")
+	private String roomSpace;
+	
 	@NotNull
-	private int nmbrOfRoommates;
+	@Size(min = 1, max = 9)
+	@Pattern(regexp="[0-9]*", message =" Bitte wähle eine Nummer aus der Liste aus")
+	private String nmbrOfRoommates;
+	
 	private String wgType;
 	private boolean furnished;
 	
 	
 	// address
 	@NotNull
-	@Size(min=3, message="Please enter the name of the Canton.")
+	@Size(min=3, message="Bitte gib den Namen des Kantons ein.")
 	private String kanton;
 	@NotNull
-	@Min(value = 1000, message = "Please enter your ZIP code")
-	@Max(value = 9999, message = "Please enter your ZIP code")
+	@Min(value = 1000, message = "Bitte gib eine gültige Postleizahl ein")
+	@Max(value = 9999, message = "Bitte gib eine gültige Postleizahl ein")
 	private int plz;
 	@NotNull
-	@Size(min=3, message="Please enter the name of your city.")
+	@Size(min=3, message="Bitte gib den Namen deiner Stadt ein")
 	private String city;
 	@NotNull
-	@Size(min=3, message="Please enter your address.")
+	@Size(min=3, message="Bitte gib die Addresse an")
 	private String address;
 	//private String region;
 	
@@ -110,13 +120,13 @@ public class AdForm {
 		return title;
 	}
 	public void setTitle(String title) {
-		this.title = title;
+		this.title = Jsoup.parse(title).text();
 	}
 	public String getDescription() {
 		return description;
 	}
 	public void setDescription(String description) {
-		this.description = description;
+		this.description = Jsoup.parse(description).text();
 	}
 	
 	public Date getCreationDate() {
@@ -126,29 +136,12 @@ public class AdForm {
 		this.creationDate = creationDate;
 	}
 
-	public int getRooms() {
-		return rooms;
-	}
-	public void setRooms(int rooms) {
-		this.rooms = rooms;
-	}
-	public int getRoomPrice() {
-		return roomPrice;
-	}
-	public void setRoomPrice(int price) {
-		this.roomPrice = price;
-	}
-	public int getRoomSpace() {
-		return roomSpace;
-	}
-	public void setRoomSpace(int space) {
-		this.roomSpace = space;
-	}
+	
 	public String getAddress() {
 		return address;
 	}
 	public void setAddress(String address) {
-		this.address = address;
+		this.address = Jsoup.parse(address).text();
 	}
 	public String getStart() {
 		return start;
@@ -162,17 +155,12 @@ public class AdForm {
 	public void setUntil(String until) {
 		this.until = until;
 	}
-	public int getNmbrOfRoommates() {
-		return nmbrOfRoommates;
-	}
-	public void setNmbrOfRoommates(int roomies) {
-		this.nmbrOfRoommates = roomies;
-	}
+	
 	public String getKanton() {
 		return kanton;
 	}
 	public void setKanton(String kanton) {
-		this.kanton = kanton;
+		this.kanton = Jsoup.parse(kanton).text();
 	}
 	public int getPlz() {
 		return plz;
@@ -186,7 +174,7 @@ public class AdForm {
 		return description_ad;
 	}
 	public void setDescription_ad(String description_ad) {
-		this.description_ad = description_ad;
+		this.description_ad = Jsoup.parse(description_ad).text();
 	}
 	public boolean getHasLaundry() {
 		return hasLaundry;
@@ -210,7 +198,7 @@ public class AdForm {
 		return description_room;
 	}
 	public void setDescription_room(String description_room) {
-		this.description_room = description_room;
+		this.description_room = Jsoup.parse(description_room).text();
 	}
 	public boolean getIsToBalcony() {
 		return isToBalcony;
@@ -228,13 +216,13 @@ public class AdForm {
 		return description_us;
 	}
 	public void setDescription_us(String description_us) {
-		this.description_us = description_us;
+		this.description_us = Jsoup.parse(description_us).text();
 	}
 	public String getWhoWeAreLookingFor() {
 		return whoWeAreLookingFor;
 	}
 	public void setWhoWeAreLookingFor(String whoWeAreLookingFor) {
-		this.whoWeAreLookingFor = whoWeAreLookingFor;
+		this.whoWeAreLookingFor = Jsoup.parse(whoWeAreLookingFor).text();
 	}
 
 
@@ -334,6 +322,36 @@ public class AdForm {
 	}
 	public void setImg_four(Picture img_four) {
 		this.img_four = img_four;
+	}
+	public String getRooms() {
+	    return rooms;
+	}
+	public void setRooms(String rooms) {
+	    this.rooms = rooms;
+	}
+	public String getRoomPrice() {
+	    return roomPrice;
+	}
+	public void setRoomPrice(String roomPrice) {
+	    this.roomPrice = roomPrice;
+	}
+	public String getRoomSpace() {
+	    return roomSpace;
+	}
+	public void setRoomSpace(String roomSpace) {
+	    this.roomSpace = roomSpace;
+	}
+	public String getNmbrOfRoommates() {
+	    return nmbrOfRoommates;
+	}
+	public void setNmbrOfRoommates(String nmbrOfRoommates) {
+	    this.nmbrOfRoommates = nmbrOfRoommates;
+	}
+	public String getPublicVisit() {
+	    return publicVisit;
+	}
+	public void setPublicVisit(String publicVisit) {
+	    this.publicVisit = publicVisit;
 	}
 
 	

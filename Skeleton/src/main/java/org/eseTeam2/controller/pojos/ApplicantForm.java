@@ -4,6 +4,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.eseTeam2.model.User;
+import org.jsoup.Jsoup;
 
 /**
  * Message form, contains all the information used to create a new Message object.
@@ -19,8 +20,7 @@ public class ApplicantForm {
 
     private User interessent;
 	private Long adId;
-	
-	private boolean smoker;
+
 	private String bisWann;
    // private User recipient;
 
@@ -41,7 +41,7 @@ public class ApplicantForm {
 	}
 
 	public void setMessage(String message) {
-		this.message = message;
+		this.message = Jsoup.parse(message).text();
 	}
 
 	public String getTitle() {
@@ -49,7 +49,7 @@ public class ApplicantForm {
 	}
 
 	public void setTitle(String title) {
-		this.title = title;
+		this.title = Jsoup.parse(title).text();
 	}
 
 
@@ -70,13 +70,7 @@ public class ApplicantForm {
 		this.adId = adId;
 	}
 
-	public boolean isSmoker() {
-		return smoker;
-	}
-
-	public void setSmoker(boolean smoker) {
-		this.smoker = smoker;
-	}
+	
 
 	public String getBisWann() {
 		return bisWann;

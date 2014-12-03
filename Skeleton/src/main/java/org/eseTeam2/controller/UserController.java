@@ -24,6 +24,9 @@ import org.eseTeam2.model.Advertisement;
 import org.eseTeam2.model.CustomFilterAd;
 import org.eseTeam2.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -56,11 +59,13 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public ModelAndView register() {
+	public ModelAndView register(@ModelAttribute("infoMessage") String message) {
 		ModelAndView model = new ModelAndView("register");
 		model.addObject("signupForm", new SignupForm());
+		model.addObject("infoMessage", message);
 		return model;
 	}
+
 
 	/**
 	 * Depreciated method
@@ -125,12 +130,18 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public ModelAndView create(@Valid SignupForm signupForm, BindingResult result, RedirectAttributes redirectAttributes) {
+	public ModelAndView create(@Valid SignupForm signupForm, Principal principal, BindingResult result, HttpServletRequest request, RedirectAttributes redirectAttributes) {
 		ModelAndView model;
 		if (!result.hasErrors()) {
-			try {
+			try {	
+			    if ( userService.validatePassword(signupForm.getPassword(), signupForm.getPasswordVerify()) == false){
+				redirectAttributes.addFlashAttribute("infoMessage", "Deine Passwörter stimmen nicht überein");
+				return new ModelAndView("redirect:/register"); 
+				}
 				userService.saveFrom(signupForm);
-				model = new ModelAndView("redirect:/success/userRegistered");
+				redirectAttributes.addFlashAttribute("infoMessage", "Du hast dich erfolgreich registriert. Du kannst dich nun einloggen");
+				
+				model = new ModelAndView("redirect:/");
 			} catch (InvalidUserException e) {
 				model = new ModelAndView("register");
 				model.addObject("page_error", e.getMessage());

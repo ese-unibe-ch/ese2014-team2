@@ -26,6 +26,7 @@ import org.eseTeam2.controller.pojos.ApplicantForm;
 import org.eseTeam2.controller.pojos.AppointmentFinderForm;
 import org.eseTeam2.controller.pojos.FilterForm;
 import org.eseTeam2.controller.pojos.LoginForm;
+import org.eseTeam2.controller.pojos.NoteForm;
 import org.eseTeam2.controller.pojos.SignupForm;
 import org.eseTeam2.controller.service.AdDataService;
 import org.eseTeam2.controller.service.IAdDataService;
@@ -138,6 +139,59 @@ public class ApplicantsController {
 		return "redirect:/showInteressents?adId="+adId;
 	}
 	
+	/**
+	 * this mapping method is used to set a note about someone.From the appointment o an ad site.
+	 * @param request
+	 * @param response
+	 * @param session
+	 * @param principal
+	 * @param redirectAttributes
+	 * @param note
+	 * @param userId
+	 * @param appointmentId
+	 * @return
+	 */
+
+	@RequestMapping(value = "/setNote", method = RequestMethod.POST)
+	public String setNote( /*@Valid NoteForm noteForm,*/ HttpServletRequest request, HttpServletResponse response,
+			HttpSession session,  Principal principal,
+			RedirectAttributes redirectAttributes, 	@RequestParam("noteText")String note, @RequestParam("userId") Long userId, @RequestParam("appointmentId") Long appointmentId) {
+	    
+	  
+	    Advertisement ad = appointmentService.findOneAppointment(appointmentId).getAd();
+	    note = note.replace("\"", "");
+	    appointmentService.setNote(appointmentId, userId, note);
+	    redirectAttributes.addFlashAttribute("infoMessage", "Notiz hinzugefügt");
+	    
+	  return "redirect:/zeigeBesichtigungstermine?adId="+ad.getId();
+
+	}
+	/**
+	 * This mapping method is used to set a note from the appointment Overview site. 
+	 * @param request
+	 * @param response
+	 * @param session
+	 * @param principal
+	 * @param redirectAttributes
+	 * @param note
+	 * @param userId
+	 * @param appointmentId
+	 * @return
+	 */
+	@RequestMapping(value = "/setNoteOverview", method = RequestMethod.POST)
+	public String setNoteOverview( /*@Valid NoteForm noteForm,*/ HttpServletRequest request, HttpServletResponse response,
+			HttpSession session,  Principal principal,
+			RedirectAttributes redirectAttributes, 	@RequestParam("noteText")String note, @RequestParam("userId") Long userId, @RequestParam("appointmentId") Long appointmentId) {
+	    
+	  
+	Advertisement ad = appointmentService.findOneAppointment(appointmentId).getAd();
+	    
+	 appointmentService.setNote(appointmentId, userId, note);
+	 redirectAttributes.addFlashAttribute("infoMessage", "Notiz hinzugefügt");
+	    
+	  return "redirect:/appointments";
+
+	}
 
 	
 	/** 
@@ -199,7 +253,17 @@ public class ApplicantsController {
 		ModelAndView model = new ModelAndView("interessents");
 		model.addObject("interessents", interessents);
 		model.addObject("ad", ad);
-		model.addObject("infoMessage", message);
+		
+		
+		
+		if ( message.contains("Warnung"))  {
+		    model.addObject("dangerMessage", message); 
+		    model.addObject("infoMessage", null);
+		    }
+		else {
+		    model.addObject("infoMessage", message); 
+		    model.addObject("dangerMessage", null);}
+		
 		return model;
 	}
 	
@@ -216,7 +280,7 @@ public class ApplicantsController {
 		AdApplication application  = appointmentService.findOneApplication(applicationId);
 		
 		if ( application == null) 
-		    return new ModelAndView("sorryWhatYouSearchIsGone");
+		    return new ModelAndView("404");
 		
 		if(application.getTimeLimitation().equals(""))
 			application.setTimeLimitation("nicht limitiert");

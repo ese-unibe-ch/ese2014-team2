@@ -36,37 +36,29 @@
 			<p>${application.message }</p>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-sm-2 col-md-4">
-			<label>Raucht der Bewerber:</label>
-		</div>
-		<div class="col-sm-2 col-md-4">
-			<p>
-				<c:choose>
-					<c:when test="${application.smoker}">
-						<c:out value="Ja"/>
-					</c:when>
-					<c:otherwise>
-						<c:out value="Nein"/>
-					</c:otherwise>
-				</c:choose>
-			</p>
-		</div>
+
 		
 		<a href="#" onclick="history.go(-2)">	<button type="button" class="btn btn-danger">Zurück</button></a>
 		
 		
-		<a href="removeInteressent?applicationId=${application.id }">
+		 <a href="removeInteressent/applicationId${application.applicant.id}/adId${application.ad.id}">
 								<button type="button" class="btn btn-default">
 									<b> Lehne den Bewerber ab </b>
 								</button>
 								</a>
 								
+		 <a href="sendMessageFromApplicant?applicationId=${application.id}">
+								<button type="button" class="btn btn-default">
+									<b> Nachricht </b>
+								</button>
+								</a>						
+								
+								
 								
 								
 	</div>
 </div>
-</div>
+
 
 
 <c:if test="${page_error != null }">

@@ -10,15 +10,108 @@
 <c:import url="template/header.jsp" />
 
 
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>	<!-- Google Maps API -->
+	<script>
+	var map;	// Google map object
+	
+	// Initialize and display a google map
+	function Init()
+	{
+		// Create a Google coordinate object for where to initially center the map
+		var latlng = new google.maps.LatLng( 38.8951, -77.0367 );	// Washington, DC
+		
+		// Map options for how to display the Google map
+		var mapOptions = { zoom: 12, center: latlng  };
+		
+		// Show the Google map in the div with the attribute id 'map-canvas'.
+		map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+	}
+	
+	// Update the Google map for the user's inputted address
+	function UpdateMap( )
+	{
+		var geocoder = new google.maps.Geocoder();    // instantiate a geocoder object
+		
+		// Get the user's inputted address
+		var address = document.getElementById( "address" ).value;
+	
+		// Make asynchronous call to Google geocoding API
+		geocoder.geocode( { 'address': address }, function(results, status) {
+			var addr_type = results[0].types[0];	// type of address inputted that was geocoded
+			if ( status == google.maps.GeocoderStatus.OK ) 
+				ShowLocation( results[0].geometry.location, address, addr_type );
+			else     
+				alert("Geocode was not successful for the following reason: " + status);        
+		});
+	}
+	
+	// Show the location (address) on the map.
+	function ShowLocation( latlng, address, addr_type )
+	{
+		// Center the map at the specified location
+		map.setCenter( latlng );
+		
+		// Set the zoom level according to the address level of detail the user specified
+		var zoom = 12;
+		switch ( addr_type )
+		{
+		case "administrative_area_level_1"	: zoom = 6; break;		// user specified a state
+		case "locality"						: zoom = 10; break;		// user specified a city/town
+		case "street_address"				: zoom = 15; break;		// user specified a street address
+		}
+		map.setZoom( zoom );
+		
+		// Place a Google Marker at the same location as the map center 
+		// When you hover over the marker, it will display the title
+		var marker = new google.maps.Marker( { 
+			position: latlng,     
+			map: map,      
+			title: address
+		});
+		
+		// Create an InfoWindow for the marker
+		var contentString = "" + address + "";	// HTML text to display in the InfoWindow
+		var infowindow = new google.maps.InfoWindow( { content: contentString } );
+		
+		// Set event to display the InfoWindow anchored to the marker when the marker is clicked.
+		google.maps.event.addListener( marker, 'click', function() { infowindow.open( map, marker ); });
+	}
+	
+	// Call the method 'Init()' to display the google map when the web page is displayed ( load event )
+	google.maps.event.addDomListener( window, 'load', Init );
+
+	</script>
+	<style>
+	/* style settings for Google map */
+	#map-canvas
+	{
+		width : 500px; 	/* map width */
+		height: 500px;	/* map height */
+	}
+	</style>
+
+
+
+	
+<script>
+function winOpen()
+{
+    window.open("https://www.google.ch/maps/place/${mapsStreet},+${newAdProfile.plz}+${newAdProfile.city}");
+}
+
+</script>
+
+<!-- <div id="map-canvas"></div> -->
+
 <div class="col-md-12">
 
 <c:if test="${not empty infoMessage}">
-<div class="alert alert-success" role="alert"><font color="006600" size="3"> ${infoMessage}</font></div>
+	<div class="alert alert-success" role="alert"><font color="006600" size="3"> ${infoMessage}</font></div>
 </c:if>
 <!--  CAROUSEL SLIDER TEST  -->
 
 <div id="carousel-example-generic" class="carousel slide"
-	data-ride="carousel" data-interval="false" >
+	data-ride="carousel" data-interval="false"  >
 	<!-- Indicators -->
 	<ol class="carousel-indicators">
 		<li data-target="#carousel-example-generic" data-slide-to="0"
@@ -35,8 +128,9 @@
 		<c:if test="${empty mainPic}">
 			<div class="item active">
 
-				<img src="img/default_image.png">
+				<img class="img-responsive center-block" src="img/default_image.png">
 				<div class="carousel-caption"></div>
+
 			</div>
 		</c:if>
 
@@ -44,7 +138,7 @@
 
 		<c:if test="${not empty mainPic}">
 			<div class="item active">
-				<img src="getUserImage/ <c:out value="${mainPic.id}"/>" >
+				<img class="img-responsive center-block" src="getUserImage/ <c:out value="${mainPic.id}"/>" >
 				<div class="carousel-caption"></div>
 
 			</div>
@@ -55,9 +149,12 @@
 
 		<c:forEach items="${pictures}" var="pics">
 			<div class="item">
-				<img src="getUserImage/ <c:out value="${pics.id}"/>" style="width:640px;height:600px">
+
+			<!-- <div class="inner-item"> -->
+				<img  class="img-responsive center-block" src="getUserImage/ <c:out value="${pics.id}"/>" style="width:640px;height:600px">
 				<div class="carousel-caption"></div>
-			</div>
+				</div>
+			<!-- </div> -->
 		</c:forEach>
 
 	</div>
@@ -86,61 +183,105 @@
 
 	<div class="col-md-5">
 		<legend>Addresse:</legend>
+		
 		<div class="row">
-			<label class="col-md-6">Kanton:</label>
-			<p>${newAdProfile.kanton}</p>
+			<label class="col-md-6">Strasse und Hausnummer:</label>
+			<p>${newAdProfile.address}</p>
 		</div>
-
-		<div class="row">
-			<label class="col-md-6">Stadt:</label>
-			<p>${newAdProfile.city}</p>
-		</div>	
-
+		
+		
 		<div class="row">
 			<label class="col-md-6">Postleizahl:</label>
 			<p>${newAdProfile.plz}</p>
 		</div>
-
+		
 		<div class="row">
-			<label class="col-md-6">Strasse:</label>
-			<p>${newAdProfile.address}</p>
+			<label class="col-md-6">Stadt:</label>
+			<p>${newAdProfile.city}</p>
+		</div>	
+		
+		
+		<div class="row">
+			<label class="col-md-6">Kanton:</label>
+			<p>${newAdProfile.kanton}</p>
 		</div>
 		
-		<legend>Grundlegendes:</legend>
+		<div class="row">
+		
+		
+		
+		<!-- <div id='map-canvas' ></div><br/> -->
+	
+	
+	
+	
+		<button onclick="winOpen()">Zeige auf google Maps</button>
+		
+			
+		</div>
+		
+
+		
+		
+		<legend>Alllgemeines:</legend>
 		<div class="row">
 			<label class="col-md-6">Monatliche Miete:</label>
 			<p>${newAdProfile.roomPrice }</p>
 		</div>
 		<div class="row">
-			<label class="col-md-6">Von:</label>
+			<label class="col-md-6">Zimmer frei Von:</label>
 			<p>${newAdProfile.start}</p>
 		</div>
 		<div class="row">
-			<label class="col-md-6">Bis:</label>
+			<label class="col-md-6">Zimmer frei Bis:</label>
 			<p>${newAdProfile.until}</p>
 		</div>
 		<div class="row">
 			<label class="col-md-6">Zimmergrösse:</label>
-			<p>${newAdProfile.roomSpace}</p>
+			<p>${newAdProfile.roomSpace} m²</p>
 		</div>
 		
 		<div class="row">
 			<label class="col-md-6">Anzahl an Mitbewohnern:</label>
-			<p>${newAdProfile.nmbrOfRoommates}</p>
+			<c:choose>
+			<c:when test="${newAdProfile.wgGender eq 'male'}">
+				<p>${newAdProfile.nmbrOfRoommates}, alle Männlich</p>
+			</c:when>
+			<c:when test="${newAdProfile.wgGender eq 'female' }">
+				<p>${newAdProfile.nmbrOfRoommates}, alle Weiblich</p>
+			</c:when>
+			<c:otherwise>
+				<p>${newAdProfile.nmbrOfRoommates}, Männer/ Frauen gemischt</p>
+			</c:otherwise>
+		</c:choose>
+		
+		
+		
+		
 		</div>
 
 		<div class="row">
-			<label class="col-md-6">Anzahl an Zimmern:</label>
+			<label class="col-md-6">Anzahl an Zimmern in der Wohnung/Haus:</label>
 			<p>${newAdProfile.rooms}</p>
 		</div>
 
 		<div class="row">
-			<label class="col-md-6">Grundlegender WG-Typ:</label>
-			<p>${newAdProfile.wgType}</p>
+			<label class="col-md-6">Wir sind eine </label>
+			<c:choose>
+			<c:when test="${newAdProfile.wgType eq 'calm'}">
+				<c:out value="ruhige WG" />
+			</c:when>
+			<c:when test="${newAdProfile.wgType eq 'wild' }">
+				<c:out value="lebhafte WG"/>
+			</c:when>
+			<c:otherwise>
+				<c:out value="weder ruhige noch wilde WG" />
+			</c:otherwise>
+		</c:choose>
 		</div>
 
 		<div class="row">
-			<label class="col-md-6">Ist es möbliert?</label>
+			<label class="col-md-6">Möbliert:</label>
 			<p>
 				<c:choose>
 					<c:when test="${newAdProfile.furnished}">
@@ -152,6 +293,11 @@
 				</c:choose>
 			</p>
 		</div>
+		
+		<div class="row">
+			<label class="col-md-6">Öffentlicher Besichtigungstermin, ohne Anmeldung: </label>
+			<p>${newAdProfile.publicVisit}</p>
+		</div>	
 		
 		
 <a href="userInterested?adId=${newAdProfile.id}">
@@ -191,11 +337,11 @@
 			
 			
 <div class="row col-md-4">
-<legend>Gut zu wissende Dinge:</legend>
+<legend>Weitere Infos zur Wohnung:</legend>
 
 	<div class="row">
 
-		<label class="col-md-8">Hat es einen Geschirrspüler?</label>
+		<label class="col-md-8">Geschirrspüler:</label>
 
 		<c:choose>
 			<c:when test="${newAdProfile.hasDishwasher}">
@@ -213,7 +359,7 @@
 
 
 	<div class="row">
-		<label class="col-md-8">Hat es eine Waschmachine?</label>
+		<label class="col-md-8">Waschmachine:</label>
 		<p>
 			<c:choose>
 				<c:when test="${newAdProfile.hasLaundry}">
@@ -227,7 +373,7 @@
 	</div>
 
 	<div class="row">
-		<label class="col-md-8">Hat es einen Balkon?</label>
+		<label class="col-md-8">Balkon:</label>
 		<p>
 			<c:choose>
 				<c:when test="${newAdProfile.hasBalcony}">
@@ -242,7 +388,7 @@
 
 
 	<div class="row">
-		<label class="col-md-8">Wird im Haus geraucht?</label>
+		<label class="col-md-8">Raucherwohnung:</label>
 		<p>
 			<c:choose>
 				<c:when test="${newAdProfile.smokingInside}">
@@ -255,7 +401,7 @@
 		</p>
 	</div>
 	<div class="row">
-		<label class="col-md-8">Sind Haustiere erlaubt?</label>
+		<label class="col-md-8">Haustiere möglich:</label>
 		<p>
 			<c:choose>
 				<c:when test="${newAdProfile.hasPets}">
@@ -269,7 +415,7 @@
 	</div>
 
 	<div class="row">
-		<label class="col-md-8">Hat es Wlan?</label>
+		<label class="col-md-8">Wlan:</label>
 		<p>
 			<c:choose>
 				<c:when test="${newAdProfile.wlan}">
@@ -291,7 +437,7 @@
 <div class="row col-md-4">
 <legend>Zum Zimmer:</legend>
 		<div class="row">
-			<label class="col-md-8">Hat es im Zimmer einen Einbauschrank?</label>
+			<label class="col-md-8">Einbauschrank:</label>
 			<p>
 				<c:choose>
 					<c:when test="${newAdProfile.hasBuiltInCloset}">
@@ -304,22 +450,9 @@
 			</p>
 		</div>
 
+		
 		<div class="row">
-			<label class="col-md-8">Ist es möbliert?</label>
-			<p>
-				<c:choose>
-					<c:when test="${newAdProfile.furnished}">
-						<c:out value="Ja" />
-					</c:when>
-					<c:otherwise>
-						<c:out value="Nein" />
-					</c:otherwise>
-				</c:choose>
-			</p>
-		</div>
-
-		<div class="row">
-			<label class="col-md-8">Hat das Zimmer Balkonzugang?</label>
+			<label class="col-md-8">Balkonzugang vom Zimmer:</label>
 			<p>
 				<c:choose>
 					<c:when test="${newAdProfile.hasBalcony}">
@@ -333,7 +466,7 @@
 		</div>
 
 		<div class="row">
-			<label class="col-md-8">Hat es Kabelanschlüsse im Zimmer?</label>
+			<label class="col-md-8">Kabelanschlüsse im Zimmer: (Tv, Internet etc.)</label>
 			<p>
 				<c:choose>
 					<c:when test="${newAdProfile.hasCables}">
@@ -345,17 +478,13 @@
 				</c:choose>
 			</p>
 		</div>
-		<div class="row">
-			<label class="col-md-8">Geschlechterverteilung in der WG</label>
-
-			<p>${newAdProfile.wgGender}</p>
-		</div>
+		
 
 
 	</div>
 
 		<div class="col-md-8">
-			<legend>Über Uns:</legend>
+			<legend>Über deine zukünftigen Mitbewohner:</legend>
 			<p>${newAdProfile.description_us}</p>
 		</div>
 		
@@ -366,13 +495,36 @@
 		
 		<div class="col-md-4">
 <div class="row">
-	<label class="col-md-8">Du bist:</label>
-	<p>${newAdProfile.smoker}</p>
+	<label class="col-md-8">Raucher:</label>
+				<c:choose>
+					<c:when test="${newAdProfile.smoker eq 'smoker'}">
+						<c:out value="Raucher" />
+					</c:when>
+					<c:when test="${newAdProfile.smoker eq 'nonsmoker' }">
+						<c:out value="Nichtraucher"/>
+					</c:when>
+					<c:otherwise>
+						<c:out value="Egal" />
+					</c:otherwise>
+				</c:choose>
+
 </div>
 
 <div class="row">
-	<label class="col-md-8">Du bist:</label>
-	<p>${newAdProfile.genderWeLookFor}</p>
+	<label class="col-md-8">Wir bevorzugen:</label>
+	<c:choose>
+					<c:when test="${newAdProfile.genderWeLookFor eq 'male'}">
+						<c:out value="Einen Mann" />
+					</c:when>
+					<c:when test="${newAdProfile.genderWeLookFor eq 'female' }">
+						<c:out value="Eine Frau"/>
+					</c:when>
+					<c:otherwise>
+						<c:out value="Egal welches Geschlecht" />
+					</c:otherwise>
+				</c:choose>
+	
+
 </div>
 
 <div class="row">

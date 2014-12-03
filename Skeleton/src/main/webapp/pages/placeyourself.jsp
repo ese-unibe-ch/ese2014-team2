@@ -92,8 +92,8 @@
 
 			<div class="form-actions">
 
-				<button type="submit" class="btn btn-primary">Create</button>
-				<button type="button" class="btn btn-danger">Cancel</button>
+				<button type="submit" class="btn btn-primary">Erstellen</button>
+				<button type="button" class="btn btn-danger">Abbrechen</button>
 
 			</div>
 		</fieldset>

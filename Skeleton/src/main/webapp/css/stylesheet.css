@@ -15,6 +15,22 @@
 		- Footer black: 		#636265
 		
 */
+.lineheight-textfields {
+	line-height:320%;
+}
+
+.carousel-inner {
+	padding-top:auto !important;
+	padding-bottom:auto !important;
+}
+
+#navads {
+	color:#ff7500 !important;
+}
+
+#navpads {
+	color:#0066cc !important;
+}
 .randomname {
 	line-height: 300%
 }
@@ -57,6 +73,10 @@
 	color:white !important;
 }
 
+.carousel-inner > .item > img {
+    margin: 0 auto;
+}
+
 #carousel-example-generic {
 	width:600px !important;
 	height:600px !important;
@@ -66,6 +86,15 @@
 #adprofile_keyinfo {
 	widht:600px;
 	float:left;
+}
+
+
+
+.inner-item {
+    text-align: center;
+    img {
+        margin: 0 auto;
+    }
 }
 
 legend {
@@ -359,6 +388,10 @@ a.hover {
 	padding-top:50px;
 }
 
+#push_content {
+	padding-top:50px;
+}
+
 .header_slide_main {
 	padding-top:5%;
 	padding-left:10%;
@@ -425,14 +458,14 @@ p.caption {
 
 .filler_big {
 	width:40%;
-	height:300px;
+	height:200px;
 	padding-left:auto !important;
 	padding-right:auto !important;
 }
 
 .filler_small {
 	width:40%;
-	height:150px;
+	height:100px;
 	padding-left:auto;
 	padding-right:auto;
 }
@@ -526,6 +559,18 @@ p.caption {
 
 /* END OF FOOTER */
 
+
+#field-username {
+	display: inline-block;
+    height: 40px;
+    padding: 4px 6px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #555;
+    vertical-align: middle;
+    border-radius: 4px
+}
 /*  RANDOM CSS COPY  */
 
 /*!

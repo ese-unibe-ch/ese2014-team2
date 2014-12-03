@@ -5,61 +5,135 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 
+
+
 <c:import url="template/header.jsp" />
+
+
+
+  
+  
 
 <div class="panel panel-default">
 	<!-- Default panel contents -->
 	<div class="panel-heading">
-		<h1>Abgemachte termine für dein ad ${ad.title }</h1>
+		<h3>Abgemachte Termine für Dein Ad ${ad.title }</h3>
 	</div>
 	<div class="panel-body">
+	
+	<c:if test="${not empty infoMessage}">
+<div class="alert alert-success" role="alert"><font color="006600" size="3"> ${infoMessage}</font></div>
+</c:if>
 
-<c:forEach items="${appointments}" var="appointment">
-<c:forEach items="${appointment.appointmentDate }"
-						var="appDate">
-						<font size="6">Termin am ${appDate.day} von
-							${appDate.startHour} bis ${appDate.endHour}</font>
-		<br>
-		<br> <font size="4">Name des Interessenten:</font> <br>
-
-		<br> <c:forEach items="${appointment.invitations }" var="invitation">
-			<div class="row">
-				<div class="col-md-6">
-					<font size="4">${invitation.firstName}
-							${invitation.lastName }</font>
-				</div>
-				<div class="col-md-2">
-					<c:forEach items="${invitation.appointmentInvitations }" var="message">
-						<c:if test="${ message.appointedAppointment eq appointment.id}"> 
-							<c:if test="${ message.accepted eq true }"> Einladung wurde Angenommen </c:if>
-							<c:if test="${ message.rejected eq true }"> Einladung wurde Abgelehnt </c:if>
-							
-						</c:if>
-					</c:forEach>
+		<c:forEach items="${appointments}" var="app">
+	
+			
+				<legend>Termin am ${app.appointmentDate.day} von
+					${app.appointmentDate.startHour} bis ${app.appointmentDate.endHour}</legend>
 				
-				</div>
+				<font size="4">Name des Interessenten:</font>
+				<br>
+
+				<br>
+				<c:forEach items="${app.invitations}" var="user">
+				
 
 
-				<div class="col-md-4">
-				<c:forEach items="${invitation.appointmentInvitations }" var="message">
-						<c:if test="${ message.appointedAppointment eq appointment.id}"> 
-					<a href="sendMessageFromAppointment?messageId=${message.id}">
-									<button type="button" class="btn btn-default">
-										<b>Nachricht </b>
-									</button>
-								</a>
+					<div class="row">
+						<div class="col-md-6">
+							<font size="4">${user.firstName}
+								${user.lastName }</font>
+						</div>
+						<div class="col-md-2">
+							<c:forEach items="${user.appointmentInvitations }"
+								var="message">
+								<c:if test="${ message.appointedAppointment eq appointment.id}">
+									<c:if test="${ message.accepted eq true }"><p> Einladung wurde angenommen </p></c:if>
+									<c:if test="${ message.rejected eq true }"><p> Einladung wurde abgelehnt </p></c:if>
+									<c:if
+										test="${message.rejected eq false and message.accepted eq false }"> Der Benutzer hat die Einladung noch nicht abgelehnt/angenommen </c:if>
+
 								</c:if>
-								</c:forEach>
-				</div>
-			</div>
-		</c:forEach>
-</c:forEach>
-</c:forEach>
+							</c:forEach>
+
+						</div>
+
+
+						<div class="col-md-4">
+							
+							<c:forEach items="${user.appointmentInvitations }"
+								var="message">
+								<c:if test="${ message.appointedAppointment eq app.id}">
+									<a href="sendMessageFromAppointment?messageId=${message.id}">
+										<button type="button" class="btn btn-default">
+											<b>Nachricht </b>
+										</button>
+									</a>
+								</c:if>
+							</c:forEach>
+							
+							<script >
+$(function()
+		{
+		    var benefits = $('#test${user.id}');
+
+		    // this is the show function
+		    $('a[name=${user.id}]').click(function()
+		    { 
+		        benefits.dialog();
+		    }); });
+
+</script>
 
 		
+		
+		<a href="#${user.id}" name="${user.id}" ><button type="button" class="btn btn-default" id="opener${user.id}"><b> Notiz</b></button></a>
+		
+    	
+    	
+    	<div id="test${user.id}" title="Notiz" style="display:none">
+							<form method="post" action="setNote" id="noteForm"  autocomplete="off" >
+								
+								<c:if test="${ not empty app.userNotes }">																				
+								<c:forEach items="${app.userNotes }" var="note"> 
+									<c:if test="${ note.applicant.id eq user.id}">	
+										<textarea rows="4" cols="20"  name ="noteText" id="noteText">"${note.text }"</textarea>
+									</c:if>
+								</c:forEach>
+						
+								</c:if>
+								<c:if test="${ empty app.userNotes }">
+								<textarea rows="4" cols="20"  name ="noteText" id="noteText"></textarea>
+								</c:if>
+								
+								<input type="hidden" id="userId" name="userId" value="${user.id }" />
+								<input type="hidden" id="appointmentId" name="appointmentId" value="${app.id }" />
+
+
+									
+								<button type="submit"  value="send" class="btn btn-default">
+									<b>OK </b>
+								</button>
+										
+							</form>
+						</div>  
+
+							
+						  
+					
+						
+
+							
+						</div>
+					</div>
+				</c:forEach>
+			
+		</c:forEach>
 
 
 
+
+		
 	</div>
 </div>
 

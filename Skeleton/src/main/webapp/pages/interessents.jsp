@@ -21,6 +21,10 @@
 <div class="alert alert-success" role="alert"><font color="006600" size="3"> ${infoMessage}</font></div>
 </c:if>	
 
+	<c:if test="${not empty dangerMessage}">
+<div class="alert alert-danger" role="alert"><font color="CC0000" size="3"> ${dangerMessage}</font></div>
+</c:if>	
+
 <br>
 			<br>
 			<font size="6">Nachrichten Titel:</font>
@@ -31,7 +35,7 @@
 			<c:forEach items="${interessents}" var="interessent">
 				
 					<div class="row">
-					<div class="col-md-7">
+					<div class="col-md-8">
 					<a href="interessentDetails?applicationId=${interessent.id}">
 							<font size="5"> ${interessent.applicant.firstName},
 								${interessent.applicant.lastName }</font> </a>
@@ -44,7 +48,7 @@
   							
   					
   						<div class="btn-group">
-							<label class="btn btn-default btn-lg">
+							<label class="btn btn-default">
 								<input type="checkbox" name="interessentsArr"  value="${interessent.id }"/>
 								<b>Einladung schicken</b>
 							</label>
@@ -54,7 +58,7 @@
 							
 							<div class="btn-group">
 							  <a href="removeInteressent/applicationId${interessent.id}/adId${ad.id}">
-								<button type="button" class="btn btn-default">
+								<button type="button" class="btn btn-danger">
 									<b> Lehne den Bewerber ab </b>
 								</button>
 								</a>
@@ -65,8 +69,11 @@
 							
 			</c:forEach>
 			
+			<div class="form-actions">
+
 			<button type="submit" class="btn btn-primary"  onclick="this.disabled=true;this.form.submit();">Setze Besichtigungstermin</button>
-			<a href="/Skeleton/ads"><button class="btn btn-danger">Zurück</button></a>
+			
+			</div>
 		</form>
 
 			

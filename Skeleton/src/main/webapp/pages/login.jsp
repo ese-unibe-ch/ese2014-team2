@@ -10,16 +10,46 @@
 <h1>Login</h1>
 
 <c:if test="${!empty param.error}">
-	<p>Incorrect login name or password. Please retry using correct
-		login name and password.</p><br />
+	<p>Falscher Benutzername oder Password. Bitte versuche es erneut.</p><br />
 </c:if>
 
-<form name ='loginForm' action="<c:url value='j_spring_security_check' />" method='POST'>
-	<label for="field-username">E-mail:</label> <input name="j_username"
-		id="field-username" /> <label for="field-password">Password:</label>
-	<input name="j_password" id="field-password" type="password"/>
-	<button type="submit" id="loginB">Login</button>
+<p> hey, dafür musst du eingeloggt sein!</p>
+
+
+
+<form name='loginForm' action="<c:url value='j_spring_security_check' />" method='POST'>
+	
+	<div class="row">
+	<div class="col-md-12">
+	<div class="col-md-1 lineheight-textfields">
+		<label for="field-username">E-mail:</label>
+		<label for="field-password">Password:</label> 
+	</div>
+	<div class="col-md-4">
+		<input name="j_username" id="field-username" type="email"/>
+		<input name="j_password" id="field-password" type="password"/>
+	</div>
+	
+	<br>
+	</div>
+	</div>
+	<div class="row">
+	<div class ="col-md-3">
+		<label> Bist du bereits Registriert? </label>
+		<br><br>
+		<label> Hast du noch keinen Account? </label>
+		</div>
+	<div class="col-md-1">
+		<button class="btn btn-primary" type="submit" id="loginB">Login</button>
+		<br>
+		<br>
+	<a href="register"><button class="btn btn-primary" type="button" id="registerB">Registrieren</button></a>
+	</div>
+	</div>
 </form>
 <br />
+
+
+
 
 <c:import url="template/footer.jsp" />

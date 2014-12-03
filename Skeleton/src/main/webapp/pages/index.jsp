@@ -10,6 +10,9 @@
 
 <!-- TEST WITH BOOTSTRAP PANELS -->
 
+<c:if test="${not empty infoMessage}">
+<div class="alert alert-success" role="alert"><font color="006600" size="3"> ${infoMessage}</font></div>
+</c:if>
 
       <div class="row">
       <div class="col-sm-3">
@@ -17,7 +20,7 @@
         <div class="col-sm-6">
           <div class="panel panel-warning">
             <div class="panel-heading">
-              <h2 class="panel-title"><a href="unfilteredAds">I'm looking for a room!</font></a></h2>
+              <h2 class="panel-title"><a href="unfilteredAds">Ich suche ein Zimmer!</font></a></h2>
             </div>
             <div class="panel-body">
            		 <div class="filler_big">
@@ -27,7 +30,7 @@
           </div>
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h2 class="panel-title"><a href="placead">I'd like to place a room!</font></a></h2>
+              <h2 class="panel-title"><a href="placead">Ich möchte ein Zimmer vermieten!</font></a></h2>
             </div>
             <div class="panel-body">
              	<a href="placead">

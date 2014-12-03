@@ -66,11 +66,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/Skeleton" color="#3fa9f5">Flattie</a>
+        
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/Skeleton">Home</a></li>
+           <li class="active"><a href="/Skeleton">Home</a></li>
+            <li><a href="unfilteredAds" id="navads"><span>Suche Zimmer</span><em></em></a>
+            <li><a href="placead" id="navpads"><span>Vermiete Zimmer</span><em></em></a>
             <li><a href="register">Register</a></li>
             <li><a href="#" id="loginButton"><span>Login</span><em></em></a>
                 <div style="clear:both"></div>
@@ -108,13 +110,17 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/Skeleton">Flattie</a>
+         
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
+            <li class="active"><a href="/Skeleton">Home</a></li>
+            <li><a href="unfilteredAds" id="navads"><span>Suche Zimmer</span><em></em></a>
+            <li><a href="placead" id="navpads"><span>Vermiete Zimmer</span><em></em></a>
             <li><a href="myprofile">Profil</a></li>
-            <li><a href="myinbox">Inbox <span class="badge">4</span></a></li>
-            <li><a href="myads">Ads</a></li>
+            <li><a href="myinbox">Briefkasten<span class="badge"> ${messageNmbr} </span></a></li>
+            <li><a href="myads">Inserate</a></li>
+            <li><a href="appointments?showTab=1">Besichtigungstermine</a></li>
             <li><a href="bookmarks">Favoriten</a></li>
             <li><a href="logout">Logout</a></li>
           </ul>
@@ -124,7 +130,7 @@
 </security:authorize>	
 
 <div id="push_header"></div>
-
+<div id="push_content"></div>
 
 
 <div id="container_background">

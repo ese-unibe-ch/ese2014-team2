@@ -4,83 +4,64 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <c:import url="template/header.jsp" />
-
- <head>
-    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="screen"
-     href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
-  </head>
-  <body>
-  
-    <script type="text/javascript"
-     src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js">
-    </script> 
-    <script type="text/javascript"
-     src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js">
-    </script>
-    <script type="text/javascript"
-     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
-    </script>
-    <script type="text/javascript"
-     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
-    </script>
+ 
+    <link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
+    <script type="text/javascript"  src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"> </script> 
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"> </script>
+    <script type="text/javascript" src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js"> </script>
+    <script type="text/javascript" src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js"> </script>
     
-   <form:form method="post" modelAttribute="appointmentFinderForm" action="setAppointmentAndInform"
-		id="appointmentFinderForm" cssClass="form-horizontal" autocomplete="off"
-		enctype="multipart/form-data">
-		<fieldset>
-			<form:hidden path="adId"  value="${ad.id }" />
-				<legend>Setze einen Termin / mehrere Termine für die Besichtigung</legend>
+   	<form:form method="post" modelAttribute="appointmentFinderForm" action="setAppointmentAndInform" id="appointmentFinderForm" cssClass="form-horizontal" autocomplete="off" enctype="multipart/form-data">
+		<c:forEach items="${adAppointments}" var="app"> 
+	 		 <input type="hidden" name="adAppointmentIds" value="${app}" />	
+	 	</c:forEach>			
+			
+		<form:hidden path="adId"  value="${ad.id }" />
+		
+		<legend>Setze einen Termin</legend>
 				
-				<c:set var="appointmentDateErrors"><form:errors path="appointmentDate"/></c:set>
-				<div class="row">
-					<div class="col-sm-2 col-md-4">
-						<label>Datum:</label>
-					</div>
-					<div class="col-sm-4 col-md-6">
-						 <div id="datetimepicker" class="input-append date">
-      						<form:input type="text" data-format="dd/MM/yyyy" path="appointmentDate"></form:input>
-      				
-      							<span class="add-on">
-        							<i data-date-icon="icon-calendar"></i>
-      							</span>
-    					</div>
-					</div>
+		<c:set var="appointmentDateErrors"><form:errors path="appointmentDate"/></c:set>
+			<div class="row">
+				<div class="col-sm-2 col-md-2">
+					<label>Datum:</label>
 				</div>
+				
+				<div class="col-sm-4 col-md-6">
+					<div id="datetimepicker" class="input-append date">
+      					<form:input class="add-on" type="text" data-format="dd/MM/yyyy" path="appointmentDate"></form:input>
+    				</div>
+				</div>
+			</div>
    
-   				<c:set var="startTimesErrors"><form:errors path="startTimes"/></c:set>
+   		<c:set var="startTimeErrors"><form:errors path="startTime"/></c:set>
    				<div class="row">
-					<div class="col-sm-2 col-md-4">
+					<div class="col-sm-2 col-md-2">
 						<label>Beginn:</label>
 					</div>
+					
 					<div class="col-sm-4 col-md-6">
 						 <div id="timepicker1" class="input-append">
-    						<form:input data-format="hh:mm" type="text" path="startTimes"></form:input>
-    						<span class="add-on">
-      							<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
-    						</span>
-    					
+    						<form:input class="add-on" data-format="hh:mm" type="text" path="startTime"></form:input>
   						</div>
 					</div>
 				</div>
     
-    			
+    	<c:set var="endTimeErrors"><form:errors path="endTime"/></c:set>
     			<div class="row">
-					<div class="col-sm-2 col-md-4">
+					<div class="col-sm-2 col-md-2">
 						<label>Ende:</label>
 					</div>
+					
 					<div class="col-sm-4 col-md-6">
 						<div id="timepicker2" class="input-append">
-    						<form:input data-format="hh:mm" type="text" path="endTimes"></form:input>
-    						<span class="add-on">
-      							<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
-    						</span>
+							<form:input class="add-on" data-format="hh:mm" type="text" path="endTime"></form:input>
   						</div>
   					</div>
 				</div>
   
 				<div class="row">
 					<div class="col-sm-6 col-md-8">
+						<br>
 						 <label>Weitere infos für die Besichtigung:</label>
 					</div>
 				</div>
@@ -91,12 +72,20 @@
 						<form:textarea rows="10" cols="300" path="additionalInfosForTheVisitors" id="field-Message" /> 
 						<form:errors path="additionalInfosForTheVisitors" cssClass="help-inline" element="span"/> <br>
 						<form:errors path="appointmentDate" cssClass="help-inline" element="span"/> <br>
-						<form:errors path="startTimes" cssClass="help-inline" element="span"/> <br>
-						<form:errors path="endTimes" cssClass="help-inline" element="span"/>
+						<form:errors path="startTime" cssClass="help-inline" element="span"/> <br>
+						<form:errors path="endTime" cssClass="help-inline" element="span"/>
 					</div>
 				</div>
-
-    <script type="text/javascript">
+				<div class="row">
+					<div class="form-actions">
+						<a href="#" onclick="history.go(-2)"><button class="btn btn-danger">Zurück</button></a>
+    					<button type="submit" class="btn btn-primary btn-lg" onclick="this.disabled=true;this.form.submit();">Setze die Daten!</button>
+					</div>
+				</div>
+	</form:form>
+	
+	
+  <script type="text/javascript">
   $(function() {
     $('#datetimepicker').datetimepicker({
       pickTime: false
@@ -124,31 +113,11 @@
     $('#myForm').one('submit', function() {
     $(this).find('input[type="submit"]').attr('disabled','disabled');
 });</script>
-
-	
-	 <c:forEach items="${adAppointments}" var="app">
-	 
-	 		 <input type="hidden" name="adAppointmentIds" value="${app}" />
-		
-	 </c:forEach>
-	
-	<div class="form-actions">
-    	<button type="submit" class="btn btn-primary btn-lg" onclick="this.disabled=true;this.form.submit();">Setze die Daten!</button>
-    </div>
-    
-		
-		</fieldset>
-		</form:form>
-  </div>
-</div>
   
-  
-  </body>
-
-
+ 
+ 
 		
 	
 		
 		
 <c:import url="template/footer.jsp" />
-

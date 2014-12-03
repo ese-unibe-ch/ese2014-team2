@@ -25,6 +25,7 @@ import org.eseTeam2.model.dao.BookmarkDao;
 import org.eseTeam2.model.dao.MessageDao;
 import org.eseTeam2.model.dao.PictureDao;
 import org.eseTeam2.model.dao.UserDao;
+import org.jsoup.Jsoup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.ComponentScan;
@@ -120,15 +121,30 @@ public class AdDataService implements IAdDataService {
 	ad.setCreator(adForm.getCreator());
 	ad.setCreationDate(new Date());
 
-	ad.setStart(adForm.getStart());
+	if ( !adForm.getStart().equals(""))
+	    ad.setStart(adForm.getStart());
+	else 
+	    ad.setStart("Per sofort");
+	if (!adForm.getUntil().equals(""))
+	    ad.setUntil(adForm.getUntil());
+	else
+	    ad.setUntil("Unbefristet");
+	
+	if(!adForm.getPublicVisit().equals(""))
+	    ad.setPublicVisit(adForm.getPublicVisit());
+	else
+	    ad.setPublicVisit("Keiner");
+	
+
+	
 	ad.setUntil(adForm.getUntil());
 
-	ad.setRooms(adForm.getRooms());
-	ad.setRoomPrice(adForm.getRoomPrice());
-	ad.setRoomSpace(adForm.getRoomSpace());
+	ad.setRooms(Float.parseFloat(adForm.getRooms()));
+	ad.setRoomPrice(Integer.parseInt(adForm.getRoomPrice()));
+	ad.setRoomSpace(Float.parseFloat(adForm.getRoomSpace()));
 	ad.setWgType(adForm.getWgType());
 	ad.setFurnished(adForm.isFurnished());
-	ad.setNmbrOfRoommates(adForm.getNmbrOfRoommates());
+	ad.setNmbrOfRoommates(Integer.parseInt(adForm.getNmbrOfRoommates()));
 
 	// address stuff
 
@@ -147,24 +163,24 @@ public class AdDataService implements IAdDataService {
 	ad.setWlan(adForm.isWlan());
 
 	// room info
-	ad.setDescription_room(adForm.getDescription_room());
+	ad.setDescription_room(Jsoup.parse(adForm.getDescription_room()).text());
 	ad.setToBalcony(adForm.getIsToBalcony());
 	ad.setHasCables(adForm.getHasCables());
 	ad.setHasBuiltInCloset(adForm.isHasBuiltInCloset());
 
 	// info about us
-	ad.setDescription_us(adForm.getDescription_us());
+	ad.setDescription_us(Jsoup.parse(adForm.getDescription_us()).text());
 	ad.setWgGender(adForm.getWgGender());
 
 	// info about who we are looking for
-	ad.setWhoWeAreLookingFor(adForm.getWhoWeAreLookingFor());
+	ad.setWhoWeAreLookingFor(Jsoup.parse(adForm.getWhoWeAreLookingFor()).text());
 	ad.setSmoker(adForm.getSmoker());
 	ad.setAgeRange(adForm.getAgeRange());
 	ad.setGenderWeLookFor(adForm.getGenderWeLookFor());
 
 	// other
 	ad.setTitle(adForm.getRoomSpace() + "m&sup2 Zimmer in einer "
-		+ (adForm.getNmbrOfRoommates() + 1) + "er-WG in "
+		+ (Integer.parseInt(adForm.getNmbrOfRoommates()) + 1) + "er-WG in "
 		+ adForm.getCity() + " für " + adForm.getRoomPrice() + " CHF");
 	adsOfUser.add(ad);
 	creator.setAdvertisements(adsOfUser);
@@ -319,12 +335,12 @@ public class AdDataService implements IAdDataService {
 	ad.setStart(adForm.getStart());
 	ad.setUntil(adForm.getUntil());
 
-	ad.setRooms(adForm.getRooms());
-	ad.setRoomPrice(adForm.getRoomPrice());
-	ad.setRoomSpace(adForm.getRoomSpace());
+	ad.setRooms(Float.parseFloat(adForm.getRooms()));
+	ad.setRoomPrice(Integer.parseInt(adForm.getRoomPrice()));
+	ad.setRoomSpace(Float.parseFloat(adForm.getRoomSpace()));
 	ad.setWgType(adForm.getWgType());
 	ad.setFurnished(adForm.isFurnished());
-	ad.setNmbrOfRoommates(adForm.getNmbrOfRoommates());
+	ad.setNmbrOfRoommates(Integer.parseInt(adForm.getNmbrOfRoommates()));
 
 	// address stuff
 
@@ -365,6 +381,10 @@ public class AdDataService implements IAdDataService {
 
 	ad = advertisementDao.save(ad); // save object to DB
 
+    }
+
+    public Advertisement findByCreatorAndId(User user, Long adId) {
+	return advertisementDao.findByCreatorAndId(user, adId);
     }
 
 }

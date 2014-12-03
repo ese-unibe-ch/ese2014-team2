@@ -3,6 +3,7 @@ package org.eseTeam2.controller;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,6 +14,7 @@ import org.eseTeam2.PictureManager;
 import org.eseTeam2.controller.pojos.AdForm;
 import org.eseTeam2.controller.pojos.AppointmentFinderForm;
 import org.eseTeam2.controller.pojos.MessageForm;
+import org.eseTeam2.controller.pojos.NoteForm;
 import org.eseTeam2.controller.service.IAdDataService;
 import org.eseTeam2.controller.service.IAppointmentService;
 import org.eseTeam2.controller.service.IMessageService;
@@ -86,14 +88,53 @@ public class AppointmentController {
     @RequestMapping(value = "/zeigeBesichtigungstermine", method = RequestMethod.GET)
     public ModelAndView zeigeBesichtigungstermine(
 	    @RequestParam(value = "adId", required = true) Long adId,
-	    Principal principal) {
+	    Principal principal, @ModelAttribute("infoMessage") String message) {
 	User currentUser = userService.getUserByEmail(principal.getName());
 	Advertisement ad = adService.getAdvertisement(adId);
 	ModelAndView model = new ModelAndView("manageScheduledAppointments");
 	
+	
+
+	
 	model.addObject("appointments", ad.getAppointments());
 	model.addObject("ad", ad);
 	model.addObject("user", currentUser);
+	model.addObject("noteForm", new NoteForm());
+	model.addObject("infoMessage", message);
+
+	return model;
+    }
+    
+    /**
+     * this mapping method is responsible for displaying all appointments of all the users ads.
+     * @param adId
+     * @param principal
+     * @return
+     */
+    @RequestMapping(value = "/appointments", method = RequestMethod.GET)
+    public ModelAndView zeigeAlleBesichtigungstermine( Principal principal, @RequestParam(value = "showTab", required = true) int show) {
+	ModelAndView model = new ModelAndView("appointmentOverview");
+	User currentUser = userService.getUserByEmail(principal.getName());
+	Set<Advertisement> usersAds = currentUser.getAdvertisements();
+	List<Appointment> usersAppointments = new ArrayList<Appointment>();
+	
+	for( Advertisement a: usersAds) {
+	    for( Appointment app : a.getAppointments()) {
+		usersAppointments.add(app);
+	    }
+	}
+	
+	model.addObject("usersInvitations", currentUser.getUsersInvitations());
+	model.addObject("usersAppointments", usersAppointments);
+	model.addObject("user", currentUser);
+	
+	if ( show == 1) {
+	    model.addObject("showTab", 1); }
+	else {
+	    model.addObject("showTab", 2);
+	}
+	   
+	
 
 	return model;
     }
@@ -121,8 +162,8 @@ public class AppointmentController {
     @RequestMapping(value = "/showInvitation", method = RequestMethod.GET)
     public ModelAndView invitation(
 	    @RequestParam(value = "messageId", required = true) Long messageId,
-	    Principal principal) {
-
+	    Principal principal, HttpServletRequest request) {
+	HttpSession session = request.getSession();
 	Message invitationMessage = messageService.findOneMessage(messageId);
 	User authorOfReceivedMessage = invitationMessage.getSender();
 
@@ -137,10 +178,14 @@ public class AppointmentController {
 	    model.addObject("sender", authorOfReceivedMessage);
 	    model.addObject("ad", adUserIsInvitedTo);
 	    model.addObject("message", invitationMessage);
+	    invitationMessage.setReadMessage(true);
+	    messageService.saveMessage(invitationMessage);
+	    int messageNmbr = (Integer) session.getAttribute("messageNmbr");
+	session.setAttribute("messageNmbr", messageNmbr-1);
 
 	    return model;
 	} catch (NullPointerException d) {
-	    return new ModelAndView("sorryWhatYouSearchIsGone");
+	    return new ModelAndView("404");
 	}
 
     }
@@ -212,9 +257,10 @@ public class AppointmentController {
 	
 	Advertisement ad = adService.getAdvertisement(
 		adId);
+	
+	
 
-	redirectAttributes.addFlashAttribute("interessentsToSendApp",
-		interessentsArr);
+	redirectAttributes.addFlashAttribute("interessentsToSendApp",interessentsArr);
 
 	return "redirect:/setzeBesichtigungstermin?adId=" + ad.getId();
     }
@@ -234,28 +280,29 @@ public class AppointmentController {
     @RequestMapping(value = "/setAppointmentAndInform", method = RequestMethod.POST)
     public ModelAndView setAppointmentDateAndInform(
 	    @Valid AppointmentFinderForm appointmentFinderForm,
-	    @RequestParam("adAppointmentIds") Long[] adAppointmentIds,
+	   // @RequestParam(value= "adAppointmentIds", required = false) Long[] adAppointmentIds,
 	    BindingResult result, RedirectAttributes redirectAttributes,
 	    Principal principal) {
+	
 	ModelAndView model;
-	ArrayList<Long> interessentsList = new ArrayList<Long>();
-
+	//ArrayList<Long> interessentsList = new ArrayList<Long>();
+	/*
 	for (int i = 0; i < adAppointmentIds.length; i++) {
 	    interessentsList.add(adAppointmentIds[i]);
-	}
+	} */
 
-	appointmentFinderForm.setAdAppointmentIds(interessentsList);
+	//appointmentFinderForm.setAdAppointmentIds(interessentsList);
 
 	if (!result.hasErrors()) {
 
-	    appointmentFinderForm.setAdOwner(userService
-		    .getUserByEmail(principal.getName()));
+	    appointmentFinderForm.setAdOwner(userService.getUserByEmail(principal.getName()));
 	    appointmentService.sendOutAppointment(appointmentFinderForm);
-	    model = new ModelAndView("redirect:/success/createdAppointment");
-	    return model; // }
-
+	    redirectAttributes.addFlashAttribute("infoMessage", "Deine Eeinladung wurde verschickt!");
+	    model = new ModelAndView("redirect:/showInteressents?adId="+appointmentFinderForm.getAdId());
+	    return model; 
 	} else {
-	    model = new ModelAndView("setAppointmentForAd");
+	    redirectAttributes.addFlashAttribute("infoMessage", "Warnung: Du hast nicht alle felder ausgefüllt. Bitte beginne neu und fülle alle Felder aus");
+	    model = new ModelAndView("redirect:/showInteressents?adId="+appointmentFinderForm.getAdId());
 	}
 	return model;
     }

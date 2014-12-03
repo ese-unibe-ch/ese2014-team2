@@ -47,10 +47,15 @@ public class Message {
 	
 	private boolean rejected;
 	
+	
+	
 	private Long appointedAppointment;
 	
 	private boolean senderDeleted;
 	private boolean recipientDeleted;
+	
+	private boolean readMessage;
+	
 
 	public void setId(Long id) {
 		this.id = id;
@@ -60,7 +65,6 @@ public class Message {
 		return id;
 	}
 
-	
 	
 
 	public String getTitle() {
@@ -149,6 +153,14 @@ public class Message {
 
 	public void setRejected(boolean rejected) {
 	    this.rejected = rejected;
+	}
+
+	public boolean isReadMessage() {
+	    return readMessage;
+	}
+
+	public void setReadMessage(boolean readMessage) {
+	    this.readMessage = readMessage;
 	}
 
 	

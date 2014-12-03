@@ -126,5 +126,15 @@ public class UserDataService implements IUserDataService {
 	}
 
 
+
+
+	public boolean validatePassword(String password, String repeatedPassword) {
+	   if ( password.equals(repeatedPassword))
+	       return true;
+	   return false;
+	    
+	}
+
+
 	
 }
