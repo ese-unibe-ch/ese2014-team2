@@ -13,7 +13,7 @@
 <div class="panel panel-default">
 	<!-- Default panel contents -->
 	<div class="panel-heading">
-		<h1>Interessenten von ${ad.title }</h1>
+		<h1>Übersicht über alle Interessenten für deine Ads</h1>
 	</div>
 	<div class="panel-body">
 
@@ -26,24 +26,26 @@
 </c:if>	
 
 <br>
-			<br>
-			<font size="6">Nachrichten Titel:</font>
-			<br>
 			
-			<form action="setzeTeilBesichtigungstermin?adId=${ad.id }" method="POST">
+			
+		
+	<c:forEach items="${ads}" var="ad">
+			<br>
+			<legend>Interessenten für ${ad.title}</legend>
 
-			<c:forEach items="${interessents}" var="interessent">
+			<c:forEach items="${ad.applications}" var="interessent">
 				
 					<div class="row">
+					
 					<div class="col-md-1">
 					<c:if test="${interessent.favored}">
 						<span style="color:orange; margin-top:13px; margin-left:15px" class="glyphicon glyphicon-star"></span>
 						</c:if>
 					</div>
-					<div class="col-md-5">
+					<div class="col-md-7">
 					<a href="interessentDetails?applicationId=${interessent.id}">
-							<font size="5"> ${interessent.applicant.firstName},
-								${interessent.applicant.lastName }</font> </a>
+							<h4><b> ${interessent.applicant.firstName},
+								${interessent.applicant.lastName }</b></h4> </a>
 								</div>
 							
 					
@@ -52,30 +54,7 @@
 					<div class="btn-toolbar">
   							
   					
-  					<c:choose>
-							<c:when test="${interessent.favored}">
-								<a href="unFavorApplicant/applicationId${interessent.id}/pageshowInteressents?adId=${ad.id}">
-								<button type="button" class="btn btn-warning">
-									<b>Nicht mehr favorisieren</b>
-								</button>
-							</a>
-							</c:when>
-							<c:otherwise>
-								<a href="favorApplicant/applicationId${interessent.id}/pageshowInteressents?adId=${ad.id}">
-								<button type="button" class="btn btn-success">
-									<span color="orange" class="glyphicon glyphicon-star"></span> Favorisieren
-								</button>
-							</a>
-							</c:otherwise>
-						</c:choose>
   					
-  						<div class="btn-group">
-							<label class="btn btn-default">
-								<input type="checkbox" name="interessentsArr"  value="${interessent.id }"/>
-								<b>Einladung schicken</b>
-							</label>
-										</div>		    
-					
 												    
 							
 							<div class="btn-group">
@@ -84,6 +63,23 @@
 									<b> Lehne den Bewerber ab </b>
 								</button>
 								</a>
+								
+								<c:choose>
+							<c:when test="${interessent.favored}">
+								<a href="unFavorApplicant/applicationId${interessent.id}/pageshowInteressentsOverview">
+								<button type="button" class="btn btn-warning">
+									<b>Nicht mehr favorisieren</b>
+								</button>
+							</a>
+							</c:when>
+							<c:otherwise>
+								<a href="favorApplicant/applicationId${interessent.id}/pageshowInteressentsOverview">
+								<button type="button" class="btn btn-success">
+									<span color="orange" class="glyphicon glyphicon-star"></span> Favorisieren
+								</button>
+							</a>
+							</c:otherwise>
+						</c:choose>
 							</div>
 							  
 							</div>
@@ -91,13 +87,9 @@
 							
 			</c:forEach>
 			
-			<div class="form-actions">
-
-			<button type="submit" class="btn btn-primary"  onclick="this.disabled=true;this.form.submit();">Setze Besichtigungstermin</button>
-			
-			</div>
-		</form>
-
+			</c:forEach>
+		
+	
 			
 
 	</div>

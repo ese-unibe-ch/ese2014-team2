@@ -35,6 +35,8 @@ public class AdApplication {
 	
 	private String title;
 	
+	private boolean favored;
+	
 	@Column(columnDefinition="TEXT")
 	private String message;
 	
@@ -96,6 +98,14 @@ public class AdApplication {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public boolean isFavored() {
+	    return favored;
+	}
+
+	public void setFavored(boolean favored) {
+	    this.favored = favored;
 	}
 
 	

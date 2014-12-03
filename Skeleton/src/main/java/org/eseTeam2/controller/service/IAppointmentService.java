@@ -29,4 +29,8 @@ public interface IAppointmentService {
 
 	void setNote(Long appointmentId, Long userId, String note);
 
+	void saveAdApplication(AdApplication application);
+
+	
+
 }

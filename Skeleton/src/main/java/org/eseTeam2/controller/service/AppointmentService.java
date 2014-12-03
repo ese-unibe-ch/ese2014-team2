@@ -440,4 +440,9 @@ public class AppointmentService implements IAppointmentService {
 	appDao.save(appointment);
 
     }
+
+    public void saveAdApplication(AdApplication application) {
+	adApplicationDao.save(application);
+	
+    }
 }

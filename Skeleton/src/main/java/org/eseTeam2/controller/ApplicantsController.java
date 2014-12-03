@@ -268,6 +268,42 @@ public class ApplicantsController {
 	}
 	
 	
+	@RequestMapping(value = "/showInteressentsOverview", method = RequestMethod.GET)
+	public ModelAndView showInterssentsOverview( HttpServletRequest request, HttpServletResponse response,
+			HttpSession session,  Principal principal,
+			@ModelAttribute("infoMessage") String message) {
+		
+		Iterable<Advertisement> ads = adService.getAds();
+		
+		List<AdApplication>interessents = new ArrayList<AdApplication>();
+		
+		for ( Advertisement ad : ads) {
+		    for ( AdApplication app: ad.getApplications()) {
+		    interessents.add(app); }
+		}
+	
+		
+	
+		ModelAndView model = new ModelAndView("InteressentsOverview");
+		model.addObject("interessents", interessents);
+		model.addObject("ads", ads);
+		
+		
+		
+		if ( message.contains("Warnung"))  {
+		    model.addObject("dangerMessage", message); 
+		    model.addObject("infoMessage", null);
+		    }
+		else {
+		    model.addObject("infoMessage", message); 
+		    model.addObject("dangerMessage", null);}
+		
+		return model;
+	}
+	
+	
+	
+	
 	/**
 	 * This mapper method is used to print out the details of an applicant.
 	 * @param applicationId
@@ -289,6 +325,45 @@ public class ApplicantsController {
 		
 		
 		return model;
+	}
+	
+	/**
+	 * favor an applicant
+	 * @param applicationId
+	 * @return
+	 */
+	@RequestMapping(value ="/favorApplicant/applicationId{applicationId}/page{page}", method = RequestMethod.GET) 
+	public String favorApplicant (  @PathVariable("applicationId") Long applicationId, @PathVariable("page") String page) {
+		
+		ModelAndView model = new ModelAndView(page);
+		AdApplication application  = appointmentService.findOneApplication(applicationId);
+		
+		
+		
+		application.setFavored(true);
+		
+		appointmentService.saveAdApplication(application);
+		
+		return "redirect:/"+page;
+	}
+	
+	/**
+	 * unfavor applicant
+	 * @param applicationId
+	 * @return
+	 */
+	@RequestMapping(value ="/unFavorApplicant/applicationId{applicationId}/page{page}", method = RequestMethod.GET) 
+	public String unFavorApplicant (  @PathVariable("applicationId") Long applicationId, @PathVariable("page") String page) {
+		
+		
+		
+		AdApplication application  = appointmentService.findOneApplication(applicationId);
+		
+		application.setFavored(false);
+		appointmentService.saveAdApplication(application);
+		
+		
+		return "redirect:/"+page;
 	}
 	
 	
