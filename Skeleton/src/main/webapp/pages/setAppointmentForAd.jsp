@@ -46,10 +46,10 @@
 					</div>
 				</div>
     
-    	<c:set var="endTimeErrors"><form:errors path="endTime"/></c:set>
+    
     			<div class="row">
 					<div class="col-sm-2 col-md-2">
-						<label>Ende:</label>
+						<label>Ende: (Open end, falls leer)</label>
 					</div>
 					
 					<div class="col-sm-4 col-md-6">
@@ -73,7 +73,7 @@
 						<form:errors path="additionalInfosForTheVisitors" cssClass="help-inline" element="span"/> <br>
 						<form:errors path="appointmentDate" cssClass="help-inline" element="span"/> <br>
 						<form:errors path="startTime" cssClass="help-inline" element="span"/> <br>
-						<form:errors path="endTime" cssClass="help-inline" element="span"/>
+				
 					</div>
 				</div>
 				<div class="row">

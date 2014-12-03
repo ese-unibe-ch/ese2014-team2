@@ -30,7 +30,7 @@ public class AppointmentFinderForm {
 	@Size(min=1, message=" Beginn Feld darf nicht leer sein. ")
 	private String startTime;
 	
-	@Size(min=1, message=" Ende Feld darf nicht leer sein.")
+	
 	private String endTime;
 	
 	private String blockLength;
