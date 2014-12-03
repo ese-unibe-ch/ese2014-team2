@@ -207,8 +207,9 @@ public class AppointmentService implements IAppointmentService {
 		    + appointment.getAdditionalInfosForTheVisitors());
 	    appointmentInvitationMessages.add(inform);
 
-	    interessent
-		    .setAppointmentInvitations(appointmentInvitationMessages);
+	    interessent.setAppointmentInvitations(appointmentInvitationMessages);
+	    
+	   
 
 	    adInvitations.add(interessent);
 

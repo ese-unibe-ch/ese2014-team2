@@ -58,8 +58,7 @@
 			<div class="col-md-4">
 				<form:input path="until" type="field-bis" id="datepicker2"
 					tabindex="3" value="${ad.until}" />
-				<form:errors path="until" cssClass="help-inline" element="span" />
-			</div>
+				</div>
 		</div>
 
 		<c:set var="roomsErrors">

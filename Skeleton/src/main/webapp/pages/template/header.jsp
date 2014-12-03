@@ -128,7 +128,7 @@
             			<li class="divider"></li>
             			<li><a href="bookmarks">Favoriten</a></li>
             			<li class="divider"></li>
-            			<li><a href="">Interessenten</a></li>
+            			<li><a href="showInteressentsOverview">Interessenten</a></li>
           			</ul>
         	</li>
             

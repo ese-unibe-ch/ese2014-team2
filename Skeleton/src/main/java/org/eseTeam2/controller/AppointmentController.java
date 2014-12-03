@@ -2,6 +2,7 @@ package org.eseTeam2.controller;
 
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -124,7 +125,14 @@ public class AppointmentController {
 	    }
 	}
 	
-	model.addObject("usersInvitations", currentUser.getUsersInvitations());
+
+	
+	Set<Appointment> myset = new HashSet(currentUser.getUsersInvitations());
+
+	
+	model.addObject("usersInvitations", myset);
+	
+	
 	model.addObject("usersAppointments", usersAppointments);
 	model.addObject("user", currentUser);
 	
