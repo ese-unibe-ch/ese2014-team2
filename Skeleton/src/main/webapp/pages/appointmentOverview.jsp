@@ -12,12 +12,7 @@
 
 
 	 
-<script>
-	function showDetails() {
-		$('#invitationDetails').show();
-	}
-	
-</script>
+
 
   
 
@@ -170,23 +165,29 @@ $(function()
 		
 			<c:forEach items="${usersInvitations}" var="appointment">
 			<div class="row">
-				<div class="col-md-11">
-				
+				<div class="col-md-12">
+					
 					<font size="4">Termin am ${appointment.appointmentDate.day} von
 						${appointment.appointmentDate.startHour} bis ${appointment.appointmentDate.endHour} für das Ad : <a href="adprofile?adId=${appointment.ad.id}">${appointment.ad.title}</a> </font>
+					<br>
+					<br>
+					<label> Zusatzinformationen: </label>
+					<c>	${appointment.additionalInfosForTheVisitors}</c>
 					
-					<div id="invitationDetails" style="display:none">
-						${appointment.additionalInfosForTheVisitors}
-					</div>
-		
+					<div class="separator"></div>
+						<a href="acceptInvitation?appointmentId=${appointment.id}">
+					    <button type="button" class="btn btn-success"><b>Nimm die Einladung an.</b></button>
+					</a>
+    
+    <a href="rejectInvitation?appointmentId=${appointment.id}">
+    <button type="button" class="btn btn-danger"><b>Lehne die Einladung ab.</b></button>
+    </a>
+					
+		<br><br>
 				
 				</div>
 				
-				<div class="col-md-1">
-				
-					<button type="button" class="btn btn-primary" onclick="showDetails()" ><b>Zeige Details </b>
-					</button>
-					</div>
+			
 					
 					
 				</div>	

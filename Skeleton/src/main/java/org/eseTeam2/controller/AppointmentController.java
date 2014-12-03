@@ -260,7 +260,7 @@ public class AppointmentController {
 	
 	
 	if ( interessentsArr == null) {
-	    redirectAttributes.addFlashAttribute("infoMessage", "Du hast keinen Bewerber ausgewählt");
+	    redirectAttributes.addFlashAttribute("infoMessage", "Warnung: Du hast keinen Bewerber ausgewählt");
 	    return "redirect:/showInteressents?adId="+adId; }
 	
 	Advertisement ad = adService.getAdvertisement(
