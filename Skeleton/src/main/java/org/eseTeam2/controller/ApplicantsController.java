@@ -273,7 +273,8 @@ public class ApplicantsController {
 			HttpSession session,  Principal principal,
 			@ModelAttribute("infoMessage") String message) {
 		
-		Iterable<Advertisement> ads = adService.getAds();
+	    User currentUser = userService.getUserByEmail(principal.getName());
+	    Set<Advertisement> ads = currentUser.getAdvertisements();
 		
 		List<AdApplication>interessents = new ArrayList<AdApplication>();
 		
