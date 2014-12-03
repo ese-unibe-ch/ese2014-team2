@@ -30,8 +30,10 @@
 			
 		
 	<c:forEach items="${ads}" var="ad">
-			<br>
+		
+			<c:if test="${not empty ad.applications }">
 			<legend>Interessenten für ${ad.title}</legend>
+			</c:if>
 
 			<c:forEach items="${ad.applications}" var="interessent">
 				
@@ -43,9 +45,12 @@
 						</c:if>
 					</div>
 					<div class="col-md-7">
+					
 					<a href="interessentDetails?applicationId=${interessent.id}">
 							<h4><b> ${interessent.applicant.firstName},
 								${interessent.applicant.lastName }</b></h4> </a>
+								
+							
 								</div>
 							
 					

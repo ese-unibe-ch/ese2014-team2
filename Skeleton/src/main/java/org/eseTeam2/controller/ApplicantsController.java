@@ -333,7 +333,7 @@ public class ApplicantsController {
 	 * @return
 	 */
 	@RequestMapping(value ="/favorApplicant/applicationId{applicationId}/page{page}", method = RequestMethod.GET) 
-	public String favorApplicant (  @PathVariable("applicationId") Long applicationId, @PathVariable("page") String page) {
+	public String favorApplicant (  @PathVariable("applicationId") Long applicationId, @PathVariable("page") String page, @RequestParam(value="adId", required = false) Long adId) {
 		
 		ModelAndView model = new ModelAndView(page);
 		AdApplication application  = appointmentService.findOneApplication(applicationId);
@@ -344,6 +344,8 @@ public class ApplicantsController {
 		
 		appointmentService.saveAdApplication(application);
 		
+		if ( adId != null)
+		    return "redirect:/"+page+"?adId="+adId;
 		return "redirect:/"+page;
 	}
 	
@@ -353,7 +355,7 @@ public class ApplicantsController {
 	 * @return
 	 */
 	@RequestMapping(value ="/unFavorApplicant/applicationId{applicationId}/page{page}", method = RequestMethod.GET) 
-	public String unFavorApplicant (  @PathVariable("applicationId") Long applicationId, @PathVariable("page") String page) {
+	public String unFavorApplicant (  @PathVariable("applicationId") Long applicationId, @PathVariable("page") String page,  @RequestParam(value="adId", required = false) Long adId) {
 		
 		
 		
@@ -362,6 +364,8 @@ public class ApplicantsController {
 		application.setFavored(false);
 		appointmentService.saveAdApplication(application);
 		
+		if ( adId!= null)
+		    return "redirect:/"+page+"?adId="+adId;
 		
 		return "redirect:/"+page;
 	}

@@ -52,22 +52,7 @@
 					<div class="btn-toolbar">
   							
   					
-  					<c:choose>
-							<c:when test="${interessent.favored}">
-								<a href="unFavorApplicant/applicationId${interessent.id}/pageshowInteressents?adId=${ad.id}">
-								<button type="button" class="btn btn-warning">
-									<b>Nicht mehr favorisieren</b>
-								</button>
-							</a>
-							</c:when>
-							<c:otherwise>
-								<a href="favorApplicant/applicationId${interessent.id}/pageshowInteressents?adId=${ad.id}">
-								<button type="button" class="btn btn-success">
-									<span color="orange" class="glyphicon glyphicon-star"></span> Favorisieren
-								</button>
-							</a>
-							</c:otherwise>
-						</c:choose>
+  					
   					
   						<div class="btn-group">
 							<label class="btn btn-default">
@@ -84,6 +69,23 @@
 									<b> Lehne den Bewerber ab </b>
 								</button>
 								</a>
+								
+								<c:choose>
+							<c:when test="${interessent.favored}">
+								<a href="unFavorApplicant/applicationId${interessent.id}/pageshowInteressents?adId=${ad.id}">
+								<button type="button" class="btn btn-warning">
+									<b>Nicht mehr favorisieren</b>
+								</button>
+							</a>
+							</c:when>
+							<c:otherwise>
+								<a href="favorApplicant/applicationId${interessent.id}/pageshowInteressents?adId=${ad.id}">
+								<button type="button" class="btn btn-success">
+									<span color="orange" class="glyphicon glyphicon-star"></span> Favorisieren
+								</button>
+							</a>
+							</c:otherwise>
+						</c:choose>
 							</div>
 							  
 							</div>
