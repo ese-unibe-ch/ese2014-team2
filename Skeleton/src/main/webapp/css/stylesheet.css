@@ -28,6 +28,12 @@
 	color:#ff7500 !important;
 }
 
+.hover_drop_down.input-group-btn ul.dropdown-menu{margin-top: 0px;}/*To avoid unwanted close*/
+.hover_drop_down.btn-group ul.dropdown-menu{margin-top:2px;}/*To avoid unwanted close*/
+.hover_drop_down:hover ul.dropdown-menu{
+   display: block;
+}
+
 #navpads {
 	color:#0066cc !important;
 }

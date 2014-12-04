@@ -115,7 +115,7 @@
             <li><a href="placead" id="navpads"><span>Vermiete Zimmer</span><em></em></a>
             <li><a href="myprofile">Profil</a></li>
             <li><a href="myinbox">Briefkasten <span class="badge"> ${messageNmbr}</span></a></li>
-            <li class="dropdown">
+            <li class="hover_drop_down">
           		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Inserate <span class="caret"></span></a>
           			<ul class="dropdown-menu" role="menu">
             			<li><a href="myads">Inserate</a></li>
@@ -139,6 +139,7 @@
 
 <div id="push_header"></div>
 
+<c:if test="${isIndexPage eq true}">
 <div id="header">
 
     <!-- Carousel
@@ -190,6 +191,7 @@
 </script>
 
 </div>	<!--  END OF #header -->
+</c:if>
 	
 
 <div id="container_background">

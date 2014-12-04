@@ -36,6 +36,10 @@ public class Appointment {
 
     @ManyToMany(fetch = FetchType.EAGER)
     private List<User> invitations;
+    
+    @OneToMany(mappedBy ="appointment", fetch =FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @Fetch(value = FetchMode.SUBSELECT)
+    private List<AppointmentAccepted> whoAcceptedTheAppointment;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private AppointmentDate appointmentDate;
@@ -98,6 +102,14 @@ public class Appointment {
 
     public void setAppointmentDate(AppointmentDate appointmentDate) {
 	this.appointmentDate = appointmentDate;
+    }
+
+    public List<AppointmentAccepted> getWhoAcceptedTheAppointment() {
+	return whoAcceptedTheAppointment;
+    }
+
+    public void setWhoAcceptedTheAppointment(List<AppointmentAccepted> whoAcceptedTheAppointment) {
+	this.whoAcceptedTheAppointment = whoAcceptedTheAppointment;
     }
 
 }

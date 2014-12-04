@@ -285,7 +285,9 @@ public class AdController {
     @RequestMapping(value = "/adprofile", method = RequestMethod.GET)
     public ModelAndView showAdId(@RequestParam(value = "adId", required = true) Long adId, HttpServletRequest request,
 	    HttpServletResponse response, HttpSession session, @ModelAttribute("infoMessage") String message, Principal principal) {
-
+	
+	long startTime = System.currentTimeMillis();
+	
 	Boolean isBookmarked = null;
 	List<Bookmark> bookmarks = null;
 	Advertisement ad = adService.getAdvertisement(adId);
@@ -295,10 +297,13 @@ public class AdController {
 	    isBookmarked = false;
 
 	} catch (NullPointerException d) {
-	    bookmarks = new ArrayList<Bookmark>();
-
+	   
+	    for ( int i = 0; i < bookmarks.size(); i++) {
+		System.err.println(bookmarks.get(i).getAd().getId());
+	    }
+	 System.err.println(System.currentTimeMillis() - startTime);  	
 	}
-
+	
 	if (!bookmarks.isEmpty()) {
 	    for (Bookmark bookmark : bookmarks) {
 		if (bookmark.getAd().getId() == adId)
@@ -307,16 +312,16 @@ public class AdController {
 		    isBookmarked = false;
 	    }
 	}
+	
+	 System.err.println(System.currentTimeMillis() - startTime);
 
 	ModelAndView model = new ModelAndView("adprofile");
 	Set<Picture> pictures = null;
 	Picture mainPic = null;
-
 	if (adService.getPicturesOfAd(adId) != null)
 	    pictures = adService.getPicturesOfAd(adId);
 	if (adService.getAdMainPic(adId) != null)
 	    mainPic = adService.getAdMainPic(adId);
-
 	model.addObject("newAdProfile", ad);
 	model.addObject("pictures", pictures);
 	model.addObject("bookmarked", isBookmarked);
@@ -324,7 +329,7 @@ public class AdController {
 	model.addObject("mapsStreet", ad.getAddress().replace(" ", "+"));
 
 	model.addObject("infoMessage", message);
-
+	 System.out.println(System.currentTimeMillis() - startTime);
 	return model;
     }
 

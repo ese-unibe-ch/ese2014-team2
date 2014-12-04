@@ -14,12 +14,14 @@ import org.eseTeam2.controller.pojos.NoteForm;
 import org.eseTeam2.model.AdApplication;
 import org.eseTeam2.model.Advertisement;
 import org.eseTeam2.model.Appointment;
+import org.eseTeam2.model.AppointmentAccepted;
 import org.eseTeam2.model.AppointmentDate;
 import org.eseTeam2.model.Message;
 import org.eseTeam2.model.Note;
 import org.eseTeam2.model.User;
 import org.eseTeam2.model.dao.AdApplicationDao;
 import org.eseTeam2.model.dao.AdvertisementDao;
+import org.eseTeam2.model.dao.AppointmentAcceptedDao;
 import org.eseTeam2.model.dao.AppointmentDao;
 import org.eseTeam2.model.dao.AppointmentDateDao;
 import org.eseTeam2.model.dao.MessageDao;
@@ -63,6 +65,9 @@ public class AppointmentService implements IAppointmentService {
 
     @Autowired
     AdApplicationDao adApplicationDao;
+    
+    @Autowired
+    AppointmentAcceptedDao appAcceptedDao;
 
     /**
      * This method creates an AdApplication. Therefore it creates an
@@ -238,7 +243,34 @@ public class AppointmentService implements IAppointmentService {
      */
     public void acceptInvitation(User currentUser, Long appointmentId) {
 	Appointment appointment = appDao.findOne(appointmentId);
-
+	
+	// set to the appointment that the appointment is accepted.
+	AppointmentAccepted hasAcceptedFlag = new AppointmentAccepted();
+	
+	try {
+	    hasAcceptedFlag = appAcceptedDao.findByUserAndAppointment(currentUser, appointment);
+	}
+	catch (Exception d) {
+	    hasAcceptedFlag = new AppointmentAccepted();
+	}
+	
+	if ( hasAcceptedFlag == null)
+	    hasAcceptedFlag= new AppointmentAccepted();
+	
+	hasAcceptedFlag.setAccepted(true);
+	hasAcceptedFlag.setRejected(false);
+	hasAcceptedFlag.setUser(currentUser);
+	hasAcceptedFlag.setAppointment(appointment);
+	hasAcceptedFlag = appAcceptedDao.save(hasAcceptedFlag);
+	
+	
+	List<AppointmentAccepted> acceptsOfAppointment =    appointment.getWhoAcceptedTheAppointment();
+	
+	acceptsOfAppointment.add(hasAcceptedFlag);
+	appointment.setWhoAcceptedTheAppointment(acceptsOfAppointment);
+	appointment = appDao.save(appointment);
+	
+	
 	List<Message> notifications = new ArrayList<Message>();
 	User adOwner = appointment.getAd().getCreator();
 
@@ -284,7 +316,32 @@ public class AppointmentService implements IAppointmentService {
      */
     public void rejectInvitation(User currentUser, Long appointmentId) {
 	Appointment appointment = appDao.findOne(appointmentId);
-
+	
+	
+	AppointmentAccepted hasAcceptedFlag = new AppointmentAccepted();
+	try {
+	    hasAcceptedFlag = appAcceptedDao.findByUserAndAppointment(currentUser, appointment);
+	}
+	catch (Exception d) {}
+	
+	if ( hasAcceptedFlag == null)
+	    hasAcceptedFlag= new AppointmentAccepted();
+	
+	
+	hasAcceptedFlag.setAccepted(false);
+	hasAcceptedFlag.setRejected(true);
+	hasAcceptedFlag.setUser(currentUser);
+	hasAcceptedFlag.setAppointment(appointment);
+	hasAcceptedFlag = appAcceptedDao.save(hasAcceptedFlag);
+	
+	
+	List<AppointmentAccepted> acceptsOfAppointment =    appointment.getWhoAcceptedTheAppointment();
+	
+	acceptsOfAppointment.add(hasAcceptedFlag);
+	appointment.setWhoAcceptedTheAppointment(acceptsOfAppointment);
+	appointment = appDao.save(appointment);
+	
+	
 	List<Message> notifications = new ArrayList<Message>();
 	User adOwner = appointment.getAd().getCreator();
 

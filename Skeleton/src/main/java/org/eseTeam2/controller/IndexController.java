@@ -76,6 +76,7 @@ public class IndexController {
 	
 
 	ModelAndView model = new ModelAndView("index");
+	model.addObject("isIndexPage", true);
 	HttpSession session = request.getSession();
 	model.addObject("filterForm", new FilterForm());
 	session.setAttribute("messageNmbr", messages.size());

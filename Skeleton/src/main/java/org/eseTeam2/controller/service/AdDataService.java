@@ -201,7 +201,6 @@ public class AdDataService implements IAdDataService {
 		Message notification = new Message();
 		notification.setTitle(title);
 		notification.setMessageText(message);
-		notification.setRecipient(filterUser);
 		notification.setNotifications(filterUser);
 		List<Message> userNotifications = filterUser.getNotifications();
 		userNotifications.add(notification);
