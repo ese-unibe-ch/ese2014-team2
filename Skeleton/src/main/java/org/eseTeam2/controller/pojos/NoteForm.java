@@ -3,11 +3,11 @@ package org.eseTeam2.controller.pojos;
 import org.jsoup.Jsoup;
 
 public class NoteForm {
-    
+
     private String note;
-    
+
     private Long appointmentId;
-    
+
     private Long userId;
 
     public Long getAppointmentId() {

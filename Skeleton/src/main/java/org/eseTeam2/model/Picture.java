@@ -12,62 +12,55 @@ import javax.persistence.ManyToOne;
 @Embeddable
 public class Picture {
 
-	@Id
-	@GeneratedValue
-	private Long id;
+    @Id
+    @GeneratedValue
+    private Long id;
 
-	
-	
-	private String absoluteFilePath;
-	private String relativeFilePath;
+    private String absoluteFilePath;
+    private String relativeFilePath;
 
-	@ManyToOne
-	private Advertisement ad;
-	
-	private boolean isMainPic;
+    @ManyToOne
+    private Advertisement ad;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    private boolean isMainPic;
 
-	public Long getId() {
-		return id;
-	}
+    public void setId(Long id) {
+	this.id = id;
+    }
 
-	
+    public Long getId() {
+	return id;
+    }
 
-	
-	public Advertisement getAd() {
-		return ad;
-	}
+    public Advertisement getAd() {
+	return ad;
+    }
 
-	public void setAd(Advertisement ad) {
-		this.ad = ad;
-	}
+    public void setAd(Advertisement ad) {
+	this.ad = ad;
+    }
 
-	public boolean getIsMainPic() {
-		return isMainPic;
-	}
+    public boolean getIsMainPic() {
+	return isMainPic;
+    }
 
-	public void setIsMainPic(boolean isMainPic) {
-		this.isMainPic = isMainPic;
-	}
+    public void setIsMainPic(boolean isMainPic) {
+	this.isMainPic = isMainPic;
+    }
 
+    public String getAbsoluteFilePath() {
+	return absoluteFilePath;
+    }
 
+    public void setAbsoluteFilePath(String absoluteFilePath) {
+	this.absoluteFilePath = absoluteFilePath;
+    }
 
-	public String getAbsoluteFilePath() {
-		return absoluteFilePath;
-	}
+    public String getRelativeFilePath() {
+	return relativeFilePath;
+    }
 
-	public void setAbsoluteFilePath(String absoluteFilePath) {
-		this.absoluteFilePath = absoluteFilePath;
-	}
-
-	public String getRelativeFilePath() {
-		return relativeFilePath;
-	}
-
-	public void setRelativeFilePath(String relativeFilePath) {
-		this.relativeFilePath = relativeFilePath;
-	} 
+    public void setRelativeFilePath(String relativeFilePath) {
+	this.relativeFilePath = relativeFilePath;
+    }
 }

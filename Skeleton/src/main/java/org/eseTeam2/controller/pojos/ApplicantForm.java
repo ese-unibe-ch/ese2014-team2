@@ -7,80 +7,71 @@ import org.eseTeam2.model.User;
 import org.jsoup.Jsoup;
 
 /**
- * Message form, contains all the information used to create a new Message object.
+ * Message form, contains all the information used to create a new Message
+ * object.
+ * 
  * @author Icewater
  *
  */
 public class ApplicantForm {
-
 
     private Long id;
     private String title;
     private String message;
 
     private User interessent;
-	private Long adId;
+    private Long adId;
 
-	private String bisWann;
-   // private User recipient;
+    private String bisWann;
+
+    // private User recipient;
 
     public Long getId() {
-        return id;
+	return id;
     }
 
     public void setId(Long id) {
-        this.id = id;
+	this.id = id;
     }
-    
 
+    public String getMessage() {
+	return message;
+    }
 
-	
+    public void setMessage(String message) {
+	this.message = Jsoup.parse(message).text();
+    }
 
-	public String getMessage() {
-		return message;
-	}
+    public String getTitle() {
+	return title;
+    }
 
-	public void setMessage(String message) {
-		this.message = Jsoup.parse(message).text();
-	}
+    public void setTitle(String title) {
+	this.title = Jsoup.parse(title).text();
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public User getInteressent() {
+	return interessent;
+    }
 
-	public void setTitle(String title) {
-		this.title = Jsoup.parse(title).text();
-	}
+    public void setInteressent(User interessent) {
+	this.interessent = interessent;
+    }
 
+    public Long getAdId() {
+	return adId;
+    }
 
+    public void setAdId(Long adId) {
+	this.adId = adId;
+    }
 
-	public User getInteressent() {
-		return interessent;
-	}
+    public String getBisWann() {
+	return bisWann;
+    }
 
-	public void setInteressent(User interessent) {
-		this.interessent = interessent;
-	}
+    public void setBisWann(String bisWann) {
+	this.bisWann = bisWann;
+    }
 
-	public Long getAdId() {
-		return adId;
-	}
-
-	public void setAdId(Long adId) {
-		this.adId = adId;
-	}
-
-	
-
-	public String getBisWann() {
-		return bisWann;
-	}
-
-	public void setBisWann(String bisWann) {
-		this.bisWann = bisWann;
-	}
-
-	
-		
-    
 }

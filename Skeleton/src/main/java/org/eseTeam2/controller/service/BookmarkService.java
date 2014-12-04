@@ -11,52 +11,51 @@ import org.eseTeam2.model.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * this service class is used to handle all the logic concerning bookmarks.
+ * 
+ * @author Ice
+ *
+ */
 @Service
-public class BookmarkService implements IBookmarkService{
+public class BookmarkService implements IBookmarkService {
 
     @Autowired
     AdvertisementDao adDao;
-    
-   @Autowired
-   BookmarkDao bookmarkDao;
-    
+
     @Autowired
-    UserDao  userDao;
-    
+    BookmarkDao bookmarkDao;
+
+    @Autowired
+    UserDao userDao;
+
+    /**
+     * This method creates a bookmark object and adds it to the users bookmarks.
+     * 
+     */
     public void bookmarkAd(Long adId, User currentUser) {
 	Advertisement adToBMark = adDao.findOne(adId);
-	
+
 	Bookmark bookmark = new Bookmark();
 	bookmark.setAd(adToBMark);
 	bookmark.setBookmarker(currentUser);
-	
-	
-	
-	
+
 	List<Bookmark> bookmarks = currentUser.getBookmarks();
-	
+
 	bookmarks.add(bookmark);
 	currentUser.setBookmarks(bookmarks);
-	
+
 	bookmarkDao.save(bookmark);
-	
+
 	userDao.save(currentUser);
-	
+
     }
-    
+
     public void deleteBookmark(Long bookmarkId) {
-	
-	//List<Bookmark> bookmarks = currentUser.getBookmarks();
-	/*
-	for ( int i = 0; i < bookmarks.size(); i ++) {
-	    if ( bookmarks.get(i).getId() == bookmarkId)
-		bookmarks.remove(i);
-	} */
-	//currentUser.setBookmarks(bookmarks);
+
 	bookmarkDao.delete(bookmarkId);
-	//userDao.save(currentUser);
-	
-	
+
+
     }
 
     public Bookmark findOneByAdAndUser(Advertisement adId, User userId) {
@@ -70,9 +69,5 @@ public class BookmarkService implements IBookmarkService{
     public Iterable<Bookmark> findByAd(Advertisement ad) {
 	return bookmarkDao.findByAd(ad);
     }
-    
-
-
-  
 
 }

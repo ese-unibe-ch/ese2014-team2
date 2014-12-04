@@ -24,117 +24,89 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
-
-
 /**
  * handling all the logic corresponding to Users.
+ * 
  * @author Icewater
  *
  */
 @Service
 public class UserDataService implements IUserDataService {
 
-    @Autowired    
+    @Autowired
     UserDao userDao;
-    
+
     @Autowired
     CustomFilterAdDao adDao;
- 
-    
 
     /**
-     * Creates a new User Object from a given signupForm. 
-     * Stores it into the database.
+     * Creates a new User Object from a given signupForm. Stores it into the
+     * database.
      */
-    public SignupForm saveFrom(SignupForm signupForm) throws InvalidUserException{
+    public SignupForm saveFrom(SignupForm signupForm) throws InvalidUserException {
 
-        String firstName = signupForm.getFirstName();
+	String firstName = signupForm.getFirstName();
 
-        if(!StringUtils.isEmpty(firstName) && "ESE".equalsIgnoreCase(firstName)) {
-            throw new InvalidUserException("Sorry, ESE is not a valid name");   // throw exception
-        }
-        
-        BCryptPasswordEncoder password = new BCryptPasswordEncoder();
+	if (!StringUtils.isEmpty(firstName) && "ESE".equalsIgnoreCase(firstName)) {
+	    throw new InvalidUserException("Sorry, ESE is not a valid name"); // throw
+									      // exception
+	}
 
-        
-       
-        
-        User user = new User();
-        user.setFirstName(signupForm.getFirstName());
-        user.setEmail(signupForm.getEmail());
-        user.setLastName(signupForm.getLastName());
-   
-        user.setPassword(password.encode(signupForm.getPassword()));
-        
-        user.setEnabled(true);
-		
-		Set<UserRole> userRole = new HashSet<UserRole>();
-		UserRole role = new UserRole();
-		role.setRole("ROLE_USER");
-		role.setUser(user);
-		userRole.add(role);
-		
-		user.setUserRole(userRole);
-		
-        
+	BCryptPasswordEncoder password = new BCryptPasswordEncoder();
+
+	User user = new User();
+	user.setFirstName(signupForm.getFirstName());
+	user.setEmail(signupForm.getEmail());
+	user.setLastName(signupForm.getLastName());
+
+	user.setPassword(password.encode(signupForm.getPassword()));
+
+	user.setEnabled(true);
+
+	Set<UserRole> userRole = new HashSet<UserRole>();
+	UserRole role = new UserRole();
+	role.setRole("ROLE_USER");
+	role.setUser(user);
+	userRole.add(role);
+
+	user.setUserRole(userRole);
+
 	user.setBookmarks(new ArrayList<Bookmark>());
-        
-        user = userDao.save(user);   // save object to DB
-        
-        
-             
-        
-        signupForm.setId(user.getId());
 
-        return signupForm;
+	user = userDao.save(user); // save object to DB
+
+	signupForm.setId(user.getId());
+
+	return signupForm;
 
     }
 
+    public User getUserById(Long userId) {
+	return userDao.findOne(userId);
+    }
 
-	
+    public User getUserByEmail(String email) {
+	return userDao.findByEmail(email);
+    }
 
-	public User getUserById(Long userId) {
-		return userDao.findOne(userId);
-	}
-	
-	public User getUserByEmail(String email) {
-		return userDao.findByEmail(email);
-	}
+    /**
+     * creates the given CustomFilterAd. Adds it to the user and stores the user
+     * and the ad to the database
+     */
+    public void saveExampleAd(CustomFilterAd adToCompare, User currentUser) {
+	adToCompare.setExampleAdUser(currentUser);
+	currentUser.setExampleAd(adToCompare);
 
+	adDao.save(adToCompare);
+	userDao.save(currentUser);
 
+    }
 
-	/**
-	 * creates the given CustomFilterAd. Adds it to the  user and stores the user and the ad to the database
-	 */
-	public void saveExampleAd(CustomFilterAd adToCompare, User currentUser) {
-		adToCompare.setExampleAdUser(currentUser);
-		currentUser.setExampleAd(adToCompare);
-		
-		
-		adDao.save(adToCompare);
-		userDao.save(currentUser);
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	}
+    public boolean validatePassword(String password, String repeatedPassword) {
+	if (password.equals(repeatedPassword))
+	    return true;
+	return false;
 
+    }
 
-
-
-	public boolean validatePassword(String password, String repeatedPassword) {
-	   if ( password.equals(repeatedPassword))
-	       return true;
-	   return false;
-	    
-	}
-
-
-	
 }

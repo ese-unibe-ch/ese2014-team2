@@ -11,102 +11,96 @@ import javax.validation.constraints.Size;
 import org.eseTeam2.model.User;
 import org.jsoup.Jsoup;
 
-
 /**
- * This class is used to create Appointments, It contains all the necessary parameters to create an Appointment Entity from it
+ * This class is used to create Appointments, It contains all the necessary
+ * parameters to create an Appointment Entity from it
  * 
  * @author Icewater
  *
  */
 public class AppointmentFinderForm {
-	
-    @Size(min=1, message="Datum Feld darf nicht leer sein")
-	private String appointmentDate;
-	
-	private Long adId;
-	
-	private User adOwner;
-	
-	@Size(min=1, message=" Beginn Feld darf nicht leer sein. ")
-	private String startTime;
-	
-	
-	private String endTime;
-	
-	private String blockLength;
-	//@Size(min=1, message=" Weitere infos sollte nicht ganz leer sein. Gib doch den Bewerbern ein paar infos über den Ablauf :)")
-	private String additionalInfosForTheVisitors;
-	
-	private List<Long> adAppointmentIds;
 
-	
-	
+    @Size(min = 1, message = "Datum Feld darf nicht leer sein")
+    private String appointmentDate;
 
-	public String getBlockLength() {
-		return blockLength;
-	}
+    private Long adId;
 
-	public void setBlockLength(String blockLength) {
-		this.blockLength = blockLength;
-	}
+    private User adOwner;
 
-	public String getAdditionalInfosForTheVisitors() {
-		return additionalInfosForTheVisitors;
-	}
+    @Size(min = 1, message = " Beginn Feld darf nicht leer sein. ")
+    private String startTime;
 
-	public void setAdditionalInfosForTheVisitors( String additionalInfosForTheVisitors) {
-		this.additionalInfosForTheVisitors = Jsoup.parse(additionalInfosForTheVisitors).text();
-	}
+    private String endTime;
 
-	public Long getAdId() {
-		return adId;
-	}
+    private String blockLength;
+    // @Size(min=1,
+    // message=" Weitere infos sollte nicht ganz leer sein. Gib doch den Bewerbern ein paar infos über den Ablauf :)")
+    private String additionalInfosForTheVisitors;
 
-	public void setAdId(Long adId) {
-		this.adId = adId;
-	}
+    private List<Long> adAppointmentIds;
 
-	public User getAdOwner() {
-		return adOwner;
-	}
+    public String getBlockLength() {
+	return blockLength;
+    }
 
-	public void setAdOwner(User adOwner) {
-		this.adOwner = adOwner;
-	}
+    public void setBlockLength(String blockLength) {
+	this.blockLength = blockLength;
+    }
 
-	
+    public String getAdditionalInfosForTheVisitors() {
+	return additionalInfosForTheVisitors;
+    }
 
-	public List<Long> getAdAppointmentIds() {
-	    return adAppointmentIds;
-	}
+    public void setAdditionalInfosForTheVisitors(String additionalInfosForTheVisitors) {
+	this.additionalInfosForTheVisitors = Jsoup.parse(additionalInfosForTheVisitors).text();
+    }
 
-	public void setAdAppointmentIds(List<Long> adAppointmentIds) {
-	    this.adAppointmentIds = adAppointmentIds;
-	}
+    public Long getAdId() {
+	return adId;
+    }
 
-	public String getEndTime() {
-	    return endTime;
-	}
+    public void setAdId(Long adId) {
+	this.adId = adId;
+    }
 
-	public void setEndTime(String endTime) {
-	    this.endTime = endTime;
-	}
+    public User getAdOwner() {
+	return adOwner;
+    }
 
-	public String getStartTime() {
-	    return startTime;
-	}
+    public void setAdOwner(User adOwner) {
+	this.adOwner = adOwner;
+    }
 
-	public void setStartTime(String startTime) {
-	    this.startTime = startTime;
-	}
+    public List<Long> getAdAppointmentIds() {
+	return adAppointmentIds;
+    }
 
-	public String getAppointmentDate() {
-	    return appointmentDate;
-	}
+    public void setAdAppointmentIds(List<Long> adAppointmentIds) {
+	this.adAppointmentIds = adAppointmentIds;
+    }
 
-	public void setAppointmentDate(String appointmentDate) {
-	    this.appointmentDate = appointmentDate;
-	}
+    public String getEndTime() {
+	return endTime;
+    }
 
-	
+    public void setEndTime(String endTime) {
+	this.endTime = endTime;
+    }
+
+    public String getStartTime() {
+	return startTime;
+    }
+
+    public void setStartTime(String startTime) {
+	this.startTime = startTime;
+    }
+
+    public String getAppointmentDate() {
+	return appointmentDate;
+    }
+
+    public void setAppointmentDate(String appointmentDate) {
+	this.appointmentDate = appointmentDate;
+    }
+
 }

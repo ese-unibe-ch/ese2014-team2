@@ -48,74 +48,89 @@ public class BookmarkController {
 
     @Autowired
     private IBookmarkService bookmarkService;
-    
+
     @Autowired
     private IUserDataService userService;
-    
+
     @Autowired
     private IAdDataService adService;
     
-    
-
-
+    /**
+     * this mapping method is used to add an Advertisement to favorites. 
+     * @param adId
+     * @param principal
+     * @param redirectAttributes
+     * @return
+     */
     @RequestMapping(value = "/bookmarkAd", method = RequestMethod.GET)
-    public String bookmarkAd(
-	    @RequestParam(value = "adId", required = true) Long adId,
-	    Principal principal, RedirectAttributes redirectAttributes) {
+    public String bookmarkAd(@RequestParam(value = "adId", required = true) Long adId, Principal principal, RedirectAttributes redirectAttributes) {
 	bookmarkService.bookmarkAd(adId, userService.getUserByEmail(principal.getName()));
-	
+
 	redirectAttributes.addFlashAttribute("infoMessage", "Du hast das Ad erfolgreich zu deinen Favoriten hinzugefügt");
 
-	return "redirect:adprofile?adId="+adId;
+	return "redirect:adprofile?adId=" + adId;
     }
+
     
+    /**
+     * this mapping method is used to remove an advertisement from favorites. It is used from the Advertisement overview page.
+     * @param adId Beloging to the bookmarked ad.
+     * @param principal
+     * @param redirectAttributes
+     * @return
+     */
     @RequestMapping(value = "/unBookmarkAd", method = RequestMethod.GET)
-    public String unBookmarkAd(
-	    @RequestParam(value = "adId", required = true) Long adId,
-	Principal principal, RedirectAttributes redirectAttributes) {
-	
+    public String unBookmarkAd(@RequestParam(value = "adId", required = true) Long adId, Principal principal, RedirectAttributes redirectAttributes) {
+
 	User currentUser = userService.getUserByEmail(principal.getName());
 	Bookmark bookmark = bookmarkService.findOneByAdAndUser(adService.getAdvertisement(adId), currentUser);
-	
+
 	bookmarkService.deleteBookmark(bookmark.getId());
-	
+
 	redirectAttributes.addFlashAttribute("infoMessage", "Du hast das Ad erfolgreich aus deinen Favoriten entfernt");
 
-	return "redirect:adprofile?adId="+bookmark.getAd().getId();
+	return "redirect:adprofile?adId=" + bookmark.getAd().getId();
     }
     
+    /**
+     * This mapping method is used to unbookmark an advertisement. It is triggered from the bookmarks overview page.
+     * @param adId Advertisement id.
+     * @param principal
+     * @param redirectAttributes
+     * @return
+     */
     @RequestMapping(value = "/unBookmarkAdFromBookmarks", method = RequestMethod.GET)
-    public String unBookmarkAdFromBookmarks(
-	    @RequestParam(value = "adId", required = true) Long adId,
-	Principal principal, RedirectAttributes redirectAttributes) {
-	
+    public String unBookmarkAdFromBookmarks(@RequestParam(value = "adId", required = true) Long adId, Principal principal, RedirectAttributes redirectAttributes) {
+
 	User currentUser = userService.getUserByEmail(principal.getName());
 	Bookmark bookmark = bookmarkService.findOneByAdAndUser(adService.getAdvertisement(adId), currentUser);
-	
+
 	bookmarkService.deleteBookmark(bookmark.getId());
-	
+
 	redirectAttributes.addFlashAttribute("infoMessage", "Du hast das Ad erfolgreich aus deinen Favoriten entfernt");
 
 	return "redirect:/bookmarks";
     }
-    
+
+    /**
+     * this mapping method creates an overview over all bookmarks of the user.
+     * @param principal
+     * @param redirectAttributes
+     * @param message
+     * @return
+     */
     @RequestMapping(value = "/bookmarks", method = RequestMethod.GET)
-    public ModelAndView bookmarks( Principal principal, RedirectAttributes redirectAttributes, @ModelAttribute("infoMessage") String message) {
+    public ModelAndView bookmarks(Principal principal, RedirectAttributes redirectAttributes,@ModelAttribute("infoMessage") String message) {
+	
 	ModelAndView model = new ModelAndView("bookmarks");
 	User currentUser = userService.getUserByEmail(principal.getName());
 	List<Bookmark> userBookmarks = currentUser.getBookmarks();
-	
+
 	model.addObject("bookmarks", userBookmarks);
 	model.addObject("user", currentUser);
 	model.addObject("infoMessage", message);
-	
-	
-	
 
 	return model;
     }
-
-
-    
 
 }

@@ -1,6 +1,5 @@
 package org.eseTeam2.model;
 
-
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -24,98 +23,81 @@ import org.hibernate.annotations.FetchMode;
 @Embeddable
 public class Appointment {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
-	
-	@ManyToOne 
-	private Advertisement ad;
-	
-	
-	@OneToMany(mappedBy= "appointment", fetch=FetchType.EAGER, cascade=CascadeType.REMOVE)
-	@Fetch(value = FetchMode.SUBSELECT)
-	private List<Note> userNotes;
-	
-	
-	@ManyToMany (fetch=FetchType.EAGER)
-	private List<User> invitations;
-	
-	@OneToOne(fetch=FetchType.EAGER, cascade=CascadeType.REMOVE)
-	private AppointmentDate appointmentDate;
-	
-	private String blockLength;
-	
-	private String additionalInfosForTheVisitors;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	public String getBlockLength() {
-		return blockLength;
-	}
+    @ManyToOne
+    private Advertisement ad;
 
-	public void setBlockLength(String blockLength) {
-		this.blockLength = blockLength;
-	}
+    @OneToMany(mappedBy = "appointment", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @Fetch(value = FetchMode.SUBSELECT)
+    private List<Note> userNotes;
 
-	public String getAdditionalInfosForTheVisitors() {
-		return additionalInfosForTheVisitors;
-	}
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<User> invitations;
 
-	public void setAdditionalInfosForTheVisitors(
-			String additionalInfosForTheVisitors) {
-		this.additionalInfosForTheVisitors = additionalInfosForTheVisitors;
-	}
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private AppointmentDate appointmentDate;
 
-	
+    private String blockLength;
 
-	public Advertisement getAd() {
-		return ad;
-	}
+    private String additionalInfosForTheVisitors;
 
-	public void setAd(Advertisement ad) {
-		this.ad = ad;
-	}
+    public String getBlockLength() {
+	return blockLength;
+    }
 
-	public List<User> getInvitations() {
-		return invitations;
-	}
+    public void setBlockLength(String blockLength) {
+	this.blockLength = blockLength;
+    }
 
-	public void setInvitations(List<User> invitations) {
-		this.invitations = invitations;
-	}
+    public String getAdditionalInfosForTheVisitors() {
+	return additionalInfosForTheVisitors;
+    }
 
-	
+    public void setAdditionalInfosForTheVisitors(String additionalInfosForTheVisitors) {
+	this.additionalInfosForTheVisitors = additionalInfosForTheVisitors;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public Advertisement getAd() {
+	return ad;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setAd(Advertisement ad) {
+	this.ad = ad;
+    }
 
-	public List<Note> getUserNotes() {
-	    return userNotes;
-	}
+    public List<User> getInvitations() {
+	return invitations;
+    }
 
-	public void setUserNotes(List<Note> userNotes) {
-	    this.userNotes = userNotes;
-	}
+    public void setInvitations(List<User> invitations) {
+	this.invitations = invitations;
+    }
 
-	public AppointmentDate getAppointmentDate() {
-	    return appointmentDate;
-	}
+    public Long getId() {
+	return id;
+    }
 
-	public void setAppointmentDate(AppointmentDate appointmentDate) {
-	    this.appointmentDate = appointmentDate;
-	}
+    public void setId(Long id) {
+	this.id = id;
+    }
 
+    public List<Note> getUserNotes() {
+	return userNotes;
+    }
 
+    public void setUserNotes(List<Note> userNotes) {
+	this.userNotes = userNotes;
+    }
 
+    public AppointmentDate getAppointmentDate() {
+	return appointmentDate;
+    }
 
+    public void setAppointmentDate(AppointmentDate appointmentDate) {
+	this.appointmentDate = appointmentDate;
+    }
 
-
-	
-	
-
-	
 }

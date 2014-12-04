@@ -91,8 +91,7 @@ public class AdController {
      * @return
      */
     @RequestMapping(value = "/ads", method = RequestMethod.GET)
-    public ModelAndView showAds(
-	    @ModelAttribute("adsParam") ArrayList<Advertisement> filteredAds) {
+    public ModelAndView showAds(@ModelAttribute("adsParam") ArrayList<Advertisement> filteredAds) {
 	ModelAndView model = new ModelAndView("ads");
 	// gives in the filter, so the user can filter on the ads page.
 	model.addObject("filterForm", new FilterForm());
@@ -134,8 +133,7 @@ public class AdController {
 	model.addObject("adForm", new AdForm());
 	return model;
     }
-    
-    
+
     /**
      * This Mapping method executes when a User wants to place an ad. it
      * redirects him to the place a new ad page.
@@ -143,29 +141,31 @@ public class AdController {
      * @return
      */
     @RequestMapping(value = "/editAd", method = RequestMethod.GET)
-    public ModelAndView editAd(@RequestParam(value = "adId", required = true) Long adId, @ModelAttribute("infoMessage") String message, Principal principal, RedirectAttributes redirectAttributes) {
+    public ModelAndView editAd(@RequestParam(value = "adId", required = true) Long adId,
+	    @ModelAttribute("infoMessage") String message, Principal principal, RedirectAttributes redirectAttributes) {
 	ModelAndView model = new ModelAndView("editAd");
 	User currentUser = userService.getUserByEmail(principal.getName());
-	
-	if (adService.findByCreatorAndId(currentUser, adId) != null ) {
-        	AdForm adForm = new AdForm();
-        	Advertisement ad = adService.getAdvertisement(adId);
-        	//preset textarea values
-        	adForm.setDescription_ad(ad.getDescription_ad());
-        	adForm.setDescription_room(ad.getDescription_room());
-        	adForm.setDescription_us(ad.getDescription_us());
-        	adForm.setWhoWeAreLookingFor(ad.getWhoWeAreLookingFor());
-        	model.addObject("ad", ad);
-        	model.addObject("infoMessage", message);
-        	
-        	model.addObject("adForm", adForm);
-        	return model; }
-	else {
-	    redirectAttributes.addFlashAttribute("infoMessage", "Du versuchst das Ad von jemand anderem zu bearbeiten!!!!");
+
+	if (adService.findByCreatorAndId(currentUser, adId) != null) {
+	    AdForm adForm = new AdForm();
+	    Advertisement ad = adService.getAdvertisement(adId);
+	    // preset textarea values
+	    adForm.setDescription_ad(ad.getDescription_ad());
+	    adForm.setDescription_room(ad.getDescription_room());
+	    adForm.setDescription_us(ad.getDescription_us());
+	    adForm.setWhoWeAreLookingFor(ad.getWhoWeAreLookingFor());
+	    model.addObject("ad", ad);
+	    model.addObject("infoMessage", message);
+
+	    model.addObject("adForm", adForm);
+	    return model;
+	} else {
+	    redirectAttributes.addFlashAttribute("infoMessage",
+		    "Du versuchst das Ad von jemand anderem zu bearbeiten!!!!");
 	    return new ModelAndView("redirect:/forbidden");
-	    
+
 	}
-	    
+
     }
 
     /**
@@ -187,29 +187,24 @@ public class AdController {
      * @return
      */
     @RequestMapping(value = "/enlistad", method = RequestMethod.POST)
-    public ModelAndView enlistad(@Valid AdForm adForm, BindingResult result,
-	    RedirectAttributes redirectAttributes, Principal principal,
-	    @RequestParam("image") MultipartFile[] files) {
+    public ModelAndView enlistad(@Valid AdForm adForm, BindingResult result, RedirectAttributes redirectAttributes, Principal principal, @RequestParam("image") MultipartFile[] files) {
 	ModelAndView model;
 
 	if (!result.hasErrors()) {
 	    User creator = userService.getUserByEmail(principal.getName());
 	    adForm.setCreator(creator);
 	    PictureManager picmgr = new PictureManager();
-	    String relativePath = PICTURE_LOCATION + "/"
-		    + adForm.getCreator().getEmail();
+	    String relativePath = PICTURE_LOCATION + "/" + adForm.getCreator().getEmail();
 	    String absolutePath = servletContext.getRealPath(relativePath);
 
 	    // creates a filename for the uploaded file, containing the room
 	    // price, the address of the ad and the city, just a random name,
 	    // more will be added inside the
 	    // picture manager.
-	    String filename = String.valueOf(adForm.getRoomPrice())
-		    + adForm.getAddress() + adForm.getCity();
+	    String filename = String.valueOf(adForm.getRoomPrice()) + adForm.getAddress() + adForm.getCity();
 	    // store pictures to the server and get picture names to store the
 	    // paths in the DB afterwards.
-	    ArrayList<String> pictureNames = (picmgr.uploadMultipleFile(
-		    absolutePath, filename, files));
+	    ArrayList<String> pictureNames = (picmgr.uploadMultipleFile(absolutePath, filename, files));
 
 	    ArrayList<Picture> picturesToSave = new ArrayList<Picture>();
 
@@ -220,10 +215,8 @@ public class AdController {
 		    Picture picTmp = new Picture();
 		    try {
 			if (pictureNames.get(i) != null) {
-			    picTmp.setRelativeFilePath(relativePath
-				    + (pictureNames.get(i).replace("\\", "/")));
-			    picTmp.setAbsoluteFilePath(absolutePath
-				    + pictureNames.get(i));
+			    picTmp.setRelativeFilePath(relativePath + (pictureNames.get(i).replace("\\", "/")));
+			    picTmp.setAbsoluteFilePath(absolutePath + pictureNames.get(i));
 			    if (i == 0)
 				picTmp.setIsMainPic(true);
 			    else
@@ -239,7 +232,7 @@ public class AdController {
 
 	    // save ad and pictures to database.
 	    adService.saveFrom(adForm, picturesToSave);
-	    
+
 	    redirectAttributes.addFlashAttribute("infoMessage", "Dein Inserat wurde erfolgreich erstellt.");
 	    model = new ModelAndView("redirect:/myads");
 	} else {
@@ -248,33 +241,32 @@ public class AdController {
 	}
 	return model;
     }
-    
+
     /**
-     * This mapping method is used to edit an ad. Takes a valid adForm and updates the existing ad with the given parameters.
+     * This mapping method is used to edit an ad. Takes a valid adForm and
+     * updates the existing ad with the given parameters.
      */
     @RequestMapping(value = "/submitEditAd", method = RequestMethod.POST)
-    public ModelAndView submitEditAd(@Valid AdForm adForm, BindingResult result,
-	    RedirectAttributes redirectAttributes, Principal principal, @RequestParam(value = "adId", required = true) Long adId) {
+    public ModelAndView submitEditAd(@Valid AdForm adForm, BindingResult result, RedirectAttributes redirectAttributes,Principal principal, @RequestParam(value = "adId", required = true) Long adId) {
 	ModelAndView model;
 	User currentUser = userService.getUserByEmail(principal.getName());
-	
-	if (adService.findByCreatorAndId(currentUser, adId) != null ) {
-        	if (!result.hasErrors()) {
-        	  
-        	    adService.editAd(adForm, adId);
-        
-        	    
-        
-        	    model= new ModelAndView("redirect:/myads");
-        	    redirectAttributes.addFlashAttribute("infoMessage", "Dein ad wurde erfolgreich bearbeitet");
-        	} else {
-        	    model = new ModelAndView("redirect:/editAd?adId="+adId);
-        	    redirectAttributes.addFlashAttribute("infoMessage", "Bitte  fülle alle Felder korrekt aus");
-        	    // model.addObject("newAdForm", new AdForm());
-        	}
-        	return model; }
-	else {
-	    redirectAttributes.addFlashAttribute("infoMessage", "Du versuchst gerade das Ad von jemand anderem zu editieren!!");
+
+	if (adService.findByCreatorAndId(currentUser, adId) != null) {
+	    if (!result.hasErrors()) {
+
+		adService.editAd(adForm, adId);
+
+		model = new ModelAndView("redirect:/myads");
+		redirectAttributes.addFlashAttribute("infoMessage", "Dein ad wurde erfolgreich bearbeitet");
+	    } else {
+		model = new ModelAndView("redirect:/editAd?adId=" + adId);
+		redirectAttributes.addFlashAttribute("infoMessage", "Bitte  fülle alle Felder korrekt aus");
+		// model.addObject("newAdForm", new AdForm());
+	    }
+	    return model;
+	} else {
+	    redirectAttributes.addFlashAttribute("infoMessage",
+		    "Du versuchst gerade das Ad von jemand anderem zu editieren!!");
 	    return new ModelAndView("redirect:/forbidden");
 	}
     }
@@ -291,12 +283,9 @@ public class AdController {
      * @return
      */
     @RequestMapping(value = "/adprofile", method = RequestMethod.GET)
-    public ModelAndView showAdId(
-	    @RequestParam(value = "adId", required = true) Long adId,
-	    HttpServletRequest request, HttpServletResponse response,
-	    HttpSession session, @ModelAttribute("infoMessage") String message,
-	    Principal principal) {
-	
+    public ModelAndView showAdId(@RequestParam(value = "adId", required = true) Long adId, HttpServletRequest request,
+	    HttpServletResponse response, HttpSession session, @ModelAttribute("infoMessage") String message, Principal principal) {
+
 	Boolean isBookmarked = null;
 	List<Bookmark> bookmarks = null;
 	Advertisement ad = adService.getAdvertisement(adId);
@@ -304,26 +293,24 @@ public class AdController {
 	    User currentUser = userService.getUserByEmail(principal.getName());
 	    bookmarks = currentUser.getBookmarks();
 	    isBookmarked = false;
-	   
 
 	} catch (NullPointerException d) {
 	    bookmarks = new ArrayList<Bookmark>();
 
 	}
-	
-	 if (!bookmarks.isEmpty()) {
-		for (Bookmark bookmark : bookmarks) {
-		    if (bookmark.getAd().getId() == adId)
-			isBookmarked = true;
-		    else
-			isBookmarked = false;
-		}
+
+	if (!bookmarks.isEmpty()) {
+	    for (Bookmark bookmark : bookmarks) {
+		if (bookmark.getAd().getId() == adId)
+		    isBookmarked = true;
+		else
+		    isBookmarked = false;
 	    }
-	 
+	}
+
 	ModelAndView model = new ModelAndView("adprofile");
 	Set<Picture> pictures = null;
 	Picture mainPic = null;
-	
 
 	if (adService.getPicturesOfAd(adId) != null)
 	    pictures = adService.getPicturesOfAd(adId);
@@ -334,8 +321,8 @@ public class AdController {
 	model.addObject("pictures", pictures);
 	model.addObject("bookmarked", isBookmarked);
 	model.addObject("mainPic", mainPic);
-	model.addObject("mapsStreet", ad.getAddress().replace(" ","+"));
-	
+	model.addObject("mapsStreet", ad.getAddress().replace(" ", "+"));
+
 	model.addObject("infoMessage", message);
 
 	return model;
@@ -355,19 +342,18 @@ public class AdController {
      * @return
      */
     @RequestMapping(value = "/deleteAd", method = RequestMethod.GET)
-    public String deleteAd(
-	    @RequestParam(value = "adId", required = true) Long adId,
-	    HttpServletRequest request, HttpServletResponse response,
-	    HttpSession session, Principal principal, RedirectAttributes redirectAttributes) {
+    public String deleteAd(@RequestParam(value = "adId", required = true) Long adId, HttpServletRequest request,
+	    HttpServletResponse response, HttpSession session, Principal principal,
+	    RedirectAttributes redirectAttributes) {
 
 	User currentUser = userService.getUserByEmail(principal.getName());
-	
-	if (adService.findByCreatorAndId(currentUser, adId) != null ) {
-	    adService.deleteOneAd(adId, currentUser);
-	    redirectAttributes.addFlashAttribute("infoMessage", "Dein ad wurde erfolgreich gelöscht"); 
 
-	    return "redirect:/myads";}
-	else {
+	if (adService.findByCreatorAndId(currentUser, adId) != null) {
+	    adService.deleteOneAd(adId, currentUser);
+	    redirectAttributes.addFlashAttribute("infoMessage", "Dein ad wurde erfolgreich gelöscht");
+
+	    return "redirect:/myads";
+	} else {
 	    redirectAttributes.addFlashAttribute("infoMessage", "Du versuchst das Ad von jemand anderem zu löschen!!");
 	    return "redirect:/forbidden";
 	}
@@ -384,8 +370,7 @@ public class AdController {
      * @throws IOException
      */
     @RequestMapping(value = "/getUserImage/{id}")
-    public void getUserImage(HttpServletResponse response,
-	    @PathVariable("id") long picId) throws IOException {
+    public void getUserImage(HttpServletResponse response, @PathVariable("id") long picId) throws IOException {
 	PictureManager picmgr = new PictureManager();
 	String relativeFilepath = adService.getPicture(picId);
 	String absoluteFilepath = servletContext.getRealPath(relativeFilepath);

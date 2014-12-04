@@ -121,22 +121,20 @@ public class AdDataService implements IAdDataService {
 	ad.setCreator(adForm.getCreator());
 	ad.setCreationDate(new Date());
 
-	if ( !adForm.getStart().equals(""))
+	if (!adForm.getStart().equals(""))
 	    ad.setStart(adForm.getStart());
-	else 
+	else
 	    ad.setStart("Per sofort");
 	if (!adForm.getUntil().equals(""))
 	    ad.setUntil(adForm.getUntil());
 	else
 	    ad.setUntil("Unbefristet");
-	
-	if(!adForm.getPublicVisit().equals(""))
+
+	if (!adForm.getPublicVisit().equals(""))
 	    ad.setPublicVisit(adForm.getPublicVisit());
 	else
 	    ad.setPublicVisit("Keiner");
-	
 
-	
 	ad.setUntil(adForm.getUntil());
 
 	ad.setRooms(Float.parseFloat(adForm.getRooms()));
@@ -179,9 +177,7 @@ public class AdDataService implements IAdDataService {
 	ad.setGenderWeLookFor(adForm.getGenderWeLookFor());
 
 	// other
-	ad.setTitle(adForm.getRoomSpace() + "m&sup2 Zimmer in einer "
-		+ (Integer.parseInt(adForm.getNmbrOfRoommates()) + 1) + "er-WG in "
-		+ adForm.getCity() + " für " + adForm.getRoomPrice() + " CHF");
+	ad.setTitle(adForm.getRoomSpace() + "m&sup2 Zimmer in einer "+ (Integer.parseInt(adForm.getNmbrOfRoommates()) + 1) + "er-WG in " + adForm.getCity() + " für "+ adForm.getRoomPrice() + " CHF");
 	adsOfUser.add(ad);
 	creator.setAdvertisements(adsOfUser);
 
@@ -193,16 +189,15 @@ public class AdDataService implements IAdDataService {
 	// No other way, when we are not putting the website live.
 	ArrayList<String> getters = filterService.getGettersOfFilterForm();
 	for (User filterUser : usersWithFilters) {
-	    if (filterService.isNewAdMatch(filterUser.getExampleAd(), getters,
-		    ad) == true) {
+	    if (filterService.isNewAdMatch(filterUser.getExampleAd(), getters, ad) == true) {
+		
 		String title = "Ein neues Ad das dich interssieren könnte wurde aufgeschaltet";
-		String message = "A new ad has been put up "
-			+ "http://localhost8080:Skeleton/adprofile?adId="
-			+ ad.getId();
+		String message = "A new ad has been put up " + "http://localhost8080:Skeleton/adprofile?adId="+ ad.getId();
+		/*
 		try {
 		    mailer.sendEmail(filterUser.getEmail(), message, title);
 		} catch (MailSendException d) {
-		}
+		} */
 		Message notification = new Message();
 		notification.setTitle(title);
 		notification.setMessageText(message);
@@ -232,6 +227,7 @@ public class AdDataService implements IAdDataService {
 	return pictureDao.findOne(picId).getRelativeFilePath();
     }
 
+    
     /**
      * helper method to get an Arraylist of Longs containing all picture Ids of
      * a given Advertisement.
@@ -299,41 +295,36 @@ public class AdDataService implements IAdDataService {
      * 
      */
     public void deleteOneAd(Long adId, User user) {
-	/*
-	 * try { // remove ad from users ads
-	 * 
-	 * Set<Advertisement> userAds = user.getAdvertisements(); // need a tmp
-	 * variable because you can not remove something during // iteration.
-	 * Advertisement tmp = new Advertisement(); for (Advertisement ad :
-	 * userAds) { if (ad.getId() == adId) tmp = ad;
-	 * 
-	 * } userAds.remove(tmp); user.setAdvertisements(userAds);
-	 * 
-	 * 
-	 * 
-	 * 
-	 * userDao.save(user); Iterable<Bookmark> bookmarksOfAd =
-	 * bookmarkService.findByAd(advertisementDao.findOne(adId)); for (
-	 * Bookmark b: bookmarksOfAd) {
-	 * bookmarkService.deleteBookmark(b.getId());; }
-	 */
+
 	advertisementDao.delete(adId);
-	/*
-	 * } catch (Exception e) { ErrorSaver error = new ErrorSaver(); String
-	 * absolutePath = servletContext.getRealPath("/error");
-	 * 
-	 * error.saveErrorMessage(e, e.getClass().toString(),
-	 * servletContext.getRealPath("/error")); e.printStackTrace(); }
-	 */
+	
     }
 
+    
+    /**
+     * this method is used to save edited ads.
+     */
     public void editAd(AdForm adForm, Long adId) {
 	Advertisement ad = advertisementDao.findOne(adId);
 
 	// set basics for ad
+	// set basics for ad
 
-	ad.setStart(adForm.getStart());
-	ad.setUntil(adForm.getUntil());
+	if (!adForm.getStart().equals(""))
+	    ad.setStart(adForm.getStart());
+	else
+	    ad.setStart("Per sofort");
+	if (!adForm.getUntil().equals(""))
+	    ad.setUntil(adForm.getUntil());
+	else
+	    ad.setUntil("Unbefristet");
+
+	if (!adForm.getPublicVisit().equals(""))
+	    ad.setPublicVisit(adForm.getPublicVisit());
+	else
+	    ad.setPublicVisit("Keiner");
+
+
 
 	ad.setRooms(Float.parseFloat(adForm.getRooms()));
 	ad.setRoomPrice(Integer.parseInt(adForm.getRoomPrice()));
@@ -375,9 +366,7 @@ public class AdDataService implements IAdDataService {
 	ad.setGenderWeLookFor(adForm.getGenderWeLookFor());
 
 	// other
-	ad.setTitle(adForm.getRoomSpace() + "m&sup2 Zimmer in einer "
-		+ (adForm.getNmbrOfRoommates() + 1) + "er-WG in "
-		+ adForm.getCity() + " für " + adForm.getRoomPrice() + " CHF");
+	ad.setTitle(adForm.getRoomSpace() + "m&sup2 Zimmer in einer " + (adForm.getNmbrOfRoommates() + 1) + "er-WG in "+ adForm.getCity() + " für " + adForm.getRoomPrice() + " CHF");
 
 	ad = advertisementDao.save(ad); // save object to DB
 

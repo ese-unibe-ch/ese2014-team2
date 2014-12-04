@@ -18,67 +18,49 @@ import org.hibernate.annotations.Columns;
 @Entity
 public class Note {
 
-	@Id
-	@GeneratedValue
-	private Long id;
-	
-		
-	
-	@Column( length=50000)
-	private String text;
+    @Id
+    @GeneratedValue
+    private Long id;
 
-	
+    @Column(length = 50000)
+    private String text;
 
-	@ManyToOne 
-	private User applicant;
-	
-	
-	@ManyToOne
-	private Appointment appointment; 
+    @ManyToOne
+    private User applicant;
 
+    @ManyToOne
+    private Appointment appointment;
 
-	public String getText() {
-	    return text;
-	}
+    public String getText() {
+	return text;
+    }
 
+    public void setText(String text) {
+	this.text = text;
+    }
 
-	public void setText(String text) {
-	    this.text = text;
-	}
+    public Long getId() {
+	return id;
+    }
 
+    public void setId(Long id) {
+	this.id = id;
+    }
 
-	public Long getId() {
-	    return id;
-	}
+    public User getApplicant() {
+	return applicant;
+    }
 
+    public void setApplicant(User applicant) {
+	this.applicant = applicant;
+    }
 
-	public void setId(Long id) {
-	    this.id = id;
-	}
+    public Appointment getAppointment() {
+	return appointment;
+    }
 
+    public void setAppointment(Appointment appointment) {
+	this.appointment = appointment;
+    }
 
-	public User getApplicant() {
-	    return applicant;
-	}
-
-
-	public void setApplicant(User applicant) {
-	    this.applicant = applicant;
-	}
-
-
-	public Appointment getAppointment() {
-	    return appointment;
-	}
-
-
-	public void setAppointment(Appointment appointment) {
-	    this.appointment = appointment;
-	}
-	
-	
-	
-
-
-	
 }

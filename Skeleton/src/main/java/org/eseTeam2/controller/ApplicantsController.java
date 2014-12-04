@@ -54,9 +54,10 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-
 /**
- * This controller class is responsible for handling all the Mappings which concern Applicants for an ad
+ * This controller class is responsible for handling all the Mappings which
+ * concern Applicants for an ad
+ * 
  * @author Icewater
  *
  */
@@ -64,313 +65,302 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class ApplicantsController {
 
-	@Autowired
-	private IAdDataService adService;
-	@Autowired 
-	private IUserDataService userService;
-	
-	@Autowired
-	private ServletContext servletContext;
-	
-	@Autowired
-	private IAppointmentService appointmentService;
+    @Autowired
+    private IAdDataService adService;
+    @Autowired
+    private IUserDataService userService;
 
-	
-	
-	/**
-	 * This mapping method adds the user as an interessent to an advertisement.
-	 * 
-	 * @param adId
-	 *            which the user is interested in.
-	 * @param request
-	 * @param response
-	 * @param session
-	 * @param principal
-	 * @return
-	 */
-	@RequestMapping(value = "/userInterested", method = RequestMethod.GET)
-	public ModelAndView interestedInAd(@RequestParam(value = "adId", required = true) Long adId,
-			HttpServletRequest request, HttpServletResponse response, HttpSession session, Principal principal) {
-		User currentUser = userService.getUserByEmail(principal.getName());
+    @Autowired
+    private ServletContext servletContext;
 
-		ModelAndView model = new ModelAndView("interestedInAd");
-		model.addObject("applicantForm", new ApplicantForm());
-		model.addObject("adId", adId);
+    @Autowired
+    private IAppointmentService appointmentService;
 
-		return model;
+    /**
+     * This mapping method adds the user as an interessent to an advertisement.
+     * 
+     * @param adId
+     *            which the user is interested in.
+     * @param request
+     * @param response
+     * @param session
+     * @param principal
+     * @return
+     */
+    @RequestMapping(value = "/userInterested", method = RequestMethod.GET)
+    public ModelAndView interestedInAd(@RequestParam(value = "adId", required = true) Long adId, HttpServletRequest request, HttpServletResponse response, HttpSession session, Principal principal) {
+
+	User currentUser = userService.getUserByEmail(principal.getName());
+
+	ModelAndView model = new ModelAndView("interestedInAd");
+	model.addObject("applicantForm", new ApplicantForm());
+	model.addObject("adId", adId);
+
+	return model;
+    }
+
+    /**
+     * this mapping method is responsible for removing unwanted interessents
+     * from the interessents list of an ad.
+     * 
+     * @param adId
+     * @param request
+     * @param response
+     * @param session
+     * @param principal
+     * @return
+     */
+    @RequestMapping(value = "/removeInteressent/applicationId{applicationId}/adId{adId}", method = RequestMethod.GET)
+    public String deleteAd(@PathVariable("applicationId") Long applicationId, @PathVariable("adId") Long adId,
+	    HttpServletRequest request, HttpServletResponse response, HttpSession session, Principal principal,
+	    RedirectAttributes redirectAttributes) {
+
+	List<Appointment> appointments = adService.getAdvertisement(adId).getAppointments();
+	Boolean bereitsInvited = false;
+	for (Appointment a : appointments) {
+	    for (User u : a.getInvitations()) {
+		for (AdApplication ap : u.getApplications()) {
+		    if (ap.getId() == applicationId) {
+			redirectAttributes.addFlashAttribute("infoMessage", "Du kannst den Interessenten nicht mehr abweisen wenn du ihn bereits eingeladen hast.");
+			bereitsInvited = true;
+			break;
+		    }
+		}
+	    }
 	}
-	
-	
-	
-	
-	/**
-	 * this mapping method is responsible for removing unwanted interessents from the interessents list of an ad. 
-	 * @param adId
-	 * @param request
-	 * @param response
-	 * @param session
-	 * @param principal
-	 * @return
-	 */
-	@RequestMapping(value = "/removeInteressent/applicationId{applicationId}/adId{adId}", method = RequestMethod.GET)
-	public String deleteAd(@PathVariable("applicationId") Long applicationId, @PathVariable("adId") Long adId,
-			HttpServletRequest request, HttpServletResponse response,
-			HttpSession session,  Principal principal,
-			RedirectAttributes redirectAttributes) {
-	
-	    	List<Appointment> appointments = adService.getAdvertisement(adId).getAppointments();
-	    	Boolean bereitsInvited = false;
-	    	for ( Appointment a : appointments ) {
-	    	    for ( User u: a.getInvitations()) {
-	    		for ( AdApplication ap : u.getApplications()) {
-	    		    if (ap.getId() == applicationId) {
-	    			redirectAttributes.addFlashAttribute("infoMessage", "Du kannst den Interessenten nicht mehr abweisen wenn du ihn bereits eingeladen hast.");
-	    			bereitsInvited = true;
-	    			break; }
-	    		}
-	    	    }
-	    	}
-		if  (bereitsInvited == false) {
-		    appointmentService.deleteInteressent(applicationId);
-		    redirectAttributes.addFlashAttribute("infoMessage", "Du hast den Interessenten abgewiesen"); }
-		
-	
-
-		return "redirect:/showInteressents?adId="+adId;
+	if (bereitsInvited == false) {
+	    appointmentService.deleteInteressent(applicationId);
+	    redirectAttributes.addFlashAttribute("infoMessage", "Du hast den Interessenten abgewiesen");
 	}
-	
-	/**
-	 * this mapping method is used to set a note about someone.From the appointment o an ad site.
-	 * @param request
-	 * @param response
-	 * @param session
-	 * @param principal
-	 * @param redirectAttributes
-	 * @param note
-	 * @param userId
-	 * @param appointmentId
-	 * @return
-	 */
 
-	@RequestMapping(value = "/setNote", method = RequestMethod.POST)
-	public String setNote( /*@Valid NoteForm noteForm,*/ HttpServletRequest request, HttpServletResponse response,
-			HttpSession session,  Principal principal,
-			RedirectAttributes redirectAttributes, 	@RequestParam("noteText")String note, @RequestParam("userId") Long userId, @RequestParam("appointmentId") Long appointmentId) {
-	    
-	  
-	    Advertisement ad = appointmentService.findOneAppointment(appointmentId).getAd();
-	    note = note.replace("\"", "");
-	    appointmentService.setNote(appointmentId, userId, note);
-	    redirectAttributes.addFlashAttribute("infoMessage", "Notiz hinzugefügt");
-	    
-	  return "redirect:/zeigeBesichtigungstermine?adId="+ad.getId();
+	return "redirect:/showInteressentsOverview";
+    }
 
-	}
-	/**
-	 * This mapping method is used to set a note from the appointment Overview site. 
-	 * @param request
-	 * @param response
-	 * @param session
-	 * @param principal
-	 * @param redirectAttributes
-	 * @param note
-	 * @param userId
-	 * @param appointmentId
-	 * @return
-	 */
-	@RequestMapping(value = "/setNoteOverview", method = RequestMethod.POST)
-	public String setNoteOverview( /*@Valid NoteForm noteForm,*/ HttpServletRequest request, HttpServletResponse response,
-			HttpSession session,  Principal principal,
-			RedirectAttributes redirectAttributes, 	@RequestParam("noteText")String note, @RequestParam("userId") Long userId, @RequestParam("appointmentId") Long appointmentId) {
-	    
-	  
+    /**
+     * this mapping method is used to set a note object about an user. 
+     * 
+     * @param request
+     * @param response
+     * @param session
+     * @param principal
+     * @param redirectAttributes
+     * @param note
+     * @param userId
+     * @param appointmentId
+     * @return
+     */
+
+    @RequestMapping(value = "/setNote", method = RequestMethod.POST)
+    public String setNote( /* @Valid NoteForm noteForm, */HttpServletRequest request, HttpServletResponse response,
+	    HttpSession session, Principal principal, RedirectAttributes redirectAttributes,
+	    @RequestParam("noteText") String note, @RequestParam("userId") Long userId,
+	    @RequestParam("appointmentId") Long appointmentId) {
+
 	Advertisement ad = appointmentService.findOneAppointment(appointmentId).getAd();
-	    
-	 appointmentService.setNote(appointmentId, userId, note);
-	 redirectAttributes.addFlashAttribute("infoMessage", "Notiz hinzugefügt");
-	    
-	  return "redirect:/appointments";
+	note = note.replace("\"", "");
+	appointmentService.setNote(appointmentId, userId, note);
+	redirectAttributes.addFlashAttribute("infoMessage", "Notiz hinzugefügt");
 
-	}
+	return "redirect:/zeigeBesichtigungstermine?adId=" + ad.getId();
 
-	
-	/** 
-	 * This mapping method is triggered when you call /sendResume. 
-	 * It takes a valid applicantForm and submits it to the adOwner.
-	 * @param applicantForm
-	 * @param result
-	 * @param redirectAttributes
-	 * @param principal
-	 * @return
-	 */
-	@RequestMapping(value="/sendResume", method = RequestMethod.POST)
-	public String setAppointmentDateAndInform (@Valid ApplicantForm applicantForm, BindingResult result,
-	RedirectAttributes redirectAttributes,Principal principal) {
-		
-		User currentUser = userService.getUserByEmail(principal.getName());
-		List<AdApplication> adApplications =  adService.getAdvertisement(applicantForm.getAdId()).getApplications();
-		
-		// check if the user already applied. If he did, just redirect him to the adpage. 
-		for (AdApplication adApp: adApplications ) {
-			if ( adApp.getApplicant().getId() ==  currentUser.getId()) {
-			    	redirectAttributes.addFlashAttribute("infoMessage", "Du hast dich dort bereits Beworben.");
-				return "redirect:/adprofile?adId="+applicantForm.getAdId();
-			}
-		}
-		applicantForm.setInteressent(currentUser);
-		
-		appointmentService.addInteressent(applicantForm);
-		
-		redirectAttributes.addFlashAttribute("infoMessage", "Du hast dich erfolgreich beworben. ");
-		return "redirect:/adprofile?adId="+applicantForm.getAdId();
-		
-	}
-	
-	
-	
-	/**
-	 * This mapping method is used to print out all the interessents of an ad
-	 * @param adId to get the interessents from
-	 * @param request
-	 * @param response
-	 * @param session
-	 * @param principal
-	 * @return
-	 */
-	@RequestMapping(value = "/showInteressents", method = RequestMethod.GET)
-	public ModelAndView showInteressentsOfAd(
-			@RequestParam(value = "adId", required = true) Long adId,
-			HttpServletRequest request, HttpServletResponse response,
-			HttpSession session,  Principal principal,
-			@ModelAttribute("infoMessage") String message) {
-		
-		Advertisement ad = adService.getAdvertisement(adId);
-		List<AdApplication>interessents = ad.getApplications();
+    }
+
+    /**
+     * This mapping method is also used to set note object for  an user. But from a different page.
+     * 
+     * @param request
+     * @param response
+     * @param session
+     * @param principal
+     * @param redirectAttributes
+     * @param note
+     * @param userId
+     * @param appointmentId
+     * @return
+     */
+    @RequestMapping(value = "/setNoteOverview", method = RequestMethod.POST)
+    public String setNoteOverview( HttpServletRequest request,
+	    HttpServletResponse response, HttpSession session, Principal principal, RedirectAttributes redirectAttributes, @RequestParam("noteText") String note,
+	    @RequestParam("userId") Long userId, @RequestParam("appointmentId") Long appointmentId) {
 
 	
-		
-	
-		ModelAndView model = new ModelAndView("interessents");
-		model.addObject("interessents", interessents);
-		model.addObject("ad", ad);
-		
-		
-		
-		if ( message.contains("Warnung"))  {
-		    model.addObject("dangerMessage", message); 
-		    model.addObject("infoMessage", null);
-		    }
-		else {
-		    model.addObject("infoMessage", message); 
-		    model.addObject("dangerMessage", null);}
-		
-		return model;
+
+	appointmentService.setNote(appointmentId, userId, note);
+	redirectAttributes.addFlashAttribute("infoMessage", "Notiz hinzugefügt");
+
+	return "redirect:/appointments";
+
+    }
+
+    /**
+     * This mapping method is triggered when you call /sendResume. It takes a
+     * valid applicantForm and submits it to the adOwner.
+     * 
+     * @param applicantForm
+     * @param result
+     * @param redirectAttributes
+     * @param principal
+     * @return
+     */
+    @RequestMapping(value = "/sendResume", method = RequestMethod.POST)
+    public String setAppointmentDateAndInform(@Valid ApplicantForm applicantForm, BindingResult result,
+	    RedirectAttributes redirectAttributes, Principal principal) {
+
+	User currentUser = userService.getUserByEmail(principal.getName());
+	List<AdApplication> adApplications = adService.getAdvertisement(applicantForm.getAdId()).getApplications();
+
+	// check if the user already applied. If he did, just redirect him to
+	// the adpage.
+	for (AdApplication adApp : adApplications) {
+	    if (adApp.getApplicant().getId() == currentUser.getId()) {
+		redirectAttributes.addFlashAttribute("infoMessage", "Du hast dich dort bereits Beworben.");
+		return "redirect:/adprofile?adId=" + applicantForm.getAdId();
+	    }
 	}
-	
-	
-	@RequestMapping(value = "/showInteressentsOverview", method = RequestMethod.GET)
-	public ModelAndView showInterssentsOverview( HttpServletRequest request, HttpServletResponse response,
-			HttpSession session,  Principal principal,
-			@ModelAttribute("infoMessage") String message) {
-		
-	    User currentUser = userService.getUserByEmail(principal.getName());
-	    Set<Advertisement> ads = currentUser.getAdvertisements();
-		
-		List<AdApplication>interessents = new ArrayList<AdApplication>();
-		
-		for ( Advertisement ad : ads) {
-		    for ( AdApplication app: ad.getApplications()) {
-		    interessents.add(app); }
-		}
-	
-		
-	
-		ModelAndView model = new ModelAndView("InteressentsOverview");
-		model.addObject("interessents", interessents);
-		model.addObject("ads", ads);
-		
-		
-		
-		if ( message.contains("Warnung"))  {
-		    model.addObject("dangerMessage", message); 
-		    model.addObject("infoMessage", null);
-		    }
-		else {
-		    model.addObject("infoMessage", message); 
-		    model.addObject("dangerMessage", null);}
-		
-		return model;
+	applicantForm.setInteressent(currentUser);
+
+	appointmentService.addInteressent(applicantForm);
+
+	redirectAttributes.addFlashAttribute("infoMessage", "Du hast dich erfolgreich beworben. ");
+	return "redirect:/adprofile?adId=" + applicantForm.getAdId();
+
+    }
+
+    /**
+     * This mapping method is used to print out all the interessents of an ad
+     * 
+     * @param adId
+     *            to get the interessents from
+     * @param request
+     * @param response
+     * @param session
+     * @param principal
+     * @return
+     */
+    @RequestMapping(value = "/showInteressents", method = RequestMethod.GET)
+    public ModelAndView showInteressentsOfAd(@RequestParam(value = "adId", required = true) Long adId,
+	    HttpServletRequest request, HttpServletResponse response, HttpSession session, Principal principal,@ModelAttribute("infoMessage") String message) {
+
+	Advertisement ad = adService.getAdvertisement(adId);
+	List<AdApplication> interessents = ad.getApplications();
+
+	ModelAndView model = new ModelAndView("interessents");
+	model.addObject("interessents", interessents);
+	model.addObject("ad", ad);
+
+	if (message.contains("Warnung")) {
+	    model.addObject("dangerMessage", message);
+	    model.addObject("infoMessage", null);
+	} else {
+	    model.addObject("infoMessage", message);
+	    model.addObject("dangerMessage", null);
 	}
-	
-	
-	
-	
-	/**
-	 * This mapper method is used to print out the details of an applicant.
-	 * @param applicationId
-	 * @return
-	 */
-	@RequestMapping(value ="/interessentDetails", method = RequestMethod.GET) 
-	public ModelAndView showInteressentDetails (  @RequestParam (value ="applicationId", required = true) Long applicationId) {
-		
-		ModelAndView model = new ModelAndView("interessentDetails");
-		AdApplication application  = appointmentService.findOneApplication(applicationId);
-		
-		if ( application == null) 
-		    return new ModelAndView("404");
-		
-		if(application.getTimeLimitation().equals(""))
-			application.setTimeLimitation("nicht limitiert");
-		
-		model.addObject("application", application);
-		
-		
-		return model;
+
+	return model;
+    }
+    
+    /**
+     * this mapping method displays an overview over all Interessents for all Advertisements of the logged in user.
+     * @param request
+     * @param response
+     * @param session
+     * @param principal
+     * @param message
+     * @return
+     */
+    @RequestMapping(value = "/showInteressentsOverview", method = RequestMethod.GET)
+    public ModelAndView showInterssentsOverview(HttpServletRequest request, HttpServletResponse response,
+	    HttpSession session, Principal principal, @ModelAttribute("infoMessage") String message) {
+
+	User currentUser = userService.getUserByEmail(principal.getName());
+	Set<Advertisement> ads = currentUser.getAdvertisements();
+
+	List<AdApplication> interessents = new ArrayList<AdApplication>();
+
+	for (Advertisement ad : ads) {
+	    for (AdApplication app : ad.getApplications()) {
+		interessents.add(app);
+	    }
 	}
-	
-	/**
-	 * favor an applicant
-	 * @param applicationId
-	 * @return
-	 */
-	@RequestMapping(value ="/favorApplicant/applicationId{applicationId}/page{page}", method = RequestMethod.GET) 
-	public String favorApplicant (  @PathVariable("applicationId") Long applicationId, @PathVariable("page") String page, @RequestParam(value="adId", required = false) Long adId) {
-		
-		ModelAndView model = new ModelAndView(page);
-		AdApplication application  = appointmentService.findOneApplication(applicationId);
-		
-		
-		
-		application.setFavored(true);
-		
-		appointmentService.saveAdApplication(application);
-		
-		if ( adId != null)
-		    return "redirect:/"+page+"?adId="+adId;
-		return "redirect:/"+page;
+
+	ModelAndView model = new ModelAndView("InteressentsOverview");
+	model.addObject("interessents", interessents);
+	model.addObject("ads", ads);
+
+	if (message.contains("Warnung")) {
+	    model.addObject("dangerMessage", message);
+	    model.addObject("infoMessage", null);
+	} else {
+	    model.addObject("infoMessage", message);
+	    model.addObject("dangerMessage", null);
 	}
-	
-	/**
-	 * unfavor applicant
-	 * @param applicationId
-	 * @return
-	 */
-	@RequestMapping(value ="/unFavorApplicant/applicationId{applicationId}/page{page}", method = RequestMethod.GET) 
-	public String unFavorApplicant (  @PathVariable("applicationId") Long applicationId, @PathVariable("page") String page,  @RequestParam(value="adId", required = false) Long adId) {
-		
-		
-		
-		AdApplication application  = appointmentService.findOneApplication(applicationId);
-		
-		application.setFavored(false);
-		appointmentService.saveAdApplication(application);
-		
-		if ( adId!= null)
-		    return "redirect:/"+page+"?adId="+adId;
-		
-		return "redirect:/"+page;
-	}
-	
-	
+
+	return model;
+    }
+
+    /**
+     * This mapper method is used to print out the details of an applicant.
+     * 
+     * @param applicationId
+     * @return
+     */
+    @RequestMapping(value = "/interessentDetails", method = RequestMethod.GET)
+    public ModelAndView showInteressentDetails(
+	    @RequestParam(value = "applicationId", required = true) Long applicationId) {
+
+	ModelAndView model = new ModelAndView("interessentDetails");
+	AdApplication application = appointmentService.findOneApplication(applicationId);
+
+	if (application == null)
+	    return new ModelAndView("404");
+
+	if (application.getTimeLimitation().equals(""))
+	    application.setTimeLimitation("nicht limitiert");
+
+	model.addObject("application", application);
+
+	return model;
+    }
+
+    /**
+     * This mapping method is used to compile a list of favored applicants. It sets a star to a selected applicant.
+     * 
+     * @param applicationId
+     * @return
+     */
+    @RequestMapping(value = "/favorApplicant/applicationId{applicationId}/page{page}", method = RequestMethod.GET)
+    public String favorApplicant(@PathVariable("applicationId") Long applicationId, @PathVariable("page") String page, @RequestParam(value = "adId", required = false) Long adId) {
+
+	ModelAndView model = new ModelAndView(page);
+	AdApplication application = appointmentService.findOneApplication(applicationId);
+
+	application.setFavored(true);
+
+	appointmentService.saveAdApplication(application);
+
+	if (adId != null)
+	    return "redirect:/" + page + "?adId=" + adId;
+	return "redirect:/" + page;
+    }
+
+    /**
+     * Removes an applicant from the favored applicants. 
+     * 
+     * @param applicationId
+     * @return
+     */
+    @RequestMapping(value = "/unFavorApplicant/applicationId{applicationId}/page{page}", method = RequestMethod.GET)
+    public String unFavorApplicant(@PathVariable("applicationId") Long applicationId,@PathVariable("page") String page, @RequestParam(value = "adId", required = false) Long adId) {
+
+	AdApplication application = appointmentService.findOneApplication(applicationId);
+
+	application.setFavored(false);
+	appointmentService.saveAdApplication(application);
+
+	if (adId != null)
+	    return "redirect:/" + page + "?adId=" + adId;
+
+	return "redirect:/" + page;
+    }
 
 }

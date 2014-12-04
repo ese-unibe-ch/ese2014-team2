@@ -186,10 +186,7 @@ $(function()
 		<br><br>
 				
 				</div>
-				
-			
-					
-					
+									
 				</div>	
 			</c:forEach>
 		</div>

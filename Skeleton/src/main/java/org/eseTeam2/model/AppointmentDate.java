@@ -7,51 +7,41 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-
 @Entity
 public class AppointmentDate {
-	
-	@Id
-	@GeneratedValue
-	private Long id;
-	
-	private String day;
-	
-	private String startHour;
-	
-	private String endHour;
-	
 
+    @Id
+    @GeneratedValue
+    private Long id;
 
-	public String getStartHour() {
-		return startHour;
-	}
+    private String day;
 
-	public void setStartHour(String startHour) {
-		this.startHour = startHour;
-	}
+    private String startHour;
 
-	public String getEndHour() {
-		return endHour;
-	}
+    private String endHour;
 
-	public void setEndHour(String endHour) {
-		this.endHour = endHour;
-	}
+    public String getStartHour() {
+	return startHour;
+    }
 
-	public String getDay() {
-	    return day;
-	}
+    public void setStartHour(String startHour) {
+	this.startHour = startHour;
+    }
 
-	public void setDay(String day) {
-	    this.day = day;
-	}
+    public String getEndHour() {
+	return endHour;
+    }
 
-	
+    public void setEndHour(String endHour) {
+	this.endHour = endHour;
+    }
 
-	
+    public String getDay() {
+	return day;
+    }
 
-
-	
+    public void setDay(String day) {
+	this.day = day;
+    }
 
 }
