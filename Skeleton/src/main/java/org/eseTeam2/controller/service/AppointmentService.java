@@ -27,6 +27,7 @@ import org.eseTeam2.model.dao.AppointmentDateDao;
 import org.eseTeam2.model.dao.MessageDao;
 import org.eseTeam2.model.dao.NoteDao;
 import org.eseTeam2.model.dao.UserDao;
+import org.hibernate.Hibernate;
 import org.jsoup.Jsoup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSendException;
@@ -146,8 +147,10 @@ public class AppointmentService implements IAppointmentService {
      */
     // refactor potential
     public void sendOutAppointment(AppointmentFinderForm appForm) {
-
+	Advertisement ad = adDao.findOne(appForm.getAdId());
+	
 	Appointment appointment = new Appointment();
+
 	AppointmentDate date = new AppointmentDate();
 	List<Appointment> adAppointments = new ArrayList<Appointment>();
 	List<Message> allMessagesCreatedHere = new ArrayList<Message>();
@@ -156,7 +159,7 @@ public class AppointmentService implements IAppointmentService {
 
 	User adOwner = appForm.getAdOwner();
 
-	Advertisement ad = adDao.findOne(appForm.getAdId());
+
 	List<AdApplication> applicationsOfAd = new ArrayList<AdApplication>();
 
 	for (int i = 0; i < appForm.getAdAppointmentIds().size(); i++)

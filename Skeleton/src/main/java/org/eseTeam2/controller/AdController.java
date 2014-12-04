@@ -286,7 +286,7 @@ public class AdController {
     public ModelAndView showAdId(@RequestParam(value = "adId", required = true) Long adId, HttpServletRequest request,
 	    HttpServletResponse response, HttpSession session, @ModelAttribute("infoMessage") String message, Principal principal) {
 	
-	long startTime = System.currentTimeMillis();
+	//long startTime = System.currentTimeMillis();
 	
 	Boolean isBookmarked = null;
 	List<Bookmark> bookmarks = null;
@@ -298,22 +298,23 @@ public class AdController {
 
 	} catch (NullPointerException d) {
 	   
-	    for ( int i = 0; i < bookmarks.size(); i++) {
-		System.err.println(bookmarks.get(i).getAd().getId());
-	    }
-	 System.err.println(System.currentTimeMillis() - startTime);  	
 	}
 	
+	try {
 	if (!bookmarks.isEmpty()) {
 	    for (Bookmark bookmark : bookmarks) {
-		if (bookmark.getAd().getId() == adId)
+		
+		if (bookmark.getAd().getId() == adId) {
 		    isBookmarked = true;
+		    break;
+		}
 		else
 		    isBookmarked = false;
 	    }
-	}
+	} }
+	catch (Exception d) {}
 	
-	 System.err.println(System.currentTimeMillis() - startTime);
+	
 
 	ModelAndView model = new ModelAndView("adprofile");
 	Set<Picture> pictures = null;
@@ -329,7 +330,7 @@ public class AdController {
 	model.addObject("mapsStreet", ad.getAddress().replace(" ", "+"));
 
 	model.addObject("infoMessage", message);
-	 System.out.println(System.currentTimeMillis() - startTime);
+	
 	return model;
     }
 
