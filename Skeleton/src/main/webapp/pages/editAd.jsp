@@ -348,6 +348,15 @@
 					value="${ad.description_room}" />
 			</div>
 		</div>
+		
+		<div class="row">
+				<label class="col-md-4" for="field-rooms">Öffentlicher Besichtigungstermin (Nur wenn du willst. Man kann auch später spezifische Termine ausmachen) </label>
+				<div class="col-md-4">
+					<form:input path="publicVisit" id="field-rooms"  maxlength="10" value="${ad.publicVisit}" />
+				</div>
+			</div>
+			
+			
 
 		<div class="row">
 			<label class="col-md-4" for="field-adIsToBalcony">Balkonzugang:</label>

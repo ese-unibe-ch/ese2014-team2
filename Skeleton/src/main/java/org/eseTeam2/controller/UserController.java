@@ -122,6 +122,11 @@ public class UserController {
 		    redirectAttributes.addFlashAttribute("infoMessage", "Deine Passwörter stimmen nicht überein");
 		    return new ModelAndView("redirect:/register");
 		}
+		if ( userService.getUserByEmail(signupForm.getEmail()) != null) {
+		    redirectAttributes.addFlashAttribute("infoMessage", "Ein user mit diesem Account existiert schon!");
+		    return new ModelAndView("redirect:/register");
+		}
+		    
 		userService.saveFrom(signupForm);
 		redirectAttributes.addFlashAttribute("infoMessage",
 			"Du hast dich erfolgreich registriert. Du kannst dich nun einloggen");
