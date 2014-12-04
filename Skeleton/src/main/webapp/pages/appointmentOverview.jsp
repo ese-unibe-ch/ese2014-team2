@@ -168,7 +168,7 @@ $(function()
 				<div class="col-md-12">
 					
 					<font size="4">Termin am ${appointment.appointmentDate.day} von
-						${appointment.appointmentDate.startHour} bis ${appointment.appointmentDate.endHour} für das Ad : <a href="adprofile?adId=${appointment.ad.id}">${appointment.ad.title}</a> </font>
+						${appointment.appointmentDate.startHour} bis ${appointment.appointmentDate.endHour} für das Ad : <a href="adprofile?adId=${appointment.ad}"> Hier gehts zum ad </a> </font>
 					<br>
 					<br>
 					<label> Zusatzinformationen: </label>

@@ -294,7 +294,14 @@ public class AdDataService implements IAdDataService {
      * 
      */
     public void deleteOneAd(Long adId, User user) {
-
+	
+	// manually delete Appointments, have to do like this because lazy fetch performance problem shizzle :(
+	Advertisement ad = advertisementDao.findOne(adId);
+	List<Long> appointmentIds = ad.getAppointments();
+	
+	for ( int i = 0; i < appointmentIds.size();  i++){
+	    appDao.delete(appointmentIds.get(i));
+	}
 	advertisementDao.delete(adId);
 	
     }

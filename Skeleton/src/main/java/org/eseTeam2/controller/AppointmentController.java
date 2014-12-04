@@ -91,8 +91,13 @@ public class AppointmentController {
 	User currentUser = userService.getUserByEmail(principal.getName());
 	Advertisement ad = adService.getAdvertisement(adId);
 	ModelAndView model = new ModelAndView("manageScheduledAppointments");
-
-	model.addObject("appointments", ad.getAppointments());
+	
+	List<Appointment> appointments = new ArrayList<Appointment>();
+	List<Long> appointmentIds = ad.getAppointments();
+	for ( int i = 0; i < appointmentIds.size(); i++) {
+	    appointments.add(appointmentService.findOneAppointment(appointmentIds.get(0)));
+	}
+	model.addObject("appointments", appointments);
 	model.addObject("ad", ad);
 	model.addObject("user", currentUser);
 	model.addObject("noteForm", new NoteForm());
@@ -126,11 +131,12 @@ public class AppointmentController {
 	}
 	
 	// use hashset to remove duplicates. SOmehow there are troubles because of the many to many realtion.
-	Set<Appointment> userInvitations = new HashSet<Appointment>(currentUser.getUsersInvitations());
+	Set<Appointment> userInvitations = new HashSet(currentUser.getUsersInvitations());
+	Set<Appointment> userAppointments = new HashSet(usersAppointments);
 
 	model.addObject("usersInvitations", userInvitations);
 
-	model.addObject("usersAppointments", usersAppointments);
+	model.addObject("usersAppointments", userAppointments);
 	model.addObject("user", currentUser);
 	
 	// had some trouble with javascript. Workaround to show different tabs.
