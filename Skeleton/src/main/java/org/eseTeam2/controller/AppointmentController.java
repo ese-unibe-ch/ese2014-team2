@@ -116,10 +116,12 @@ public class AppointmentController {
 	User currentUser = userService.getUserByEmail(principal.getName());
 	Set<Advertisement> usersAds = currentUser.getAdvertisements();
 	List<Appointment> usersAppointments = new ArrayList<Appointment>();
-
+	
+	
 	for (Advertisement a : usersAds) {
-	    for (Appointment app : a.getAppointments()) {
-		usersAppointments.add(app);
+	    List<Long> appointmentIds = a.getAppointments();
+	    for (Long app : appointmentIds) {
+		usersAppointments.add(appointmentService.findOneAppointment(app));
 	    }
 	}
 	
@@ -176,7 +178,7 @@ public class AppointmentController {
 	try {
 
 	    Appointment appointment = appointmentService.findOneAppointment(invitationMessage.getAppointedAppointment());
-	    Advertisement adUserIsInvitedTo = appointment.getAd();
+	    Advertisement adUserIsInvitedTo = adService.getAdvertisement(appointment.getAd());
 
 	    ModelAndView model = new ModelAndView("handleInvitation");
 	    model.addObject("appointment", appointment);

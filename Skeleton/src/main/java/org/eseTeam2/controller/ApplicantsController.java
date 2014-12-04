@@ -115,7 +115,12 @@ public class ApplicantsController {
 	    HttpServletRequest request, HttpServletResponse response, HttpSession session, Principal principal,
 	    RedirectAttributes redirectAttributes) {
 
-	List<Appointment> appointments = adService.getAdvertisement(adId).getAppointments();
+	List<Long> appointmentIds = adService.getAdvertisement(adId).getAppointments();
+	List<Appointment> appointments = new ArrayList<Appointment>();
+	
+	for (int i = 0; i < appointmentIds.size(); i++) {
+	    appointments.add(appointmentService.findOneAppointment(appointmentIds.get(i)));
+	}
 	Boolean bereitsInvited = false;
 	for (Appointment a : appointments) {
 	    for (User u : a.getInvitations()) {
@@ -156,7 +161,7 @@ public class ApplicantsController {
 	    @RequestParam("noteText") String note, @RequestParam("userId") Long userId,
 	    @RequestParam("appointmentId") Long appointmentId) {
 
-	Advertisement ad = appointmentService.findOneAppointment(appointmentId).getAd();
+	Advertisement ad = adService.getAdvertisement(appointmentService.findOneAppointment(appointmentId).getAd());
 	note = note.replace("\"", "");
 	appointmentService.setNote(appointmentId, userId, note);
 	redirectAttributes.addFlashAttribute("infoMessage", "Notiz hinzugefügt");

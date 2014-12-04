@@ -304,7 +304,7 @@ public class AdController {
 	if (!bookmarks.isEmpty()) {
 	    for (Bookmark bookmark : bookmarks) {
 		
-		if (bookmark.getAd().getId() == adId) {
+		if (bookmark.getAd() == adId) {
 		    isBookmarked = true;
 		    break;
 		}

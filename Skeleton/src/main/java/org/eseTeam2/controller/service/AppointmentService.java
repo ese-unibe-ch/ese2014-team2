@@ -152,6 +152,7 @@ public class AppointmentService implements IAppointmentService {
 	Appointment appointment = new Appointment();
 
 	AppointmentDate date = new AppointmentDate();
+	
 	List<Appointment> adAppointments = new ArrayList<Appointment>();
 	List<Message> allMessagesCreatedHere = new ArrayList<Message>();
 
@@ -221,14 +222,20 @@ public class AppointmentService implements IAppointmentService {
 	}
 
 	appointment.setInvitations(adInvitations);
-	appointment.setAd(ad);
+	appointment.setAd(ad.getId());
 
-	adAppointments = ad.getAppointments();
-
-	adAppointments.add(appointment);
-	ad.setAppointments(adAppointments);
-
+	List<Long> adAppointmentIds = ad.getAppointments();
 	appointment = appDao.save(appointment);
+	
+	
+	adAppointmentIds.add(appointment.getId());
+	
+	
+	
+	adAppointments.add(appointment);
+	ad.setAppointments(adAppointmentIds);
+
+	
 
 	for (Message m : allMessagesCreatedHere) {
 	    m.setAppointedAppointment(appointment.getId());
@@ -275,7 +282,7 @@ public class AppointmentService implements IAppointmentService {
 	
 	
 	List<Message> notifications = new ArrayList<Message>();
-	User adOwner = appointment.getAd().getCreator();
+	User adOwner = adDao.findOne(appointment.getAd()).getCreator();
 
 	try {
 	    notifications = adOwner.getNotifications();
@@ -346,7 +353,7 @@ public class AppointmentService implements IAppointmentService {
 	
 	
 	List<Message> notifications = new ArrayList<Message>();
-	User adOwner = appointment.getAd().getCreator();
+	User adOwner = adDao.findOne(appointment.getAd()).getCreator();
 
 	try {
 	    notifications = adOwner.getNotifications();

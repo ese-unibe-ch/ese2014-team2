@@ -6,8 +6,8 @@ import org.eseTeam2.model.User;
 import org.springframework.data.repository.CrudRepository;
 
 public interface BookmarkDao extends CrudRepository<Bookmark, Long>{
-    public Bookmark findOneByBookmarkerAndAd(User bookmarker, Advertisement ad);
+    public Bookmark findOneByBookmarkerAndAd(User bookmarker, Long ad);
     
-    public Iterable<Bookmark> findByAd(Advertisement ad);
+    public Iterable<Bookmark> findByAd(Long ad);
 
 }

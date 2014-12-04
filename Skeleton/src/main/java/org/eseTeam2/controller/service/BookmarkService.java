@@ -37,7 +37,7 @@ public class BookmarkService implements IBookmarkService {
 	Advertisement adToBMark = adDao.findOne(adId);
 
 	Bookmark bookmark = new Bookmark();
-	bookmark.setAd(adToBMark);
+	bookmark.setAd(adToBMark.getId());
 	bookmark.setBookmarker(currentUser);
 
 	List<Bookmark> bookmarks = currentUser.getBookmarks();
@@ -45,7 +45,7 @@ public class BookmarkService implements IBookmarkService {
 	bookmarks.add(bookmark);
 	currentUser.setBookmarks(bookmarks);
 
-	bookmarkDao.save(bookmark);
+	bookmark = bookmarkDao.save(bookmark);
 
 	userDao.save(currentUser);
 
@@ -58,7 +58,7 @@ public class BookmarkService implements IBookmarkService {
 
     }
 
-    public Bookmark findOneByAdAndUser(Advertisement adId, User userId) {
+    public Bookmark findOneByAdAndUser(Long adId, User userId) {
 	return bookmarkDao.findOneByBookmarkerAndAd(userId, adId);
     }
 
@@ -66,7 +66,7 @@ public class BookmarkService implements IBookmarkService {
 	return bookmarkDao.findOne(bookmarkId);
     }
 
-    public Iterable<Bookmark> findByAd(Advertisement ad) {
+    public Iterable<Bookmark> findByAd(Long ad) {
 	return bookmarkDao.findByAd(ad);
     }
 

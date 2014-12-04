@@ -83,13 +83,13 @@ public class BookmarkController {
     public String unBookmarkAd(@RequestParam(value = "adId", required = true) Long adId, Principal principal, RedirectAttributes redirectAttributes) {
 
 	User currentUser = userService.getUserByEmail(principal.getName());
-	Bookmark bookmark = bookmarkService.findOneByAdAndUser(adService.getAdvertisement(adId), currentUser);
+	Bookmark bookmark = bookmarkService.findOneByAdAndUser(adId, currentUser);
 
 	bookmarkService.deleteBookmark(bookmark.getId());
 
 	redirectAttributes.addFlashAttribute("infoMessage", "Du hast das Ad erfolgreich aus deinen Favoriten entfernt");
 
-	return "redirect:adprofile?adId=" + bookmark.getAd().getId();
+	return "redirect:adprofile?adId=" + adId;
     }
     
     /**
@@ -103,7 +103,7 @@ public class BookmarkController {
     public String unBookmarkAdFromBookmarks(@RequestParam(value = "adId", required = true) Long adId, Principal principal, RedirectAttributes redirectAttributes) {
 
 	User currentUser = userService.getUserByEmail(principal.getName());
-	Bookmark bookmark = bookmarkService.findOneByAdAndUser(adService.getAdvertisement(adId), currentUser);
+	Bookmark bookmark = bookmarkService.findOneByAdAndUser(adId, currentUser);
 
 	bookmarkService.deleteBookmark(bookmark.getId());
 
@@ -125,7 +125,13 @@ public class BookmarkController {
 	ModelAndView model = new ModelAndView("bookmarks");
 	User currentUser = userService.getUserByEmail(principal.getName());
 	List<Bookmark> userBookmarks = currentUser.getBookmarks();
-
+        List<Advertisement> ads = new ArrayList<Advertisement>();
+        
+        for ( Bookmark bookm: userBookmarks) {
+            ads.add(adService.getAdvertisement(bookm.getAd()));
+        }
+        
+        model.addObject("ads", ads);
 	model.addObject("bookmarks", userBookmarks);
 	model.addObject("user", currentUser);
 	model.addObject("infoMessage", message);

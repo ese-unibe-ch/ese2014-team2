@@ -26,8 +26,8 @@ public class Bookmark {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    private Advertisement ad;
+    
+    private Long ad;
 
     @ManyToOne
     private User bookmarker;
@@ -40,13 +40,7 @@ public class Bookmark {
 	this.id = id;
     }
 
-    public Advertisement getAd() {
-	return ad;
-    }
-
-    public void setAd(Advertisement ad) {
-	this.ad = ad;
-    }
+    
 
     public User getBookmarker() {
 	return bookmarker;
@@ -54,6 +48,14 @@ public class Bookmark {
 
     public void setBookmarker(User bookmarker) {
 	this.bookmarker = bookmarker;
+    }
+
+    public Long getAd() {
+	return ad;
+    }
+
+    public void setAd(Long ad) {
+	this.ad = ad;
     }
 
 }

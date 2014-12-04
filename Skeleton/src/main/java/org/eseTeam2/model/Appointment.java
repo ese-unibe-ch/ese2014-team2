@@ -18,6 +18,8 @@ import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 @Entity
 @Embeddable
@@ -27,8 +29,8 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    private Advertisement ad;
+   
+    private Long ad;
 
     @OneToMany(mappedBy = "appointment", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     @Fetch(value = FetchMode.SUBSELECT)
@@ -64,13 +66,7 @@ public class Appointment {
 	this.additionalInfosForTheVisitors = additionalInfosForTheVisitors;
     }
 
-    public Advertisement getAd() {
-	return ad;
-    }
-
-    public void setAd(Advertisement ad) {
-	this.ad = ad;
-    }
+   
 
     public List<User> getInvitations() {
 	return invitations;
@@ -110,6 +106,14 @@ public class Appointment {
 
     public void setWhoAcceptedTheAppointment(List<AppointmentAccepted> whoAcceptedTheAppointment) {
 	this.whoAcceptedTheAppointment = whoAcceptedTheAppointment;
+    }
+
+    public Long getAd() {
+	return ad;
+    }
+
+    public void setAd(Long ad) {
+	this.ad = ad;
     }
 
 }

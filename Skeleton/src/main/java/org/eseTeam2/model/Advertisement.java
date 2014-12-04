@@ -22,6 +22,8 @@ import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import org.eseTeam2.model.*;
 
 @Entity
@@ -37,9 +39,9 @@ public class Advertisement {
     @ManyToOne
     private User creator;
 
-    @OneToMany(mappedBy = "ad", fetch = FetchType.EAGER, orphanRemoval = true)
-    @Fetch(value = FetchMode.SUBSELECT)
-    private List<Bookmark> bookmarks;
+    @ElementCollection(targetClass=Long.class)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    private List<Long> bookmarks;
 
     private String publicVisit;
 
@@ -100,9 +102,9 @@ public class Advertisement {
     @OneToOne(orphanRemoval = true)
     private Picture mainPic;
 
-    @OneToMany(mappedBy = "ad", fetch = FetchType.EAGER, orphanRemoval = true)
-    @Fetch(value = FetchMode.SUBSELECT)
-    private List<Appointment> appointments;
+    @ElementCollection(targetClass=Long.class)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    private List<Long> appointments;
 
     public Set<Picture> getPictures() {
 	return pictures;
@@ -400,21 +402,9 @@ public class Advertisement {
 	this.applications = applications;
     }
 
-    public List<Appointment> getAppointments() {
-	return appointments;
-    }
+    
 
-    public void setAppointments(List<Appointment> appointments) {
-	this.appointments = appointments;
-    }
-
-    public List<Bookmark> getBookmarks() {
-	return bookmarks;
-    }
-
-    public void setBookmarks(List<Bookmark> bookmarks) {
-	this.bookmarks = bookmarks;
-    }
+    
 
     public String getPublicVisit() {
 	return publicVisit;
@@ -422,6 +412,22 @@ public class Advertisement {
 
     public void setPublicVisit(String publicVisit) {
 	this.publicVisit = publicVisit;
+    }
+
+    public List<Long> getAppointments() {
+	return appointments;
+    }
+
+    public void setAppointments(List<Long> appointments) {
+	this.appointments = appointments;
+    }
+
+    public List<Long> getBookmarks() {
+	return bookmarks;
+    }
+
+    public void setBookmarks(List<Long> bookmarks) {
+	this.bookmarks = bookmarks;
     }
 
 }
