@@ -30,6 +30,8 @@
 			
 		
 	<c:forEach items="${ads}" var="ad">
+	
+	<form action="setzeTeilBesichtigungstermin?adId=${ad.id }" method="POST">
 		
 			<c:if test="${not empty ad.applications }">
 			<legend>Interessenten für ${ad.title}</legend>
@@ -59,7 +61,7 @@
 					<div class="btn-toolbar">
   							
   					
-  					
+  					      
 												    
 							
 							<div class="btn-group">
@@ -86,13 +88,30 @@
 							</c:otherwise>
 						</c:choose>
 							</div>
+							
+							<div class="btn-group">
+							<label class="btn btn-default">
+								<input type="checkbox" name="interessentsArr"  value="${interessent.id }"/>
+								<b>Einladung schicken</b>
+							</label>
+										</div>	
 							  
 							</div>
 							</div>
 							
 			</c:forEach>
 			
+			<div class="form-actions">
+
+			<button type="submit" class="btn btn-primary"  onclick="this.disabled=true;this.form.submit();">Setze Besichtigungstermin</button>
+			
+			</div>
+			
+			</form>
 			</c:forEach>
+			
+			
+		
 		
 	
 			
