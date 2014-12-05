@@ -62,7 +62,7 @@ public class UserController {
     public ModelAndView register(@ModelAttribute("infoMessage") String message) {
 	ModelAndView model = new ModelAndView("register");
 	model.addObject("signupForm", new SignupForm());
-	model.addObject("infoMessage", message);
+	model.addObject("message", message);
 	return model;
     }
 
@@ -113,23 +113,28 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public ModelAndView create(@Valid SignupForm signupForm, Principal principal, BindingResult result, HttpServletRequest request, RedirectAttributes redirectAttributes) {
+    public ModelAndView create(@Valid SignupForm signupForm, BindingResult result, RedirectAttributes redirectAttributes) {
 	
 	ModelAndView model;
-	if (!result.hasErrors()) {
-	    try {
-		if (userService.validatePassword(signupForm.getPassword(), signupForm.getPasswordVerify()) == false) {
+	
+	try {
+	    if (userService.validatePassword(signupForm.getPassword(), signupForm.getPasswordVerify()) == false) {
 		    redirectAttributes.addFlashAttribute("infoMessage", "Deine Passwörter stimmen nicht überein");
 		    return new ModelAndView("redirect:/register");
 		}
+	    
+	    
+	} catch (Exception d) {}
+		
+	if (!result.hasErrors()) {
+	    try {
+		    
 		if ( userService.getUserByEmail(signupForm.getEmail()) != null) {
 		    redirectAttributes.addFlashAttribute("infoMessage", "Ein user mit diesem Account existiert schon!");
 		    return new ModelAndView("redirect:/register");
 		}
-		    
 		userService.saveFrom(signupForm);
-		redirectAttributes.addFlashAttribute("infoMessage",
-			"Du hast dich erfolgreich registriert. Du kannst dich nun einloggen");
+		redirectAttributes.addFlashAttribute("infoMessage", "Du hast dich erfolgreich registriert. Du kannst dich nun einloggen");
 
 		model = new ModelAndView("redirect:/");
 	    } catch (InvalidUserException e) {
