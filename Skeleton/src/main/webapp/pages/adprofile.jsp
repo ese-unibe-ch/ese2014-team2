@@ -9,7 +9,12 @@
 
 <c:import url="template/header.jsp" />
 
-
+<script>
+function winOpen()
+{
+    window.open("https://www.google.ch/maps/place/${mapsStreet},+${newAdProfile.plz}+${newAdProfile.city}");
+}
+</script>
 
 
 <div class="col-md-12">

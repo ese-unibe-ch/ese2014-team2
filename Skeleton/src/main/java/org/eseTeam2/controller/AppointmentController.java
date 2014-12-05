@@ -133,7 +133,13 @@ public class AppointmentController {
 	// use hashset to remove duplicates. SOmehow there are troubles because of the many to many realtion.
 	Set<Appointment> userInvitations = new HashSet(currentUser.getUsersInvitations());
 	Set<Appointment> userAppointments = new HashSet(usersAppointments);
-
+	
+	for ( Appointment app : userAppointments) {
+	    for ( User u : app.getInvitations()) {
+		System.out.println(u.getId());
+	    }
+	}
+	
 	model.addObject("usersInvitations", userInvitations);
 
 	model.addObject("usersAppointments", userAppointments);
