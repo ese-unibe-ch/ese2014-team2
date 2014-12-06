@@ -1,6 +1,11 @@
 package org.sample.webapp.controller;
+import javax.servlet.ServletContext;
+
+import org.eseTeam2.controller.AdController;
 import org.eseTeam2.controller.IndexController;
 import org.eseTeam2.controller.pojos.SignupForm;
+import org.eseTeam2.controller.service.IAdDataService;
+import org.eseTeam2.controller.service.IAppointmentService;
 import org.eseTeam2.controller.service.IUserDataService;
 import org.junit.After;
 import org.junit.Before;
@@ -21,13 +26,22 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-public class IndexControllerTest {
+public class AdControllerTest {
 
     @Mock
     private IUserDataService userService;
 
+    @Mock
+    private IAdDataService adService;
+
+    @Mock
+    private IAppointmentService appointmentService;
+
+    @Mock
+    private ServletContext servletContext;
+
     @InjectMocks
-    private IndexController indexController;
+    private AdController adController;
 
     private MockMvc mockMvc;
     
@@ -38,7 +52,7 @@ public class IndexControllerTest {
         MockitoAnnotations.initMocks(this);
 
         // Setup Spring test in standalone mode
-        this.mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
+        this.mockMvc = MockMvcBuilders.standaloneSetup(adController).build();
         
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setSuffix(".jsp");
@@ -52,17 +66,17 @@ public class IndexControllerTest {
     @After
     public void tearDown() {
     	
-    	this.indexController = null;
+    	this.adController = null;
     	this.mockMvc = null;
     }
 
     
     @Test
-    public void testIndex() throws Exception {
+    public void testShowAds() throws Exception {
 
-        this.mockMvc.perform(get("/"))
-        			.andExpect(status().isOk())
-                	.andExpect(forwardedUrl("index.jsp"));
+        this.mockMvc.perform(get("/ads"))
+/*        			.andExpect(status().isOk())*/
+                	.andExpect(forwardedUrl("ads.jsp"));
 
     }
 
