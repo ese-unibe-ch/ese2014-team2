@@ -134,11 +134,10 @@ public class AppointmentController {
 	Set<Appointment> userInvitations = new HashSet(currentUser.getUsersInvitations());
 	Set<Appointment> userAppointments = new HashSet(usersAppointments);
 	
+	/*
 	for ( Appointment app : userAppointments) {
-	    
-		Set<User> userSet = new HashSet(app.getInvitations());
-	    
-	}
+		Set<User> userSet = new HashSet(app.getInvitations());  
+	} */
 	
 	model.addObject("usersInvitations", userInvitations);
 
