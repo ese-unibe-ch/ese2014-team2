@@ -91,7 +91,6 @@ INDEX VERSION 1.127+/Users/Raffael/Documents/ese2014-team2/.metadata/.plugins/or
 648978007.index
 1769317737.index
 3750842547.index
-4207758793.index
 1271342938.index
 376171227.index
 2184568275.index

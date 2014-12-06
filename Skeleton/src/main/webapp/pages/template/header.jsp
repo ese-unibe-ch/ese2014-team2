@@ -2,21 +2,19 @@
 <html lang="en">
 <http use-expressions="true">
 
-
-
-    	<meta charset="UTF-8">
+	
+    	<meta charset="utf-8">
 
     	<title>About Princesses and Castles</title>
 
     	<link rel="stylesheet" type="text/css" href="css/stylesheet.css" media="all"/>
     	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="screen" />
-    	<script type="text/javascript"  src="dn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=1.4.2"></script>
+    	<script type="text/javascript"  src="dn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     	<script src="js/login.js"></script>
-    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
-
+    	
+    	
     	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     	<!--[if lt IE 9]>
     	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -66,15 +64,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-        
+       
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-           <li class="active"><a href="/Skeleton">Home</a></li>
+            <li class="active"><a href="/Skeleton">Home</a></li>
             <li><a href="unfilteredAds" id="navads"><span>Suche Zimmer</span><em></em></a>
             <li><a href="placead" id="navpads"><span>Vermiete Zimmer</span><em></em></a>
-            <li><a href="register">Register</a></li>
+            <li><a href="register">Registrieren</a></li>
             <li><a href="#" id="loginButton"><span>Login</span><em></em></a>
+            
                 <div style="clear:both"></div>
                 <div id="loginBox">                
                     <form id="loginForm" name="loginForm" action="<c:url value='j_spring_security_check' />" method="POST">
@@ -110,7 +109,6 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-         
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -142,8 +140,12 @@
 </security:authorize>	
 
 <div id="push_header"></div>
-<div id="push_content"></div>
 
+<div id="header">
+
+
+</div>	<!--  END OF #header -->
+	
 
 <div id="container_background">
 	<div class="container">
