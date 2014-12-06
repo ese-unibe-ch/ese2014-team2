@@ -35,7 +35,12 @@
 			<c:forEach items="${interessents}" var="interessent">
 				
 					<div class="row">
-					<div class="col-md-8">
+					<div class="col-md-1">
+					<c:if test="${interessent.favored}">
+						<span style="color:orange; margin-top:13px; margin-left:15px" class="glyphicon glyphicon-star"></span>
+						</c:if>
+					</div>
+					<div class="col-md-5">
 					<a href="interessentDetails?applicationId=${interessent.id}">
 							<font size="5"> ${interessent.applicant.firstName},
 								${interessent.applicant.lastName }</font> </a>
@@ -46,6 +51,8 @@
 					
 					<div class="btn-toolbar">
   							
+  					
+  					
   					
   						<div class="btn-group">
 							<label class="btn btn-default">
@@ -62,6 +69,23 @@
 									<b> Lehne den Bewerber ab </b>
 								</button>
 								</a>
+								
+								<c:choose>
+							<c:when test="${interessent.favored}">
+								<a href="unFavorApplicant/applicationId${interessent.id}/pageshowInteressents?adId=${ad.id}">
+								<button type="button" class="btn btn-warning">
+									<b>Nicht mehr favorisieren</b>
+								</button>
+							</a>
+							</c:when>
+							<c:otherwise>
+								<a href="favorApplicant/applicationId${interessent.id}/pageshowInteressents?adId=${ad.id}">
+								<button type="button" class="btn btn-success">
+									<span color="orange" class="glyphicon glyphicon-star"></span> Favorisieren
+								</button>
+							</a>
+							</c:otherwise>
+						</c:choose>
 							</div>
 							  
 							</div>

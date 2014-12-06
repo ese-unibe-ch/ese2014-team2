@@ -25,69 +25,71 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class FilterAdsController {
 
-	@Autowired
-	private IAdDataService adService;
+    @Autowired
+    private IAdDataService adService;
 
-	@Autowired
-	private IFilterLogicService filterService;
-	
-	/**
-	 * this mapping method triggers when the filter.jsp parameters are submitted. It takes a valid filterForm which contains all the 
-	 * filter criteria and applies them with various helper methods, and finally gets back the filtered ads in form of an ArrayList<Advertisement>
-	 * Redirects the user to the ads page containing the list. 
-	 * @param filterForm 
-	 * @param result
-	 * @param redirectAttributes
-	 * @return
-	 * @throws IllegalAccessException
-	 * @throws IllegalArgumentException
-	 * @throws InvocationTargetException
-	 */
-	@RequestMapping(value = "/filterAds", method = RequestMethod.POST)
-	public String filterAds(@Valid FilterForm filterForm, BindingResult result,	RedirectAttributes redirectAttributes)throws IllegalAccessException, IllegalArgumentException,
-			InvocationTargetException {
+    @Autowired
+    private IFilterLogicService filterService;
+   
+    /**
+     * this mapping method triggers when the filter.jsp parameters are
+     * submitted. It takes a valid filterForm which contains all the filter
+     * criteria and applies them with various helper methods, and finally gets
+     * back the filtered ads in form of an ArrayList<Advertisement> Redirects
+     * the user to the ads page containing the list.
+     * 
+     * @param filterForm
+     * @param result
+     * @param redirectAttributes
+     * @return
+     * @throws IllegalAccessException
+     * @throws IllegalArgumentException
+     * @throws InvocationTargetException
+     */
+    @RequestMapping(value = "/filterAds", method = RequestMethod.POST)
+    public String filterAds(@Valid FilterForm filterForm, BindingResult result, RedirectAttributes redirectAttributes)
+	    throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 
-		ArrayList<String> getters = filterService.getGettersOfFilterForm();
-		ArrayList<String> paramNames = filterService.getParamsOfFilterForm(getters);
-		Advertisement adToCompare = filterService.getAdToCompare(getters,paramNames, filterForm);
+	ArrayList<String> getters = filterService.getGettersOfFilterForm();
+	ArrayList<String> paramNames = filterService.getParamsOfFilterForm(getters);
+	Advertisement adToCompare = filterService.getAdToCompare(getters, paramNames, filterForm);
 
-		ArrayList<Advertisement> filteredAds = filterService.getAdsThatMatchTheFilter(adToCompare, getters);
-		
-		// used to redirect the filtered ads arraylist onto the /ads mapping ( AdController)
-		redirectAttributes.addFlashAttribute("adsParam", filteredAds);
+	ArrayList<Advertisement> filteredAds = filterService.getAdsThatMatchTheFilter(adToCompare, getters);
 
-		return "redirect:/ads";
+	// used to redirect the filtered ads arraylist onto the /ads mapping (
+	// AdController)
+	redirectAttributes.addFlashAttribute("adsParam", filteredAds);
 
+	return "redirect:/ads";
+
+    }
+
+    /**
+     * This mapping method is the same as filter ads, but it is triggered with a
+     * smaller filter on the index.jsp page The small filter has lesser
+     * parameters than the big filter, and is only needed when filtering on the
+     * index page.
+     * 
+     * @param filterForm
+     * @param result
+     * @param redirectAttributes
+     * @return
+     * @throws IllegalAccessException
+     * @throws IllegalArgumentException
+     * @throws InvocationTargetException
+     */
+    @RequestMapping(value = "/filterAdsIndex", method = RequestMethod.POST)
+    public String filterAdsIndex(@Valid FilterForm filterForm, BindingResult result,
+	    RedirectAttributes redirectAttributes) throws IllegalAccessException, IllegalArgumentException,InvocationTargetException {
+
+	if (!result.hasErrors()) {
+	    ArrayList<Advertisement> filteredAds = filterService.getAdsThatMatchTheSmallFilter(filterForm.getCity(),filterForm.getRoomPrice());
+	    redirectAttributes.addFlashAttribute("adsParam", filteredAds);
+	    return "redirect:/ads";
+	} else {
+	    return "redirect:/";
 	}
 
-	/**
-	 * This mapping method is the same as filter ads, but it is triggered with a smaller filter on the index.jsp page
-	 * The small filter has lesser parameters than the big filter, and is only needed when filtering on the index page.
-	 * @param filterForm
-	 * @param result
-	 * @param redirectAttributes
-	 * @return
-	 * @throws IllegalAccessException
-	 * @throws IllegalArgumentException
-	 * @throws InvocationTargetException
-	 */
-	@RequestMapping(value = "/filterAdsIndex", method = RequestMethod.POST)
-	public String filterAdsIndex(@Valid FilterForm filterForm,
-			BindingResult result, RedirectAttributes redirectAttributes)
-			throws IllegalAccessException, IllegalArgumentException,
-			InvocationTargetException {
-		
-		if (!result.hasErrors()) {
-			ArrayList<Advertisement> filteredAds = filterService.getAdsThatMatchTheSmallFilter(filterForm.getCity(),filterForm.getRoomPrice());
-			redirectAttributes.addFlashAttribute("adsParam", filteredAds);
-			return "redirect:/ads";
-		}
-		else{
-			return "redirect:/";
-		}
-
-	}
-
-	
+    }
 
 }

@@ -1,6 +1,5 @@
 package org.eseTeam2.model;
 
-
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -23,85 +22,89 @@ import org.hibernate.annotations.FetchMode;
 @Entity
 public class AdApplication {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
-	@ManyToOne
-	private Advertisement ad;
-	
-	@ManyToOne
-	private User applicant;
-	
-	private String title;
-	
-	@Column(columnDefinition="TEXT")
-	private String message;
-	
-	private String timeLimitation;
-	
-	private boolean smoker;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	public String getTitle() {
-		return title;
-	}
+    @ManyToOne
+    private Advertisement ad;
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    @ManyToOne
+    private User applicant;
 
-	public String getMessage() {
-		return message;
-	}
+    private String title;
 
-	public void setMessage(String message) {
-		this.message = message;
-	}
+    private boolean favored;
 
-	public String getTimeLimitation() {
-		return timeLimitation;
-	}
+    @Column(columnDefinition = "TEXT")
+    private String message;
 
-	public void setTimeLimitation(String timeLimitation) {
-		this.timeLimitation = timeLimitation;
-	}
+    private String timeLimitation;
 
-	public boolean isSmoker() {
-		return smoker;
-	}
+    private boolean smoker;
 
-	public void setSmoker(boolean smoker) {
-		this.smoker = smoker;
-	}
+    public String getTitle() {
+	return title;
+    }
 
-	public User getApplicant() {
-		return applicant;
-	}
+    public void setTitle(String title) {
+	this.title = title;
+    }
 
-	public void setApplicant(User applicant) {
-		this.applicant = applicant;
-	}
+    public String getMessage() {
+	return message;
+    }
 
-	public Advertisement getAd() {
-		return ad;
-	}
+    public void setMessage(String message) {
+	this.message = message;
+    }
 
-	public void setAd(Advertisement ad) {
-		this.ad = ad;
-	}
+    public String getTimeLimitation() {
+	return timeLimitation;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public void setTimeLimitation(String timeLimitation) {
+	this.timeLimitation = timeLimitation;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public boolean isSmoker() {
+	return smoker;
+    }
 
-	
+    public void setSmoker(boolean smoker) {
+	this.smoker = smoker;
+    }
 
-	
-	
+    public User getApplicant() {
+	return applicant;
+    }
 
-	
+    public void setApplicant(User applicant) {
+	this.applicant = applicant;
+    }
+
+    public Advertisement getAd() {
+	return ad;
+    }
+
+    public void setAd(Advertisement ad) {
+	this.ad = ad;
+    }
+
+    public Long getId() {
+	return id;
+    }
+
+    public void setId(Long id) {
+	this.id = id;
+    }
+
+    public boolean isFavored() {
+	return favored;
+    }
+
+    public void setFavored(boolean favored) {
+	this.favored = favored;
+    }
+
 }

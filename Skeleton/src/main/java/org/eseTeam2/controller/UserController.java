@@ -46,154 +46,149 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class UserController {
 
-	@Autowired
-	private IUserDataService userService;
+    @Autowired
+    private IUserDataService userService;
 
-	@Autowired
-	private IFilterLogicService filterService;
+    @Autowired
+    private IFilterLogicService filterService;
 
-	/**
-	 * this mapping method is triggered when someone wants to register on the
-	 * index.jsp page adds a new signupForm to the register.jsp page.
-	 * 
-	 * @return
-	 */
-	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public ModelAndView register(@ModelAttribute("infoMessage") String message) {
-		ModelAndView model = new ModelAndView("register");
-		model.addObject("signupForm", new SignupForm());
-		model.addObject("infoMessage", message);
-		return model;
-	}
+    /**
+     * this mapping method is triggered when someone wants to register on the
+     * index.jsp page adds a new signupForm to the register.jsp page.
+     * 
+     * @return
+     */
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    public ModelAndView register(@ModelAttribute("infoMessage") String message) {
+	ModelAndView model = new ModelAndView("register");
+	model.addObject("signupForm", new SignupForm());
+	model.addObject("message", message);
+	return model;
+    }
 
+    /**
+     * This mapping method triggers when a user clicks on myprofile on index.jsp
+     * it adds the current user object to the myProfile page.
+     * 
+     * @param principal
+     * @return
+     */
+    @RequestMapping(value = "/myprofile", method = RequestMethod.GET)
+    @ResponseBody
+    public ModelAndView myProfile(Principal principal) {
 
-	/**
-	 * Depreciated method
-	 * 
-	 * @param userId
-	 * @param request
-	 * @param response
-	 * @param session
-	 * @return
-	 */
-	@RequestMapping(value = "/profile", method = RequestMethod.GET)
-	public ModelAndView showProfileId(@RequestParam(value = "userId", required = true) Long userId,
-			HttpServletRequest request, HttpServletResponse response, HttpSession session) {
-		ModelAndView model = new ModelAndView("profile");
-		model.addObject("newProfile", userService.getUserById(userId));
-		return model;
-	}
+	User currentUser = userService.getUserByEmail(principal.getName());
 
-	/**
-	 * This mapping method triggers when a user clicks on myprofile on index.jsp
-	 * it adds the current user object to the myProfile page.
-	 * 
-	 * @param principal
-	 * @return
-	 */
-	@RequestMapping(value = "/myprofile", method = RequestMethod.GET)
-	@ResponseBody
-	public ModelAndView myProfile(Principal principal) {
+	ModelAndView model = new ModelAndView("myProfile");
+	model.addObject("user", currentUser);
+	return model;
+    }
 
-		User currentUser = userService.getUserByEmail(principal.getName());
+    /**
+     * This mapping method triggers when a user clicks on the myads on index.jsp
+     * it adds the user to the myAds page, to display all his ads.
+     * 
+     * @param principal
+     * @return
+     */
+    @RequestMapping(value = "/myads", method = RequestMethod.GET)
+    @ResponseBody
+    public ModelAndView myAds(Principal principal, @ModelAttribute("infoMessage") String message) {
 
-		ModelAndView model = new ModelAndView("myProfile");
-		model.addObject("user", currentUser);
-		return model;
-	}
+	User currentUser = userService.getUserByEmail(principal.getName());
 
-	/**
-	 * This mapping method triggers when a user clicks on the myads on index.jsp
-	 * it adds the user to the myAds page, to display all his ads.
-	 * 
-	 * @param principal
-	 * @return
-	 */
-	@RequestMapping(value = "/myads", method = RequestMethod.GET)
-	@ResponseBody
-	public ModelAndView myAds(Principal principal, @ModelAttribute("infoMessage") String message) {
+	ModelAndView model = new ModelAndView("myAds");
+	model.addObject("user", currentUser);
+	model.addObject("infoMessage", message);
+	return model;
+    }
 
-		User currentUser = userService.getUserByEmail(principal.getName());
-
-		ModelAndView model = new ModelAndView("myAds");
-		model.addObject("user", currentUser);
-		model.addObject("infoMessage", message);
-		return model;
-	}
-
-	/**
-	 * This mapping method is triggered when the signupForm is submitted.
-	 * It creates a new User object and saves it into the database.
-	 * @param signupForm
-	 * @param result
-	 * @param redirectAttributes
-	 * @return
-	 */
-	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public ModelAndView create(@Valid SignupForm signupForm, Principal principal, BindingResult result, HttpServletRequest request, RedirectAttributes redirectAttributes) {
-		ModelAndView model;
-		if (!result.hasErrors()) {
-			try {	
-			    if ( userService.validatePassword(signupForm.getPassword(), signupForm.getPasswordVerify()) == false){
-				redirectAttributes.addFlashAttribute("infoMessage", "Deine Passwörter stimmen nicht überein");
-				return new ModelAndView("redirect:/register"); 
-				}
-				userService.saveFrom(signupForm);
-				redirectAttributes.addFlashAttribute("infoMessage", "Du hast dich erfolgreich registriert. Du kannst dich nun einloggen");
-				
-				model = new ModelAndView("redirect:/");
-			} catch (InvalidUserException e) {
-				model = new ModelAndView("register");
-				model.addObject("page_error", e.getMessage());
-			}
-		} else {
-				model = new ModelAndView("register");
+    /**
+     * This mapping method is triggered when the signupForm is submitted. It
+     * creates a new User object and saves it into the database.
+     * 
+     * @param signupForm
+     * @param result
+     * @param redirectAttributes
+     * @return
+     */
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    public ModelAndView create(@Valid SignupForm signupForm, BindingResult result, RedirectAttributes redirectAttributes) {
+	
+	ModelAndView model;
+	
+	try {
+	    if (userService.validatePassword(signupForm.getPassword(), signupForm.getPasswordVerify()) == false) {
+		    redirectAttributes.addFlashAttribute("infoMessage", "Deine Passwörter stimmen nicht überein");
+		    return new ModelAndView("redirect:/register");
 		}
-		return model;
+	    
+	    
+	} catch (Exception d) {}
+		
+	if (!result.hasErrors()) {
+	    try {
+		    
+		if ( userService.getUserByEmail(signupForm.getEmail()) != null) {
+		    redirectAttributes.addFlashAttribute("infoMessage", "Ein user mit diesem Account existiert schon!");
+		    return new ModelAndView("redirect:/register");
+		}
+		userService.saveFrom(signupForm);
+		redirectAttributes.addFlashAttribute("infoMessage", "Du hast dich erfolgreich registriert. Du kannst dich nun einloggen");
+
+		model = new ModelAndView("redirect:/");
+	    } catch (InvalidUserException e) {
+		model = new ModelAndView("register");
+		model.addObject("page_error", e.getMessage());
+	    }
+	} else {
+	    model = new ModelAndView("register");
 	}
+	return model;
+    }
 
-	
-	/**
-	 * this mapping method triggers when the user choses to place a custom filter on his myprofile.jsp
-	 * it ads a filterForm to the displayed createCustomFilter.jsp page and displays it.
-	 * @return
-	 */
-	@RequestMapping(value = "/setInformFilter", method = RequestMethod.GET)
-	public ModelAndView setPersonalFilter() {
+    /**
+     * this mapping method triggers when the user choses to place a custom
+     * filter on his myprofile.jsp it ads a filterForm to the displayed
+     * createCustomFilter.jsp page and displays it.
+     * 
+     * @return
+     */
+    @RequestMapping(value = "/setInformFilter", method = RequestMethod.GET)
+    public ModelAndView setPersonalFilter() {
 
-		ModelAndView model = new ModelAndView("createCustomFilter");
-		model.addObject("filterForm", new FilterForm());
-		return model;
-	}
-	
-	
-	/**
-	 * This mapping method triggers when a user creates a custom filter on his the createCustomFilter.jsp page
-	 * It creates an CustomFilterAd which is exactly the ad the user is looking for, and stores it to the user object.
-	 * @param filterForm
-	 * @param result
-	 * @param redirectAttributes
-	 * @param principal
-	 * @return
-	 * @throws IllegalAccessException
-	 * @throws IllegalArgumentException
-	 * @throws InvocationTargetException
-	 */
-	@RequestMapping(value = "/saveCustomFilter", method = RequestMethod.POST)
-	public String saveCustFilter(@Valid FilterForm filterForm, BindingResult result,
-			RedirectAttributes redirectAttributes, Principal principal) throws IllegalAccessException,
-			IllegalArgumentException, InvocationTargetException {
+	ModelAndView model = new ModelAndView("createCustomFilter");
+	model.addObject("filterForm", new FilterForm());
+	return model;
+    }
 
-		ArrayList<String> getters = filterService.getGettersOfFilterForm();
-		ArrayList<String> paramNames = filterService.getParamsOfFilterForm(getters);
-		CustomFilterAd adToCompare = filterService.getFilterAdToCompare(getters, paramNames, filterForm);
+    /**
+     * This mapping method triggers when a user creates a custom filter on his
+     * the createCustomFilter.jsp page It creates an CustomFilterAd which is
+     * exactly the ad the user is looking for, and stores it to the user object.
+     * 
+     * @param filterForm
+     * @param result
+     * @param redirectAttributes
+     * @param principal
+     * @return
+     * @throws IllegalAccessException
+     * @throws IllegalArgumentException
+     * @throws InvocationTargetException
+     */
+    @RequestMapping(value = "/saveCustomFilter", method = RequestMethod.POST)
+    public String saveCustFilter(@Valid FilterForm filterForm, BindingResult result,
+	    RedirectAttributes redirectAttributes, Principal principal) throws IllegalAccessException,
+	    IllegalArgumentException, InvocationTargetException {
 
-		userService.saveExampleAd(adToCompare, userService.getUserByEmail(principal.getName()));
+	ArrayList<String> getters = filterService.getGettersOfFilterForm();
+	ArrayList<String> paramNames = filterService.getParamsOfFilterForm(getters);
+	CustomFilterAd adToCompare = filterService.getFilterAdToCompare(getters, paramNames, filterForm);
 
-		return "redirect:/myprofile";
+	userService.saveExampleAd(adToCompare, userService.getUserByEmail(principal.getName()));
 
-	}
+	return "redirect:/myprofile";
 
-	
+    }
 
 }

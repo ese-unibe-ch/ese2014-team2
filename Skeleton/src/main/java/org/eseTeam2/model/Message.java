@@ -19,152 +19,141 @@ import org.hibernate.annotations.Columns;
 @Embeddable
 public class Message {
 
-	@Id
-	@GeneratedValue
-	private Long id;
-	
-	@Column( length=50000)
-	private String title;
-	
-	
-	@Column( length=50000)
-	private String messageText;
+    @Id
+    @GeneratedValue
+    private Long id;
 
-		
-	@ManyToOne 
-	private User sender;
-	
-	@ManyToOne 
-	private User recipient;
-	
-	@ManyToOne 
-	private User notifications;
-	
-	@ManyToOne 
-	private User appointmentInvitations;
-	
-	private boolean accepted;
-	
-	private boolean rejected;
-	
-	
-	
-	private Long appointedAppointment;
-	
-	private boolean senderDeleted;
-	private boolean recipientDeleted;
-	
-	private boolean readMessage;
-	
+    @Column(length = 50000)
+    private String title;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @Column(length = 50000)
+    private String messageText;
 
-	public Long getId() {
-		return id;
-	}
+    @ManyToOne
+    private User sender;
 
-	
+    @ManyToOne
+    private User recipient;
 
-	public String getTitle() {
-		return title;
-	}
+    @ManyToOne
+    private User notifications;
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    @ManyToOne
+    private User appointmentInvitations;
 
-	public User getRecipient() {
-		return recipient;
-	}
+    private boolean accepted;
 
-	public void setRecipient(User recipient) {
-		this.recipient = recipient;
-	}
+    private boolean rejected;
 
-	public User getSender() {
-		return sender;
-	}
+    private Long appointedAppointment;
 
-	public void setSender(User sender) {
-		this.sender = sender;
-	}
+    private boolean senderDeleted;
+    private boolean recipientDeleted;
 
-	public String getMessageText() {
-		return messageText;
-	}
+    private boolean readMessage;
 
-	public void setMessageText(String messageText) {
-		this.messageText = messageText;
-	}
+    public void setId(Long id) {
+	this.id = id;
+    }
 
-	public boolean isSenderDeleted() {
-		return senderDeleted;
-	}
+    public Long getId() {
+	return id;
+    }
 
-	public void setSenderDeleted(boolean senderDeleted) {
-		this.senderDeleted = senderDeleted;
-	}
+    public String getTitle() {
+	return title;
+    }
 
-	public boolean isRecipientDeleted() {
-		return recipientDeleted;
-	}
+    public void setTitle(String title) {
+	this.title = title;
+    }
 
-	public void setRecipientDeleted(boolean recipientDeleted) {
-		this.recipientDeleted = recipientDeleted;
-	}
+    public User getRecipient() {
+	return recipient;
+    }
 
-	public User getNotifications() {
-		return notifications;
-	}
+    public void setRecipient(User recipient) {
+	this.recipient = recipient;
+    }
 
-	public void setNotifications(User notifications) {
-		this.notifications = notifications;
-	}
+    public User getSender() {
+	return sender;
+    }
 
-	public User getAppointmentInvitations() {
-		return appointmentInvitations;
-	}
+    public void setSender(User sender) {
+	this.sender = sender;
+    }
 
-	public void setAppointmentInvitations(User appointmentInvitations) {
-		this.appointmentInvitations = appointmentInvitations;
-	}
+    public String getMessageText() {
+	return messageText;
+    }
 
-	public Long getAppointedAppointment() {
-	    return appointedAppointment;
-	}
+    public void setMessageText(String messageText) {
+	this.messageText = messageText;
+    }
 
-	public void setAppointedAppointment(Long appointedAppointment) {
-	    this.appointedAppointment = appointedAppointment;
-	}
+    public boolean isSenderDeleted() {
+	return senderDeleted;
+    }
 
-	public boolean isAccepted() {
-	    return accepted;
-	}
+    public void setSenderDeleted(boolean senderDeleted) {
+	this.senderDeleted = senderDeleted;
+    }
 
-	public void setAccepted(boolean accepted) {
-	    this.accepted = accepted;
-	}
+    public boolean isRecipientDeleted() {
+	return recipientDeleted;
+    }
 
-	public boolean isRejected() {
-	    return rejected;
-	}
+    public void setRecipientDeleted(boolean recipientDeleted) {
+	this.recipientDeleted = recipientDeleted;
+    }
 
-	public void setRejected(boolean rejected) {
-	    this.rejected = rejected;
-	}
+    public User getNotifications() {
+	return notifications;
+    }
 
-	public boolean isReadMessage() {
-	    return readMessage;
-	}
+    public void setNotifications(User notifications) {
+	this.notifications = notifications;
+    }
 
-	public void setReadMessage(boolean readMessage) {
-	    this.readMessage = readMessage;
-	}
+    public User getAppointmentInvitations() {
+	return appointmentInvitations;
+    }
 
-	
+    public void setAppointmentInvitations(User appointmentInvitations) {
+	this.appointmentInvitations = appointmentInvitations;
+    }
 
+    public Long getAppointedAppointment() {
+	return appointedAppointment;
+    }
 
-	
+    public void setAppointedAppointment(Long appointedAppointment) {
+	this.appointedAppointment = appointedAppointment;
+    }
+
+    public boolean isAccepted() {
+	return accepted;
+    }
+
+    public void setAccepted(boolean accepted) {
+	this.accepted = accepted;
+    }
+
+    public boolean isRejected() {
+	return rejected;
+    }
+
+    public void setRejected(boolean rejected) {
+	this.rejected = rejected;
+    }
+
+    public boolean isReadMessage() {
+	return readMessage;
+    }
+
+    public void setReadMessage(boolean readMessage) {
+	this.readMessage = readMessage;
+    }
+
 }

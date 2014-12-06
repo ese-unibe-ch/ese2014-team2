@@ -12,9 +12,9 @@
 		<h1>Registriere dich hier!</h1>
 			<legend>Gib deine Informationen ein!</legend>
 		
-	<c:if test="${not empty infoMessage}">
-	<div class="alert alert-success" role="alert"><font color="006600" size="3"> ${infoMessage}</font></div>
-</c:if>
+	<c:if test="${not empty message}">
+<div class="alert alert-danger" role="alert"><font color="CC0000" size="3"> ${message}</font></div>
+</c:if>	
 	
 		<form:form method="post" modelAttribute="signupForm" action="create" id="signupForm" cssClass="form-horizontal"  autocomplete="off">
     			<fieldset>
@@ -72,9 +72,10 @@
 
 
 <div class="form-actions">
-           <button type="submit" id="submitB" class="btn btn-primary">Registrieren</button>
+          
 
             <a href="#" onclick="history.go(-2)">	<button type="button" class="btn btn-danger">Abbrechen</button></a>
+             <button type="submit" id="submitB" class="btn btn-primary">Registrieren</button>
         </div>
     </fieldset>
 </form:form>

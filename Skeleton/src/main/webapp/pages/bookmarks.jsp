@@ -26,18 +26,22 @@
 
 			<c:forEach items="${bookmarks}" var="bookmark">
 				<tr>
-					<td><a href="adprofile?adId=${bookmark.ad.id}"> <h4>
-							 ${bookmark.ad.title}</h4>
+					<c:forEach items="${ads}" var="adv">
+						<c:if test="${adv.id eq bookmark.ad}">
+					<td><a href="adprofile?adId=${bookmark.ad}"> <h4>
+							 ${adv.title}</h4>
+							 </c:if>
 					</a></td>
+					</c:forEach>
 					<td>
 						<div class="btn-group btn-group-lg">
 
 
-							<a href="adprofile?adId=${bookmark.ad.id}">
+							<a href="adprofile?adId=${bookmark.ad}">
 								<button type="button" class="btn btn-default">
 									<b>Zeige Ad </b>
 								</button>
-							</a> <a href="unBookmarkAdFromBookmarks?adId=${bookmark.ad.id}">
+							</a> <a href="unBookmarkAdFromBookmarks?adId=${bookmark.ad}">
 								<button type="button" class="btn btn-danger">
 									<b> Entferne Favorit </b>
 								</button>

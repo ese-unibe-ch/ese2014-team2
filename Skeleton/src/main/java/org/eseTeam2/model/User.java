@@ -40,18 +40,12 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<UserRole> userRole;
 
-    @OneToMany(mappedBy="creator" , fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "creator", fetch = FetchType.EAGER)
     private Set<Advertisement> advertisements;
-
-    @OneToOne(fetch = FetchType.EAGER)
-    private Roomie roomie;
-
-
 
     @OneToMany(mappedBy = "sender", fetch = FetchType.EAGER)
     @Fetch(value = FetchMode.SUBSELECT)
     private List<Message> sender;
-    
 
     @OneToMany(mappedBy = "bookmarker", fetch = FetchType.EAGER)
     @Fetch(value = FetchMode.SUBSELECT)
@@ -143,14 +137,6 @@ public class User {
 	this.advertisements = advertisements;
     }
 
-    public Roomie getRoomie() {
-	return roomie;
-    }
-
-    public void setRoomie(Roomie roomie) {
-	this.roomie = roomie;
-    }
-
     public List<Message> getRecipient() {
 	return recipient;
     }
@@ -214,10 +200,5 @@ public class User {
     public void setBookmarks(List<Bookmark> bookmarks) {
 	this.bookmarks = bookmarks;
     }
-
- 
-  
-
-  
 
 }

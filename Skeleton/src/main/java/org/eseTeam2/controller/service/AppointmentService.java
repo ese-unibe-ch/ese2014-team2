@@ -14,17 +14,20 @@ import org.eseTeam2.controller.pojos.NoteForm;
 import org.eseTeam2.model.AdApplication;
 import org.eseTeam2.model.Advertisement;
 import org.eseTeam2.model.Appointment;
+import org.eseTeam2.model.AppointmentAccepted;
 import org.eseTeam2.model.AppointmentDate;
 import org.eseTeam2.model.Message;
 import org.eseTeam2.model.Note;
 import org.eseTeam2.model.User;
 import org.eseTeam2.model.dao.AdApplicationDao;
 import org.eseTeam2.model.dao.AdvertisementDao;
+import org.eseTeam2.model.dao.AppointmentAcceptedDao;
 import org.eseTeam2.model.dao.AppointmentDao;
 import org.eseTeam2.model.dao.AppointmentDateDao;
 import org.eseTeam2.model.dao.MessageDao;
 import org.eseTeam2.model.dao.NoteDao;
 import org.eseTeam2.model.dao.UserDao;
+import org.hibernate.Hibernate;
 import org.jsoup.Jsoup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSendException;
@@ -63,6 +66,9 @@ public class AppointmentService implements IAppointmentService {
 
     @Autowired
     AdApplicationDao adApplicationDao;
+    
+    @Autowired
+    AppointmentAcceptedDao appAcceptedDao;
 
     /**
      * This method creates an AdApplication. Therefore it creates an
@@ -83,9 +89,9 @@ public class AppointmentService implements IAppointmentService {
 	application.setApplicant(applicantForm.getInteressent());
 	application.setMessage(Jsoup.parse(applicantForm.getMessage()).text());
 	application.setTitle(applicantForm.getTitle());
-	if ( !applicantForm.getBisWann().equals(""))
+	if (!applicantForm.getBisWann().equals(""))
 	    application.setTimeLimitation(applicantForm.getBisWann());
-	else 
+	else
 	    application.setTimeLimitation("sobald wie möglich");
 
 	User adCreator = ad.getCreator();
@@ -115,14 +121,9 @@ public class AppointmentService implements IAppointmentService {
 
 	application = adApplicationDao.save(application);
 
-	notification
-		.setMessageText("Hey, "
-			+ adCreator.getFirstName()
-			+ ", du hast einen neuen Interessenten für dein Ad mit dem Titel "
-			+ ad.getTitle()
-			+ "clicke <a href=\"interessentDetails?applicationId="
-			+ application.getId() + "\">"
-			+ "HIER </a> um die Bewerbung anzusehen.");
+	notification.setMessageText("Hey, " + adCreator.getFirstName()+ ", du hast einen neuen Interessenten für dein Ad mit dem Titel " + ad.getTitle()+ "clicke <a href=\"interessentDetails?applicationId=" + application.getId() + "\">"
+		+ "HIER </a> um die Bewerbung anzusehen.");
+	
 	notification.setTitle("Neuen Interessenten für, " + ad.getTitle());
 	notification.setNotifications(adCreator);
 
@@ -146,9 +147,12 @@ public class AppointmentService implements IAppointmentService {
      */
     // refactor potential
     public void sendOutAppointment(AppointmentFinderForm appForm) {
-
+	Advertisement ad = adDao.findOne(appForm.getAdId());
+	
 	Appointment appointment = new Appointment();
+
 	AppointmentDate date = new AppointmentDate();
+	
 	List<Appointment> adAppointments = new ArrayList<Appointment>();
 	List<Message> allMessagesCreatedHere = new ArrayList<Message>();
 
@@ -156,7 +160,7 @@ public class AppointmentService implements IAppointmentService {
 
 	User adOwner = appForm.getAdOwner();
 
-	Advertisement ad = adDao.findOne(appForm.getAdId());
+
 	List<AdApplication> applicationsOfAd = new ArrayList<AdApplication>();
 
 	for (int i = 0; i < appForm.getAdAppointmentIds().size(); i++)
@@ -172,14 +176,11 @@ public class AppointmentService implements IAppointmentService {
 	appointment.setBlockLength(appForm.getBlockLength());
 	appointment.setAdditionalInfosForTheVisitors(Jsoup.parse(appForm.getAdditionalInfosForTheVisitors()).text());
 
-
 	date.setDay(appForm.getAppointmentDate());
 	date.setStartHour(appForm.getStartTime());
 	date.setEndHour(appForm.getEndTime());
 
-
 	dateDao.save(date);
-
 
 	appointment.setAppointmentDate(date);
 
@@ -190,41 +191,27 @@ public class AppointmentService implements IAppointmentService {
 	    List<Message> appointmentInvitationMessages = new ArrayList<Message>();
 
 	    try {
-		appointmentInvitationMessages = interessent
-			.getAppointmentInvitations();
+		appointmentInvitationMessages = interessent.getAppointmentInvitations();
 	    } catch (Exception d) {
 	    }
 
 	    Message inform = new Message();
 	    inform.setTitle("Einladung zu einer Wohnungbesichtigung");
-	    inform.setMessageText("Hallo, du wurdest von "
-		    + adOwner.getFirstName() + " " + adOwner.getLastName()
-		    + " zur besichtigung des Ads: <a href=\"adprofile?adId="
-		    + ad.getId() + "\">" + ad.getTitle() + "</a> eingeladen<br>"
-		    + " der Termin wäre am " + date.getDay()
-		    + " um " + date.getStartHour()
+	    
+	    inform.setMessageText("Hallo, du wurdest von " + adOwner.getFirstName() + " " + adOwner.getLastName()
+		    + " zur besichtigung des Ads: <a href=\"adprofile?adId=" + ad.getId() + "\">" + ad.getTitle()
+		    + "</a> eingeladen<br>" + " der Termin wäre am " + date.getDay() + " um " + date.getStartHour()
 		    + " Einladungsnachricht des Zimmerbesitzers: <br> "
 		    + appointment.getAdditionalInfosForTheVisitors());
 	    appointmentInvitationMessages.add(inform);
 
-	    interessent
-		    .setAppointmentInvitations(appointmentInvitationMessages);
+	    interessent.setAppointmentInvitations(appointmentInvitationMessages);
 
 	    adInvitations.add(interessent);
 
 	    inform.setAppointmentInvitations(interessent);
 
-	    /*
-	     * String message = "Hallo, " + interessent.getFirstName() + " " +
-	     * interessent.getLastName() + "\n" +
-	     * " du wurdest eingeladen zu einer Wohnungbesichtigung. Logge dich doch bitte auf deinem Account ein und gehe in deine Inbox \n"
-	     * + " Dort erhälst du alle Details.";
-	     * 
-	     * // you seem to have a mailsend limit per day oO try {
-	     * mailer.sendEmail(interessent.getEmail(), message,
-	     * "Einladung zur Wohnungsbesichtigung"); } catch (MailSendException
-	     * e) {}
-	     */
+	   
 
 	    userDao.save(interessent);
 
@@ -235,14 +222,20 @@ public class AppointmentService implements IAppointmentService {
 	}
 
 	appointment.setInvitations(adInvitations);
-	appointment.setAd(ad);
+	appointment.setAd(ad.getId());
 
-	adAppointments = ad.getAppointments();
-
-	adAppointments.add(appointment);
-	ad.setAppointments(adAppointments);
-
+	List<Long> adAppointmentIds = ad.getAppointments();
 	appointment = appDao.save(appointment);
+	
+	
+	adAppointmentIds.add(appointment.getId());
+	
+	
+	
+	adAppointments.add(appointment);
+	ad.setAppointments(adAppointmentIds);
+
+	
 
 	for (Message m : allMessagesCreatedHere) {
 	    m.setAppointedAppointment(appointment.getId());
@@ -260,9 +253,36 @@ public class AppointmentService implements IAppointmentService {
      */
     public void acceptInvitation(User currentUser, Long appointmentId) {
 	Appointment appointment = appDao.findOne(appointmentId);
-
+	
+	// set to the appointment that the appointment is accepted.
+	AppointmentAccepted hasAcceptedFlag = new AppointmentAccepted();
+	
+	try {
+	    hasAcceptedFlag = appAcceptedDao.findByUserAndAppointment(currentUser, appointment);
+	}
+	catch (Exception d) {
+	    hasAcceptedFlag = new AppointmentAccepted();
+	}
+	
+	if ( hasAcceptedFlag == null)
+	    hasAcceptedFlag= new AppointmentAccepted();
+	
+	hasAcceptedFlag.setAccepted(true);
+	hasAcceptedFlag.setRejected(false);
+	hasAcceptedFlag.setUser(currentUser);
+	hasAcceptedFlag.setAppointment(appointment);
+	hasAcceptedFlag = appAcceptedDao.save(hasAcceptedFlag);
+	
+	
+	List<AppointmentAccepted> acceptsOfAppointment =    appointment.getWhoAcceptedTheAppointment();
+	
+	acceptsOfAppointment.add(hasAcceptedFlag);
+	appointment.setWhoAcceptedTheAppointment(acceptsOfAppointment);
+	appointment = appDao.save(appointment);
+	
+	
 	List<Message> notifications = new ArrayList<Message>();
-	User adOwner = appointment.getAd().getCreator();
+	User adOwner = adDao.findOne(appointment.getAd()).getCreator();
 
 	try {
 	    notifications = adOwner.getNotifications();
@@ -271,17 +291,14 @@ public class AppointmentService implements IAppointmentService {
 
 	Message answerToInviter = new Message();
 
-	answerToInviter.setMessageText("Hey \n" + currentUser.getFirstName()
-		+ " " + currentUser.getLastName()
-		+ " hat deine Einladung angenommen\n"
-		+ "er wird zum gegebenen Termin am"
-		+ appointment.getAppointmentDate().getDay()
-		+ " zwischen "
-		+ appointment.getAppointmentDate().getStartHour()
-		+ " und" + appointment.getAppointmentDate().getEndHour()
-		+ "erscheinen");
-	answerToInviter.setTitle(currentUser.getFirstName() + " "
-		+ currentUser.getLastName() + " hat die Einladung angenommen");
+	answerToInviter.setMessageText("Hey \n" + currentUser.getFirstName() + " " + currentUser.getLastName()
+		+ " hat deine Einladung angenommen\n" + "er wird zum gegebenen Termin am"
+		+ appointment.getAppointmentDate().getDay() + " zwischen "
+		+ appointment.getAppointmentDate().getStartHour() + " und"
+		+ appointment.getAppointmentDate().getEndHour() + "erscheinen");
+	
+	answerToInviter.setTitle(currentUser.getFirstName() + " " + currentUser.getLastName()
+		+ " hat die Einladung angenommen");
 
 	notifications.add(answerToInviter);
 	answerToInviter.setNotifications(adOwner);
@@ -309,9 +326,34 @@ public class AppointmentService implements IAppointmentService {
      */
     public void rejectInvitation(User currentUser, Long appointmentId) {
 	Appointment appointment = appDao.findOne(appointmentId);
-
+	
+	
+	AppointmentAccepted hasAcceptedFlag = new AppointmentAccepted();
+	try {
+	    hasAcceptedFlag = appAcceptedDao.findByUserAndAppointment(currentUser, appointment);
+	}
+	catch (Exception d) {}
+	
+	if ( hasAcceptedFlag == null)
+	    hasAcceptedFlag= new AppointmentAccepted();
+	
+	
+	hasAcceptedFlag.setAccepted(false);
+	hasAcceptedFlag.setRejected(true);
+	hasAcceptedFlag.setUser(currentUser);
+	hasAcceptedFlag.setAppointment(appointment);
+	hasAcceptedFlag = appAcceptedDao.save(hasAcceptedFlag);
+	
+	
+	List<AppointmentAccepted> acceptsOfAppointment =    appointment.getWhoAcceptedTheAppointment();
+	
+	acceptsOfAppointment.add(hasAcceptedFlag);
+	appointment.setWhoAcceptedTheAppointment(acceptsOfAppointment);
+	appointment = appDao.save(appointment);
+	
+	
 	List<Message> notifications = new ArrayList<Message>();
-	User adOwner = appointment.getAd().getCreator();
+	User adOwner = adDao.findOne(appointment.getAd()).getCreator();
 
 	try {
 	    notifications = adOwner.getNotifications();
@@ -320,11 +362,8 @@ public class AppointmentService implements IAppointmentService {
 
 	Message answerToInviter = new Message();
 
-	answerToInviter.setMessageText("Hey \n" + currentUser.getFirstName()
-		+ " " + currentUser.getLastName()
-		+ " hat deine Einladung abgelehnt \n ");
-	answerToInviter.setTitle(currentUser.getFirstName() + " "
-		+ currentUser.getLastName() + " hat die Einladung abgelehnt");
+	answerToInviter.setMessageText("Hey \n" + currentUser.getFirstName() + " " + currentUser.getLastName()+ " hat deine Einladung abgelehnt \n ");
+	answerToInviter.setTitle(currentUser.getFirstName() + " " + currentUser.getLastName()+ " hat die Einladung abgelehnt");
 
 	notifications.add(answerToInviter);
 	answerToInviter.setNotifications(adOwner);
@@ -346,60 +385,34 @@ public class AppointmentService implements IAppointmentService {
 
     }
 
+    /**
+     * this method is used to remove unwanted interessents.
+     */
     public void deleteInteressent(Long applicationId) {
-	
-	
+
 	List<Message> notifications = new ArrayList<Message>();
 	try {
-	   notifications = adApplicationDao.findOne(applicationId).getApplicant().getNotifications();
-	} 
-	catch (Exception d) {
+	    notifications = adApplicationDao.findOne(applicationId).getApplicant().getNotifications();
+	} catch (Exception d) {
 	    notifications = new ArrayList<Message>();
 	}
 	User user = userDao.findOne(adApplicationDao.findOne(applicationId).getApplicant().getId());
 	Message notification = new Message();
 	notification.setTitle("Zimmer leider vergeben");
-	notification.setMessageText("Hey, das Zimmer " + adApplicationDao.findOne(applicationId).getAd().getTitle() + " ist leider bereits vergeben. Viel glück noch bei deiner Suche!");
-	notification.setNotifications(user);
+	notification.setMessageText("Hey, das Zimmer " + adApplicationDao.findOne(applicationId).getAd().getTitle()+ " ist leider bereits vergeben. Viel glück noch bei deiner Suche!");
 	
+	notification.setNotifications(user);
+
 	notification = messageDao.save(notification);
 	notifications.add(notification);
 	user.setNotifications(notifications);
 	userDao.save(user);
-	
-	/*
-	 * AdApplication application = adApplicationDao.findOne(applicationId);
-	 * Advertisement ad = adDao.findOne(application.getAd().getId()); User
-	 * interessent = userDao.findOne(application.getApplicant().getId());
-	 * List<AdApplication> applications = ad.getApplications();
-	 * List<AdApplication> usersApplications = new
-	 * ArrayList<AdApplication>();
-	 * 
-	 * 
-	 * 
-	 * // remove user from ads interessent list AdApplication userToDelete=
-	 * null; AdApplication adToDelete= null; for( AdApplication a :
-	 * applications ) { if( a.getApplicant().getId() == interessent.getId())
-	 * userToDelete = a; if( a.getAd().getId() == ad.getId()) adToDelete =
-	 * a;
-	 * 
-	 * }
-	 * 
-	 * applications.remove(userToDelete); ad.setApplications(applications);
-	 * 
-	 * 
-	 * 
-	 * usersApplications.remove(adToDelete);
-	 * interessent.setApplications(usersApplications);
-	 * 
-	 * adDao.save(ad); userDao.save(interessent);
-	 */
+
 	adApplicationDao.delete(applicationId);
-	
-	
 
     }
-
+    
+    
     public AdApplication findOneApplication(Long applicationId) {
 	return adApplicationDao.findOne(applicationId);
     }
@@ -408,13 +421,15 @@ public class AppointmentService implements IAppointmentService {
 	return appDao.findOne(appointedAppointment);
     }
 
+    /**
+     * this method is a helper method to create and save a note object for a specific appointment
+     */
     public void setNote(Long appointmentId, Long userId, String noteText) {
 
 	Note note = null;
 
 	try {
-	    note = noteDao.findOneByApplicantAndAppointment(
-		    userDao.findOne(userId), appDao.findOne(appointmentId));
+	    note = noteDao.findOneByApplicantAndAppointment(userDao.findOne(userId), appDao.findOne(appointmentId));
 	} catch (Exception d) {
 	    note = new Note();
 	}
@@ -438,6 +453,11 @@ public class AppointmentService implements IAppointmentService {
 	userNotes.add(note);
 	appointment.setUserNotes(userNotes);
 	appDao.save(appointment);
+
+    }
+
+    public void saveAdApplication(AdApplication application) {
+	adApplicationDao.save(application);
 
     }
 }

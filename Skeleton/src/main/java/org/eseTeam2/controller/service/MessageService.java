@@ -17,145 +17,147 @@ import org.springframework.stereotype.Service;
 
 /**
  * This service is handling all the logic to send Messages.
+ * 
  * @author Icewater
  *
  */
 @Service
 public class MessageService implements IMessageService {
+
+    @Autowired
+    MessageDao messageDao;
+
+    @Autowired
+    IAdDataService adService;
+
+    @Autowired
+    UserDao userDao;
+
+    /**
+     * Creates a message Object from a given messageForm. Adds the message to
+     * the User and updates all the corresponding database objects.
+     */
+    public void sendMessage(MessageForm messageForm) {
+	Advertisement ad = new Advertisement();
 	
-	@Autowired
-	MessageDao messageDao;
+	if (messageForm.getAdId() != null)
+	    ad = adService.getAdvertisement(messageForm.getAdId());
 	
-	@Autowired
-	IAdDataService adService;
-	
-	@Autowired
-	UserDao userDao;
+	Message message = new Message();
+	User recipient = userDao.findOne(messageForm.getRecipientId());
+	User sender = messageForm.getSender();
 
-	/**
-	 * Creates a message Object from a given messageForm. Adds the message to the User and updates all the corresponding
-	 * database objects.
-	 */
-	public void sendMessage(MessageForm messageForm) {
-	    Advertisement ad = new Advertisement();
-	    if ( messageForm.getAdId() != null)
-		ad = adService.getAdvertisement(messageForm.getAdId());
-		Message message = new Message();
-		User recipient = userDao.findOne(messageForm.getRecipientId());
-		User sender = messageForm.getSender();
-		
-		
-		List<Message> recipientMessages = new ArrayList<Message>();
-		try {
-			recipientMessages = recipient.getRecipient();
-		}
-		catch (NullPointerException d){}
-		
-		
-		List<Message> senderMessages = new ArrayList<Message>();
-		try {
-			senderMessages = sender.getSender();
-		}
-		catch (NullPointerException d) {}
-		
-		
-		
-		if ( messageForm.getAdId() != null) {
-		    message.setMessageText("Ich habe eine Frage bezüglich des Ads <a href=\"adprofile?adId="+messageForm.getAdId()+"\">"
-			    +ad.getTitle()+"</a> :  " + "<br>"+Jsoup.parse(messageForm.getMessage()).text()); }
-		else {
-		    message.setMessageText(Jsoup.parse(messageForm.getMessage()).text());
-		}
-		
-		message.setTitle(Jsoup.parse(messageForm.getTitle()).text());
-		message.setSender(messageForm.getSender());
-		message.setRecipient(recipient);
-		
-		recipientMessages.add(message);
-		senderMessages.add(message);
-		
-		recipient.setRecipient(recipientMessages);
-		sender.setSender(senderMessages);
-		
-		message = messageDao.save(message);
-		
-		recipient = userDao.save(recipient);
-		sender = userDao.save(sender);
-		
-		
-				
-	}
-	
-	/**
-	 * 
-	 */
-	public Message findOneMessage (Long id) {
-		return messageDao.findOne(id);
+	List<Message> recipientMessages = new ArrayList<Message>();
+	try {
+	    recipientMessages = recipient.getRecipient();
+	} catch (NullPointerException d) {
 	}
 
-	/**
-	 * deletes a message locally for an user. therefore it sets the recipient deleted flag to true
-	 * Doesnt delete the message in the database. 
-	 * Deletes the message in the database, if all corresponding users have deleted the message locally.
-	 */
-	public void deleteRecipientMessage(Long messageId, User currentUser) {
-		Message message = messageDao.findOne(messageId);
-		message.setRecipientDeleted(true);
-		
-		if( message.isSenderDeleted() == true && message.isRecipientDeleted() == true)
-			messageDao.delete(message);
-		else 
-			messageDao.save(message);
-	
+	List<Message> senderMessages = new ArrayList<Message>();
+	try {
+	    senderMessages = sender.getSender();
+	} catch (NullPointerException d) {
 	}
 
-	/**
-	 * deletes a message locally for an user. therefore it sets the sender deleted flag to true
-	 * Doesnt delete the message in the database. 
-	 * Deletes the message in the database, if all corresponding users have deleted the message locally.
-	 */
-	public void deleteSenderMessage(Long messageId, User currentUser) {
-		Message message = messageDao.findOne(messageId);
-		message.setSenderDeleted(true);
-		if( message.isSenderDeleted() == true && message.isRecipientDeleted() == true)
-			messageDao.delete(message);
-		else 
-			messageDao.save(message);
-		
+	if (messageForm.getAdId() != null) {
+	    message.setMessageText("Ich habe eine Frage bezüglich des Ads <a href=\"adprofile?adId="+ messageForm.getAdId() + "\">" + ad.getTitle() + "</a> :  " + "<br>"
+		    + Jsoup.parse(messageForm.getMessage()).text());
+	} else {
+	    message.setMessageText(Jsoup.parse(messageForm.getMessage()).text());
 	}
 
-	public void deleteNotification(Long messageId, User currentUser) {
-		messageDao.delete(messageId);
-		
-	}
+	message.setTitle(Jsoup.parse(messageForm.getTitle()).text());
+	message.setSender(messageForm.getSender());
+	message.setRecipient(recipient);
 
-	public void saveMessage(Message message) {
-	   messageDao.save(message);
-	    
-	}
+	recipientMessages.add(message);
+	senderMessages.add(message);
 
-	public boolean findTheMessageOnTheUser(User user, Long messageId) {
-	    if ( messageDao.findByAppointmentInvitationsAndId(user, messageId) != null || messageDao.findByNotificationsAndId(user, messageId) != null|| messageDao.findByRecipientAndId(user, messageId) != null || messageDao.findBySenderAndId(user, messageId)!= null)
-		return true;
-	    return false;
-	    
-	}
+	recipient.setRecipient(recipientMessages);
+	sender.setSender(senderMessages);
 
-	public Message findBySenderAndId(User sender, Long id) {
-	    return messageDao.findBySenderAndId(sender, id);
-	}
+	message = messageDao.save(message);
 
-	public Message findByRecipientAndId(User recipient, Long id) {
-	   return messageDao.findByRecipientAndId(recipient, id);
-	}
+	recipient = userDao.save(recipient);
+	sender = userDao.save(sender);
 
-	public Message findByNotificationsAndId(User currentUser, Long messageId) {
-	    return messageDao.findByNotificationsAndId(currentUser, messageId);
-	}
+    }
 
-	public Message findByAppointmentInvitationsAndId(User currentUser,
-		Long messageId) {
-	   return messageDao.findByAppointmentInvitationsAndId(currentUser, messageId);
-	}
+ 
+    public Message findOneMessage(Long id) {
+	return messageDao.findOne(id);
+    }
+
+    /**
+     * deletes a message locally for an user. therefore it sets the recipient
+     * deleted flag to true Doesnt delete the message in the database. Deletes
+     * the message in the database, if all corresponding users have deleted the
+     * message locally.
+     */
+    public void deleteRecipientMessage(Long messageId, User currentUser) {
+	Message message = messageDao.findOne(messageId);
+	message.setRecipientDeleted(true);
+
+	if (message.isSenderDeleted() == true && message.isRecipientDeleted() == true)
+	    messageDao.delete(message);
+	else
+	    messageDao.save(message);
+
+    }
+
+    /**
+     * deletes a message locally for an user. therefore it sets the sender
+     * deleted flag to true Doesnt delete the message in the database. Deletes
+     * the message in the database, if all corresponding users have deleted the
+     * message locally.
+     */
+    public void deleteSenderMessage(Long messageId, User currentUser) {
+	Message message = messageDao.findOne(messageId);
+	message.setSenderDeleted(true);
+	if (message.isSenderDeleted() == true && message.isRecipientDeleted() == true)
+	    messageDao.delete(message);
+	else
+	    messageDao.save(message);
+
+    }
+
+    public void deleteNotification(Long messageId, User currentUser) {
+	messageDao.delete(messageId);
+
+    }
+
+    public void saveMessage(Message message) {
+	messageDao.save(message);
+
+    }
+
+    /**
+     * returns true if a message with that id is on the user.
+     */
+    public boolean findTheMessageOnTheUser(User user, Long messageId) {
+	if (messageDao.findByAppointmentInvitationsAndId(user, messageId) != null
+		|| messageDao.findByNotificationsAndId(user, messageId) != null
+		|| messageDao.findByRecipientAndId(user, messageId) != null
+		|| messageDao.findBySenderAndId(user, messageId) != null)
+	    return true;
+	return false;
+
+    }
+
+    public Message findBySenderAndId(User sender, Long id) {
+	return messageDao.findBySenderAndId(sender, id);
+    }
+
+    public Message findByRecipientAndId(User recipient, Long id) {
+	return messageDao.findByRecipientAndId(recipient, id);
+    }
+
+    public Message findByNotificationsAndId(User currentUser, Long messageId) {
+	return messageDao.findByNotificationsAndId(currentUser, messageId);
+    }
+
+    public Message findByAppointmentInvitationsAndId(User currentUser, Long messageId) {
+	return messageDao.findByAppointmentInvitationsAndId(currentUser, messageId);
+    }
 
 }

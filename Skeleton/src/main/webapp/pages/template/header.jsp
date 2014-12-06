@@ -117,7 +117,7 @@
             <li><a href="placead" id="navpads"><span>Vermiete Zimmer</span><em></em></a>
             <li><a href="myprofile">Profil</a></li>
             <li><a href="myinbox">Briefkasten <span class="badge"> ${messageNmbr}</span></a></li>
-            <li class="dropdown">
+            <li class="hover_drop_down">
           		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Inserate <span class="caret"></span></a>
           			<ul class="dropdown-menu" role="menu">
             			<li><a href="myads">Inserate</a></li>
@@ -126,7 +126,7 @@
             			<li class="divider"></li>
             			<li><a href="bookmarks">Favoriten</a></li>
             			<li class="divider"></li>
-            			<li><a href="">Interessenten</a></li>
+            			<li><a href="showInteressentsOverview">Interessenten</a></li>
           			</ul>
         	</li>
             
@@ -141,10 +141,60 @@
 
 <div id="push_header"></div>
 
+
+<c:if test="${isIndexPage eq true}">
 <div id="header">
 
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide">  
+      <div class="carousel-inner">
+        <div class="item active">
+          <!--<img src="img/slider/Fotolia_30977559_XS.jpg" alt="slide 1">-->
+          <img src="img/slider_orange.gif" alt="Slide1">
+          <div class="container">
+            <div class="carousel-caption">
+            	<h1><font color="#D5DED9">Flattie</font></h1>
+            	<p><font color="black" size="4">Ein WG Zimmer vermieten war noch nie so einfach!</font></p>
+            	<p><font color="black" size="4">Probiere es jetzt aus und melde dich <a href="register"><b>HIER</b></a> an!</font></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="img/slider_fancyblue.gif" alt="Slide2">
+          <div class="container">
+            <div class="carousel-caption">
+            	<h1><font color="#948C75">Flattie </font></h1>
+            	<p><font color="black" size="4"> Finde dein Traumzimmer mit wenigen Klicks!</font><p>
+            </div>
+          </div>
+        </div>
+       <!--   <div class="item">
+          <img src="img/slider_lightmarine.gif" alt="Slide3">
+          <div class="container">
+            <div class="carousel-caption">
+            	<h1><font color="#D9CEB2">"Öppis sinnvolles!" - Mathias Fuchs 26.11.14 11:50</font></h1>
+            	<p><font color="black">HAIL TO THE KING!</font></p>
+            </div>
+          </div>
+        </div>-->
+      </div>
+      <!-- Controls -->
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="fa fa-chevron-left fa-2x"></span></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="fa fa-chevron-right fa-2x"></span></a>  
+    </div>
+    <!-- /.carousel -->
+ 
+<script src="http://codeorigin.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script>
+	$('#myCarousel').carousel({
+		interval:   6000
+	});
+</script>
 
 </div>	<!--  END OF #header -->
+</c:if>
 	
 
 <div id="container_background">

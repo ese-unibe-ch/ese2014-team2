@@ -42,7 +42,7 @@
 		
 		
 		 <a href="removeInteressent/applicationId${application.applicant.id}/adId${application.ad.id}">
-								<button type="button" class="btn btn-default">
+								<button type="button" class="btn btn-danger">
 									<b> Lehne den Bewerber ab </b>
 								</button>
 								</a>

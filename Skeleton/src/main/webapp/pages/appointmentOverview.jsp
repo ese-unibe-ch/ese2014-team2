@@ -12,12 +12,7 @@
 
 
 	 
-<script>
-	function showDetails() {
-		$('#invitationDetails').show();
-	}
-	
-</script>
+
 
   
 
@@ -56,6 +51,7 @@
 				<br>
 
 				<br>
+		
 				<c:forEach items="${app.invitations}" var="user">
 				
 
@@ -66,13 +62,13 @@
 								${user.lastName }</b></p>
 						</div>
 						<div class="col-md-2">
-							<c:forEach items="${user.appointmentInvitations }"
-								var="message">
-								<c:if test="${ message.appointedAppointment eq appointment.id}">
+							<c:forEach items="${user.appointmentInvitations }" var="message">
+						
+							
+								<c:if test="${ message.appointedAppointment eq app.id}">
 									<c:if test="${ message.accepted eq true }"> <p>Einladung wurde angenommen</p> </c:if>
 									<c:if test="${ message.rejected eq true }"><p> Einladung wurde abgelehnt </p></c:if>
-									<c:if
-										test="${message.rejected eq false and message.accepted eq false }"><p>Der Benutzer hat die Einladung noch nicht abgelehnt/angenommen </p></c:if>
+									<c:if test="${message.rejected eq false and message.accepted eq false }"><p>Der Benutzer hat die Einladung noch nicht abgelehnt/angenommen </p></c:if>
 
 								</c:if>
 							</c:forEach>
@@ -170,25 +166,60 @@ $(function()
 		
 			<c:forEach items="${usersInvitations}" var="appointment">
 			<div class="row">
-				<div class="col-md-11">
-				
-					<font size="4">Termin am ${appointment.appointmentDate.day} von
-						${appointment.appointmentDate.startHour} bis ${appointment.appointmentDate.endHour} für das Ad : <a href="adprofile?adId=${appointment.ad.id}">${appointment.ad.title}</a> </font>
+				<div class="col-md-12">
 					
-					<div id="invitationDetails" style="display:none">
-						${appointment.additionalInfosForTheVisitors}
-					</div>
-		
+					<font size="4">Termin am ${appointment.appointmentDate.day} von
+						${appointment.appointmentDate.startHour} bis ${appointment.appointmentDate.endHour} für das Ad : <a href="adprofile?adId=${appointment.ad}"> Hier gehts zum ad </a> </font>
+					<br>
+					<br>
+					<label> Zusatzinformationen: </label>
+					<c>	${appointment.additionalInfosForTheVisitors}</c>
+				
+				<c:choose>
+				    <c:when test="${not empty appointment.whoAcceptedTheAppointment}">
+				    	
+					       <c:forEach items="${appointment.whoAcceptedTheAppointment}" var="acceptOfApp">
+					       		
+								<c:if test="${acceptOfApp.user.id eq user.id }">
+									${acceptOfApp.accepted}
+									<c:if test="${acceptOfApp.accepted eq false && acceptOfApp.rejected eq false }">
+								<div class="separator"></div>
+									<a href="acceptInvitation?appointmentId=${appointment.id}">
+								    <button type="button" class="btn btn-success"><b>Nimm die Einladung an.</b></button>
+								</a>
+			    
+							    <a href="rejectInvitation?appointmentId=${appointment.id}">
+							    <button type="button" class="btn btn-danger"><b>Lehne die Einladung ab.</b></button>
+							    </a>
+							    	</c:if>
+							    	<c:if test="${acceptOfApp.accepted eq true }">
+							    	<div class="alert alert-success" role="alert"><font color="006600" size="3"> <p> Einladung wurde von dir angenommen. Falls du nicht kannst kontaktiere den Inseratensteller</p></font></div>
+							    		
+							    	</c:if>
+							    	<c:if test="${acceptOfApp.rejected eq true }">
+							    		<div class="alert alert-danger" role="alert"><font color="CC0000" size="3"> <p> Einladung wurde von dir abgelehnt. Falls du doch willst, kontaktiere den Inseratensteller</p></font></div>
+							    	</c:if>
+							    </c:if>
+					    </c:forEach>
+				    </c:when>
+				    <c:otherwise>
+				       <div class="separator"></div>
+							<a href="acceptInvitation?appointmentId=${appointment.id}">
+						    <button type="button" class="btn btn-success"><b>Nimm die Einladung an.</b></button>
+						</a>
+	    
+					    <a href="rejectInvitation?appointmentId=${appointment.id}">
+					    <button type="button" class="btn btn-danger"><b>Lehne die Einladung ab.</b></button>
+					    </a>
+				    </c:otherwise>
+				</c:choose>
+				
+				
+					
+		<br><br>
 				
 				</div>
-				
-				<div class="col-md-1">
-				
-					<button type="button" class="btn btn-primary" onclick="showDetails()" ><b>Zeige Details </b>
-					</button>
-					</div>
-					
-					
+									
 				</div>	
 			</c:forEach>
 		</div>

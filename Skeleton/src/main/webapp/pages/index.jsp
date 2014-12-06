@@ -6,7 +6,7 @@
 
 
 
-<c:import url="template/headerindex.jsp" />
+<c:import url="template/header.jsp" />
 
 <!-- TEST WITH BOOTSTRAP PANELS -->
 

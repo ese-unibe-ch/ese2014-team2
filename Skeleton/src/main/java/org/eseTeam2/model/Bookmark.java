@@ -1,6 +1,5 @@
 package org.eseTeam2.model;
 
-
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -23,46 +22,40 @@ import org.hibernate.annotations.FetchMode;
 @Entity
 public class Bookmark {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
-	@ManyToOne 
-	private Advertisement ad;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@ManyToOne
-	private User bookmarker;
+    
+    private Long ad;
 
-	public Long getId() {
-	    return id;
-	}
+    @ManyToOne
+    private User bookmarker;
 
-	public void setId(Long id) {
-	    this.id = id;
-	}
+    public Long getId() {
+	return id;
+    }
 
-	public Advertisement getAd() {
-	    return ad;
-	}
+    public void setId(Long id) {
+	this.id = id;
+    }
 
-	public void setAd(Advertisement ad) {
-	    this.ad = ad;
-	}
+    
 
-	public User getBookmarker() {
-	    return bookmarker;
-	}
+    public User getBookmarker() {
+	return bookmarker;
+    }
 
-	public void setBookmarker(User bookmarker) {
-	    this.bookmarker = bookmarker;
-	}
-	
-	
-	
-	
+    public void setBookmarker(User bookmarker) {
+	this.bookmarker = bookmarker;
+    }
 
-	
-	
+    public Long getAd() {
+	return ad;
+    }
 
-	
+    public void setAd(Long ad) {
+	this.ad = ad;
+    }
+
 }
