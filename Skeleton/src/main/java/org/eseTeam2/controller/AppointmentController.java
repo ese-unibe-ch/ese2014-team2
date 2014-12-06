@@ -135,9 +135,9 @@ public class AppointmentController {
 	Set<Appointment> userAppointments = new HashSet(usersAppointments);
 	
 	for ( Appointment app : userAppointments) {
-	    for ( User u : app.getInvitations()) {
-		System.out.println(u.getId());
-	    }
+	    
+		Set<User> userSet = new HashSet(app.getInvitations());
+	    
 	}
 	
 	model.addObject("usersInvitations", userInvitations);

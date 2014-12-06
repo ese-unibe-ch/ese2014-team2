@@ -51,6 +51,7 @@
 				<br>
 
 				<br>
+		
 				<c:forEach items="${app.invitations}" var="user">
 				
 

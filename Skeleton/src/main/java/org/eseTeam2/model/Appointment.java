@@ -1,6 +1,9 @@
 package org.eseTeam2.model;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -69,7 +72,11 @@ public class Appointment {
    
 
     public List<User> getInvitations() {
-	return invitations;
+	Set<User> invites = new HashSet<User>(invitations);
+	List<User> distinctInvitations = new ArrayList<User>();
+	for ( User u : invites)
+	    distinctInvitations.add(u);
+	return distinctInvitations;
     }
 
     public void setInvitations(List<User> invitations) {
