@@ -13,6 +13,7 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.omg.CORBA.Principal;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
@@ -29,16 +30,20 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class AdControllerTest {
 
     @Mock
+    private IAdDataService adService;
+
+    @Mock
     private IUserDataService userService;
 
     @Mock
-    private IAdDataService adService;
+    private ServletContext servletContext;
 
     @Mock
     private IAppointmentService appointmentService;
 
-    @Mock
-    private ServletContext servletContext;
+   	@Mock
+   	private Principal principal;
+    	
 
     @InjectMocks
     private AdController adController;
@@ -57,7 +62,7 @@ public class AdControllerTest {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setSuffix(".jsp");
  
-        this.mockMvc = MockMvcBuilders.standaloneSetup(new IndexController())
+        this.mockMvc = MockMvcBuilders.standaloneSetup(new AdController())
                                  .setViewResolvers(viewResolver)
                                  .build();
 
@@ -75,51 +80,26 @@ public class AdControllerTest {
     public void testShowAds() throws Exception {
 
         this.mockMvc.perform(get("/ads"))
-/*        			.andExpect(status().isOk())*/
+        			.andExpect(status().isOk())
                 	.andExpect(forwardedUrl("ads.jsp"));
-
     }
 
+    /*
     @Test
-    public void testLogin() throws Exception {
+    public void testShowUnfilteredAds() throws Exception {
 
-        this.mockMvc.perform(get("/login"))
+        this.mockMvc.perform(get("/unfilteredAds"))
         			.andExpect(status().isOk())
-                	.andExpect(forwardedUrl("login.jsp"));
-
+                	.andExpect(forwardedUrl("ads.jsp"));
     }
+    */
 
     @Test
-    public void testUnderConstruction() throws Exception {
+    public void testCreateAd() throws Exception {
 
-        this.mockMvc.perform(get("/underConstr"))
+        this.mockMvc.perform(get("/placead"))
         			.andExpect(status().isOk())
-        			.andExpect(forwardedUrl("underConstruction.jsp"));
-
-    }
-    
-    @Test
-    public void testForbidden() throws Exception {
-
-        this.mockMvc.perform(get("/forbidden"))
-        			.andExpect(status().isOk())
-        			.andExpect(forwardedUrl("forbidden.jsp"));
-
-    }
-    
-    @Test
-    public void testError404() throws Exception {
-
-        this.mockMvc.perform(get("/404"))
-        			.andExpect(status().isOk())
-        			.andExpect(forwardedUrl("404.jsp"));
-
-    }
-
-    @Test
-    public void testSecurityError() throws Exception {
-
-        this.mockMvc.perform(get("/security-error"));
+        			.andExpect(forwardedUrl("placead.jsp"));
 
     }
 }
