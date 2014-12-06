@@ -2,6 +2,7 @@ package org.sample.webapp.controller;
 import javax.servlet.ServletContext;
 
 import org.eseTeam2.controller.AdController;
+import org.eseTeam2.controller.ApplicantsController;
 import org.eseTeam2.controller.IndexController;
 import org.eseTeam2.controller.pojos.SignupForm;
 import org.eseTeam2.controller.service.IAdDataService;
@@ -27,7 +28,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-public class AdControllerTest {
+public class ApplicantsControllerTest {
 
     @Mock
     private IAdDataService adService;
@@ -42,7 +43,7 @@ public class AdControllerTest {
     private IAppointmentService appointmentService;
 
     @InjectMocks
-    private AdController adController;
+    private ApplicantsController applicantsController;
 
     private MockMvc mockMvc;
     
@@ -53,49 +54,39 @@ public class AdControllerTest {
         MockitoAnnotations.initMocks(this);
 
         // Setup Spring test in standalone mode
-        this.mockMvc = MockMvcBuilders.standaloneSetup(adController).build();
+        this.mockMvc = MockMvcBuilders.standaloneSetup(applicantsController).build();
         
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setSuffix(".jsp");
  
-        this.mockMvc = MockMvcBuilders.standaloneSetup(new AdController())
+        this.mockMvc = MockMvcBuilders.standaloneSetup(new ApplicantsController())
                                  .setViewResolvers(viewResolver)
                                  .build();
-
     }
     
     @After
     public void tearDown() {
     	
-    	this.adController = null;
+    	this.applicantsController = null;
     	this.mockMvc = null;
     }
 
-    
     @Test
-    public void testShowAds() throws Exception {
+    public void testInterestedInAd() throws Exception {
 
-        this.mockMvc.perform(get("/ads"))
+        this.mockMvc.perform(get("/userInterested")
+        			.param("adId", "1L")
+        			.param("principal", "<error>"))
         			.andExpect(status().isOk())
-                	.andExpect(forwardedUrl("ads.jsp"));
+                	.andExpect(forwardedUrl("interestedInAd.jsp"));
+        
     }
 
-    /*
     @Test
-    public void testShowUnfilteredAds() throws Exception {
+    public void testDeleteAd() throws Exception {
 
-        this.mockMvc.perform(get("/unfilteredAds"))
+        this.mockMvc.perform(get("/applicationId"))
         			.andExpect(status().isOk())
-                	.andExpect(forwardedUrl("ads.jsp"));
-    }
-    */
-
-    @Test
-    public void testCreateAd() throws Exception {
-
-        this.mockMvc.perform(get("/placead"))
-        			.andExpect(status().isOk())
-        			.andExpect(forwardedUrl("placead.jsp"));
-
+                	.andExpect(forwardedUrl("redirect:/showInteressentsOverview.jsp"));
     }
 }
