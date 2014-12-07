@@ -44,7 +44,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  * @author Icewater
  *
  */
-@Controller
+@Controller	
 public class AppointmentController {
 
     @Autowired
@@ -95,7 +95,7 @@ public class AppointmentController {
 	List<Appointment> appointments = new ArrayList<Appointment>();
 	List<Long> appointmentIds = ad.getAppointments();
 	for ( int i = 0; i < appointmentIds.size(); i++) {
-	    appointments.add(appointmentService.findOneAppointment(appointmentIds.get(0)));
+	    appointments.add(appointmentService.findOneAppointment(appointmentIds.get(i)));
 	}
 	model.addObject("appointments", appointments);
 	model.addObject("ad", ad);
