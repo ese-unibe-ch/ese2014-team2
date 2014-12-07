@@ -19,9 +19,14 @@ function winOpen()
 
 <div class="col-md-12">
 
-<c:if test="${not empty infoMessage}">
-	<div class="alert alert-success" role="alert"><font color="006600" size="3"> ${infoMessage}</font></div>
+<c:if test="${not empty successMessage}">
+	<div class="alert alert-success" role="alert"><font color="006600" size="3"> ${successMessage}</font></div>
 </c:if>
+
+<c:if test="${not empty dangerMessage}">
+	<div class="alert alert-danger" role="alert"><font color="CC0000" size="3"> ${dangerMessage}</font></div>
+</c:if>	
+
 <!--  CAROUSEL SLIDER TEST  -->
 
 <div id="carousel-example-generic" class="carousel slide"

@@ -88,9 +88,15 @@ public class ApplicantsController {
      * @return
      */
     @RequestMapping(value = "/userInterested", method = RequestMethod.GET)
-    public ModelAndView interestedInAd(@RequestParam(value = "adId", required = true) Long adId, HttpServletRequest request, HttpServletResponse response, HttpSession session, Principal principal) {
+    public ModelAndView interestedInAd(@RequestParam(value = "adId", required = true) Long adId, RedirectAttributes redirectAttributes, HttpServletRequest request, HttpServletResponse response, HttpSession session, Principal principal) {
 
 	User currentUser = userService.getUserByEmail(principal.getName());
+	Advertisement ad = adService.getAdvertisement(adId);
+	
+	if ( currentUser.getId() == ad.getCreator().getId()) {
+	    redirectAttributes.addFlashAttribute("infoMessage", "Warnung: Du kannst dich nicht selbst einladen.");
+	    return new ModelAndView("redirect:/adprofile?adId="+adId);
+	}
 
 	ModelAndView model = new ModelAndView("interestedInAd");
 	model.addObject("applicantForm", new ApplicantForm());

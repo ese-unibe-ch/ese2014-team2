@@ -286,7 +286,7 @@ public class AdController {
     public ModelAndView showAdId(@RequestParam(value = "adId", required = true) Long adId, HttpServletRequest request,
 	    HttpServletResponse response, HttpSession session, @ModelAttribute("infoMessage") String message, Principal principal) {
 	
-	//long startTime = System.currentTimeMillis();
+	
 	
 	Boolean isBookmarked = null;
 	List<Bookmark> bookmarks = null;
@@ -329,7 +329,12 @@ public class AdController {
 	model.addObject("mainPic", mainPic);
 	model.addObject("mapsStreet", ad.getAddress().replace(" ", "+"));
 
-	model.addObject("infoMessage", message);
+	if ( message.contains("Warnung")) {
+	    model.addObject("dangerMessage", message);
+	}
+	if ( !message.contains("Warnung"))
+	    model.addObject("successMessage", message);
+	
 	
 	return model;
     }
