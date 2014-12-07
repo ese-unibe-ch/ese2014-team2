@@ -1,5 +1,7 @@
 package org.sample.webapp.controller;
 
+import org.eseTeam2.controller.pojos.AdForm;
+import org.eseTeam2.controller.pojos.ApplicantForm;
 import org.eseTeam2.controller.pojos.FilterForm;
 import org.eseTeam2.controller.pojos.SignupForm;
 import org.junit.Before;
@@ -21,7 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/config/springMVC.xml","file:src/main/webapp/WEB-INF/config/springData.xml"})
-public class IndexControllerIntegrationTest {
+public class ApplicantsControllerIntegrationTest {
 
     @Autowired
     private WebApplicationContext wac;
@@ -34,13 +36,20 @@ public class IndexControllerIntegrationTest {
     }
 
     @Test
-    public void testGetFilterForm() throws Exception {
-        this.mockMvc.perform(get("/"))
+    public void testGetApplicantForm() throws Exception {
+/*        this.mockMvc.perform(get("/ads"))
                 .andExpect(status().isOk())
-                .andExpect(forwardedUrl("/pages/index.jsp"))
+                .andExpect(forwardedUrl("/pages/ads.jsp"))
                 .andExpect(model().attribute("filterForm", any(FilterForm.class)));
+
+        this.mockMvc.perform(get("/userInterested"))
+                .andExpect(status().isOk())
+                .andExpect(forwardedUrl("/pages/interestedInAd.jsp"))
+                .andExpect(model().attribute("applicantForm", any(ApplicantForm.class)));
+*/
     }
 
+/*
     @Test
     public void testGetSignupForm() throws Exception {
         this.mockMvc.perform(get("/login"))
@@ -48,5 +57,14 @@ public class IndexControllerIntegrationTest {
                 .andExpect(forwardedUrl("/pages/login.jsp"))
                 .andExpect(model().attribute("loginForm", any(SignupForm.class)));
     }
+
+    @Test
+    public void testGetAdForm() throws Exception {
+        this.mockMvc.perform(get("/placead"))
+                .andExpect(status().isOk())
+                .andExpect(forwardedUrl("/pages/placead.jsp"))
+                .andExpect(model().attribute("adForm", any(AdForm.class)));
+    }
+*/
 }
 
