@@ -39,7 +39,15 @@
 
 	<div class="tab-content">
 	
-		<br>
+	<br>
+		<c:if test="${empty usersAppointments}">
+		<div class="alert alert-warning" role="alert">
+				<h4> Du hast noch keine Einladungen verschickt!</h4>
+			</div>
+		</c:if>
+			
+	
+		
 			<c:forEach items="${usersAppointments}" var="app">
 	
 			
@@ -163,6 +171,12 @@ $(function()
 	<div class="tab-content">
 	
 		<br>
+		
+			<c:if test="${empty usersInvitations}">
+		<div class="alert alert-warning" role="alert">
+				<h4> Du hast noch keine Einladungen erhalten!</h4>
+			</div>
+		</c:if>
 		
 			<c:forEach items="${usersInvitations}" var="appointment">
 			<div class="row">

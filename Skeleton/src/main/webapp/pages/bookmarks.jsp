@@ -23,7 +23,13 @@
 		<!-- Table -->
 		<table class="table">
 
-
+	<c:if test="${empty ad.applications}">
+	<br>
+		<div class="alert alert-warning" role="alert">
+				<h4> Du hast noch keine Favoriten!</h4>
+			</div>
+		</c:if>
+	
 			<c:forEach items="${bookmarks}" var="bookmark">
 				<tr>
 					<c:forEach items="${ads}" var="adv">

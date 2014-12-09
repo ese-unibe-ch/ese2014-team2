@@ -31,7 +31,14 @@
 			<br>
 			
 			<form action="setzeTeilBesichtigungstermin?adId=${ad.id }" method="POST">
-
+	
+		
+			<c:if test="${empty interessents}">
+		<div class="alert alert-warning" role="alert">
+				<h4> Du hast noch keine Interessenten für dieses Insereat!</h4>
+			</div>
+		</c:if>
+		
 			<c:forEach items="${interessents}" var="interessent">
 				
 					<div class="row">

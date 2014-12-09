@@ -36,6 +36,12 @@
 			<c:if test="${not empty ad.applications }">
 			<legend>Interessenten für ${ad.title}</legend>
 			</c:if>
+			
+			<c:if test="${empty ad.applications}">
+		<div class="alert alert-warning" role="alert">
+				<h4> Du hast noch keine Interessenten für deine Inserate!</h4>
+			</div>
+		</c:if>
 
 			<c:forEach items="${ad.applications}" var="interessent">
 				

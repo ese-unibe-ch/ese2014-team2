@@ -21,8 +21,13 @@
 		</c:if>
 		<!-- Table -->
 		<table class="table">
-
-
+		
+		<c:if test="${empty user.advertisements}">
+		<div class="alert alert-warning" role="alert">
+				<h4> Du hast keine Inserate aufgeschaltet!</h4>
+			</div>
+		</c:if>
+			
 			<c:forEach items="${user.advertisements}" var="ad">
 				<tr>
 					<td>

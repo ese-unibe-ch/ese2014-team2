@@ -125,6 +125,7 @@ public class AdDataService implements IAdDataService {
 	    ad.setStart(adForm.getStart());
 	else
 	    ad.setStart("Per sofort");
+	
 	if (!adForm.getUntil().equals(""))
 	    ad.setUntil(adForm.getUntil());
 	else
