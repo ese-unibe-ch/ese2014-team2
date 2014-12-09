@@ -32,9 +32,9 @@
 	<c:forEach items="${ads}" var="ad">
 	
 	<form action="setzeTeilBesichtigungstermin?adId=${ad.id }" method="POST">
-		<legend>Interessenten für ${ad.title}</legend>
-			<c:if test="${empty ad.applications }">
-			<div class="alert alert-warning" role="alert">Keine Interessenten für dieses Inserat</div>
+		
+			<c:if test="${not empty ad.applications }">
+			<legend>Interessenten für ${ad.title}</legend>
 			</c:if>
 
 			<c:forEach items="${ad.applications}" var="interessent">
