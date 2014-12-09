@@ -65,8 +65,12 @@ public class MessageService implements IMessageService {
 	} else {
 	    message.setMessageText(Jsoup.parse(messageForm.getMessage()).text());
 	}
-
-	message.setTitle(Jsoup.parse(messageForm.getTitle()).text());
+	
+	if( !messageForm.getTitle().equals(""))
+	    message.setTitle(Jsoup.parse(messageForm.getTitle()).text());
+	else 
+	    message.setTitle("Kein Titel");
+	    
 	message.setSender(messageForm.getSender());
 	message.setRecipient(recipient);
 
