@@ -195,24 +195,26 @@ public class AdDataService implements IAdDataService {
 	// No other way, when we are not putting the website live.
 	ArrayList<String> getters = filterService.getGettersOfFilterForm();
 	for (User filterUser : usersWithFilters) {
-	    if (filterService.isNewAdMatch(filterUser.getExampleAd(), getters, ad) == true) {
-		
-		String title = "Ein neues Inserat welches dich interssieren könnte wurde aufgeschaltet";
-		String message = "Ein neues Inserat welches dich interssieren könnte wurde aufgeschaltet" + "<a href=\"adprofile?adId="+ ad.getId()+"\"> hier geht es zum Inserat </a>";
-		/*
-		try {
-		    mailer.sendEmail(filterUser.getEmail(), message, title);
-		} catch (MailSendException d) {
-		} */
-		Message notification = new Message();
-		notification.setTitle(title);
-		notification.setMessageText(message);
-		notification.setNotifications(filterUser);
-		List<Message> userNotifications = filterUser.getNotifications();
-		userNotifications.add(notification);
-		filterUser.setNotifications(userNotifications);
-		messageDao.save(notification);
-		userDao.save(filterUser);
+	    if ( filterUser.getId() != creator.getId()) {
+        	    if (filterService.isNewAdMatch(filterUser.getExampleAd(), getters, ad) == true) {
+        		
+        		String title = "Ein neues Inserat welches dich interssieren könnte wurde aufgeschaltet";
+        		String message = "Ein neues Inserat welches dich interssieren könnte wurde aufgeschaltet" + "<a href=\"adprofile?adId="+ ad.getId()+"\"> hier geht es zum Inserat </a>";
+        		/*
+        		try {
+        		    mailer.sendEmail(filterUser.getEmail(), message, title);
+        		} catch (MailSendException d) {
+        		} */
+        		Message notification = new Message();
+        		notification.setTitle(title);
+        		notification.setMessageText(message);
+        		notification.setNotifications(filterUser);
+        		List<Message> userNotifications = filterUser.getNotifications();
+        		userNotifications.add(notification);
+        		filterUser.setNotifications(userNotifications);
+        		messageDao.save(notification);
+        		userDao.save(filterUser);
+        	    }
 	    }
 
 	}
