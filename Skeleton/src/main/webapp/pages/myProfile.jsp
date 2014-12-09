@@ -37,7 +37,7 @@
 		</div>
 	</div>
 	
-	<legend>Deine Ads:</legend>
+	<legend>Deine Inserate:</legend>
 	<c:forEach items="${user.advertisements }" var="ad">
 		<a href="adprofile?adId=${ad.id }">${ad.title }</a>
 		<br>

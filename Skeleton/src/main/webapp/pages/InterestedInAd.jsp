@@ -21,7 +21,7 @@
 			
 						
 			<div class="row">
-				<label class="col-md-4" for="field-von">Ab wann möchtest du Einziehen? (Leerlassen wenn du per sofort einziehen willst) </label>
+				<label class="col-md-4" for="field-von">Ab wann möchtest du einziehen? (Leerlassen wenn du per sofort einziehen willst) </label>
 				<div class="col-md-4">
 					<form:input path="bisWann" type="field-bisWann" id="datepicker" tabindex="2" />
 					

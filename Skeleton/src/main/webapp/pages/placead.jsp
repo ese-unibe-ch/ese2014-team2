@@ -29,7 +29,7 @@
 			
 			<c:set var="startErrors"><form:errors path="start"/></c:set>
 			<div class="row">
-				<label class="col-md-4" for="field-von">Ab wann ist das Zimmer frei:(Leer lassen wenn das Zimmer per sofort frei ist) </label>
+				<label class="col-md-4" for="field-von">Ab wann ist das Zimmer frei (leer lassen wenn das Zimmer per sofort frei ist): </label>
 				<div class="col-md-4">
 					<form:input path="start" type="field-von" id="datepicker" tabindex="2" />
 					<form:errors path="start" cssClass="help-inline" element="span"/>

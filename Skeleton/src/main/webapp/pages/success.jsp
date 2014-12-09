@@ -10,7 +10,7 @@
 
 
 <c:if test="${param.adPlaceSuccess eq true}">
-<h1>Dein Ad wurde erstellt!</h1>
+<h1>Dein Inserat wurde erstellt!</h1>
 <script type="text/javascript">
     function redirect() {
         location.href = "/Skeleton/";

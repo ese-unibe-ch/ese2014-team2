@@ -116,7 +116,7 @@ $(document).ready(function(){
 		<br>
 		<br>
 		<button type="submit" class="btn btn-primary">Suche</button>
-		<button id="hide" class="btn btn-info" type="button" id="show">Weniger suchkriterien</button>
+		<button id="hide" class="btn btn-info" type="button" id="show">Weniger Suchkriterien</button>
 		
 	</div>
 	

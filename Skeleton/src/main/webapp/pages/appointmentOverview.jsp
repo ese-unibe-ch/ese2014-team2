@@ -19,7 +19,7 @@
 <div class="panel panel-default">
 	<!-- Default panel contents -->
 	<div class="panel-heading">
-		<h3>Übersicht über alle  abgemachten Termine </h3>
+		<h3>Vereinbarte Termine:</h3>
 	</div>
 	<div class="panel-body">
 	
@@ -186,7 +186,7 @@ $(function()
 						${appointment.appointmentDate.startHour} bis ${appointment.appointmentDate.endHour} für das Ad : <a href="adprofile?adId=${appointment.ad}"> Hier gehts zum ad </a> </font>
 					<br>
 					<br>
-					<label> Zusatzinformationen: </label>
+					<label>Zusätzliche Informationen: </label>
 					<c>	${appointment.additionalInfosForTheVisitors}</c>
 				
 				<c:choose>
@@ -207,7 +207,7 @@ $(function()
 							    </a>
 							    	</c:if>
 							    	<c:if test="${acceptOfApp.accepted eq true }">
-							    	<div class="alert alert-success" role="alert"><font color="006600" size="3"> <p> Einladung wurde von dir angenommen. Falls du nicht kannst kontaktiere den Inseratensteller</p></font></div>
+							    	<div class="alert alert-success" role="alert"><font color="006600" size="3"> <p> Einladung wurde von dir angenommen. Falls du doch nicht kannst kontaktiere den Inseratensteller</p></font></div>
 							    		
 							    	</c:if>
 							    	<c:if test="${acceptOfApp.rejected eq true }">

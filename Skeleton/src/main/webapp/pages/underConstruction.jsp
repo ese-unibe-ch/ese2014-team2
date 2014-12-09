@@ -10,7 +10,7 @@
 	
 	
 	<img src="img/under_construction.png">
-	<h1> Hey, this page is still under construction. We recommend you to eat a cookie in the meantime</h1>
+	<h1> Hey, this page is still under construction. We recommend you to eat a cookie in the meantime.</h1>
 	
 	
 </body>

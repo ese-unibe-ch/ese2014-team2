@@ -13,7 +13,7 @@
 <div class="panel panel-default">
 	<!-- Default panel contents -->
 	<div class="panel-heading">
-		<h1>Übersicht über alle Interessenten für deine Ads</h1>
+		<h1>Übersicht aller Interessenten für deine Inserate</h1>
 	</div>
 	<div class="panel-body">
 
