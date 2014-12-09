@@ -16,7 +16,7 @@ function winOpen()
 }
 </script>
 
-<div class="push"></div>
+
 <div class="col-md-12">
 
 <c:if test="${not empty successMessage}">

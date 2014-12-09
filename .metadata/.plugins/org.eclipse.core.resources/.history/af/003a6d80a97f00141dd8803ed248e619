@@ -154,7 +154,6 @@
 			<div class="seperator"></div>
 
 			<legend>Bilder:</legend>
-			<p>Nur Bilder in gängigen Formaten (.jpg, .jpeg, .gif, .png)</p>
 					
 					<div class="row">
 						<label for="image">: Titelbild </label>

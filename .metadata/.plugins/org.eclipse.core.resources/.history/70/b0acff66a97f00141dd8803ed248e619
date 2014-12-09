@@ -154,31 +154,30 @@
 			<div class="seperator"></div>
 
 			<legend>Bilder:</legend>
-			<p>Nur Bilder in gängigen Formaten (.jpg, .jpeg, .gif, .png)</p>
 					
 					<div class="row">
-						<label for="image">: Titelbild </label>
+						<label for="image">: TitleImage </label>
 						<div class="col-md-4">
 							<input name="image" type="file" />
 						</div>
 					</div>
 					
 					<div class="row">
-						<label for="image">: Bild 1 </label>
+						<label for="image">: Ad Image 1 </label>
 						<div class="col-md-4">
 							<input name="image" type="file" />
 						</div>
 					</div>
 					
 					<div class="row">
-						<label for="image">: Bild 2 </label>
+						<label for="image">: Ad Image 2 </label>
 						<div class="col-md-4">
 							<input name="image" type="file" />
 						</div>
 					</div>
 					
 					<div class="row">
-						<label for="image">: Bild 3 </label>
+						<label for="image">: Ad Image 3 </label>
 						<div class="col-md-4">
 							<input name="image" type="file" />
 						</div>
