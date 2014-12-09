@@ -68,9 +68,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/Skeleton">Home  <span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-            <li><a href="unfilteredAds" id="navads"><span>Suche Zimmer  </span><span class="glyphicon glyphicon-search" aria-hidden="true"></span><em></em></a>
-            <li><a href="placead" id="navpads"><span>Vermiete Zimmer  </span> <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span><em></em></a>
+            <li class="active"><a href="/Skeleton">Home</a></li>
+            <li><a href="unfilteredAds" id="navads"><span>Suche Zimmer</span><em></em></a>
+            <li><a href="placead" id="navpads"><span>Vermiete Zimmer</span><em></em></a>
             <li><a href="register">Registrieren</a></li>
             <li><a href="#" id="loginButton"><span>Login</span><em></em></a>
             

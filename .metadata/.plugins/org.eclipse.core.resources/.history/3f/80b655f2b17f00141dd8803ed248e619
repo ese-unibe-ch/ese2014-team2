@@ -68,9 +68,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/Skeleton">Home  <span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-            <li><a href="unfilteredAds" id="navads"><span>Suche Zimmer  </span><span class="glyphicon glyphicon-search" aria-hidden="true"></span><em></em></a>
-            <li><a href="placead" id="navpads"><span>Vermiete Zimmer  </span> <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span><em></em></a>
+            <li class="active"><a href="/Skeleton">Home</a></li>
+            <li><a href="unfilteredAds" id="navads"><span>Suche Zimmer</span><em></em></a>
+            <li><a href="placead" id="navpads"><span>Vermiete Zimmer</span><em></em></a>
             <li><a href="register">Registrieren</a></li>
             <li><a href="#" id="loginButton"><span>Login</span><em></em></a>
             
@@ -121,7 +121,7 @@
 				<li><a href="myinbox">Briefkasten <span style="background-color:#CC0000" class="badge"> +</span></a></li>
 			</c:when>
 			<c:otherwise>
-				<li><a href="myinbox">Briefkasten </a></li>
+				<li><a href="myinbox">Briefkasten <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a></li>
 			</c:otherwise>
 		</c:choose>
 		
@@ -132,7 +132,7 @@
             			<li class="divider"></li>
             			<li><a href="appointments?showTab=1">Besichtigungen</a></li>
             			<li class="divider"></li>
-            			<li><a href="bookmarks">Favoriten  <span class="glyphicon glyphicon-star" aria-hidden="true"></span></a></li>
+            			<li><a href="bookmarks">Favoriten</a></li>
             			<li class="divider"></li>
             			<li><a href="showInteressentsOverview">Interessenten</a></li>
           			</ul>
@@ -140,7 +140,7 @@
             
             
             
-            <li><a href="logout">Logout  <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a></li>
+            <li><a href="logout">Logout</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
