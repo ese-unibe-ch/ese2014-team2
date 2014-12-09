@@ -148,11 +148,11 @@ function winOpen()
 			<p>${newAdProfile.roomPrice }</p>
 		</div>
 		<div class="row">
-			<label class="col-md-6">Zimmer frei Von:</label>
+			<label class="col-md-6">Zimmer frei von:</label>
 			<p>${newAdProfile.start}</p>
 		</div>
 		<div class="row">
-			<label class="col-md-6">Zimmer frei Bis:</label>
+			<label class="col-md-6">Zimmer frei bis:</label>
 			<p>${newAdProfile.until}</p>
 		</div>
 		<div class="row">
