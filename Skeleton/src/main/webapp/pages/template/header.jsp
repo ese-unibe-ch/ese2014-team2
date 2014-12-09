@@ -116,7 +116,15 @@
             <li><a href="unfilteredAds" id="navads"><span>Suche Zimmer</span><em></em></a>
             <li><a href="placead" id="navpads"><span>Vermiete Zimmer</span><em></em></a>
             <li><a href="myprofile">Profil</a></li>
-            <li><a href="myinbox">Briefkasten <span class="badge"> ${messageNmbr}</span></a></li>
+            <c:choose>
+			<c:when test="${messageNmbr > 0}">
+				<li><a href="myinbox">Briefkasten <span style="background-color:#CC0000" class="badge"> +</span></a></li>
+			</c:when>
+			<c:otherwise>
+				<li><a href="myinbox">Briefkasten </a></li>
+			</c:otherwise>
+		</c:choose>
+		
             <li class="hover_drop_down">
           		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Inserate <span class="caret"></span></a>
           			<ul class="dropdown-menu" role="menu">

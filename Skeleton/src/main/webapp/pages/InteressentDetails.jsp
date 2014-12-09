@@ -38,10 +38,10 @@
 	</div>
 
 		
-		<a href="#" onclick="history.go(-2)">	<button type="button" class="btn btn-danger">Zurück</button></a>
+		<a href="#" onclick="history.go(-2)">	<button type="button" class="btn btn-default">Zurück</button></a>
 		
 		
-		 <a href="removeInteressent/applicationId${application.applicant.id}/adId${application.ad.id}">
+		 <a href="removeInteressent/applicationId${application.id}/adId${application.ad.id}">
 								<button type="button" class="btn btn-danger">
 									<b> Lehne den Bewerber ab </b>
 								</button>
