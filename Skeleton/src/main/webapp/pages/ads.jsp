@@ -13,6 +13,13 @@
 		}
 </style>
 
+<c:if test="${empty ads}">
+		<div class="alert alert-warning" role="alert">
+				<h4> Deine Suche hat keine Resultate ergeben</h4>
+			</div>
+		</c:if>
+		
+		
 <c:forEach items="${ads}" var="ads">
         <div class="col-sm-6">
           <div class="panel panel-default">
