@@ -9,7 +9,7 @@
 
     	<link rel="stylesheet" type="text/css" href="css/stylesheet.css" media="all"/>
     	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="screen" />
-    	<link rel="shortcut icon" href="img/favicon.ico"/>
+    	<link rel="icon" href="img/favicon.ico"/>
     	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=1.4.2"></script>
     	<script type="text/javascript"  src="dn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>

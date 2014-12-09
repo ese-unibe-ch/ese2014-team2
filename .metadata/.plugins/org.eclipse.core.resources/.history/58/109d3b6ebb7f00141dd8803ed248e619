@@ -68,7 +68,7 @@
 			
 			<c:set var="nmbrOfRoommatesErrors"><form:errors path="nmbrOfRoommates"/></c:set>
 			<div class="row">
-				<label class="col-md-4" for="field-adNmbrOfRoommates">Anzahl an Mitbewohner:<b>*</b> </label>
+				<label class="col-md-4" for="field-adNmbrOfRoommates">Anzahl an Mitbewohner (Exkl. der gesuchten Person)<b>*</b> </label>
 				<div class="col-md-4">
 					<form:select path="nmbrOfRoommates" id="field-adNmbrOfRoommates" tabindex="6">
 						<option value="0">Bitte wähle einen Wert</option>
@@ -82,11 +82,10 @@
 					<form:errors path="nmbrOfRoommates" cssClass="help-inline" element="span"/>
 				</div>
 			</div>
-			<p>Exklusiv der gesuchten Person</p>
 
 			<c:set var="wgTypeErrors"><form:errors path="wgType"/></c:set>
 			<div class="row">
-				<label class="col-md-4" for="field-wgType">Wir sind eine:<b>*</b> </label>
+				<label class="col-md-4" for="field-wgType">Wir sind eine <b>*</b> </label>
 				<div class="col-md-4">
 					<form:select path="wgType" id="field-wgType" tabindex="7">
 						<option value="undef">weder noch WG</option>
@@ -117,7 +116,7 @@
 			
 			<c:set var="addressErrors"><form:errors path="address"/></c:set>
 			<div class="row">
-				<label class="col-md-4" for="field-adAddress">Strasse mit Hausnummer:<b>*</b> </label>
+				<label class="col-md-4" for="field-adAddress">Strasse mit Hausnummer<b>*</b> </label>
 				<div class="col-md-4">
 					<form:input path="address" id="field-adAddress" tabindex="9" maxlength="30" />
 					<form:errors path="address" cssClass="help-inline" element="span"/>
@@ -260,12 +259,11 @@
 			</div>
 			
 			<div class="row">
-				<label class="col-md-4" for="field-rooms">Öffentlicher Besichtigungstermin</label>
+				<label class="col-md-4" for="field-rooms">Öffentlicher Besichtigungstermin (Nur wenn du willst. Man kann auch später spezifische Termine ausmachen) </label>
 				<div class="col-md-4">
 					<form:input path="publicVisit" id="field-rooms"  maxlength="10" />
 				</div>
 			</div>
-			<p>Optional. Spezifische Termine können im späteren Verlauf geplant werden.</p>
 			
 			<div class="row">	
 			<label class="col-md-4" for="field-adIsToBalcony">Balkonzugang:</label>

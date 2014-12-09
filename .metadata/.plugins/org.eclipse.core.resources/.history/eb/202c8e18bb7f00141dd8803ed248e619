@@ -29,13 +29,12 @@
 			
 			<c:set var="startErrors"><form:errors path="start"/></c:set>
 			<div class="row">
-				<label class="col-md-4" for="field-von">Ab wann ist das Zimmer frei: </label>
+				<label class="col-md-4" for="field-von">Ab wann ist das Zimmer frei (leer lassen wenn das Zimmer per sofort frei ist): </label>
 				<div class="col-md-4">
 					<form:input path="start" type="field-von" id="datepicker" tabindex="2" />
 					<form:errors path="start" cssClass="help-inline" element="span"/>
 				</div>
 			</div>
-			<p>Leer lassen, wenn das Zimmer per sofort frei ist.</p>
 			
 			<c:set var="untilErrors"><form:errors path="until"/></c:set>
 			<div class="row">
@@ -45,7 +44,6 @@
 					<form:errors path="until" cssClass="help-inline" element="span"/>
 				</div>
 			</div>
-			<p>Leer lassen, wenn das Zimmer unbefristet zur verfügung steht.</p>
 			
 			<c:set var="roomsErrors"><form:errors path="rooms"/></c:set>
 			<div class="row">
@@ -58,17 +56,16 @@
 			
 			<c:set var="roomSpaceErrors"><form:errors path="roomSpace"/></c:set>
 			<div class="row">
-				<label class="col-md-4" for="field-roomSpace">Grösse des Zimmers:<b>*</b> </label>
+				<label class="col-md-4" for="field-roomSpace">Grösse des Zimmers (in m²):<b>*</b> </label>
 				<div class="col-md-4">
 					<form:input path="roomSpace" id="field-roomSpace" tabindex="5" maxlength="10" />
 					<form:errors path="roomSpace" cssClass="help-inline" element="span"/>
 				</div>
 			</div>
-			<p>Angegeben in m²</p>
 			
 			<c:set var="nmbrOfRoommatesErrors"><form:errors path="nmbrOfRoommates"/></c:set>
 			<div class="row">
-				<label class="col-md-4" for="field-adNmbrOfRoommates">Anzahl an Mitbewohner:<b>*</b> </label>
+				<label class="col-md-4" for="field-adNmbrOfRoommates">Anzahl an Mitbewohner (Exkl. der gesuchten Person)<b>*</b> </label>
 				<div class="col-md-4">
 					<form:select path="nmbrOfRoommates" id="field-adNmbrOfRoommates" tabindex="6">
 						<option value="0">Bitte wähle einen Wert</option>
@@ -82,11 +79,10 @@
 					<form:errors path="nmbrOfRoommates" cssClass="help-inline" element="span"/>
 				</div>
 			</div>
-			<p>Exklusiv der gesuchten Person</p>
 
 			<c:set var="wgTypeErrors"><form:errors path="wgType"/></c:set>
 			<div class="row">
-				<label class="col-md-4" for="field-wgType">Wir sind eine:<b>*</b> </label>
+				<label class="col-md-4" for="field-wgType">Wir sind eine <b>*</b> </label>
 				<div class="col-md-4">
 					<form:select path="wgType" id="field-wgType" tabindex="7">
 						<option value="undef">weder noch WG</option>
@@ -117,7 +113,7 @@
 			
 			<c:set var="addressErrors"><form:errors path="address"/></c:set>
 			<div class="row">
-				<label class="col-md-4" for="field-adAddress">Strasse mit Hausnummer:<b>*</b> </label>
+				<label class="col-md-4" for="field-adAddress">Strasse mit Hausnummer<b>*</b> </label>
 				<div class="col-md-4">
 					<form:input path="address" id="field-adAddress" tabindex="9" maxlength="30" />
 					<form:errors path="address" cssClass="help-inline" element="span"/>
@@ -260,12 +256,11 @@
 			</div>
 			
 			<div class="row">
-				<label class="col-md-4" for="field-rooms">Öffentlicher Besichtigungstermin</label>
+				<label class="col-md-4" for="field-rooms">Öffentlicher Besichtigungstermin (Nur wenn du willst. Man kann auch später spezifische Termine ausmachen) </label>
 				<div class="col-md-4">
 					<form:input path="publicVisit" id="field-rooms"  maxlength="10" />
 				</div>
 			</div>
-			<p>Optional. Spezifische Termine können im späteren Verlauf geplant werden.</p>
 			
 			<div class="row">	
 			<label class="col-md-4" for="field-adIsToBalcony">Balkonzugang:</label>
