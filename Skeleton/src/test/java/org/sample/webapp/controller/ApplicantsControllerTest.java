@@ -1,6 +1,12 @@
 package org.sample.webapp.controller;
+import javax.servlet.ServletContext;
+
+import org.eseTeam2.controller.AdController;
+import org.eseTeam2.controller.ApplicantsController;
 import org.eseTeam2.controller.IndexController;
 import org.eseTeam2.controller.pojos.SignupForm;
+import org.eseTeam2.controller.service.IAdDataService;
+import org.eseTeam2.controller.service.IAppointmentService;
 import org.eseTeam2.controller.service.IUserDataService;
 import org.junit.After;
 import org.junit.Before;
@@ -8,6 +14,7 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.omg.CORBA.Principal;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
@@ -21,13 +28,22 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-public class IndexControllerTest {
+public class ApplicantsControllerTest {
+
+    @Mock
+    private IAdDataService adService;
 
     @Mock
     private IUserDataService userService;
 
+    @Mock
+    private ServletContext servletContext;
+
+    @Mock
+    private IAppointmentService appointmentService;
+
     @InjectMocks
-    private IndexController indexController;
+    private ApplicantsController applicantsController;
 
     private MockMvc mockMvc;
     
@@ -38,74 +54,39 @@ public class IndexControllerTest {
         MockitoAnnotations.initMocks(this);
 
         // Setup Spring test in standalone mode
-        this.mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
+        this.mockMvc = MockMvcBuilders.standaloneSetup(applicantsController).build();
         
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setSuffix(".jsp");
  
-        this.mockMvc = MockMvcBuilders.standaloneSetup(new IndexController())
+        this.mockMvc = MockMvcBuilders.standaloneSetup(new ApplicantsController())
                                  .setViewResolvers(viewResolver)
                                  .build();
-
     }
     
     @After
     public void tearDown() {
     	
-    	this.indexController = null;
+    	this.applicantsController = null;
     	this.mockMvc = null;
     }
 
-    
     @Test
-    public void testIndex() throws Exception {
+    public void testInterestedInAd() throws Exception {
 
-        this.mockMvc.perform(get("/"))
+        this.mockMvc.perform(get("/userInterested")
+        			.param("adId", "1L")
+        			.param("principal", "<error>"))
         			.andExpect(status().isOk())
-                	.andExpect(forwardedUrl("index.jsp"));
-
+                	.andExpect(forwardedUrl("interestedInAd.jsp"));
+        
     }
 
     @Test
-    public void testLogin() throws Exception {
+    public void testDeleteAd() throws Exception {
 
-        this.mockMvc.perform(get("/login"))
+        this.mockMvc.perform(get("/applicationId"))
         			.andExpect(status().isOk())
-                	.andExpect(forwardedUrl("login.jsp"));
-
-    }
-
-    @Test
-    public void testUnderConstruction() throws Exception {
-
-        this.mockMvc.perform(get("/underConstr"))
-        			.andExpect(status().isOk())
-        			.andExpect(forwardedUrl("underConstruction.jsp"));
-
-    }
-    
-    @Test
-    public void testForbidden() throws Exception {
-
-        this.mockMvc.perform(get("/forbidden"))
-        			.andExpect(status().isOk())
-        			.andExpect(forwardedUrl("forbidden.jsp"));
-
-    }
-    
-    @Test
-    public void testError404() throws Exception {
-
-        this.mockMvc.perform(get("/404"))
-        			.andExpect(status().isOk())
-        			.andExpect(forwardedUrl("404.jsp"));
-
-    }
-
-    @Test
-    public void testSecurityError() throws Exception {
-
-        this.mockMvc.perform(get("/security-error"));
-
+                	.andExpect(forwardedUrl("redirect:/showInteressentsOverview.jsp"));
     }
 }

@@ -89,6 +89,7 @@ public class AppointmentService implements IAppointmentService {
 	application.setApplicant(applicantForm.getInteressent());
 	application.setMessage(Jsoup.parse(applicantForm.getMessage()).text());
 	application.setTitle(applicantForm.getTitle());
+	
 	if (!applicantForm.getBisWann().equals(""))
 	    application.setTimeLimitation(applicantForm.getBisWann());
 	else

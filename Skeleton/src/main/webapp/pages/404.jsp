@@ -10,7 +10,7 @@
 	
 	
 	<h1>Sorry was du suchtst ist nicht mehr da, oder gerade nicht erreichbar.</h1>
-	<h2><a href="/Skeleton"> Hier geht es zurück zur hauptseite</a></h2>
+	<h2>Versuche doch dich auf der Hauptseute neu Einzuloggen. <a href="/Skeleton"> Hier geht es zurück zur hauptseite</a></h2>
 	<img src="img/404.png">
 	
 
