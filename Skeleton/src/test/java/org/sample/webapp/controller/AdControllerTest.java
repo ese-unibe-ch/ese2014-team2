@@ -80,15 +80,6 @@ public class AdControllerTest {
                 	.andExpect(forwardedUrl("ads.jsp"));
     }
 
-    /*
-    @Test
-    public void testShowUnfilteredAds() throws Exception {
-
-        this.mockMvc.perform(get("/unfilteredAds"))
-        			.andExpect(status().isOk())
-                	.andExpect(forwardedUrl("ads.jsp"));
-    }
-    */
 
     @Test
     public void testCreateAd() throws Exception {
