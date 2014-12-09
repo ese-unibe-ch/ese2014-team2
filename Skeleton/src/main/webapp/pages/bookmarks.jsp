@@ -10,7 +10,7 @@
 <div class="panel panel-default">
 	<!-- Default panel contents -->
 	<div class="panel-heading">
-		<h3>Übersicht über dine Favoriten Ads</h3>
+		<h3>Übersicht deiner favorisierten Inserate:</h3>
 	</div>
 	<div class="panel-body">
 
@@ -45,7 +45,7 @@
 
 							<a href="adprofile?adId=${bookmark.ad}">
 								<button type="button" class="btn btn-default">
-									<b>Zeige Ad </b>
+									<b>Zeige Inserat </b>
 								</button>
 							</a> <a href="unBookmarkAdFromBookmarks?adId=${bookmark.ad}">
 								<button type="button" class="btn btn-danger">

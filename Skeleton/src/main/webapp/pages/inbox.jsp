@@ -38,7 +38,7 @@ function activaTab(tab){
 
 
 
-<h1>${user.firstName }${user.lastName}'sInbox</h1>
+<h1>Briefkasten von ${user.firstName }${user.lastName}</h1>
 <c:if test="${not empty infoMessage}">
 	<div id="successMessage" class="alert alert-success" role="alert">
 		<font color="006600" size="3"> ${infoMessage}</font>
@@ -46,7 +46,7 @@ function activaTab(tab){
 </c:if>
 
 <ul class="nav nav-tabs" id="myTab">
-	<li class="active"><a href="#showAll" data-toggle="tab">Alle Empfangenen Nachrichten</a></li>
+	<li class="active"><a href="#showAll" data-toggle="tab">Alle empfangenen Nachrichten</a></li>
 	<li><a href="#showReceived"data-toggle="tab">Fragen von Interessenten</a></li>
 	<li><a href="#showSent"data-toggle="tab">Gesendete Nachrichten</a></li>
 	<li><a href="#showInvitations" data-toggle="tab">Einladungen</a></li>

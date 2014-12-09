@@ -9,7 +9,7 @@
 <c:import url="template/header.jsp" />
 
 
-<h1>Bearbeite dein AD!</h1>
+<h1>Bearbeite dein Inserat:</h1>
 
 
 <c:if test="${not empty infoMessage}">
@@ -22,7 +22,7 @@
 	enctype="multipart/form-data" accept-charset="utf-8">
 	<fieldset>
 		<legend>Grundlegende Infos:</legend>
-<c> die mit <b>*</b> markierten Felder sind Pflichtfelder</c>
+<c> Die mit <b>*</b> markierten Felder sind Pflichtfelder</c>
 			<br> <br>
 			
 		<c:set var="roomPriceErrors">
@@ -40,7 +40,7 @@
 
 		<c:set var="startErrors"><form:errors path="start"/></c:set>
 			<div class="row">
-				<label class="col-md-4" for="field-von">Ab wann ist das Zimmer frei:(Leer lassen wenn das Zimmer per sofort frei ist) </label>
+				<label class="col-md-4" for="field-von">Ab wann ist das Zimmer frei (leer lassen wenn das Zimmer per sofort frei ist): </label>
 				<div class="col-md-4">
 					<form:input path="start" type="field-von" id="datepicker" tabindex="2" value="${ad.start}"/>
 					<form:errors path="start" cssClass="help-inline" element="span"/>
@@ -85,7 +85,7 @@
 		</c:set>
 		<div class="row">
 			<label class="col-md-4" for="field-adNmbrOfRoommates">Wie
-				viele Mitbewohner (Exkl. der gesuchten Person)<b>*</b></label>
+				viele Mitbewohner (Exkl. der gesuchten Person):<b>*</b></label>
 			<div class="col-md-4">
 				<form:select path="nmbrOfRoommates" id="field-adNmbrOfRoommates"
 					tabindex="6">
@@ -104,7 +104,7 @@
 
 		<c:set var="wgTypeErrors"><form:errors path="wgType"/></c:set>
 			<div class="row">
-				<label class="col-md-4" for="field-wgType">Wir sind eine <b>*</b> </label>
+				<label class="col-md-4" for="field-wgType">Wir sind eine: <b>*</b> </label>
 				<div class="col-md-4">
 					<form:select path="wgType" id="field-wgType" tabindex="7">
 						<option value="${ad.wgType}">"${ad.wgType}"</option>

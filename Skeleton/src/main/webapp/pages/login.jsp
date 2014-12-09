@@ -10,10 +10,10 @@
 <h1>Login</h1>
 
 <c:if test="${!empty param.error}">
-	<p>Falscher Benutzername oder Password. Bitte versuche es erneut.</p><br />
+	<p>Falscher Benutzername oder Passwort. Bitte versuche es erneut.</p><br />
 </c:if>
 
-<p> hey, dafür musst du eingeloggt sein!</p>
+<p> Hey, dafür musst du eingeloggt sein!</p>
 
 
 
@@ -23,7 +23,7 @@
 	<div class="col-md-12">
 	<div class="col-md-1 lineheight-textfields">
 		<label for="field-username">E-mail:</label>
-		<label for="field-password">Password:</label> 
+		<label for="field-password">Passwort:</label> 
 	</div>
 	<div class="col-md-4">
 		<input name="j_username" id="field-username" type="email"/>
@@ -35,7 +35,7 @@
 	</div>
 	<div class="row">
 	<div class ="col-md-3">
-		<label> Bist du bereits Registriert? </label>
+		<label> Bist du bereits registriert? </label>
 		<br><br>
 		<label> Hast du noch keinen Account? </label>
 		</div>

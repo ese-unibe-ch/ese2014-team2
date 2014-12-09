@@ -9,7 +9,7 @@
 
 <div class="main">
 	
-		<h1>Registriere dich hier!</h1>
+		<h1>Registriere dich hier:</h1>
 			<legend>Gib deine Informationen ein!</legend>
 		
 	<c:if test="${not empty message}">

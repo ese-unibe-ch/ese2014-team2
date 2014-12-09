@@ -29,7 +29,7 @@
 			
 			<c:set var="startErrors"><form:errors path="start"/></c:set>
 			<div class="row">
-				<label class="col-md-4" for="field-von">Ab wann ist das Zimmer frei:(Leer lassen wenn das Zimmer per sofort frei ist) </label>
+				<label class="col-md-4" for="field-von">Ab wann ist das Zimmer frei (leer lassen wenn das Zimmer per sofort frei ist): </label>
 				<div class="col-md-4">
 					<form:input path="start" type="field-von" id="datepicker" tabindex="2" />
 					<form:errors path="start" cssClass="help-inline" element="span"/>
@@ -154,30 +154,31 @@
 			<div class="seperator"></div>
 
 			<legend>Bilder:</legend>
+			<p>Nur Bilder in gängigen Formaten (.jpg, .jpeg, .gif, .png)</p>
 					
 					<div class="row">
-						<label for="image">: TitleImage </label>
+						<label for="image">: Titelbild </label>
 						<div class="col-md-4">
 							<input name="image" type="file" />
 						</div>
 					</div>
 					
 					<div class="row">
-						<label for="image">: Ad Image 1 </label>
+						<label for="image">: Bild 1 </label>
 						<div class="col-md-4">
 							<input name="image" type="file" />
 						</div>
 					</div>
 					
 					<div class="row">
-						<label for="image">: Ad Image 2 </label>
+						<label for="image">: Bild 2 </label>
 						<div class="col-md-4">
 							<input name="image" type="file" />
 						</div>
 					</div>
 					
 					<div class="row">
-						<label for="image">: Ad Image 3 </label>
+						<label for="image">: Bild 3 </label>
 						<div class="col-md-4">
 							<input name="image" type="file" />
 						</div>

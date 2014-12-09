@@ -17,7 +17,7 @@
 <div class="panel panel-default">
 	<!-- Default panel contents -->
 	<div class="panel-heading">
-		<h3>Abgemachte Termine für Dein Ad ${ad.title }</h3>
+		<h3>Abgemachte Termine für dein Inserat ${ad.title }</h3>
 	</div>
 	<div class="panel-body">
 	

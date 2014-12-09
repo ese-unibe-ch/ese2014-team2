@@ -9,7 +9,7 @@
 
 
 <div class="main">
-	<h1 class="h1_inline">Send a Message to ${reciever.firstName }</h1>
+	<h1 class="h1_inline">Schicke eine Nachricht an: ${reciever.firstName }</h1>
 
 
 	<form:form method="post" modelAttribute="messageForm" action="send" id="messageForm" cssClass="form-horizontal" autocomplete="off">

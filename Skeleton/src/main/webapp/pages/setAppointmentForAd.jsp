@@ -49,7 +49,7 @@
     
     			<div class="row">
 					<div class="col-sm-2 col-md-2">
-						<label>Ende: (Open end, falls leer)</label>
+						<label>Ende (Open end, falls leer):</label>
 					</div>
 					
 					<div class="col-sm-4 col-md-6">
