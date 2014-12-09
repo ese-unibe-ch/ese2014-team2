@@ -79,7 +79,7 @@
 				<div class="row">
 					<div class="form-actions">
 						<a href="#" onclick="history.go(-2)"><button class="btn btn-danger">Zurück</button></a>
-    					<button type="submit" class="btn btn-primary btn-lg" onclick="this.disabled=true;this.form.submit();">Setze die Daten!</button>
+    					<button type="submit" class="btn btn-primary" onclick="this.disabled=true;this.form.submit();">Setze die Daten!</button>
 					</div>
 				</div>
 	</form:form>
