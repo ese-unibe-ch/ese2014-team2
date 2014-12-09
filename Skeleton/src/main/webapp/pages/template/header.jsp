@@ -69,9 +69,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/Skeleton">Home  <span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-            <li><a href="unfilteredAds" id="navads"><span>Suche Zimmer  </span><span class="glyphicon glyphicon-search" aria-hidden="true"></span><em></em></a>
-            <li><a href="placead" id="navpads"><span>Vermiete Zimmer  </span> <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span><em></em></a>
+            <li class="active"><a href="/Skeleton"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home  </a></li>
+            <li><a href="unfilteredAds" id="navads"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><span> Suche Zimmer  </span></a>
+            <li><a href="placead" id="navpads"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span><span> Vermiete Zimmer  </span></a>
             <li><a href="register">Registrieren</a></li>
             <li><a href="#" id="loginButton"><span>Login</span><em></em></a>
             
@@ -113,9 +113,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/Skeleton">Home  <span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-            <li><a href="unfilteredAds" id="navads"><span>Suche Zimmer  </span><span class="glyphicon glyphicon-search" aria-hidden="true"></span><em></em></a>
-            <li><a href="placead" id="navpads"><span>Vermiete Zimmer  </span> <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span><em></em></a>
+            <li class="active"><a href="/Skeleton"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>  Home</a></li>
+            <li><a href="unfilteredAds" id="navads"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><span>  Suche Zimmer  </span><em></em></a>
+            <li><a href="placead" id="navpads"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span><span>  Vermiete Zimmer  </span> <em></em></a>
             <li><a href="myprofile">Profil</a></li>
             <c:choose>
 			<c:when test="${messageNmbr > 0}">
@@ -133,7 +133,7 @@
             			<li class="divider"></li>
             			<li><a href="appointments?showTab=1">Besichtigungen</a></li>
             			<li class="divider"></li>
-            			<li><a href="bookmarks">Favoriten  <span class="glyphicon glyphicon-star" aria-hidden="true"></span></a></li>
+            			<li><a href="bookmarks"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>   Favoriten</a></li>
             			<li class="divider"></li>
             			<li><a href="showInteressentsOverview">Interessenten</a></li>
           			</ul>
@@ -141,7 +141,7 @@
             
             
             
-            <li><a href="logout">Logout  <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a></li>
+            <li><a href="logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>   Logout  </a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
