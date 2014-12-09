@@ -134,7 +134,7 @@ function winOpen()
 	
 	
 	
-		<button onclick="winOpen()">Zeige auf google Maps</button>
+		<button onclick="winOpen()">Zeige auf Google-Maps</button>
 		
 			
 		</div>
@@ -221,7 +221,7 @@ function winOpen()
 		
 <a href="userInterested?adId=${newAdProfile.id}">
 	<button type="button" class="btn btn-primary">
-		<b>Ich hätte interesse an einer Besichtigung</b>
+		<b>Ich hätte Interesse an einer Besichtigung</b>
 	</button>
 </a>
 
@@ -256,7 +256,7 @@ function winOpen()
 			
 			
 <div class="row col-md-4">
-<legend>Weitere Infos zur Wohnung:</legend>
+<legend>Weitere Informationen zur Wohnung:</legend>
 
 	<div class="row">
 
@@ -447,7 +447,7 @@ function winOpen()
 </div>
 
 <div class="row">
-	<label class="col-md-8">Du bist im alter von:</label>
+	<label class="col-md-8">Du bist im Alter von:</label>
 	<p>${newAdProfile.ageRange}</p>
 </div>
 
