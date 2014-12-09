@@ -377,6 +377,34 @@ public class AdDataService implements IAdDataService {
 	ad.setTitle(adForm.getRoomSpace() + "m&sup2 Zimmer in einer " + (adForm.getNmbrOfRoommates() + 1) + "er-WG in "+ adForm.getCity() + " für " + adForm.getRoomPrice() + " CHF");
 
 	ad = advertisementDao.save(ad); // save object to DB
+	
+	Iterable<User> usersWithFilters = userDao.findByExampleAdNotNull();
+
+	// Filters each new ad to inform users if something new has been placed.
+	// No other way, when we are not putting the website live.
+	ArrayList<String> getters = filterService.getGettersOfFilterForm();
+	for (User filterUser : usersWithFilters) {
+	    if (filterService.isNewAdMatch(filterUser.getExampleAd(), getters, ad) == true) {
+		
+		String title = "Ein neues Ad das dich interssieren könnte wurde aufgeschaltet";
+		String message = "A new ad has been put up " + "http://localhost8080:Skeleton/adprofile?adId="+ ad.getId();
+		/*
+		try {
+		    mailer.sendEmail(filterUser.getEmail(), message, title);
+		} catch (MailSendException d) {
+		} */
+		Message notification = new Message();
+		notification.setTitle(title);
+		notification.setMessageText(message);
+		notification.setNotifications(filterUser);
+		List<Message> userNotifications = filterUser.getNotifications();
+		userNotifications.add(notification);
+		filterUser.setNotifications(userNotifications);
+		messageDao.save(notification);
+		userDao.save(filterUser);
+	    }
+
+	}
 
     }
 
