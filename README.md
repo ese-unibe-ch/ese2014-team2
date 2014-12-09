@@ -6,6 +6,7 @@ For using this Software you need:
 -Apache Server
 -MySql Server
 -A way to run the Maven project
+-JDK 1.7  Does not work with 1.8!!
 (We recommend XAMPP and Eclipse)
 
 Installing the Sampledata:
