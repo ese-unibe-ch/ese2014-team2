@@ -46,8 +46,7 @@ $(document).ready(function(){
 			<div class="col-md-10">
 		
 		<button type="submit" class="btn btn-primary">Suche</button>
-		<button id="show" class="btn btn-info" type="button" id="show">Weitere Suchkriterien</button>
-		<a href="unfilteredAds"><button type="button" class="btn btn-danger">Zurücksetzen</button></a>	
+		<button id="show" class="btn btn-info" type="button" id="show">Weitere Suchkriterien</button>	
 	</div>
 	
 		</form:form>
@@ -118,7 +117,6 @@ $(document).ready(function(){
 		<br>
 		<button type="submit" class="btn btn-primary">Suche</button>
 		<button id="hide" class="btn btn-info" type="button" id="show">Weniger Suchkriterien</button>
-		<a href="unfilteredAds"><button type="button" class="btn btn-danger">Zurücksetzen</button></a>
 		
 	</div>
 	
