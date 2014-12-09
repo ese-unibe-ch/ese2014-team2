@@ -134,7 +134,7 @@ public class UserController {
 		    return new ModelAndView("redirect:/register");
 		}
 		userService.saveFrom(signupForm);
-		redirectAttributes.addFlashAttribute("infoMessage", "Du hast dich erfolgreich registriert. Du kannst dich nun einloggen");
+		redirectAttributes.addFlashAttribute("infoMessage", "Du hast dich erfolgreich registriert. Du kannst dich nun einloggen.");
 
 		model = new ModelAndView("redirect:/");
 	    } catch (InvalidUserException e) {
