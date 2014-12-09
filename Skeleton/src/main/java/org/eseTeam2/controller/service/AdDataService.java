@@ -193,8 +193,8 @@ public class AdDataService implements IAdDataService {
 	for (User filterUser : usersWithFilters) {
 	    if (filterService.isNewAdMatch(filterUser.getExampleAd(), getters, ad) == true) {
 		
-		String title = "Ein neues Ad das dich interssieren könnte wurde aufgeschaltet";
-		String message = "A new ad has been put up " + "http://localhost8080:Skeleton/adprofile?adId="+ ad.getId();
+		String title = "Ein neues Inserat welches dich interssieren könnte wurde aufgeschaltet";
+		String message = "Ein neues Inserat welches dich interssieren könnte wurde aufgeschaltet" + "<a href=\"adprofile?adId="+ ad.getId()+"\"> hier geht es zum Inserat </a>";
 		/*
 		try {
 		    mailer.sendEmail(filterUser.getEmail(), message, title);
