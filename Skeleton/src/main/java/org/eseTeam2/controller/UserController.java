@@ -75,12 +75,13 @@ public class UserController {
      */
     @RequestMapping(value = "/myprofile", method = RequestMethod.GET)
     @ResponseBody
-    public ModelAndView myProfile(Principal principal) {
+    public ModelAndView myProfile(Principal principal, @ModelAttribute("infoMessage") String message) {
 
 	User currentUser = userService.getUserByEmail(principal.getName());
 
 	ModelAndView model = new ModelAndView("myProfile");
 	model.addObject("user", currentUser);
+	model.addObject("infoMessage", message);
 	return model;
     }
 
@@ -159,6 +160,8 @@ public class UserController {
 
 	ModelAndView model = new ModelAndView("createCustomFilter");
 	model.addObject("filterForm", new FilterForm());
+	
+	
 	return model;
     }
 
@@ -186,6 +189,8 @@ public class UserController {
 	CustomFilterAd adToCompare = filterService.getFilterAdToCompare(getters, paramNames, filterForm);
 
 	userService.saveExampleAd(adToCompare, userService.getUserByEmail(principal.getName()));
+	
+	redirectAttributes.addFlashAttribute("infoMessage", "Du hast den Benachrichtigungsfilter erfolgreich erstellt");
 
 	return "redirect:/myprofile";
 

@@ -10,6 +10,10 @@
 
 <h1>${user.firstName }'s Profil</h1>
 
+<c:if test="${not empty infoMessage}">
+		<div class="alert alert-success" role="alert"><font color="006600" size="3"> ${infoMessage}</font></div>
+	</c:if>
+
 <div class="container">
 	<legend>Persönliches:</legend>
 	<div class="row">
