@@ -14,9 +14,22 @@
 
 	<form:form method="post"  modelAttribute="adForm" action="enlistad" id="adForm" cssClass="form-horizontal" autocomplete="off" enctype="multipart/form-data" accept-charset="utf-8">
 		<fieldset>
-			<legend>Grundlegende Infos:</legend>
+		
+		<legend>Grundlegende Infos:</legend>
 			<c> die mit <b>*</b> markierten Felder sind Pflichtfelder</c>
 			<br> <br>
+		
+			<div class="row">
+				<label class="col-md-4" for="field-title">Titel: </label>
+				<div class="col-md-4">
+					<form:input path="title" id="field-title"  maxlength="50"/>
+					
+				</div>
+			</div>
+			
+			
+			
+			
 			
 			<c:set var="roomPriceErrors"><form:errors path="roomPrice"/></c:set>
 			<div class="row">

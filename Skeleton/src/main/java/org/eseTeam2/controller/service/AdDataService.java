@@ -179,7 +179,11 @@ public class AdDataService implements IAdDataService {
 	ad.setGenderWeLookFor(adForm.getGenderWeLookFor());
 
 	// other
-	ad.setTitle(adForm.getRoomSpace() + "m&sup2 Zimmer in einer "+ (Integer.parseInt(adForm.getNmbrOfRoommates()) + 1) + "er-WG in " + adForm.getCity() + " für "+ adForm.getRoomPrice() + " CHF");
+	if ( adForm.getTitle().equals( ""))
+	    ad.setTitle(adForm.getRoomSpace() + "m&sup2 Zimmer in einer "+ (Integer.parseInt(adForm.getNmbrOfRoommates()) + 1) + "er-WG in " + adForm.getCity() + " für "+ adForm.getRoomPrice() + " CHF");
+	else
+	    ad.setTitle(adForm.getTitle());
+	
 	adsOfUser.add(ad);
 	creator.setAdvertisements(adsOfUser);
 
