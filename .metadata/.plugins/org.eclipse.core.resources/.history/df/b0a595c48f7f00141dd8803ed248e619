@@ -101,7 +101,7 @@
 							
 			</c:forEach>
 			
-			<c:if test="${not empty ad.applications }">
+			<c:if test="${empty ad.applications }">
 				<div class="form-actions">
 					<button type="submit" class="btn btn-primary"  onclick="this.disabled=true;this.form.submit();">Setze Besichtigungstermin</button>
 				</div>
