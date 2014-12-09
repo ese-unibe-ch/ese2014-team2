@@ -31,17 +31,19 @@
 		
 	<c:forEach items="${ads}" var="ad">
 	
+	<c:if test="${empty ads}">
+		<div class="alert alert-warning" role="alert">
+				<h4> Du hast noch keine Interessenten für deine Inserate!</h4>
+			</div>
+		</c:if>
+	
 	<form action="setzeTeilBesichtigungstermin?adId=${ad.id }" method="POST">
 		<legend>Interessenten für ${ad.title}</legend>
 			<c:if test="${empty ad.applications }">
 			<div class="alert alert-warning" role="alert">Keine Interessenten für dieses Inserat</div>
 			</c:if>
 			
-			<c:if test="${empty ad.applications}">
-		<div class="alert alert-warning" role="alert">
-				<h4> Du hast noch keine Interessenten für deine Inserate!</h4>
-			</div>
-		</c:if>
+			
 
 			<c:forEach items="${ad.applications}" var="interessent">
 				
