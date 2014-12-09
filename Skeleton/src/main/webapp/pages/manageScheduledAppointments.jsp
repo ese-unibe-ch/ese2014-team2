@@ -45,13 +45,13 @@
 								${user.lastName }</font>
 						</div>
 						<div class="col-md-2">
-							<c:forEach items="${user.appointmentInvitations }"
-								var="message">
-								<c:if test="${ message.appointedAppointment eq appointment.id}">
+							<c:forEach items="${user.appointmentInvitations }"	var="message">
+								<c:if test="${ message.appointedAppointment eq app.id}">
+						
 									<c:if test="${ message.accepted eq true }"><p> Einladung wurde angenommen </p></c:if>
 									<c:if test="${ message.rejected eq true }"><p> Einladung wurde abgelehnt </p></c:if>
-									<c:if
-										test="${message.rejected eq false and message.accepted eq false }"> Der Benutzer hat die Einladung noch nicht abgelehnt/angenommen </c:if>
+									<c:if test="${message.rejected eq false and message.accepted eq false }"> 
+									Der Benutzer hat die Einladung noch nicht abgelehnt/angenommen </c:if>
 
 								</c:if>
 							</c:forEach>
