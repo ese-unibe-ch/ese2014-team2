@@ -39,6 +39,7 @@ function activaTab(tab){
 
 
 <h1>Briefkasten von ${user.firstName }${user.lastName}</h1>
+<br><br>
 <c:if test="${not empty infoMessage}">
 	<div id="successMessage" class="alert alert-success" role="alert">
 		<font color="006600" size="3"> ${infoMessage}</font>
@@ -55,6 +56,7 @@ function activaTab(tab){
 </ul>
 <div class="tab-content">
 	<div id="showAll" class="tab-pane fade in active">
+	<br>
 			<legend>Nachrichten Titel:</legend>
 	
 			<c:forEach items="${allMessages}" var="message">
