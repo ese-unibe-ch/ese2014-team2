@@ -5,14 +5,16 @@
 	
     	<meta charset="utf-8">
 
-    	<title>About Princesses and Castles</title>
+    	<title>Flattie</title>
 
     	<link rel="stylesheet" type="text/css" href="css/stylesheet.css" media="all"/>
     	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="screen" />
-    	<script type="text/javascript"  src="dn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=1.4.2"></script>
+    	<script type="text/javascript"  src="dn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     	<script src="js/login.js"></script>
+    	
+    	
     	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     	<!--[if lt IE 9]>
     	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -146,6 +148,7 @@
 </security:authorize>	
 
 <div id="push_header"></div>
+
 
 <c:if test="${isIndexPage eq true}">
 <div id="header">
