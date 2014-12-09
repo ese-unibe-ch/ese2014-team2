@@ -126,17 +126,18 @@ public class AdDataService implements IAdDataService {
 	else
 	    ad.setStart("Per sofort");
 	
-	if (!adForm.getUntil().equals(""))
-	    ad.setUntil(adForm.getUntil());
-	else
+	if (adForm.getUntil().equals(""))
 	    ad.setUntil("Unbefristet");
+	else
+	    ad.setUntil(adForm.getUntil());
+	    
 
 	if (!adForm.getPublicVisit().equals(""))
 	    ad.setPublicVisit(adForm.getPublicVisit());
 	else
 	    ad.setPublicVisit("Keiner");
 
-	ad.setUntil(adForm.getUntil());
+	
 
 	ad.setRooms(Float.parseFloat(adForm.getRooms()));
 	ad.setRoomPrice(Integer.parseInt(adForm.getRoomPrice()));
