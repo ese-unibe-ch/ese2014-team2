@@ -21,13 +21,13 @@
 			
 						
 			<div class="row">
-				<label class="col-md-4" for="field-von">Ab wann möchtest du einziehen? (Leerlassen wenn du per sofort einziehen willst) </label>
+				<label class="col-md-4" for="field-von">Ab wann möchtest du einziehen? </label>
 				<div class="col-md-4">
 					<form:input path="bisWann" type="field-bisWann" id="datepicker" tabindex="2" />
 					
 				</div>
 			</div>
-			
+			<p>Leer lassen, wenn du sofort einziehen möchtest.</p>
 			
 			
 			<div class="row">
@@ -44,8 +44,9 @@
 
 
 			<div class="form-actions">
-							<button type="submit" class="btn btn-primary" id="send">Absenden</button>
 				<a href="#" onclick="history.go(-2)">	<button type="button" class="btn btn-danger">Zurück</button></a>
+							<button type="submit" class="btn btn-primary" id="send">Absenden</button>
+			
 			</div>
 		
 					</fieldset>
