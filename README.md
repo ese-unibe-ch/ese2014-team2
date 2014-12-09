@@ -29,8 +29,10 @@ Login: ese@ese.ch pw: eseese
 
 
 In order to create the sampledata for the user ese@ese.ch we had to create some additional users:
-Login: test1@user.ch  pw: testtest1
-Login: test2@user.ch  pw: testtest2
-Login: test3@user.ch  pw: testtest3
+Login: a@a.ch pw: testtest
+Login: b@b.ch pw: testtest
+Login: c@c.ch pw: testtest
+Login: d@d.ch pw: testtest
+Login: e@e.ch pw: testtest
 
 We recommend to use the ese@ese.ch user but you can login into one of the other users to see what effects your actions as user ese@ese.ch had on the other users.
