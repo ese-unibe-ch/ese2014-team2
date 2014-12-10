@@ -337,6 +337,9 @@ public class AdDataService implements IAdDataService {
 	    ad.setPublicVisit(adForm.getPublicVisit());
 	else
 	    ad.setPublicVisit("Keiner");
+	
+	
+	    ad.setTitle(adForm.getTitle());
 
 
 
@@ -380,8 +383,7 @@ public class AdDataService implements IAdDataService {
 	ad.setGenderWeLookFor(adForm.getGenderWeLookFor());
 
 	// other
-	ad.setTitle(adForm.getRoomSpace() + "m&sup2 Zimmer in einer " + (adForm.getNmbrOfRoommates() + 1) + "er-WG in "+ adForm.getCity() + " für " + adForm.getRoomPrice() + " CHF");
-
+	
 	ad = advertisementDao.save(ad); // save object to DB
 	
 	Iterable<User> usersWithFilters = userDao.findByExampleAdNotNull();
