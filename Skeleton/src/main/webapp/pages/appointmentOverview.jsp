@@ -195,7 +195,7 @@ $(function()
 					       <c:forEach items="${appointment.whoAcceptedTheAppointment}" var="acceptOfApp">
 					       		
 								<c:if test="${acceptOfApp.user.id eq user.id }">
-									${acceptOfApp.accepted}
+									
 									<c:if test="${acceptOfApp.accepted eq false && acceptOfApp.rejected eq false }">
 								<div class="separator"></div>
 									<a href="acceptInvitation?appointmentId=${appointment.id}">

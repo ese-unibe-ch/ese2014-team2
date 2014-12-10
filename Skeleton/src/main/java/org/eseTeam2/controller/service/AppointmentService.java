@@ -188,7 +188,7 @@ public class AppointmentService implements IAppointmentService {
 	List<User> adInvitations = new ArrayList<User>();
 
 	for (User interessent : interessentsOfAd) {
-
+	   
 	    List<Message> appointmentInvitationMessages = new ArrayList<Message>();
 
 	    try {
@@ -239,6 +239,12 @@ public class AppointmentService implements IAppointmentService {
 	
 
 	for (Message m : allMessagesCreatedHere) {
+	    AppointmentAccepted hasAcceptedFlag = new AppointmentAccepted();
+	    hasAcceptedFlag.setAccepted(false);
+	    hasAcceptedFlag.setRejected(false);
+	    hasAcceptedFlag.setUser(m.getAppointmentInvitations());
+	    hasAcceptedFlag.setAppointment(appointment);
+	    appAcceptedDao.save(hasAcceptedFlag);
 	    m.setAppointedAppointment(appointment.getId());
 	    messageDao.save(m);
 	}

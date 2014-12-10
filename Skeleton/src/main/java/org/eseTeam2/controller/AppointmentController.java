@@ -181,14 +181,17 @@ public class AppointmentController {
      */
     @RequestMapping(value = "/showInvitation", method = RequestMethod.GET)
     public ModelAndView invitation(@RequestParam(value = "messageId", required = true) Long messageId,
-	    Principal principal, HttpServletRequest request) {
+	    Principal principal, HttpServletRequest request,  RedirectAttributes redirectAttributes) {
 	HttpSession session = request.getSession();
 	Message invitationMessage = messageService.findOneMessage(messageId);
 	User authorOfReceivedMessage = invitationMessage.getSender();
-
+	User currentUser = userService.getUserByEmail(principal.getName());
+	
+	if (messageService.findTheMessageOnTheUser(currentUser, messageId) == true) { 
 	try {
 
 	    Appointment appointment = appointmentService.findOneAppointment(invitationMessage.getAppointedAppointment());
+	  
 	    Advertisement adUserIsInvitedTo = adService.getAdvertisement(appointment.getAd());
 
 	    ModelAndView model = new ModelAndView("handleInvitation");
@@ -196,6 +199,7 @@ public class AppointmentController {
 	    model.addObject("sender", authorOfReceivedMessage);
 	    model.addObject("ad", adUserIsInvitedTo);
 	    model.addObject("message", invitationMessage);
+	    model.addObject("user", currentUser);
 	    invitationMessage.setReadMessage(true);
 	    messageService.saveMessage(invitationMessage);
 	    int messageNmbr = (Integer) session.getAttribute("messageNmbr");
@@ -204,6 +208,11 @@ public class AppointmentController {
 	    return model;
 	} catch (NullPointerException d) {
 	    return new ModelAndView("404");
+	} }
+	else {
+	    redirectAttributes.addFlashAttribute("infoMessage", "Du versuchst die Nachricht eines anderen zu lesen!!");
+	    return new ModelAndView("redirect:/forbidden");
+	
 	}
 
     }
